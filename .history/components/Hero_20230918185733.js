@@ -1,0 +1,26 @@
+import React from 'react'
+
+export const Hero = () => {
+	return (
+		<>
+			<section className='hero_section'>
+				<div className='circle_container'>
+					<div className='blue_gradient' id='circle_0'></div>
+					<div className='circle_orange_halo' id='circle_1'>
+						<div className='circle_small_orange'></div>
+					</div>
+					<div className='circle_orange_halo' id='circle_2'></div>
+					<div className='circle_orange_halo' id='circle_3'></div>
+					<div className='circle_small_orange' id='circle_4'></div>
+				</div>
+				<p className='landing_text'>Welcome to</p>
+				<p className='landing_title'>UNCERTAIN UNIVERSE</p>
+				<p className='landing_text'>
+					A place for seekers not finders, for edge-explorers <br />
+					and voyagers without abode - homesick for places <br /> that
+					never existed
+				</p>
+			</section>
+		</>
+	)
+}
