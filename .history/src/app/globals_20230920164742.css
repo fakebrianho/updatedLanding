@@ -447,11 +447,8 @@ a {
 
 .bold_text {
 	font-family: OptimaBold;
-	color: var(--dark-text);
 }
-.italic_text {
-	color: var(--light-text);
-}
+
 .tangible_abstract {
 	gap: 8rem;
 }

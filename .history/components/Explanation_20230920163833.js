@@ -11,7 +11,7 @@ export const Explanation = () => {
 				<MagicContainer
 					borderWidth={3}
 					className={
-						'flex mx-auto w-[30px] items-center flex-col lg:h-[250px] lg:w-screen lg:flex-row lg:mx-auto lg:flex-wrap gap-4'
+						'flex mx-auto w-[30px] flex-col space-x-4 lg:h-[250px] lg:w-screen lg:flex-row lg:mx-auto lg:flex-wrap'
 					}
 				>
 					<MagicCard className='flex max-w-1/3 p-4 cursor-pointer gap-2 flex-col items-center justify-center overflow-hidden p-20 shadow-2xl'>

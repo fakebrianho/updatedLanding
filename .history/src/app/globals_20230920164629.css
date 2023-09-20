@@ -447,11 +447,8 @@ a {
 
 .bold_text {
 	font-family: OptimaBold;
-	color: var(--dark-text);
 }
-.italic_text {
-	color: var(--light-text);
-}
+
 .tangible_abstract {
 	gap: 8rem;
 }
@@ -475,10 +472,9 @@ a {
 	width: 100%;
 	padding: 1.5rem 4.5rem;
 	margin: 4.5rem auto;
-	margin-bottom: 0;
 	padding-top: 0;
 	/* padding-bottom: 8rem; */
-	height: 50rem;
+	height: 105vh;
 }
 
 .explanation .title {
