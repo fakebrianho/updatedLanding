@@ -155,7 +155,6 @@ a {
 	position: fixed;
 	top: 0;
 	height: 150px;
-	z-index: 4;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;

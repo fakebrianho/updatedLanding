@@ -20,7 +20,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
 			shimmerSize = '0.1em',
 			shimmerDuration = '1.5s',
 			borderRadius = '100px',
-			background = 'radial-gradient(ellipse 80% 50% at 50% 120%,rgba(49, 118, 199,0.8),rgba(18, 18, 38))',
+			background = 'radial-gradient(ellipse 80% 50% at 50% 120%,rgba(49, 61, 117),rgba(18, 18, 38))',
 			className,
 			children,
 			...props

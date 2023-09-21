@@ -178,7 +178,7 @@ interface MagicCardProps {
 	isolated?: boolean
 
 	/**
-	 * @default "rgba(101,99,255,0.7)"
+	 * @default "rgba(255,255,255,0.03)"
 	 * @type string
 	 * @description
 	 * The background of the card
@@ -193,7 +193,7 @@ const MagicCard = ({
 	children,
 	size = 600,
 	spotlight = true,
-	spotlightColor = 'rgba(255, 140, 36,0.1)',
+	spotlightColor = 'rgba(255, 140,36,0.1)',
 	borderColor = 'rgba(120,119,198,0.7)',
 	isolated = true,
 	...props

@@ -8,7 +8,7 @@ export const CallToAction = () => {
 					Read Me!
 				</span>
 			</ShimmerButton>
-			<LinearGradient to='rgba(120,119,198,0.35)' />
+			<LinearGradient to='rgba(120,119,198,0.95)' />
 		</div>
 	)
 }

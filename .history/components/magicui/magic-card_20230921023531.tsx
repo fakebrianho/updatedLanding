@@ -178,7 +178,7 @@ interface MagicCardProps {
 	isolated?: boolean
 
 	/**
-	 * @default "rgba(101,99,255,0.7)"
+	 * @default "rgba(101,118,199,1.5)"
 	 * @type string
 	 * @description
 	 * The background of the card
