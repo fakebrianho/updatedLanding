@@ -6,10 +6,9 @@ export const Description = () => {
 			<div className='description work_in_progress'>
 				{/* <div className='circle_container'> */}
 				<div className='blue_gradient small' id='circle_5'></div>
-				<div className='circle_blue_halo' id='circle_6'>
-					<div className='circle_small_blue'></div>
+				<div className='circle_orange_halo' id='circle_1'>
+					<div className='circle_small_orange'></div>
 				</div>
-				<div className='circle_small_blue' id='circle_7'></div>
 				{/* <div className='circle_orange_halo' id='circle_2'></div> */}
 				{/* <div className='circle_orange_halo' id='circle_3'></div> */}
 				{/* <div className='circle_small_orange' id='circle_4'></div> */}
@@ -27,17 +26,10 @@ export const Description = () => {
 				</p>
 			</div>
 			<div className='description web_of_uncertainty'>
-				{/* <div className='blue_gradient small' id='circle_5'></div>
-				<div className='circle_blue_halo' id='circle_6'>
-					<div className='circle_small_blue'></div>
-				</div>
-				<div className='circle_small_blue' id='circle_7'></div> */}
 				<p>II</p>
 				<h2 className='title title_002'>
 					UNCERTAINTY&apos;S <br></br>WEB
 				</h2>
-				<div className='circle_small_blue' id='circle_8'></div>
-				<div className='circle_blue_halo' id='circle_9'></div>
 			</div>
 			<div className='description trivial_uncertainty'>
 				<p className='text'>

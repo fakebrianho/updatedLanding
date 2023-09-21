@@ -343,32 +343,7 @@ a {
 
 #circle_5 {
 	position: absolute;
-	top: 10rem;
 	right: 12rem;
-}
-
-#circle_6 {
-	position: absolute;
-	top: 35rem;
-	left: 22rem;
-}
-
-#circle_7 {
-	position: absolute;
-	top: 30.5rem;
-	left: 17.5rem;
-}
-
-#circle_8 {
-	position: absolute;
-	top: 30.5rem;
-	left: 17.5rem;
-}
-
-#circle_9 {
-	position: absolute;
-	top: 30.5rem;
-	left: 17.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -400,8 +375,7 @@ a {
 }
 
 .work_in_progress {
-	position: relative;
-	/* border: var(--debug-border); */
+	border: var(--debug-border);
 }
 
 .work_in_progress .text {
@@ -427,11 +401,6 @@ a {
 .description.web_of_uncertainty {
 	margin-top: 0;
 	margin-bottom: 0;
-}
-
-.web_of_uncertainty {
-	position: relative;
-	border: var(--debug-border);
 }
 
 .web_of_uncertainty .title {

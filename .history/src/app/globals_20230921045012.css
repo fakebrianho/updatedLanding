@@ -359,18 +359,6 @@ a {
 	left: 17.5rem;
 }
 
-#circle_8 {
-	position: absolute;
-	top: 30.5rem;
-	left: 17.5rem;
-}
-
-#circle_9 {
-	position: absolute;
-	top: 30.5rem;
-	left: 17.5rem;
-}
-
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
@@ -430,7 +418,6 @@ a {
 }
 
 .web_of_uncertainty {
-	position: relative;
 	border: var(--debug-border);
 }
 

@@ -32,12 +32,12 @@ export const Description = () => {
 					<div className='circle_small_blue'></div>
 				</div>
 				<div className='circle_small_blue' id='circle_7'></div> */}
+				<div className='circle_small_blue' id='circle_8'></div>
+				<div className='circle_blue_halo' id='circle_9'></div>
 				<p>II</p>
 				<h2 className='title title_002'>
 					UNCERTAINTY&apos;S <br></br>WEB
 				</h2>
-				<div className='circle_small_blue' id='circle_8'></div>
-				<div className='circle_blue_halo' id='circle_9'></div>
 			</div>
 			<div className='description trivial_uncertainty'>
 				<p className='text'>
