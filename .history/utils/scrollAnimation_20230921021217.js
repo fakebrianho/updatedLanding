@@ -205,6 +205,7 @@ const scroll = () => {
 					trigger: section_title_03,
 					start: 'top bottom',
 					end: 'center center',
+					: true,
 					scrub: true,
 				},
 			}
