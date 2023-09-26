@@ -807,6 +807,17 @@ a {
 	.enterButtonContainer {
 		height: max-content;
 	}
+	.explanation {
+		height: max-content;
+		padding-bottom: 50px;
+	}
+
+	.explainer {
+		max-width: 100%;
+	}
+	.enterButtonContainer {
+		height: max-content;
+	}
 }
 
 @media screen and (max-width: 430px) {

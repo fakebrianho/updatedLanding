@@ -790,25 +790,6 @@ a {
 	}
 }
 
-@media screen and (max-width: 768px) {
-	.card {
-		width: 100%;
-		height: 200px;
-		gap: 0;
-	}
-	.explanation {
-		height: max-content;
-		padding-bottom: 50px;
-	}
-
-	.explainer {
-		max-width: 100%;
-	}
-	.enterButtonContainer {
-		height: max-content;
-	}
-}
-
 @media screen and (max-width: 430px) {
 	body {
 		padding-top: 0px;
@@ -933,11 +914,11 @@ a {
 	.explanation .title {
 		font-size: 32px;
 	}
-	.card {
+	/* .card {
 		width: 100%;
 		height: 200px;
 		gap: 0;
-	}
+	} */
 	.txt {
 		/* padding-top: 20px; */
 		font-size: 18px;
@@ -948,7 +929,7 @@ a {
 	}
 
 	.explainer {
-		max-width: 100%;
+		max-width: 110%;
 	}
 	.enterButtonContainer {
 		height: max-content;
