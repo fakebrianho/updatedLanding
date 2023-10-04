@@ -6,21 +6,32 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"db": "nodemon database/conn.js"
 	},
 	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@emotion/styled": "^11.11.0",
 		"@lottiefiles/react-lottie-player": "^3.5.3",
+		"@mui/icons-material": "^5.14.11",
+		"@mui/material": "^5.14.11",
+		"@mui/styled-engine-sc": "^5.14.11",
 		"@studio-freight/lenis": "^1.0.23",
 		"autoprefixer": "^10.4.15",
 		"eslint": "8.49.0",
 		"eslint-config-next": "13.4.19",
 		"gsap": "npm:@gsap/shockingly@^3.12.2",
+		"mongodb": "^6.1.0",
+		"mongodb-client-encryption": "^6.0.0",
+		"mongoose": "^7.5.3",
 		"next": "^13.5.1",
+		"nodemon": "^3.0.1",
 		"postcss": "^8.4.30",
 		"react": "18.2.0",
 		"react-device-detect": "^2.2.3",
 		"react-dom": "18.2.0",
 		"scrolltrigger": "^1.0.1",
+		"styled-components": "^5.3.11",
 		"typescript": "^5.2.2"
 	},
 	"devDependencies": {

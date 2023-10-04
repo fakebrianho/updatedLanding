@@ -1,0 +1,47 @@
+.animated {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at 0% 100%,
+		/* Starting position: bottom left */ rgba(49, 118, 199, 1) 0%,
+		rgba(49, 118, 199, 1) 40%,
+		rgba(255, 140, 36, 1) 100%
+	);
+	animation: moveGradient 5s infinite alternate;
+}
+
+@keyframes moveGradient {
+	0% {
+		background-image: radial-gradient(
+			circle at 0% 100%,
+			/* Starting position: bottom left */ rgba(49, 118, 199, 1) 0%,
+			rgba(49, 118, 199, 1) 40%,
+			rgba(255, 140, 36, 1) 100%
+		);
+	}
+	100% {
+		background-image: radial-gradient(
+			circle at 100% 0%,
+			/* Ending position: top right */ rgba(49, 118, 199, 1) 0%,
+			rgba(49, 118, 199, 1) 40%,
+			rgba(255, 140, 36, 1) 100%
+		);
+	}
+}
+.gradient {
+	width: 300px;
+	height: 300px;
+	--magic-rainbow-color-1: hsl(0deg, 96%, 55%);
+	--magic-rainbow-color-2: hsl(25deg, 100%, 50%);
+	--magic-rainbow-color-1: hsl(40deg, 100%, 50%);
+	background: linear-gradient(
+		170deg,
+		var(--magic-rainbow-color-1),
+		var(--magic-rainbow-color-2)
+	);
+	/* 🤯 */
+	transition: --magic-rainbow-color-1 1000ms linear,
+		--magic-rainbow-color-2 1000ms linear,
+		--magic-rainbow-color-3 1000ms linear;
+}

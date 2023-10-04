@@ -1,0 +1,172 @@
+[
+  {
+    "_id": "64d5f72477945f33afc3b576",
+    "layout": "page",
+    "title": "Why?",
+    "subtitle": "Why you should read this book.",
+    "file_name": "why",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "meta"
+    ],
+    "content": "<p>Uncertainty isn't a residual error that thwarts our otherwise flawless calculations. It isn't the small and remote pocket of unexplored wilderness, the diminishing shadow receding before our growing scientific prowess. It is the vast ocean that surrounds us. The amniotic fluid of our being. It is the negative space delineating our body of knowledge. The boundary condition that shapes evolution and our perception of the world. It determines our choices and social interactions. But most importantly, it is the seedbed of creativity, innovation and everything that lies in the future. Uncertainty is neither good nor bad. It can help or hinder, spurn or stymie us. </p>\n<p>Uncertainty has a powerful impact on our lives. It has a direct effect on professional choices and corporate decision-making. As a precursor to fear, it can send shockwaves through global markets, sway government policy, and even trigger war. The feeling of uncertainty is often caused by a feature that is becoming a defining characteristic of our time. Change. On a cognitive and emotional level we do not deal well with rapid shifts in our environment. It makes acquired knowledge obsolete and disrupts our habits. However, whether we like it or not, the pace of social, environmental, and technological change is accelerating in the world and it is crucial that we learn to become more adaptable. My aim is to further our ability to understand, domesticate, and harness the power of uncertainty. A brief survey of the existential challenges currently facing our civilization makes me think that this skill may well be key to our success as a species.</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b563",
+    "layout": "quote",
+    "title": "Bruno Latour Quote",
+    "subtitle": null,
+    "file_name": "bruno-latour-quote",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "quote"
+    ],
+    "content": "<blockquote>\n  <p>\"The world is not a solid continent of facts sprinkled by a few lakes of uncertainties, but a vast ocean of uncertainties speckled by a few islands of calibrated and stabilized forms.\"</p>\n</blockquote>\n<p>~ Bruno Latour</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b564",
+    "title": "Index Introduction",
+    "file_name": "1-index introduction",
+    "num_child_nodes": 0,
+    "tags": [],
+    "content": "<h1 id=\"introduction\">Introduction</h1>\n<ul>\n<li><strong>Introduction</strong>: Overview of the book.<ul>\n<li><strong>What</strong>: What this book is about. </li>\n<li><strong>Why</strong>: Why you should read this book.</li>\n<li><strong>Why again</strong>: Why I wrote this book.</li>\n<li><strong>Who</strong>: Who this book is for.</li>\n<li><strong>How</strong>: How to read this book.</li></ul></li>\n</ul>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b566",
+    "layout": "branch-head",
+    "title": "Introduction",
+    "subtitle": "About this book",
+    "file_name": "introduction",
+    "parent_node": "uncertain",
+    "num_child_nodes": 6,
+    "visibility": true,
+    "tags": [
+      "meta",
+      "branch-head"
+    ],
+    "content": "<p>This is a book as well as a frozen accident. An assemblage of words and images that evolve and adapt as I research and write. It is never final, but the diary of my continuous exploration of the topic of <strong><em>Uncertainty</em></strong>. Like the subject itself, this book exists in and around established domains of knowledge. Although I am not a scholar, it is quite scholarly in some places. Although I am not an artist, it is quite artistic in others. It is both playful and serious, abstract and concrete. Its structure is fractal, but you can read it like a linear book, or skip around its knowledge graph at will. </p>\n<p>This section explains the book itself and how it came to be. What it is about, why you should read it, as well as why I wrote it in the first place! You will find out how my professional path led me to the study of uncertainty and why it can be a useful tool for yourself. It's a good place to start if you are curious and want to find out more about this book without yet delving in head-first. Come on in, and find out more!</p>\n<hr>\n<h3 id=\"_\">_</h3>\n<p>[[erich-fromm-quote|Erich Fromm quote]] \n[[what|What]]  - <em>What this book is about.</em>\n[[why|Why]] - <em>Why you should read this book.</em>\n[[why-again|Why… again]] - <em>Why I wrote this book.</em>\n[[who|Who]] - <em>Who this book is for.</em>\n[[how|How]] - <em>How to read this book.</em>\n[[bruno-latour-quote|Bruno Latour quote]] </p>",
+    "child_nodes": [
+      {
+        "name": "erich-fromm-quote",
+        "num_grandchild_nodes": 0,
+        "_id": "64d5f72477945f33afc3b567"
+      },
+      {
+        "name": "what",
+        "num_grandchild_nodes": 0,
+        "_id": "64d5f72477945f33afc3b569"
+      },
+      {
+        "name": "why",
+        "num_grandchild_nodes": 0,
+        "_id": "64d5f72477945f33afc3b56b"
+      },
+      {
+        "name": "why-again",
+        "num_grandchild_nodes": 0,
+        "_id": "64d5f72477945f33afc3b56d"
+      },
+      {
+        "name": "how",
+        "num_grandchild_nodes": 0,
+        "_id": "64d5f72477945f33afc3b56f"
+      },
+      {
+        "name": "bruno-latour-quote",
+        "num_grandchild_nodes": 0,
+        "_id": "64d5f72477945f33afc3b571"
+      }
+    ],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b575",
+    "layout": "quote",
+    "title": "Erich Fromm Quote",
+    "subtitle": null,
+    "file_name": "erich-fromm-quote",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "quote"
+    ],
+    "content": "<blockquote>\n  <p>“The quest for certainty blocks the search for meaning. Uncertainty is the very condition to impel man to unfold his powers.”</p>\n</blockquote>\n<p>~ Erich Fromm, Having and Being</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b574",
+    "layout": "page",
+    "title": "What?",
+    "subtitle": "What this book is about.",
+    "file_name": "what",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "meta"
+    ],
+    "content": "<p>This book is about getting an optimal grip on the idea of <strong><em>uncertainty</em></strong>. This is because thinking about uncertainty can feel like tracking an elusive beast. Time and again, insight vanishes into a vaporous cloud, and our grasp dissipates into ambiguity. Uncertainty has been a topic of intense scrutiny for decades across many domains: Machine learning, economics, psychology, neuroscience, particle physics, management consulting, and more. Yet, despite its vital importance, each of these domains defines and works with uncertainty in fundamentally different ways. There is something fragmented and incomplete about our collective understanding of this intangible idea. An underlying shared epistemology appears to be missing. To use Thomas Kuhn's term, there are competing paradigms, or schools of thought, that have yet to coalesce into a community consensus.</p>\n<p>However, the problem goes deeper still. I submit that uncertainty is fundamentally misunderstood. That it has been hiding its true nature from us thus far. This book is my attempt to re-draw the outline of uncertainty's main features. My effort to sketch a map of its geography and chief characteristics. In doing so I hope to reveal its core meaning and importance for us. </p>\n<p>To achieve this, I will proceed in an unorthodox way: <strong><em>from the inside out</em></strong> by starting from first principles, as well as <strong><em>from the outside in</em></strong> by taking the meta-perspective across a great many domains. As we will see, in the domain of uncertainty, the gods-eye-view reveals patterns not discernible from up-close. Patterns that yield remarkable insights. We will see that, despite its intangible nature, uncertainty has distinct qualities, dimensions, and domains directly affected by it.</p>\n<p>What this book is <strong><em>not</em></strong> is an attempt at a Grand Unifying Theory of Everything. Some proof pointing at an axiomatic truth. What it <strong><em>is</em></strong> is an attempt at a <strong><em>meta-theory</em></strong>: a description of uncertainty that unifies diverging paradigms into an epistemic commons to improve its practical application in science.</p>\n<p>What this book is also <strong><em>not</em></strong> is a practical guide in the sense of \"<em>10 Easy Steps for a Better Life with Uncertainty</em>.\" However, I hope to paint a new picture of uncertainty. A picture that has many practical applications in the way you look at the world, your knowledge, creativity, and crucially, your agency.</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b577",
+    "layout": "page",
+    "title": "Why... again!",
+    "subtitle": "Why I wrote this book.",
+    "file_name": "why-again",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "meta"
+    ],
+    "content": "<p>As a product designer by training, I had originally intended to write a book about a subject close to my heart. <strong><em>Creativity</em></strong>. This is dear to me, because I have spent the last twenty years creating products. I have learned the craft of upholstery in Italy, designed teak furniture on the island of Java, prototyped bunkbeds in India, built wheelchairs in Korea, and developed LED lights in China. I have designed and built retail stores for French luxury brands, helped 3D print concept cars, and ran corporate innovation programs. But this neat list obscures the erratic nature of this path. Much of my creative work has been revised, dismissed, or denied. Clients have openly mocked my inexperience, walked out on me during meetings, and, on one occasion, fired me over dinner. My path has been convoluted and erratic, fit and start, pain as well as gain, more failure than fame. But somewhere along the way, something unexpected happened. I started seeing a connection between creativity and uncertainty. It was nothing but an intuition. An inkling I wanted to explore. The decision to pursue this vague feeling has frequently surprised me and profoundly influenced my life.</p>\n<p>The discovery that puzzled me was the following. I experienced first hand that creative professionals share a curious personality trait I could not find in others. They have an elevated tolerance for ambiguity and openness to new experiences. Whether consciously or unconsciously they have internalized that generating something original is necessarily the exploration of the hitherto unknown. The mapping of unpredictable terrain. In the pursuit of novel solutions they have learned (among many other things) to treat uncertainty as a familiar friend, domesticate it, and actively seek out the unknown. Of course, this phenomenon is known to psychologists at least since the work of Mihaly Csikszentmihalyi. However, I had a hunch that the impact of uncertainty was far more perversive and wide-spread. I started interviewing scientists, corporate strategists, economists, investors, architects, and educators about uncertainty. All responses were very much alike. Everyone acknowledged that uncertainty played a significant role in their life and work, but struggled to define or explain how to deal with it. In my interviews, uncertainty appeared like a dim, murky space that defied attempts to describe it. <strong><em>And thus my obsession was born</em></strong>. I spent the following years interviewing more people and reading every book, article, research paper and blog related to uncertainty I could get my hands on. You could say that I re-arranged my life around the symbol of uncertainty. I scrutinized it like a bug in a jar, formulated frameworks, and explored the areas of academia and business where it plays a defining role. This is the account of this ongoing pursuit. The captain's log of my journey, navigating the seas of uncertainty.</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b565",
+    "layout": "page",
+    "title": "How?",
+    "subtitle": "How to read this book.",
+    "file_name": "how",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "meta"
+    ],
+    "content": "<p>This book has a <strong><em>fractal</em></strong> structure. Each page is a node. The central node \"Uncertain Universe\" is connected to childnodes. Each child-node is connected to further childnodes and so on, like a tree. This is called a <strong><em>knowledge graph</em></strong> and you can freely navigate the nodes and read them in any order you like. However, you can also just dive in anywhere, hit the \"next page\" button, and read it like a normal book.</p>\n<p>This book is also open to reader contributions. You can add opinions or reflections in the form of text and images. We call this <strong><em>marginalia</em></strong>, in reference to the historical practice of scribbling notes or embellishments in the margins. Please add your thoughts and reflections to any page that resonates with you. When this book goes into print, select marginalia will be included in the print-run with name credits.</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b573",
+    "layout": "page",
+    "title": "Who?",
+    "subtitle": "Who this book is for.",
+    "file_name": "who",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "meta"
+    ],
+    "content": "<p>This book is for curious students of life. Those for whom knowledge is not a commodity to be acquired, but an oasis to be cultivated. It is a book for intelligent non-experts. For seekers not finders. Explorers of the edge and voyagers without abode. It is for those who feel homesick for places that never existed. Those with a natural distrust of all things firm, fixed, and frozen. </p>",
+    "child_nodes": [],
+    "marginalia": []
+  }
+]
