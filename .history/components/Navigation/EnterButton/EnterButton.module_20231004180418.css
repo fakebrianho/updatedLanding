@@ -1,0 +1,13 @@
+.enter_button {
+	position: relative;
+	top: 30px;
+	background-color: var(--light-text);
+	width: 90px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	font-family: var(--modern-font);
+	font-size: 18px;
+}
