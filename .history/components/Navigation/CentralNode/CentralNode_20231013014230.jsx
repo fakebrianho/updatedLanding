@@ -14,7 +14,8 @@ export const CentralNode = (props) => {
 }
 
 function cleanData(data) {
-	let splitString = data.split('-')
+	let splitString = data.split('-
+	')
 	splitString = splitString.map((word) => {
 		return word.slice(0, 1).toUpperCase() + word.slice(1)
 	})
