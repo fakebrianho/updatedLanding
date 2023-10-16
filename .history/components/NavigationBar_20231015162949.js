@@ -57,6 +57,7 @@ export const NavigationBar = () => {
 	}
 	const handleMenuOpen = () => {
 		setIsMenuOpen(!isMenuOpen) // Toggle the isMenuOpen state variable
+		console.log(setIsMenuOpen)
 	}
 	return (
 		<>
@@ -81,7 +82,7 @@ export const NavigationBar = () => {
 					</span>
 				</button>
 			</div>
-			<ModalMenu isOpen={isMenuOpen} />
+			<ModalMenu />
 		</>
 	)
 }

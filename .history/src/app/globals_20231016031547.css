@@ -804,10 +804,6 @@ a {
 		height: 200px;
 		gap: 0;
 	}
-	.modal {
-		padding: 2rem;
-	}
-
 	.explanation {
 		height: max-content;
 		padding-bottom: 50px;
@@ -1961,7 +1957,7 @@ a {
 }
 
 .modalList {
-	text-align: center;
+	/* text-align: center; */
 }
 
 .modalList li {
@@ -1972,5 +1968,4 @@ a {
 .modal {
 	display: none;
 	opacity: 0;
-	height: max-content;
 }

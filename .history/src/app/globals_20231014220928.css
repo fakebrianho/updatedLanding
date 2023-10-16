@@ -804,10 +804,6 @@ a {
 		height: 200px;
 		gap: 0;
 	}
-	.modal {
-		padding: 2rem;
-	}
-
 	.explanation {
 		height: max-content;
 		padding-bottom: 50px;
@@ -1958,19 +1954,4 @@ a {
 .hamburger--vortex-r.is-active .hamburger-inner::after {
 	bottom: 0;
 	transform: rotate(-90deg);
-}
-
-.modalList {
-	text-align: center;
-}
-
-.modalList li {
-	font-family: var(--modern-font);
-	/* border: 2px solid red; */
-}
-
-.modal {
-	display: none;
-	opacity: 0;
-	height: max-content;
 }

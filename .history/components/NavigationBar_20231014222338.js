@@ -1,10 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { Player } from '@lottiefiles/react-lottie-player'
 import Image from 'next/image'
 import usePage from '../context/pageContext'
 import { fadeOut } from '../utils/fadeOut'
+import lottie from 'lottie-web'
+
 import scroll from '../utils/scrollAnimation'
-import ModalMenu from '../components/ModalMenu/ModalMenu'
 import { useRef } from 'react'
 
 export const NavigationBar = () => {
@@ -12,11 +14,21 @@ export const NavigationBar = () => {
 	const menu = useRef()
 	const animationRef = useRef() // Create a ref to hold the lottie-web animation instance
 	const [isReversed, setIsReversed] = useState(false) // State variable to track play direction
-	const [isMenuOpen, setIsMenuOpen] = useState(false) // Define a new state variable
-	const buttonClassName = isMenuOpen
-		? 'hamburger nav_menu hamburger--collapse is-active'
-		: 'hamburger nav_menu hamburger--collapse'
 
+	useEffect(() => {
+		// Load the Lottie animation
+		// animationRef.current = lottie.loadAnimation({
+		// 	container: menu.current, // the DOM element that will contain the animation
+		// 	renderer: 'svg',
+		// 	loop: false,
+		// 	autoplay: false,
+		// 	path: '/lottie/orangeMenu.json', // the path to the animation json
+		// })
+		// return () => {
+		// 	// Destroy the Lottie animation instance on component unmount
+		// 	animationRef.current.destroy()
+		// }
+	}, [])
 	useEffect(() => {
 		if (lenis) {
 			const handleLoad = () => {
@@ -55,33 +67,46 @@ export const NavigationBar = () => {
 			animationRef.current.playSegments(frameRange, true)
 		}
 	}
-	const handleMenuOpen = () => {
-		setIsMenuOpen(!isMenuOpen) // Toggle the isMenuOpen state variable
-	}
+	const handleMenuOpen = () => {}
+
 	return (
-		<>
-			<div className='navbar'>
-				<div className='nav_logo'>
-					<Image
-						src='/uncertain-universe-logo.svg'
-						className='logo'
-						height={75}
-						width={75}
-						alt='Logo'
-					></Image>
-				</div>
-				<button
-					onClick={handleMenuOpen}
-					ref={menu}
-					className={buttonClassName} // Use the computed class name
-					type='button'
-				>
-					<span className='hamburger-box'>
-						<span className='hamburger-inner'></span>
-					</span>
-				</button>
+		<div className='navbar'>
+			<div className='nav_logo'>
+				<Image
+					src='/uncertain-universe-logo.svg'
+					className='logo'
+					height={75}
+					width={75}
+					alt='Logo'
+				></Image>
 			</div>
-			<ModalMenu isOpen={isMenuOpen} />
-		</>
+			<button
+				onClick={handleMenuOpen}
+				ref={menu}
+				class='hamburger nav_menu hamburger--collapse'
+				type='button'
+			>
+				<span class='hamburger-box'>
+					<span class='hamburger-inner'></span>
+				</span>
+			</button>
+			{/* <div className='nav_menu' onClick={handlePlayerClick}>
+				<Player
+					src='/lottie/orangeMenu.json'
+					// autoplay
+					ref={menu}
+					className='player'
+					onComplete={handleAnimationComplete} // Handle animation complete event
+					onEvent={(event) => {
+						if (event === 'load') {
+							// lenis.start()
+						}
+					}}
+				/>
+			</div> */}
+			{/* <div className='nav_menu' onClick={handlePlayerClick} ref={menu}> */}
+			{/* The Lottie animation will be rendered here */}
+			{/* </div> */}
+		</div>
 	)
 }

@@ -188,7 +188,7 @@ interface MagicCardProps {
 	[key: string]: any
 }
 
-const MagicCard = React.forwardRef<HTMLDivElement, MagicCardProps>(
+const MagicCard = React.forwardRef(
 	(
 		{
 			className,
@@ -199,7 +199,7 @@ const MagicCard = React.forwardRef<HTMLDivElement, MagicCardProps>(
 			borderColor = 'rgba(120,119,198,0.7)',
 			isolated = true,
 			...props
-		},
+		}: MagicCardProps,
 		ref
 	) => {
 		return (

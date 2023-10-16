@@ -57,31 +57,47 @@ export const NavigationBar = () => {
 	}
 	const handleMenuOpen = () => {
 		setIsMenuOpen(!isMenuOpen) // Toggle the isMenuOpen state variable
+		console.log(setIsMenuOpen)
 	}
 	return (
-		<>
-			<div className='navbar'>
-				<div className='nav_logo'>
-					<Image
-						src='/uncertain-universe-logo.svg'
-						className='logo'
-						height={75}
-						width={75}
-						alt='Logo'
-					></Image>
-				</div>
-				<button
-					onClick={handleMenuOpen}
-					ref={menu}
-					className={buttonClassName} // Use the computed class name
-					type='button'
-				>
-					<span className='hamburger-box'>
-						<span className='hamburger-inner'></span>
-					</span>
-				</button>
+		<div className='navbar'>
+			<div className='nav_logo'>
+				<Image
+					src='/uncertain-universe-logo.svg'
+					className='logo'
+					height={75}
+					width={75}
+					alt='Logo'
+				></Image>
 			</div>
-			<ModalMenu isOpen={isMenuOpen} />
-		</>
+			<ModalMenu />
+			<button
+				onClick={handleMenuOpen}
+				ref={menu}
+				className={buttonClassName} // Use the computed class name
+				type='button'
+			>
+				<span className='hamburger-box'>
+					<span className='hamburger-inner'></span>
+				</span>
+			</button>
+			{/* <div className='nav_menu' onClick={handlePlayerClick}>
+				<Player
+					src='/lottie/orangeMenu.json'
+					// autoplay
+					ref={menu}
+					className='player'
+					onComplete={handleAnimationComplete} // Handle animation complete event
+					onEvent={(event) => {
+						if (event === 'load') {
+							// lenis.start()
+						}
+					}}
+				/>
+			</div> */}
+			{/* <div className='nav_menu' onClick={handlePlayerClick} ref={menu}> */}
+			{/* The Lottie animation will be rendered here */}
+			{/* </div> */}
+		</div>
 	)
 }

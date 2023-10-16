@@ -5,6 +5,8 @@ import usePage from '../context/pageContext'
 import { fadeOut } from '../utils/fadeOut'
 import scroll from '../utils/scrollAnimation'
 import ModalMenu from '../components/ModalMenu/ModalMenu'
+import { gsap } from 'gsap'
+
 import { useRef } from 'react'
 
 export const NavigationBar = () => {

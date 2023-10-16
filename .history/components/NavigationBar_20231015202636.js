@@ -81,7 +81,7 @@ export const NavigationBar = () => {
 					</span>
 				</button>
 			</div>
-			<ModalMenu isOpen={isMenuOpen} />
+			<ModalMenu />
 		</>
 	)
 }

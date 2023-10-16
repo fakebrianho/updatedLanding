@@ -804,10 +804,6 @@ a {
 		height: 200px;
 		gap: 0;
 	}
-	.modal {
-		padding: 2rem;
-	}
-
 	.explanation {
 		height: max-content;
 		padding-bottom: 50px;

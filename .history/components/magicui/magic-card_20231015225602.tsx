@@ -188,64 +188,53 @@ interface MagicCardProps {
 	[key: string]: any
 }
 
-const MagicCard = React.forwardRef<HTMLDivElement, MagicCardProps>(
-	(
-		{
-			className,
-			children,
-			size = 600,
-			spotlight = true,
-			spotlightColor = 'rgba(255, 140, 36,0.1)',
-			borderColor = 'rgba(120,119,198,0.7)',
-			isolated = true,
-			...props
-		},
-		ref
-	) => {
-		return (
+const MagicCard = React.forwardRef(({
+	className,
+	children,
+	size = 600,
+	spotlight = true,
+	spotlightColor = 'rgba(255, 140, 36,0.1)',
+	borderColor = 'rgba(120,119,198,0.7)',
+	isolated = true,
+	...props
+}: MagicCardProps, ref) => {  
+	return (
+		<div
+			{...props}
+			className={cn('relative h-full max-w-1/3 rounded-2xl', className)}
+			style={
+				{
+					borderWidth: '2px',
+					'--mask-size': `${size}px`,
+					'--spotlight-color': `${spotlightColor}`,
+					'--border-color': `${borderColor}`,
+				} as CSSProperties
+			}
+		>
+			{/* Border */}
 			<div
-				{...props}
-				ref={ref} // And passing ref here
 				className={cn(
-					'relative h-full max-w-1/3 rounded-2xl',
-					className
+					'pointer-events-none absolute inset-0 h-full w-full rounded-2xl bg-gray-300 transition-opacity duration-500 dark:bg-gray-700',
+					'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#ffaa40_0,#9c40ff_50%,transparent_100%)]',
+					'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--border-color),transparent_100%)]'
 				)}
-				style={
-					{
-						borderWidth: '2px',
-						'--mask-size': `${size}px`,
-						'--spotlight-color': `${spotlightColor}`,
-						'--border-color': `${borderColor}`,
-					} as CSSProperties
-				}
-			>
-				{/* Border */}
+			/>
+
+			{/* Background */}
+			<div className={'absolute inset-[1px] rounded-2xl bg-background'} />
+
+			{children}
+
+			{/* Spotlight */}
+			{spotlight && (
 				<div
-					className={cn(
-						'pointer-events-none absolute inset-0 h-full w-full rounded-2xl bg-gray-300 transition-opacity duration-500 dark:bg-gray-700',
-						'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#ffaa40_0,#9c40ff_50%,transparent_100%)]',
-						'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--border-color),transparent_100%)]'
-					)}
+					className={
+						'blur-xs pointer-events-none absolute left-0 top-0 h-full w-full rounded-2xl bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--spotlight-color),transparent_40%)] transition-opacity duration-500'
+					}
 				/>
+			)}
+		</div>
+	)
+}
 
-				{/* Background */}
-				<div
-					className={'absolute inset-[1px] rounded-2xl bg-background'}
-				/>
-
-				{children}
-
-				{/* Spotlight */}
-				{spotlight && (
-					<div
-						className={
-							'blur-xs pointer-events-none absolute left-0 top-0 h-full w-full rounded-2xl bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--spotlight-color),transparent_40%)] transition-opacity duration-500'
-						}
-					/>
-				)}
-			</div>
-		)
-	}
-)
-MagicCard.displayName = 'MagicCard'
 export { MagicCard, MagicContainer }
