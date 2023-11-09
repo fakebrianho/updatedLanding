@@ -1,0 +1,8 @@
+.navContainer {
+	position: fixed;
+	top: 0;
+	background: red;
+	border-radius: 25px;
+	display: flex;
+	justify-content: space-around;
+}

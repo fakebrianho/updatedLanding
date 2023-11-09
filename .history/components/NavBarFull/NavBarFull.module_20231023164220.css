@@ -1,0 +1,14 @@
+.navContainer {
+	position: fixed;
+	top: 0;
+	background: red;
+	width: 100vw;
+}
+.navBarFull {
+	width: 80vw;
+	background: blue;
+	border-radius: 25px;
+	display: flex;
+	justify-content: space-around;
+	margin: auto;
+}

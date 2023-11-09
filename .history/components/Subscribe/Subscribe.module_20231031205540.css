@@ -1,0 +1,12 @@
+.name {
+	border: 2px solid red;
+}
+
+.subscribeContainer {
+	border: 2px solid yellow;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}

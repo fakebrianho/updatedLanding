@@ -1,0 +1,178 @@
+.navContainer {
+	position: fixed;
+	top: 40px;
+	/* background: red; */
+	width: 100vw;
+	z-index: 60;
+}
+.navBarFull {
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(6.1px);
+	-webkit-backdrop-filter: blur(6.1px);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	width: 45vw;
+	/* border-radius: 25px; */
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: auto;
+	/* padding: 1rem; */
+	padding: 10px;
+}
+
+.navItem {
+	font-family: var(--modern-font);
+	padding: 0.3rem 1.5rem;
+	border-radius: 12px;
+}
+
+.navButton {
+	/* font-family: var(--modern-font);
+	padding: 0.3rem 1.5rem;
+	border-radius: 12px;
+	background: rgb(255, 140, 36);
+	background: linear-gradient(
+		27deg,
+		rgba(255, 140, 36, 1) 0%,
+		rgba(49, 118, 199, 1) 100%
+	); */
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.borderGradient {
+	animation: spin 3s ease-in-out infinite;
+	background: conic-gradient(
+		from 2.06deg at 50% 50%,
+		rgba(255, 255, 255, 0.306761) -48.53deg,
+		rgba(0, 0, 0, 0.6) 45.24deg,
+		rgba(255, 255, 255, 0.5) 174.36deg,
+		#000000 270.91deg,
+		rgba(255, 255, 255, 0.86761) 311.47deg,
+		rgba(0, 0, 0, 0.7) 405.24deg
+	);
+}
+@property --r {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
+}
+
+@property --r2 {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
+}
+.navButton {
+	height: 100px;
+	width: 600px;
+	background: conic-gradient(
+		from calc(var(--r2) - 80deg) at var(--x) 50px,
+		#222 0%,
+		#fff 20%,
+		#222 25%
+	);
+	animation: rotating2 3s linear infinite, x 3s linear infinite;
+}
+@keyframes x {
+	/* w:h === 6:1 */
+	/* with a 80px x-margin */
+	0% {
+		--x: 80px;
+	}
+	/* 6/(6+3.14) * 50% */
+	32.82275711% {
+		--x: 520px;
+	}
+	50% {
+		--x: 520px;
+	}
+	/* 50% + 32.8% */
+	82.82275711% {
+		--x: 80px;
+	}
+	100% {
+		--x: 80px;
+	}
+}
+
+@keyframes rotating2 {
+	0% {
+		--r2: 0deg;
+	}
+	32.82275711% {
+		--r2: 0deg;
+	}
+	50% {
+		--r2: 180deg;
+	}
+	82.82275711% {
+		--r2: 180deg;
+	}
+	100% {
+		--r2: 360deg;
+	}
+}
+.navButton::after {
+	/* content: ''; */
+	display: block;
+	position: absolute;
+	background: #111;
+	inset: 5px;
+	/* border-radius: 45px; */
+	/* z-index: 1; */
+	transition: opacity 0.3s ease;
+}
+#b {
+    background: conic-gradient(from calc(var(--r2) - 80deg) at var(--x) 1px, #222 0%, #fff 20%, #222 25%);
+    animation: -0.64s rotating2 3s linear infinite, -0.64s x 3s linear infinite;
+  }
+  @keyframes x {
+    /* w:h === 6:1 */
+    /* with a 80px x-margin */
+    0% {
+      --x: 0px;
+    }
+    /* 6/(6+3.14) * 50% */
+    32.82275711% {
+      --x: 80px;
+    }
+    50% {
+      --x: 80px;
+    }
+    /* 50% + 32.8% */
+    82.82275711% {
+      --x: 0px;
+    }
+    100% {0px;
+    }
+  }
+  
+  @keyframes rotating2 {
+    0% {
+      --r2: 0deg;
+    }
+    32.82275711% {
+      --r2: 0deg;
+    }
+    50% {
+      --r2: 180deg;
+    }
+    82.82275711% {
+      --r2: 180deg;
+    }
+    100% {
+      --r2: 360deg;
+    }
+  }
+  

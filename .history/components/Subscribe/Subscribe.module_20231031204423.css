@@ -1,0 +1,9 @@
+.name {
+	border: 2px solid red;
+}
+
+.subscribeContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

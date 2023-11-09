@@ -1,0 +1,22 @@
+.navContainer {
+	position: fixed;
+	top: 40px;
+	/* background: red; */
+	width: 100vw;
+}
+.navBarFull {
+	width: 85vw;
+	background: blue;
+	border-radius: 25px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: auto;
+	padding: 1rem;
+}
+
+.navItem {
+	background: green;
+	padding: 0.5rem 2rem;
+	border-radius: 25px;
+}
