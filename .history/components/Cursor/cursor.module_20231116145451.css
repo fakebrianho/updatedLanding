@@ -1,0 +1,32 @@
+.container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	z-index: 5;
+	pointer-events: none;
+	overflow: hidden;
+	/* background-color: red; */
+}
+
+.cursor {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	background-color: grey;
+	opacity: 0.4;
+	transition: transform 600ms var(--ease-out-expo); /* Make sure the CSS variable --ease-out-expo is defined */
+}
+
+.container .cursor.pointer {
+	transform: translate(-50%, -50%) scale(0.5);
+}
+
+@media (hover: none) {
+	.container {
+		display: none;
+	}
+}

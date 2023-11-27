@@ -1,0 +1,19 @@
+import styles from './Subscribe.module.css'
+
+export default function Subscribe() {
+	return (
+		<div>
+			{/* <div className={styles.subscribeContainer}> */}
+			<p className={styles.header}>Subscribe</p>
+			<p className={styles.text}>
+				Get notified whenever a new chapter is published!
+			</p>
+
+			<div className={styles.inputs}>
+				<input className={styles.name} placeholder={'Name'}></input>
+				<input className={styles.name} placeholder={'Email'}></input>
+			</div>
+		</div>
+		// </div>
+	)
+}

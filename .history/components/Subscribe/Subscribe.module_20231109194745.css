@@ -1,0 +1,51 @@
+.name {
+	/* border: 2px solid red; */
+}
+
+.subscribeContainer {
+	display: flex;
+	border: 2px solid yellow;
+	height: 45vh;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(6.1px);
+	-webkit-backdrop-filter: blur(6.1px);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	padding: 10px 25px;
+}
+
+.header {
+	font-family: var(--modern-font);
+}
+
+.text {
+	font-family: var(--modern-font);
+}
+
+.name {
+	font-family: var(--modern-font);
+}
+.email {
+	font-family: var(--modern-font);
+}
+.inputs > input {
+	border-radius: 10px;
+	/* padding: 5px; */
+}
+.inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 4px;
+}
+.inputs::placeholder {
+	color: #909090;
+}
+.inputs:focus::placeholder {
+	color: transparent;
+}
