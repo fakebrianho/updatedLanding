@@ -45,6 +45,7 @@ export const ChildNodes = (props) => {
 	}, [])
 	const attachCursorEvents = () => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
+		console.log(elements)
 		elements.forEach((el) => {
 			el.addEventListener('mouseover', () => {
 				if (props.topLevel) {

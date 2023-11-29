@@ -1,11 +1,9 @@
 import styles from './NavBarFull.module.css'
 import Image from 'next/image'
 import usePage from '../../context/pageContext'
-import { useRouter } from 'next/navigation'
 
 export default function NavBarFull() {
 	const { lenis } = usePage()
-	const router = useRouter()
 	const scrollToSubscribeSection = () => {
 		const section = document.querySelector('.subscribe-content')
 		lenis.scrollTo(section, {
@@ -43,10 +41,7 @@ export default function NavBarFull() {
 						<p>Subscribe</p>
 					</div>
 				</div>
-				<div
-					className={styles.b}
-					onClick={() => router.push('/baseNavigation')}
-				></div>
+				<div className={styles.b}></div>
 			</div>
 		</section>
 	)

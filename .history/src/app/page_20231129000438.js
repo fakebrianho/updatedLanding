@@ -27,22 +27,14 @@ const pageTransition = {
 export default function Home() {
 	return (
 		<PageProvider>
-			<motion.div
-				variants={pageTransition}
-				animate='in'
-				initial='out'
-				exit='out'
-				className='motionContainer'
-			>
-				<main className='landing_container'>
-					<Loader />
-					<NavigationBar />
-					<Hero />
-					<Description />
-					<CallToAction />
-					{/* <Subscribe /> */}
-				</main>
-			</motion.div>
+			<main className='landing_container'>
+				<Loader />
+				<NavigationBar />
+				<Hero />
+				<Description />
+				<CallToAction />
+				{/* <Subscribe /> */}
+			</main>
 		</PageProvider>
 	)
 }

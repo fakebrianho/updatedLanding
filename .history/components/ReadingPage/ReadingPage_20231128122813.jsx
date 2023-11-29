@@ -7,7 +7,7 @@ import Marginalia from '../Marginalia/Marginalia'
 import AddMarginalia from '../AddMarginalia/AddMarginalia'
 import { createTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
-import Trace from '../Trace/Trace'
+
 const pageTransition = {
 	out: {
 		opacity: 0,
@@ -68,11 +68,13 @@ export default function ReadPage(post) {
 	const addtoMarg = (newMarg) => {
 		setNewMarg(newMarg)
 		nodedata[0].marginalia.push(newMarg) //actually push to database here
+		console.log('added new marginalia')
 	}
 
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
 			let splitcontent = quote.split('~')
+			console.log('split content is', splitcontent)
 			return splitcontent[0] + '<i>' + splitcontent[1] + '</i>'
 		} else {
 			return quote
@@ -221,7 +223,7 @@ export default function ReadPage(post) {
 								}
 
 								.hasdropcap:first-letter {
-									font-family: var(--old-font);
+									font-family: IMFellEnglish;
 									float: left;
 									font-size: 6.5rem;
 									line-height: 2.5rem;

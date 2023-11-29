@@ -45,7 +45,7 @@ export default function NavBarFull() {
 				</div>
 				<div
 					className={styles.b}
-					onClick={() => router.push('/baseNavigation')}
+					onClick={router.push('/baseNavigation')}
 				></div>
 			</div>
 		</section>

@@ -34,12 +34,12 @@ function Cursor(props) {
 			if (props.clickState) {
 				cursorText.current.innerHTML = 'ENTER'
 				if (body) {
-					// body.style.pointerEvents = 'auto'
+					body.style.pointerEvents = 'auto'
 				}
 			} else if (!props.clickState) {
 				cursorText.current.innerHTML = 'WIP'
 				if (body) {
-					// body.style.pointerEvents = 'none'
+					body.style.pointerEvents = 'none'
 				}
 			}
 		} else {

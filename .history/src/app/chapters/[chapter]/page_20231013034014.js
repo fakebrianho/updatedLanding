@@ -12,5 +12,6 @@ export default async function Page({ params }) {
 
 export async function generateStaticParams() {
 	const paths = await getAllPostIds()
+	console.log(paths)
 	return paths.map((path) => path.params.chapter)
 }

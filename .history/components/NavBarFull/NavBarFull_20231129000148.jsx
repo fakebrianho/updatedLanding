@@ -1,7 +1,8 @@
+'use client'
 import styles from './NavBarFull.module.css'
 import Image from 'next/image'
 import usePage from '../../context/pageContext'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 export default function NavBarFull() {
 	const { lenis } = usePage()
@@ -45,7 +46,7 @@ export default function NavBarFull() {
 				</div>
 				<div
 					className={styles.b}
-					onClick={() => router.push('/baseNavigation')}
+					onClick={router.push('/baseNavigation')}
 				></div>
 			</div>
 		</section>

@@ -45,6 +45,7 @@ export const ChildNodes = (props) => {
 	}, [])
 	const attachCursorEvents = () => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
+		console.log(elements)
 		elements.forEach((el) => {
 			el.addEventListener('mouseover', () => {
 				if (props.topLevel) {
@@ -68,11 +69,9 @@ export const ChildNodes = (props) => {
 		return (
 			<motion.div
 				className='box'
-				onClick={() => {
-					if (dataclick == true || dataclick == undefined) {
-						router.push(`/navigation/${children.props.children}`)
-					}
-				}}
+				onClick={() =>
+					router.push(`/navigation/${children.props.children}`)
+				}
 				data-click={dataclick}
 			>
 				<div className='node_container'>
@@ -89,16 +88,13 @@ export const ChildNodes = (props) => {
 	}
 
 	const ChildParentNode = ({ style, children, dataclick }) => {
+		console.log(dataclick)
 		return (
 			<motion.div
 				className='box'
-				onClick={() => {
-					if (dataclick == true || dataclick == undefined) {
-						router.push(
-							`/navigation/${children.props.dataattribute}`
-						)
-					}
-				}}
+				onClick={() =>
+					router.push(`/navigation/${children.props.dataattribute}`)
+				}
 				data-click={dataclick}
 			>
 				<div className='node_container'>

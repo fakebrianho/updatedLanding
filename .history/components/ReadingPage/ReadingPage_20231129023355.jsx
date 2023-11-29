@@ -73,6 +73,7 @@ export default function ReadPage(post) {
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
 			let splitcontent = quote.split('~')
+			console.log('split content is', splitcontent)
 			return splitcontent[0] + '<i>' + splitcontent[1] + '</i>'
 		} else {
 			return quote

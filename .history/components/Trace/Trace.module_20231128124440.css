@@ -1,0 +1,23 @@
+.traces {
+	color: #3176c7;
+	/* color: grey; */
+	/* margin-bottom: 0; */
+	/* line-height: 1.15; */
+	/* font-weight: normal; */
+	/* text-decoration: underline; */
+}
+.individuallink {
+	margin-left: 2rem;
+	padding: 0.15rem;
+	color: grey;
+	text-decoration: none;
+	-webkit-transition: color 0.15s ease;
+	-o-transition: color 0.15s ease;
+	transition: color 0.15s ease;
+}
+
+.individuallink:hover,
+.individuallink:focus,
+.individuallink:active {
+	color: #ff8618;
+}

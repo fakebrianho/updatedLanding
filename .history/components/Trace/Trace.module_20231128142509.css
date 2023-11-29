@@ -37,7 +37,6 @@
 
 .back {
 	font-size: 1.1rem;
-	font-family: var(--modern-font);
 	color: #ff8618;
 }
 
@@ -55,9 +54,9 @@
 .traces {
 	color: #3176c7;
 	/* color: grey; */
-	margin-bottom: 0;
-	line-height: 1.15;
-	font-weight: normal;
+	/* margin-bottom: 0; */
+	/* line-height: 1.15; */
+	/* font-weight: normal; */
 	/* text-decoration: underline; */
 }
 
@@ -80,7 +79,7 @@
 	text-transform: uppercase;
 	font-family: var(--old-font);
 	/* font-family: bluu; */
-	font-size: 3rem;
+	font-size: 2.6rem;
 }
 
 .branchhead {
@@ -89,6 +88,7 @@
 	line-height: 1.15;
 	text-transform: uppercase;
 	font-family: var(--old-font);
+	/* font-family: IMFellEnglish; */
 	/* font-family: bluu; */
 	font-size: 4rem;
 }
@@ -98,9 +98,11 @@
 	margin-top: 1rem;
 	line-height: 1.15;
 	text-transform: uppercase;
+	/* font-family: IMFellEnglish; */
+
 	font-family: var(--old-font);
 	/* font-family: bluu; */
-	font-size: 3.5rem;
+	font-size: 3.2rem;
 }
 
 .subtitle {
@@ -109,7 +111,7 @@
 	line-height: 1;
 	font-weight: normal;
 	font-style: italic;
-	font-family: var(--modern-font);
+	/* font-family: bluu; */
 }
 
 .quote {
@@ -118,7 +120,9 @@
 	margin-top: 1rem;
 	line-height: 1.15;
 	text-transform: uppercase;
+
 	font-family: var(--old-font);
+	/* font-family: IMFellEnglish; */
 	/* font-family: bluu; */
 	font-size: 8rem;
 }
@@ -142,7 +146,7 @@
 	flex-direction: row;
 	padding-left: 1.5rem;
 	padding-right: 1rem;
-	margin-top: 3rem;
+	/* margin-top: 3rem; */
 	margin-bottom: 1rem;
 }
 
@@ -229,6 +233,12 @@
 		padding: 5rem 3rem;
 	}
 	.title {
+		font-size: 2rem;
+	}
+	.branchhead {
+		font-size: 2.9rem;
+	}
+	.sectionhead {
 		font-size: 2.5rem;
 	}
 	.description {
@@ -239,9 +249,6 @@
 @media screen and (max-width: 450px) {
 	.container {
 		padding: 5rem 3rem;
-	}
-	.title {
-		font-size: 2.5rem;
 	}
 	.description {
 		font-size: 1rem;
