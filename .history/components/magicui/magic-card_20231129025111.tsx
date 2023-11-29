@@ -2,6 +2,7 @@
 // @ts-nocheck
 
 import clsx, { ClassValue } from 'clsx'
+import React from 'react'
 import {
 	CSSProperties,
 	ReactElement,
@@ -11,6 +12,7 @@ import {
 	useState,
 } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { useCallback } from 'react'
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
@@ -73,10 +75,6 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 		}
 	}, [setBoxes])
 
-	useEffect(() => {
-		onMouseMove()
-	}, [mousePosition])
-
 	const init = () => {
 		if (containerRef.current) {
 			containerSize.current.w = containerRef.current.offsetWidth
@@ -84,7 +82,7 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 		}
 	}
 
-	const onMouseMove = () => {
+	const onMouseMove = useCallback(() => {
 		if (containerRef.current) {
 			const rect = containerRef.current.getBoundingClientRect()
 			const { w, h } = containerSize.current
@@ -111,7 +109,11 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 				}
 			})
 		}
-	}
+	}, [mousePosition, boxes])
+
+	useEffect(() => {
+		onMouseMove()
+	}, [mousePosition, onMouseMove])
 
 	return (
 		<div className={cn('h-full w-full', className)} ref={containerRef}>
@@ -177,7 +179,7 @@ interface MagicCardProps {
 	isolated?: boolean
 
 	/**
-	 * @default "rgba(255,255,255,0.03)"
+	 * @default "rgba(101,99,255,0.9)"
 	 * @type string
 	 * @description
 	 * The background of the card
@@ -187,53 +189,64 @@ interface MagicCardProps {
 	[key: string]: any
 }
 
-const MagicCard = ({
-	className,
-	children,
-	size = 600,
-	spotlight = true,
-	spotlightColor = 'rgba(120,119,198,0.1)',
-	borderColor = 'rgba(120,119,198,0.7)',
-	isolated = true,
-	...props
-}: MagicCardProps) => {
-	return (
-		<div
-			{...props}
-			className={cn('relative h-full w-full rounded-2xl', className)}
-			style={
-				{
-					borderWidth: '2px',
-					'--mask-size': `${size}px`,
-					'--spotlight-color': `${spotlightColor}`,
-					'--border-color': `${borderColor}`,
-				} as CSSProperties
-			}
-		>
-			{/* Border */}
+const MagicCard = React.forwardRef<HTMLDivElement, MagicCardProps>(
+	(
+		{
+			className,
+			children,
+			size = 600,
+			spotlight = true,
+			spotlightColor = 'rgba(255, 140, 36,0.1)',
+			borderColor = 'rgba(120,119,198,0.7)',
+			isolated = true,
+			...props
+		},
+		ref
+	) => {
+		return (
 			<div
+				{...props}
+				ref={ref} // And passing ref here
 				className={cn(
-					'pointer-events-none absolute inset-0 h-full w-full rounded-2xl bg-gray-300 transition-opacity duration-500 dark:bg-gray-700',
-					'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#ffaa40_0,#9c40ff_50%,transparent_100%)]',
-					'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--border-color),transparent_100%)]'
+					'relative h-full max-w-1/3 rounded-2xl',
+					className
 				)}
-			/>
-
-			{/* Background */}
-			<div className={'absolute inset-[1px] rounded-2xl bg-background'} />
-
-			{children}
-
-			{/* Spotlight */}
-			{spotlight && (
+				style={
+					{
+						borderWidth: '2px',
+						'--mask-size': `${size}px`,
+						'--spotlight-color': `${spotlightColor}`,
+						'--border-color': `${borderColor}`,
+					} as CSSProperties
+				}
+			>
+				{/* Border */}
 				<div
-					className={
-						'blur-xs pointer-events-none absolute left-0 top-0 h-full w-full rounded-2xl bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--spotlight-color),transparent_40%)] transition-opacity duration-500'
-					}
+					className={cn(
+						'pointer-events-none absolute inset-0 h-full w-full rounded-2xl bg-gray-300 transition-opacity duration-500 dark:bg-gray-700',
+						'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#ffaa40_50%,#9c40ff_60%,transparent_100%)]',
+						'bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--border-color),transparent_10%)] backgroundstuff'
+					)}
 				/>
-			)}
-		</div>
-	)
-}
 
+				{/* Background */}
+				<div
+					className={'absolute inset-[1px] rounded-2xl bg-background'}
+				/>
+
+				{children}
+
+				{/* Spotlight */}
+				{spotlight && (
+					<div
+						className={
+							'blur-xs pointer-events-none absolute left-0 top-0 h-full w-full rounded-2xl bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--spotlight-color),transparent_10%)] transition-opacity duration-500'
+						}
+					/>
+				)}
+			</div>
+		)
+	}
+)
+MagicCard.displayName = 'MagicCard'
 export { MagicCard, MagicContainer }

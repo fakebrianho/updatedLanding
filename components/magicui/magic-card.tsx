@@ -12,6 +12,7 @@ import {
 	useState,
 } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { useCallback } from 'react'
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
@@ -74,10 +75,6 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 		}
 	}, [setBoxes])
 
-	useEffect(() => {
-		onMouseMove()
-	}, [mousePosition])
-
 	const init = () => {
 		if (containerRef.current) {
 			containerSize.current.w = containerRef.current.offsetWidth
@@ -85,7 +82,7 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 		}
 	}
 
-	const onMouseMove = () => {
+	const onMouseMove = useCallback(() => {
 		if (containerRef.current) {
 			const rect = containerRef.current.getBoundingClientRect()
 			const { w, h } = containerSize.current
@@ -112,7 +109,11 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 				}
 			})
 		}
-	}
+	}, [mousePosition, boxes])
+
+	useEffect(() => {
+		onMouseMove()
+	}, [mousePosition, onMouseMove])
 
 	return (
 		<div className={cn('h-full w-full', className)} ref={containerRef}>
