@@ -33,17 +33,16 @@ export default function NavBarFull() {
 					<div className={styles.navItem}>
 						<p>Contact</p>
 					</div>
-					<div
-						className={styles.navItem}
-						onClick={() => router.push('/tableOfContent')}
-					>
+					<div className={styles.navItem}>
 						<p>Table of Contents</p>
 					</div>
 					<div
 						className={styles.navItem}
 						onClick={() => scrollToSubscribeSection()}
 					>
-						<p>Subscribe</p>
+						<p onClick={() => router.push('/tableOfContent')}>
+							Subscribe
+						</p>
 					</div>
 				</div>
 				<div

@@ -19,7 +19,7 @@ export const Explanation = () => {
 							Navigation
 						</p>
 						<Image
-							src='/images/navigation.png'
+							src='/images/cover.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -32,10 +32,10 @@ export const Explanation = () => {
 						spotlight
 					>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
-							Child Nodes
+							Navigation
 						</p>
 						<Image
-							src='/images/child.png'
+							src='/images/layer1.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -46,10 +46,10 @@ export const Explanation = () => {
 					</MagicCard>
 					<MagicCard className='flex w-4/12 xl:w-4/12  p-4 cursor-pointer gap-2 flex-col items-center justify-center overflow-hidden p-20 shadow-2xl card'>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
-							Parent Nodes
+							Child Nodes
 						</p>
 						<Image
-							src='/images/parent.png'
+							src='/images/layer1-hover.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -59,10 +59,10 @@ export const Explanation = () => {
 					</MagicCard>
 					<MagicCard className='flex w-4/12 xl:w-4/12  p-4 cursor-pointer gap-2 flex-col items-center justify-center overflow-hidden p-20 shadow-2xl card'>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-whtite-200 txt'>
-							Reading Page
+							Next Layer
 						</p>
 						<Image
-							src='/images/reading.png'
+							src='/images/layer1-hover.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -72,10 +72,10 @@ export const Explanation = () => {
 					</MagicCard>
 					<MagicCard className='flex w-4/12 xl:w-4/12  p-4 cursor-pointer gap-2 flex-col items-center justify-center overflow-hidden p-20 shadow-2xl card'>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
-							Marginalia
+							Reading Page
 						</p>
 						<Image
-							src='/images/marginalia.png'
+							src='/images/layer2.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -88,7 +88,7 @@ export const Explanation = () => {
 							Table of Contents
 						</p>
 						<Image
-							src='/images/toc.png'
+							src='/images/layer1-hover.png'
 							className='explainer'
 							width={250}
 							height={150}

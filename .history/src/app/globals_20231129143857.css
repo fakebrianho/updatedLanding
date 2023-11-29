@@ -644,7 +644,7 @@ a {
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 10000;
+	z-index: 100;
 	background-color: black;
 	display: flex;
 	justify-content: center;
@@ -2307,6 +2307,9 @@ a {
 
 .box {
 	width: max-content;
+}
+
+.node_container {
 }
 
 .maintext {

@@ -1,0 +1,306 @@
+[
+	{
+		"_id": "65397b4c7552ac7ccbf861a6",
+		"col": "introduction",
+		"index": [
+			[
+				{
+					"title": "Introduction",
+					"file_name": "introduction"
+				},
+				[
+					{
+						"title": "Erich Fromm Quote",
+						"file_name": "erich-fromm-quote"
+					},
+					{
+						"title": "What?",
+						"file_name": "what"
+					},
+					{
+						"title": "Why?",
+						"file_name": "why"
+					},
+					{
+						"title": "Why... again!",
+						"file_name": "why-again"
+					},
+					{
+						"title": "How?",
+						"file_name": "how"
+					},
+					{
+						"title": "Bruno Latour Quote",
+						"file_name": "bruno-latour-quote"
+					}
+				]
+			]
+		]
+	},
+	{
+		"_id": "653a78604980d86287c793e6",
+		"col": "first-principles",
+		"index": [
+			[
+				{
+					"title": "First Principles",
+					"file_name": "first-principles"
+				},
+				[
+					[
+						{
+							"title": "The Beast",
+							"file_name": "the-beast"
+						},
+						[
+							{
+								"title": "Irrelevance",
+								"file_name": "irrelevance"
+							},
+							{
+								"title": "Epistemic Lenses",
+								"file_name": "epistemic-lenses"
+							},
+							{
+								"title": "Cultural Bias",
+								"file_name": "cultural-bias"
+							},
+							{
+								"title": "Aleatoric vs. Epistemic",
+								"file_name": "aleatoric-epistemic"
+							},
+							{
+								"title": "Boundaries",
+								"file_name": "boundaries"
+							}
+						]
+					],
+					[
+						{
+							"title": "Equivocation",
+							"file_name": "equivocation"
+						},
+						[
+							{
+								"title": "Ignorance",
+								"file_name": "ignorance"
+							},
+							{
+								"title": "DeNicola Quote",
+								"file_name": "denicola-quote"
+							},
+							{
+								"title": "FUD",
+								"file_name": "FUD"
+							},
+							{
+								"title": "Practical Certainty",
+								"file_name": "practical-certainty"
+							},
+							{
+								"title": "Timothy Morton Quote",
+								"file_name": "timothy-morton-quote"
+							},
+							{
+								"title": "Risk",
+								"file_name": "risk"
+							},
+							{
+								"title": "Probability",
+								"file_name": "probability"
+							}
+						]
+					],
+					[
+						{
+							"title": "The Dimensions of Uncertainty",
+							"file_name": "dimensions-of-uncertainty"
+						},
+						[
+							[
+								{
+									"title": "Evolution",
+									"file_name": "evolution"
+								},
+								[
+									{
+										"title": "Choice",
+										"file_name": "choice"
+									},
+									{
+										"title": "Molly's Song",
+										"file_name": "mollys-song"
+									},
+									{
+										"title": "Intelligence",
+										"file_name": "intelligence"
+									},
+									{
+										"title": "Cognition",
+										"file_name": "cognition"
+									}
+								]
+							],
+							[
+								{
+									"title": "Metaphysics",
+									"file_name": "metaphysics"
+								},
+								[
+									{
+										"title": "Myth",
+										"file_name": "myth"
+									},
+									{
+										"title": "Death",
+										"file_name": "death"
+									},
+									{
+										"title": "Jung Quote",
+										"file_name": "jung-quote-red-book"
+									},
+									{
+										"title": "Two Worlds",
+										"file_name": "two-worlds"
+									}
+								]
+							],
+							[
+								{
+									"title": "Society",
+									"file_name": "society"
+								},
+								[
+									{
+										"title": "Relationship",
+										"file_name": "relationship"
+									},
+									{
+										"title": "Control",
+										"file_name": "control"
+									},
+									{
+										"title": "Elmyra Duff",
+										"file_name": "elmyra"
+									},
+									{
+										"title": "Shoshana Zuboff Quote",
+										"file_name": "shoshana-zuboff-quote"
+									},
+									{
+										"title": "Fore-Casting",
+										"file_name": "casting"
+									},
+									{
+										"title": "Causality",
+										"file_name": "causality"
+									},
+									{
+										"title": "Competition",
+										"file_name": "competition"
+									},
+									{
+										"title": "Culture",
+										"file_name": "culture"
+									},
+									{
+										"title": "Creativity",
+										"file_name": "creativity-6C"
+									},
+									{
+										"title": "James P. Carse Quote S",
+										"file_name": "james-carse-quote-2"
+									},
+									{
+										"title": "The Uncertainty Continuum",
+										"file_name": "uncertainty-continuum"
+									},
+									{
+										"title": "Duality",
+										"file_name": "duality"
+									},
+									{
+										"title": "Rot at the Core",
+										"file_name": "Rot-at-the-Core"
+									}
+								]
+							],
+							[
+								{
+									"title": "Spacetime",
+									"file_name": "spacetime"
+								},
+								[
+									{
+										"title": "Space",
+										"file_name": "space"
+									},
+									{
+										"title": "First-Person Shooter",
+										"file_name": "first-person-shooter"
+									},
+									{
+										"title": "Layers",
+										"file_name": "layers"
+									},
+									{
+										"title": "Lebbeus Woods Quote",
+										"file_name": "lebbeus-woods-quote"
+									},
+									{
+										"title": "Dennis Lindley Quote",
+										"file_name": "dennis-lindley-quote"
+									},
+									{
+										"title": "The Past",
+										"file_name": "past"
+									},
+									{
+										"title": "James P. Carse Quote ST",
+										"file_name": "james-carse-quote"
+									},
+									{
+										"title": "The Present",
+										"file_name": "present"
+									},
+									{
+										"title": "Reflection at Sea",
+										"file_name": "reflection-at-sea"
+									},
+									{
+										"title": "The Future",
+										"file_name": "future"
+									},
+									{
+										"title": "Terence Deacon Quote",
+										"file_name": "terence-deacon-quote"
+									}
+								]
+							]
+						]
+					],
+					{
+						"title": "Semantic Mirror",
+						"file_name": "semantic-mirror"
+					}
+				]
+			]
+		]
+	},
+	{
+		"_id": "653a80684980d86287c793e7",
+		"col": "knowledge"
+	},
+	{
+		"_id": "653a808eaca876edd3c45354",
+		"col": "agency"
+	},
+	{
+		"_id": "653a809aaca876edd3c45355",
+		"col": "creativity"
+	},
+	{
+		"_id": "653a80a2aca876edd3c45356",
+		"col": "meaning"
+	}
+]
