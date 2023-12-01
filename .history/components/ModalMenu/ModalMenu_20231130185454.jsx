@@ -58,12 +58,12 @@ export default function ModalMenu(props) {
 		<MagicContainer
 			borderWidth={3}
 			className={
-				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-2001 pointer-events-auto modalContainer'
+				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-2001 pointer-events-auto'
 			}
 		>
 			<MagicCard
 				background={'rgba(255, 0, 0, 0.2)'}
-				className='w-full flex flex-col items-center justify-center p-20 shadow-2xl menu z-2050 modal pointer-events-auto'
+				className='w-full flex flex-col items-center justify-center p-20 shadow-2xl menu z-50 modal pointer-events-auto'
 				ref={modal}
 			>
 				{' '}

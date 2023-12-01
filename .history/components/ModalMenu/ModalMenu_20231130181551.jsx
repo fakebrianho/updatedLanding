@@ -4,17 +4,11 @@ import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import usePage from '../../context/pageContext'
 import { useRouter } from 'next/navigation'
+
 export default function ModalMenu(props) {
 	const modal = useRef()
-	const { toggleScrolling, lenis } = usePage()
+	const { toggleScrolling } = usePage()
 	const router = useRouter()
-	const scrollToSubscribeSection = () => {
-		const section = document.querySelector('.subscribe-content')
-		lenis.scrollTo(section, {
-			duration: 1.8,
-			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-		})
-	}
 
 	useEffect(() => {
 		const modalElement = modal.current
@@ -38,7 +32,7 @@ export default function ModalMenu(props) {
 					display: 'block', // Show the modal
 				}
 			)
-			// toggleScrolling(false) // <-- Disable scrolling when the modal opens
+			toggleScrolling(false) // <-- Disable scrolling when the modal opens
 		} else {
 			// Animate out
 			gsap.to(modalElement, {
@@ -50,7 +44,7 @@ export default function ModalMenu(props) {
 					gsap.set(modalElement, { display: 'none' }) // Hide the modal after the animation
 				},
 			})
-			// toggleScrolling(true) // <-- Disable scrolling when the modal opens
+			toggleScrolling(true) // <-- Disable scrolling when the modal opens
 		}
 	}, [props.isOpen])
 
@@ -58,12 +52,12 @@ export default function ModalMenu(props) {
 		<MagicContainer
 			borderWidth={3}
 			className={
-				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-2001 pointer-events-auto modalContainer'
+				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 pointer-events-auto'
 			}
 		>
 			<MagicCard
 				background={'rgba(255, 0, 0, 0.2)'}
-				className='w-full flex flex-col items-center justify-center p-20 shadow-2xl menu z-2050 modal pointer-events-auto'
+				className='w-full flex flex-col items-center justify-center p-20 shadow-2xl menu z-50 modal pointer-events-auto'
 				ref={modal}
 			>
 				{' '}
@@ -72,22 +66,16 @@ export default function ModalMenu(props) {
 						<div>About</div>
 					</li>
 					<li>
+						<div>Table of Contents</div>
+					</li>
+					<li>
+						<div>Navigation</div>
+					</li>
+					<li>
+						<div>Subscribe</div>
+					</li>
+					<li>
 						<div>Contact</div>
-					</li>
-					<li>
-						<div onClick={() => router.push('/tableOfContent')}>
-							Table of Contents
-						</div>
-					</li>
-					<li>
-						<div onClick={() => scrollToSubscribeSection()}>
-							Subscribe
-						</div>
-					</li>
-					<li>
-						<div onClick={() => router.push('/baseNavigation')}>
-							Read
-						</div>
 					</li>
 				</ol>
 				<div className='pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]' />

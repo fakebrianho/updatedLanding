@@ -46,13 +46,13 @@ export const ChildNodes = (props) => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
 		elements.forEach((el) => {
 			el.addEventListener('mouseover', () => {
-				// if (props.topLevel) {
-				if (el.getAttribute('data-click') === 'true') {
+				if (props.topLevel) {
+					if (el.getAttribute('data-click') === 'true') {
+						props.clickTrigger(true)
+					}
+				} else {
 					props.clickTrigger(true)
 				}
-				// } else {
-				// 	props.clickTrigger(true)
-				// }
 
 				props.hoverTrigger(true)
 			})

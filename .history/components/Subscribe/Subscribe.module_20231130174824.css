@@ -79,23 +79,6 @@
 
 @media screen and (max-width: 430px) {
 	.header {
-		font-size: 18px;
-		text-align: center;
-		margin-bottom: 10px;
-	}
-
-	.text {
-		font-size: 12px;
-		padding-bottom: 25px;
-	}
-	.inputs {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.submit {
-		width: 120px;
-		padding-top: 3px;
-		padding-bottom: 3px;
+		font-size: 20px;
 	}
 }

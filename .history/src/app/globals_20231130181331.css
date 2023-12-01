@@ -176,7 +176,7 @@ a {
 	position: fixed;
 	top: 0;
 	height: 150px;
-	z-index: 5000001;
+	z-index: 51;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -2279,9 +2279,6 @@ a {
 	font-family: var(--modern-font);
 	padding: 2px 0px;
 	/* border: 2px solid red; */
-}
-.modalContainer {
-	z-index: 2001 !important;
 }
 
 .modal {

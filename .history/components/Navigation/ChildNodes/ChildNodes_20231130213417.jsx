@@ -49,9 +49,11 @@ export const ChildNodes = (props) => {
 				// if (props.topLevel) {
 				if (el.getAttribute('data-click') === 'true') {
 					props.clickTrigger(true)
+				} else {
+					props.clickTrigger(false)
 				}
 				// } else {
-				// 	props.clickTrigger(true)
+				// props.clickTrigger(true)
 				// }
 
 				props.hoverTrigger(true)

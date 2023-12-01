@@ -58,7 +58,7 @@ export default function ModalMenu(props) {
 		<MagicContainer
 			borderWidth={3}
 			className={
-				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-2001 pointer-events-auto modalContainer'
+				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-2001 pointer-events-auto'
 			}
 		>
 			<MagicCard

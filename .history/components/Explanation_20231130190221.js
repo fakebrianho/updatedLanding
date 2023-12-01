@@ -19,7 +19,7 @@ export const Explanation = () => {
 							Start Reading
 						</p>
 						<Image
-							src='/images/read.png'
+							src='/images/navigation.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -35,7 +35,7 @@ export const Explanation = () => {
 							Reading Layout
 						</p>
 						<Image
-							src='/images/readingpage.png'
+							src='/images/child.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -49,7 +49,7 @@ export const Explanation = () => {
 							Marginalia
 						</p>
 						<Image
-							src='/images/marginalia.png'
+							src='/images/parent.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -62,7 +62,7 @@ export const Explanation = () => {
 							Menu
 						</p>
 						<Image
-							src='/images/menu.png'
+							src='/images/reading.png'
 							className='explainer'
 							width={250}
 							height={150}
@@ -75,7 +75,7 @@ export const Explanation = () => {
 							Knowledge Graph
 						</p>
 						<Image
-							src='/images/navigation.png'
+							src='/images/marginalia.png'
 							className='explainer'
 							width={250}
 							height={150}

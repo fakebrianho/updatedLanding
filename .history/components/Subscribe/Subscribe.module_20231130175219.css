@@ -86,7 +86,6 @@
 
 	.text {
 		font-size: 12px;
-		padding-bottom: 25px;
 	}
 	.inputs {
 		flex-direction: column;
@@ -95,7 +94,5 @@
 	}
 	.submit {
 		width: 120px;
-		padding-top: 3px;
-		padding-bottom: 3px;
 	}
 }
