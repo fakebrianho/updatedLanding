@@ -2292,16 +2292,6 @@ a {
 	background: rgba(255, 140, 36, 1);
 }
 
-.childNode.active {
-	display: flex;
-	justify-content: center !important;
-	align-items: center !important;
-	border-radius: 50%;
-	width: 45px;
-	height: 45px;
-	background: rgba(255, 140, 36, 0.5);
-}
-
 .modal {
 	display: none;
 	opacity: 0;

@@ -187,9 +187,11 @@ export const ChildNodes = (props) => {
 									<div
 										ref={parent}
 										className='childNode active'
-										style={style}
 									>
-										<div className='childNode'>
+										<div
+											className='childNode'
+											style={style}
+										>
 											<h1 className={styles.childText}>
 												{props.nodes[i].name}
 											</h1>

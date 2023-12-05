@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import styles from './ChildNodes.module.css'
 export const ChildNodes = (props) => {
-	const parent = useRef()
 	const centralCircleDiameter = 300
 	const childNodeDiameter = 15
 	const parentNodeDiamater = 45
@@ -14,7 +13,7 @@ export const ChildNodes = (props) => {
 		centralCircleDiameter / 2 + parentNodeDiamater + radiusPadding
 	const [child_xy, setChild_xy] = useState([])
 	const router = useRouter()
-	console.log(props.nodes[3])
+
 	useEffect(() => {
 		setChild_xy(positionNodes(props.count))
 	}, [props.count])
@@ -183,19 +182,56 @@ export const ChildNodes = (props) => {
 
 						return (
 							<React.Fragment key={i}>
-								{
-									<div
-										ref={parent}
-										className='childNode active'
+								{props.nodes[i].num_grandchild_nodes > 0 ? (
+									<ChildParentNode
 										style={style}
+										key={i}
+										data-cursor='pointer'
+										dataclick={props.nodes[i].hasChildren}
 									>
-										<div className='childNode'>
-											<h1 className={styles.childText}>
-												{props.nodes[i].name}
-											</h1>
-										</div>
-									</div>
-								}
+										<p
+											className={styles.title}
+											style={{
+												padding: '30px',
+												width: 'max-content',
+												textAlign: 'center',
+												position: 'absolute',
+												zIndex: '9',
+											}}
+											dataattribute={props.nodes[i].name}
+											data-click={
+												props.nodes[i].hasChildren
+											}
+											data-cursor='pointer'
+										>
+											{props.nodes[i].name}
+										</p>
+									</ChildParentNode>
+								) : (
+									<ChildNode
+										style={style}
+										key={i}
+										data-cursor='pointer'
+										dataclick={props.nodes[i].hasChildren}
+									>
+										<p
+											data-cursor='pointer'
+											data-click={
+												props.nodes[i].hasChildren
+											}
+											className={styles.title}
+											style={{
+												padding: '30px',
+												width: 'max-content',
+												textAlign: 'center',
+												position: 'absolute',
+												zIndex: '9',
+											}}
+										>
+											{props.nodes[i].name}
+										</p>
+									</ChildNode>
+								)}
 							</React.Fragment>
 						)
 					})}

@@ -184,12 +184,11 @@ export const ChildNodes = (props) => {
 						return (
 							<React.Fragment key={i}>
 								{
-									<div
-										ref={parent}
-										className='childNode active'
-										style={style}
-									>
-										<div className='childNode'>
+									<div ref={parent}>
+										<div
+											className='childNode'
+											style={style}
+										>
 											<h1 className={styles.childText}>
 												{props.nodes[i].name}
 											</h1>

@@ -19,14 +19,10 @@
 .child {
 	border-radius: 50%;
 	border: 2px solid red;
+	padding: 40px;
 	width: 15px;
 	height: 15px;
 	background: rgba(255, 140, 36, 1);
-}
-
-.childText {
-	margin: 40px;
-	width: max-content;
 }
 /* rgba(255, 140, 36, 1) 100% */
 

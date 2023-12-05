@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import styles from './ChildNodes.module.css'
 export const ChildNodes = (props) => {
-	const parent = useRef()
 	const centralCircleDiameter = 300
 	const childNodeDiameter = 15
 	const parentNodeDiamater = 45
@@ -184,16 +183,10 @@ export const ChildNodes = (props) => {
 						return (
 							<React.Fragment key={i}>
 								{
-									<div
-										ref={parent}
-										className='childNode active'
-										style={style}
-									>
-										<div className='childNode'>
-											<h1 className={styles.childText}>
-												{props.nodes[i].name}
-											</h1>
-										</div>
+									<div className='childNode' style={style}>
+										<h1 className={styles.childText}>
+											{props.nodes[i]}
+										</h1>
 									</div>
 								}
 							</React.Fragment>

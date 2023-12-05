@@ -23,11 +23,6 @@
 	height: 15px;
 	background: rgba(255, 140, 36, 1);
 }
-
-.childText {
-	margin: 40px;
-	width: max-content;
-}
 /* rgba(255, 140, 36, 1) 100% */
 
 .parent {
