@@ -12,10 +12,11 @@ export const ChildNodes = (props) => {
 	const parentRadius =
 		centralCircleDiameter / 2 + parentNodeDiamater + radiusPadding
 	const [child_xy, setChild_xy] = useState([])
-	const router = useRouter()
+
 	useEffect(() => {
 		setChild_xy(positionNodes(props.count))
 	}, [props.count])
+	console.log('props', props)
 	useEffect(() => {
 		const observer = new MutationObserver((mutations) => {
 			mutations.forEach((mutation) => {
@@ -44,10 +45,15 @@ export const ChildNodes = (props) => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
 
 		elements.forEach((el) => {
+			// console.log(el)
+			console.log(el.getAttribute('data-click'))
+
 			el.addEventListener('mouseover', () => {
+				// if (props.topLevel) {
 				if (el.getAttribute('data-click') === 'true') {
 					props.clickTrigger(true)
 				}
+
 				props.hoverTrigger(true)
 			})
 			el.addEventListener('mouseout', () => {
@@ -64,20 +70,15 @@ export const ChildNodes = (props) => {
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
 						router.push(`/navigation/${children.props.children}`)
-					} else {
-						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
-						}
 					}
 				}}
 				data-click={dataclick}
 			>
-				<div className='node_container' data-click={dataclick}>
+				<div className='node_container'>
 					<div
 						className={styles.child}
 						style={style}
 						data-cursor='pointer'
-						data-click={dataclick}
 					>
 						{children}
 					</div>
@@ -99,12 +100,11 @@ export const ChildNodes = (props) => {
 				}}
 				data-click={dataclick}
 			>
-				<div className='node_container' data-click={dataclick}>
+				<div className='node_container'>
 					<div
 						className={styles.parent}
 						style={style}
 						data-cursor='pointer'
-						data-click={dataclick}
 					>
 						<ChildNode>{children}</ChildNode>
 					</div>
@@ -159,10 +159,8 @@ export const ChildNodes = (props) => {
 					child_xy.textPositions &&
 					child_xy.nodePositions.map((pos, i) => {
 						const hasChildren = props.topLevel
-							? props.nodes[i].hasChildren
-							: props.nodes[i].num_grandchild_nodes > 0
-							? true
-							: false
+							? props.hasChildren
+							: props.nodes[i].num_grandchild_nodes
 						const isRightSide =
 							child_xy.angles[i] > -Math.PI / 2 &&
 							child_xy.angles[i] < Math.PI / 2
@@ -188,7 +186,6 @@ export const ChildNodes = (props) => {
 									? 'flex-end'
 									: 'center',
 						}
-						console.log(hasChildren)
 
 						return (
 							<React.Fragment key={i}>
@@ -197,7 +194,7 @@ export const ChildNodes = (props) => {
 										style={style}
 										key={i}
 										data-cursor='pointer'
-										dataclick={hasChildren}
+										dataclick={props.nodes[i].hasChildren}
 									>
 										<p
 											className={styles.title}
@@ -209,7 +206,9 @@ export const ChildNodes = (props) => {
 												zIndex: '9',
 											}}
 											dataattribute={props.nodes[i].name}
-											data-click={hasChildren}
+											data-click={
+												props.nodes[i].hasChildren
+											}
 											data-cursor='pointer'
 										>
 											{props.nodes[i].name}
@@ -220,11 +219,13 @@ export const ChildNodes = (props) => {
 										style={style}
 										key={i}
 										data-cursor='pointer'
-										dataclick={hasChildren}
+										dataclick={props.nodes[i].hasChildren}
 									>
 										<p
 											data-cursor='pointer'
-											data-click={hasChildren}
+											data-click={
+												props.nodes[i].hasChildren
+											}
 											className={styles.title}
 											style={{
 												padding: '30px',

@@ -48,7 +48,6 @@ export const Navigation = (props) => {
 			<CentralNode title={props.title} topLevel={props.topLevel} />
 			<ChildNodes
 				nodes={props.child_nodes}
-				titles={props.title}
 				count={CHILD_NODES}
 				hoverTrigger={setIsHovered}
 				clickTrigger={setIsClickable}

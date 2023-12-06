@@ -12,7 +12,7 @@ export const ChildNodes = (props) => {
 	const parentRadius =
 		centralCircleDiameter / 2 + parentNodeDiamater + radiusPadding
 	const [child_xy, setChild_xy] = useState([])
-	const router = useRouter()
+	console.log(props)
 	useEffect(() => {
 		setChild_xy(positionNodes(props.count))
 	}, [props.count])
@@ -48,6 +48,7 @@ export const ChildNodes = (props) => {
 				if (el.getAttribute('data-click') === 'true') {
 					props.clickTrigger(true)
 				}
+
 				props.hoverTrigger(true)
 			})
 			el.addEventListener('mouseout', () => {
@@ -64,10 +65,6 @@ export const ChildNodes = (props) => {
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
 						router.push(`/navigation/${children.props.children}`)
-					} else {
-						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
-						}
 					}
 				}}
 				data-click={dataclick}
@@ -92,9 +89,17 @@ export const ChildNodes = (props) => {
 				className='box'
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
-						router.push(
-							`/navigation/${children.props.dataattribute}`
-						)
+						if (!props.topLevel) {
+							alert(children.props.dataattribute)
+							router.push(
+								`/navigation/${children.props.dataattribute}`
+							)
+						} else {
+							alert(children.props.dataattribute)
+							router.push(
+								`/navigation/${children.props.dataattribute}`
+							)
+						}
 					}
 				}}
 				data-click={dataclick}
@@ -159,7 +164,7 @@ export const ChildNodes = (props) => {
 					child_xy.textPositions &&
 					child_xy.nodePositions.map((pos, i) => {
 						const hasChildren = props.topLevel
-							? props.nodes[i].hasChildren
+							? props.hasChildren
 							: props.nodes[i].num_grandchild_nodes > 0
 							? true
 							: false
@@ -188,7 +193,6 @@ export const ChildNodes = (props) => {
 									? 'flex-end'
 									: 'center',
 						}
-						console.log(hasChildren)
 
 						return (
 							<React.Fragment key={i}>

@@ -65,9 +65,7 @@ export const ChildNodes = (props) => {
 					if (dataclick == true || dataclick == undefined) {
 						router.push(`/navigation/${children.props.children}`)
 					} else {
-						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
-						}
+						router.push(`/chapters/${children.props.children}`)
 					}
 				}}
 				data-click={dataclick}

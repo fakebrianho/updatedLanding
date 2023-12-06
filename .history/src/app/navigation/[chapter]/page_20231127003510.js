@@ -10,13 +10,7 @@ export default async function Page({ params }) {
 			node._id = JSON.parse(JSON.stringify(node._id))
 			return node
 		})
-		return (
-			<Navigation
-				child_nodes={serializedNodes}
-				title={chapter}
-				topLevel={false}
-			/>
-		)
+		return <Navigation child_nodes={serializedNodes} title={chapter} />
 	}
 }
 

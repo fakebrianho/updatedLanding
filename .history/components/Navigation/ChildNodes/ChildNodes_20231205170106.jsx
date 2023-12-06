@@ -46,6 +46,7 @@ export const ChildNodes = (props) => {
 		elements.forEach((el) => {
 			el.addEventListener('mouseover', () => {
 				if (el.getAttribute('data-click') === 'true') {
+					alert(true)
 					props.clickTrigger(true)
 				}
 				props.hoverTrigger(true)
@@ -65,9 +66,7 @@ export const ChildNodes = (props) => {
 					if (dataclick == true || dataclick == undefined) {
 						router.push(`/navigation/${children.props.children}`)
 					} else {
-						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
-						}
+						router.push(`/chapters/${children.props.children}`)
 					}
 				}}
 				data-click={dataclick}

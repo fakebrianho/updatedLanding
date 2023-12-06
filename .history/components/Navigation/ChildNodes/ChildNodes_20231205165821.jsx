@@ -44,6 +44,7 @@ export const ChildNodes = (props) => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
 
 		elements.forEach((el) => {
+			console.log(el)
 			el.addEventListener('mouseover', () => {
 				if (el.getAttribute('data-click') === 'true') {
 					props.clickTrigger(true)
@@ -65,9 +66,7 @@ export const ChildNodes = (props) => {
 					if (dataclick == true || dataclick == undefined) {
 						router.push(`/navigation/${children.props.children}`)
 					} else {
-						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
-						}
+						router.push(`/chapters/${children.props.children}`)
 					}
 				}}
 				data-click={dataclick}
@@ -159,7 +158,7 @@ export const ChildNodes = (props) => {
 					child_xy.textPositions &&
 					child_xy.nodePositions.map((pos, i) => {
 						const hasChildren = props.topLevel
-							? props.nodes[i].hasChildren
+							? props.hasChildren
 							: props.nodes[i].num_grandchild_nodes > 0
 							? true
 							: false
@@ -188,7 +187,6 @@ export const ChildNodes = (props) => {
 									? 'flex-end'
 									: 'center',
 						}
-						console.log(hasChildren)
 
 						return (
 							<React.Fragment key={i}>

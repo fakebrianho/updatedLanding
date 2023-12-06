@@ -39,20 +39,14 @@ export const Navigation = (props) => {
 			exit='out'
 			className='motionContainer'
 		>
-			<Cursor
-				hoverState={isHovered}
-				clickState={isClickable}
-				parentLicence={parentLicense}
-				topLevel={props.topLevel}
-			/>
+			<Cursor hoverState={isHovered} clickState={isClickable} />
 			<CentralNode title={props.title} topLevel={props.topLevel} />
 			<ChildNodes
 				nodes={props.child_nodes}
-				titles={props.title}
 				count={CHILD_NODES}
 				hoverTrigger={setIsHovered}
 				clickTrigger={setIsClickable}
-				parentLicense={setParentLicense}
+				parentLicense={parentLicense}
 				topLevel={props.topLevel}
 			/>
 		</motion.div>

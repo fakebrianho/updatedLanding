@@ -12,10 +12,11 @@ export const ChildNodes = (props) => {
 	const parentRadius =
 		centralCircleDiameter / 2 + parentNodeDiamater + radiusPadding
 	const [child_xy, setChild_xy] = useState([])
-	const router = useRouter()
+
 	useEffect(() => {
 		setChild_xy(positionNodes(props.count))
 	}, [props.count])
+	console.log('props', props)
 	useEffect(() => {
 		const observer = new MutationObserver((mutations) => {
 			mutations.forEach((mutation) => {
@@ -44,10 +45,14 @@ export const ChildNodes = (props) => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
 
 		elements.forEach((el) => {
+			console.log(el)
+
 			el.addEventListener('mouseover', () => {
+				// if (props.topLevel) {
 				if (el.getAttribute('data-click') === 'true') {
 					props.clickTrigger(true)
 				}
+
 				props.hoverTrigger(true)
 			})
 			el.addEventListener('mouseout', () => {
@@ -64,20 +69,15 @@ export const ChildNodes = (props) => {
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
 						router.push(`/navigation/${children.props.children}`)
-					} else {
-						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
-						}
 					}
 				}}
 				data-click={dataclick}
 			>
-				<div className='node_container' data-click={dataclick}>
+				<div className='node_container'>
 					<div
 						className={styles.child}
 						style={style}
 						data-cursor='pointer'
-						data-click={dataclick}
 					>
 						{children}
 					</div>
@@ -99,12 +99,11 @@ export const ChildNodes = (props) => {
 				}}
 				data-click={dataclick}
 			>
-				<div className='node_container' data-click={dataclick}>
+				<div className='node_container'>
 					<div
 						className={styles.parent}
 						style={style}
 						data-cursor='pointer'
-						data-click={dataclick}
 					>
 						<ChildNode>{children}</ChildNode>
 					</div>
@@ -159,7 +158,7 @@ export const ChildNodes = (props) => {
 					child_xy.textPositions &&
 					child_xy.nodePositions.map((pos, i) => {
 						const hasChildren = props.topLevel
-							? props.nodes[i].hasChildren
+							? props.hasChildren
 							: props.nodes[i].num_grandchild_nodes > 0
 							? true
 							: false
@@ -188,7 +187,6 @@ export const ChildNodes = (props) => {
 									? 'flex-end'
 									: 'center',
 						}
-						console.log(hasChildren)
 
 						return (
 							<React.Fragment key={i}>

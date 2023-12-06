@@ -37,7 +37,7 @@ function Cursor(props) {
 				if (props.topLevel) {
 					cursorText.current.innerHTML = 'WIP'
 				} else {
-					cursorText.current.innerHTML = 'READ'
+					cursorText.current.innerHTML = 'WIP'
 				}
 			}
 		} else {

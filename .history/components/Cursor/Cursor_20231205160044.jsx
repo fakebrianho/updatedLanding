@@ -34,18 +34,14 @@ function Cursor(props) {
 			if (props.clickState) {
 				cursorText.current.innerHTML = 'ENTER'
 			} else if (!props.clickState) {
-				if (props.topLevel) {
-					cursorText.current.innerHTML = 'WIP'
-				} else {
-					cursorText.current.innerHTML = 'READ'
-				}
+				cursorText.current.innerHTML = 'WIP'
 			}
 		} else {
 			cursor.current.classList.remove('hover-cursor')
 			cursorText.current.classList.remove('active')
 			cursorText.current.innerHTML = ''
 		}
-	}, [props.hoverState, props.clickState, props.parentLicense])
+	}, [props.hoverState, props.clickState])
 
 	useEffect(() => {
 		document.body.addEventListener('mousemove', onMouseMove)
