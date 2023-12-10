@@ -79,10 +79,10 @@ function sketch(p5) {
 	}
 	p5.draw = () => {
 		p5.background(0)
-		if (typeof window !== 'undefined') {
-			for (let i = 0; i < count; i++) {
-				balls[i].show()
-				balls[i].update()
+		for (let i = 0; i < count; i++) {
+			balls[i].show()
+			balls[i].update()
+			if (typeof window !== 'undefined') {
 				balls[i].checkBoundaries()
 			}
 		}
