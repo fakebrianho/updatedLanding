@@ -8,8 +8,6 @@ import gsap from 'gsap'
 import Developers from '../../../components/Developers/Developers'
 import ContactSection from '../../../components/ContactSection/ContactSection'
 // import { ReactP5Wrapper } from '@p5-wrapper/react'
-import dynamic from 'next/dynamic'
-
 const ReactP5Wrapper = dynamic(() => import('@p5-wrapper/react'), {
 	ssr: false, // Disable server-side rendering for this component
 })
@@ -180,9 +178,9 @@ export default function About() {
 			<div className='aboutContainer'>
 				<NavigationBar />
 				<AboutPage />
-				<div className='p5Container'>
-					{clientReady && <ReactP5Wrapper sketch={sketch} />}
-				</div>
+				{/* <div className='p5Container'> */}
+				{/* {clientReady && <ReactP5Wrapper sketch={sketch} />} */}
+				{/* </div> */}
 
 				<div className='wrap'>
 					<span className='arrow' ref={arrow}>
