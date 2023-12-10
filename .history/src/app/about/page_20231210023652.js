@@ -67,11 +67,7 @@ function sketch(p5) {
 		}
 	}
 	p5.setup = () => {
-		if (typeof window !== 'undefined') {
-			canvasWidth = window.innerWidth
-			canvasHeight = window.innerHeight
-		}
-		p5.createCanvas(canvasWidth, canvasHeight)
+		p5.createCanvas(window.innerWidth, window.innerHeight)
 		p5.noStroke()
 		for (let i = 0; i < count; i++) {
 			balls[i] = new Ball()

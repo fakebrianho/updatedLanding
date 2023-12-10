@@ -10,9 +10,6 @@ import ContactSection from '../../../components/ContactSection/ContactSection'
 function sketch(p5) {
 	let count = 20
 	let balls = []
-	let canvasWidth = 640 // default width
-	let canvasHeight = 480 // default height
-
 	class Ball {
 		constructor() {
 			this.position = [
@@ -67,11 +64,7 @@ function sketch(p5) {
 		}
 	}
 	p5.setup = () => {
-		if (typeof window !== 'undefined') {
-			canvasWidth = window.innerWidth
-			canvasHeight = window.innerHeight
-		}
-		p5.createCanvas(canvasWidth, canvasHeight)
+		p5.createCanvas(window.innerWidth, window.innerHeight)
 		p5.noStroke()
 		for (let i = 0; i < count; i++) {
 			balls[i] = new Ball()
@@ -85,10 +78,8 @@ function sketch(p5) {
 			balls[i].checkBoundaries()
 		}
 	}
-	p5.windowResized = () => {
-		if (typeof window !== 'undefined') {
-			p5.resizeCanvas(window.innerWidth, window.innerHeight)
-		}
+	if (typeof window !== 'undefined') {
+		p5.resizeCanvas(window.innerWidth, window.innerHeight)
 	}
 }
 
