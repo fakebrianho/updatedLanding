@@ -1,0 +1,34 @@
+.text {
+	position: relative;
+	font-family: var(--modern-font);
+	z-index: 2;
+}
+.bgImage {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	background-image: url('/images/1.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 16px;
+}
+
+.glass {
+	position: relative;
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.container {
+	position: relative;
+	/* height: 400px; */
+	/* width: 400px; */
+	/* width: max-content; */
+	/* height: max-content; */
+}

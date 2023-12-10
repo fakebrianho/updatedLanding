@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	/* justify-content: space-around; */
+	align-items: center;
+	flex-direction: column;
+	width: 100vw;
+	height: 100px;
+}
+
+.textContainer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}

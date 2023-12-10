@@ -1,0 +1,15 @@
+.container {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+}
+
+.header {
+	font-size: 16px;
+}
+
+.text {
+	font-size: 13px;
+}

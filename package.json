@@ -16,6 +16,8 @@
 		"@mui/icons-material": "^5.14.11",
 		"@mui/material": "^5.14.11",
 		"@mui/styled-engine-sc": "^5.14.11",
+		"@p5-wrapper/next": "^0.2.0",
+		"@p5-wrapper/react": "^4.3.0",
 		"@studio-freight/lenis": "^1.0.23",
 		"autoprefixer": "^10.4.15",
 		"aws4": "^1.12.0",

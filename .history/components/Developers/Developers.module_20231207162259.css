@@ -1,0 +1,21 @@
+.container {
+	/* display: flex; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	/* flex-direction: column; */
+	/* text-align: center; */
+	width: 100vw;
+	height: 100px;
+	padding: 15px;
+	/* gap: 5px */
+}
+
+.textContainer {
+	display: flex;
+	justify-content: space-around;
+	justify-content: center;
+	width: 100vw;
+	align-items: center;
+	gap: 90px;
+	/* flex-direction: column; */
+}

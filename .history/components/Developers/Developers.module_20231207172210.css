@@ -1,0 +1,71 @@
+/* .container {
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	height: 100px;
+	padding: 15px;
+	opacity: 0;
+} */
+
+.textContainer {
+	display: flex;
+	justify-content: space-around;
+	justify-content: center;
+	width: 100vw;
+	align-items: center;
+	gap: 20vw;
+}
+
+.textContainer p {
+	font-size: 12px;
+}
+.shimmer {
+	text-align: center;
+	background: linear-gradient(to right, #222 0%, #fff 50%, #222 100%);
+	background-size: 200% 100%;
+	background-clip: text;
+	animation: shimmer 4s infinite linear;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-repeat: no-repeat;
+}
+
+@keyframes shimmer {
+	0%,
+	100% {
+		background-position: -100% 0;
+	}
+	50% {
+		background-position: 100% 0;
+	}
+}
+
+/* @-webkit-keyframes shimmer {
+	0%,
+	100% {
+		background-position: top left;
+	}
+	50% {
+		background-position: top right;
+	}
+}
+
+@-moz-keyframes shimmer {
+	0%,
+	100% {
+		background-position: top left;
+	}
+	50% {
+		background-position: top right;
+	}
+}
+
+@-o-keyframes shimmer {
+	0%,
+	100% {
+		background-position: top left;
+	}
+	50% {
+		background-position: top right;
+	}
+} */
