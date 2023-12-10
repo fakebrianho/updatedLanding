@@ -3,17 +3,16 @@
 import AboutPage from '../../../components/AboutPage/AboutPage'
 import { NavigationBar } from '../../../components/NavigationBar'
 import { PageProvider } from '../../../context/pageContext'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import Developers from '../../../components/Developers/Developers'
 import ContactSection from '../../../components/ContactSection/ContactSection'
 import p5Sketch from '../../../components/p5Sketch/p5Sketch'
 import dynamic from 'next/dynamic'
-import { ReactP5Wrapper } from '@p5-wrapper/react'
 
-// const ReactP5Wrapper = dynamic(() => import('@p5-wrapper/react'), {
-// ssr: false, // Disable server-side rendering for this component
-// })
+const ReactP5Wrapper = dynamic(() => import('@p5-wrapper/react'), {
+	ssr: false, // Disable server-side rendering for this component
+})
 
 // const p5Sketch = dynamic(
 // 	() => import('../../../components/p5Sketch/p5Sketch'),
@@ -190,7 +189,8 @@ export default function About() {
 				<NavigationBar />
 				<AboutPage />
 				<div className='p5Container'>
-					{clientReady && <ReactP5Wrapper sketch={sketch} />}
+					{clientReady && <
+					<ReactP5Wrapper sketch={} />}
 				</div>
 
 				<div className='wrap'>
