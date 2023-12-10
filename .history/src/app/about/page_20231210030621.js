@@ -14,13 +14,6 @@ const ReactP5Wrapper = dynamic(() => import('@p5-wrapper/react'), {
 	ssr: false, // Disable server-side rendering for this component
 })
 
-const p5Sketch = dynamic(
-	() => import('../../../components/p5Sketch/p5Sketch'),
-	{
-		srr: false,
-	}
-)
-
 // function sketch(p5) {
 // 	let count = 20
 // 	let balls = []
