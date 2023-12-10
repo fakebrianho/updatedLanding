@@ -1,5 +1,5 @@
 'use client'
-// import { ReactP5Wrapper } from '@p5-wrapper/react'
+import { ReactP5Wrapper } from '@p5-wrapper/react'
 import AboutPage from '../../../components/AboutPage/AboutPage'
 import { NavigationBar } from '../../../components/NavigationBar'
 import { PageProvider } from '../../../context/pageContext'
@@ -10,10 +10,6 @@ import ContactSection from '../../../components/ContactSection/ContactSection'
 import p5Sketch from '../../../components/p5Sketch/p5Sketch'
 import dynamic from 'next/dynamic'
 
-const ReactP5Wrapper = dynamic(() => import('@p5-wrapper/react'), {
-	ssr: false, // Disable server-side rendering for this component
-  });
-  
 // function sketch(p5) {
 // 	let count = 20
 // 	let balls = []
