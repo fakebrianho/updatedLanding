@@ -138,12 +138,6 @@
 	transition-delay: 0.1s;
 	background-color: var(--white);
 }
-.animatedArrow:hover > .theArrow.left > .shaft.white:before,
-.animatedArrow:hover > .theArrow.left > .shaft.white:after {
-	width: var(--arrow-head-width);
-	transition-delay: 0.1s;
-	background-color: var(--black);
-}
 
 .animatedArrow:hover > .theArrow.left > .shaft:before {
 	transform: rotate(40deg);

@@ -12,9 +12,7 @@ export default function BackButton(props) {
 			<div className={styles.container}>
 				<div className={`${styles.animatedArrow} ${styles.white}`}>
 					<span className={`${styles.theArrow} ${styles.left}`}>
-						<span
-							className={`${styles.shaft} ${styles.white}`}
-						></span>
+						<span className={styles.shaft}></span>
 					</span>
 					<span className={styles.main}>
 						<span className={styles.text}>

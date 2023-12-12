@@ -10,32 +10,6 @@ export default function BackButton(props) {
 	if (props.white) {
 		return (
 			<div className={styles.container}>
-				<div className={`${styles.animatedArrow} ${styles.white}`}>
-					<span className={`${styles.theArrow} ${styles.left}`}>
-						<span
-							className={`${styles.shaft} ${styles.white}`}
-						></span>
-					</span>
-					<span className={styles.main}>
-						<span className={styles.text}>
-							{' '}
-							<button
-								onClick={goBack}
-								className={styles.backButton}
-							>
-								Back
-							</button>
-						</span>
-						<span className={`${styles.theArrow} ${styles.right}`}>
-							<span className={styles.shaft}></span>
-						</span>
-					</span>
-				</div>
-			</div>
-		)
-	} else {
-		return (
-			<div className={styles.container}>
 				<div className={styles.animatedArrow}>
 					<span className={`${styles.theArrow} ${styles.left}`}>
 						<span className={styles.shaft}></span>
@@ -58,4 +32,24 @@ export default function BackButton(props) {
 			</div>
 		)
 	}
+	return (
+		<div className={styles.container}>
+			<div className={styles.animatedArrow}>
+				<span className={`${styles.theArrow} ${styles.left}`}>
+					<span className={styles.shaft}></span>
+				</span>
+				<span className={styles.main}>
+					<span className={styles.text}>
+						{' '}
+						<button onClick={goBack} className={styles.backButton}>
+							Back
+						</button>
+					</span>
+					<span className={`${styles.theArrow} ${styles.right}`}>
+						<span className={styles.shaft}></span>
+					</span>
+				</span>
+			</div>
+		</div>
+	)
 }
