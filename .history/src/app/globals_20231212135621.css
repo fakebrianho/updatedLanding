@@ -40,12 +40,19 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+	/* background: #121212; */
+	/* height: 100%; */
+	/* font-family: 'Playfair Display', serif; */
+	/* font-size: 16px; */
+}
 :root {
 	--black: #666;
 	--white: #eaeaea;
 	--gray: #999;
 	--text-arrow-space: 16px;
-	--shaft-width: 44px;
+	--shaft-width: 64px;
 	--shaft-thickness: 1px;
 	--arrow-head-width: 8px;
 	--arrow-head-thickness: 1px;

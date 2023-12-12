@@ -56,8 +56,8 @@ export default function About() {
 
 	return (
 		<div className={styles.container}>
+			<BackButton />
 			<div className={styles.glass}>
-				<BackButton />
 				<p className={styles.text} ref={textRef}>
 					This is the passion project of Alexandre Dreyer. Part book,
 					part knowledge graph, part collaborative project, this is a

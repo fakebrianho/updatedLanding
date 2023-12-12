@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+// import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from '../../src/app/readingpage.module.css'
 import Grid from '@mui/material/Grid'
@@ -9,7 +10,6 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import getData from '../../api/getData'
 import usePage from '../../context/pageContext'
 import BackButton from '../../components/BackButton/BackButton'
-import { PageProvider } from '../../context/pageContext'
 
 function TableOfContentsItem(node) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -126,93 +126,91 @@ function TableOfContents() {
 	}, [])
 
 	return (
-		<PageProvider>
-			<>
-				<BackButton />
-				<main className={styles.tocMain}>
-					<h1 className={styles.titleText}>Table Of Contents</h1>
-					<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
-						<Grid
-							container
-							sx={{ flexDirection: { xs: 'column', sm: 'row' } }}
-							justifyContent={{ xs: 'center', sm: 'left' }}
-							rowSpacing={2}
-							columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-						>
-							{!isLoading &&
-								treeData.map((collection, id) => (
-									<TableOfContentsChapter
-										collection={collection}
-										key={id}
-									/>
-								))}
-						</Grid>
-					</Box>
-				</main>
+		<>
+			<BackButton />
+			<main className={styles.tocMain}>
+				<h1 className={styles.titleText}>Table Of Contents</h1>
+				<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
+					<Grid
+						container
+						sx={{ flexDirection: { xs: 'column', sm: 'row' } }}
+						justifyContent={{ xs: 'center', sm: 'left' }}
+						rowSpacing={2}
+						columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+					>
+						{!isLoading &&
+							treeData.map((collection, id) => (
+								<TableOfContentsChapter
+									collection={collection}
+									key={id}
+								/>
+							))}
+					</Grid>
+				</Box>
+			</main>
 
-				<style jsx local>
-					{`
-						main {
-							padding: 3rem 0;
-							flex: 1;
-							display: flex;
-							flex-direction: column;
-							justify-content: left;
-							align-items: left;
-							overflow-y: auto;
-							height: 90vh;
-						}
-					`}
-				</style>
+			<style jsx local>
+				{`
+					main {
+						padding: 3rem 0;
+						flex: 1;
+						display: flex;
+						flex-direction: column;
+						justify-content: left;
+						align-items: left;
+						overflow-y: auto;
+						height: 90vh;
+					}
+				`}
+			</style>
 
-				<style jsx global>
-					{`
-						html,
-						body {
-							background-color: white;
-							padding: 0;
-							margin: 0;
-							font-family: Optima;
-							// width: 100vw;
-							// height: 100vh;
-						}
-						* {
-							box-sizing: border-box;
-						}
+			<style jsx global>
+				{`
+					html,
+					body {
+						background-color: white;
+						padding: 0;
+						margin: 0;
+						font-family: Optima;
+						// width: 100vw;
+						// height: 100vh;
+					}
+					* {
+						box-sizing: border-box;
+					}
 
-						h1,
-						h2 {
-							font-family: IMFellEnglish;
-							// font-family: bluu;
-							text-transform: uppercase;
-						}
+					h1,
+					h2 {
+						font-family: IMFellEnglish;
+						// font-family: bluu;
+						text-transform: uppercase;
+					}
 
-						h3 {
-							color: #3176c7;
-							text-transform: capitalize;
-						}
+					h3 {
+						color: #3176c7;
+						text-transform: capitalize;
+					}
 
-						ul li {
-							list-style-type: none;
-							text-decoration: none;
-							display: block;
-							margin-right: 1rem;
-							font-size: 1rem;
-						}
+					ul li {
+						list-style-type: none;
+						text-decoration: none;
+						display: block;
+						margin-right: 1rem;
+						font-size: 1rem;
+					}
 
-						a {
-							text-decoration: none;
-							color: grey;
-						}
+					a {
+						text-decoration: none;
+						color: grey;
+					}
 
-						ul {
-							padding: 0;
-							margin: 0;
-						}
-					`}
-				</style>
-			</>
-		</PageProvider>
+					ul {
+						padding: 0;
+						margin: 0;
+					}
+				`}
+			</style>
+		</>
 	)
 }
 

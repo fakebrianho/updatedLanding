@@ -126,93 +126,94 @@ function TableOfContents() {
 	}, [])
 
 	return (
-		<PageProvider>
-			<>
-				<BackButton />
-				<main className={styles.tocMain}>
-					<h1 className={styles.titleText}>Table Of Contents</h1>
-					<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
-						<Grid
-							container
-							sx={{ flexDirection: { xs: 'column', sm: 'row' } }}
-							justifyContent={{ xs: 'center', sm: 'left' }}
-							rowSpacing={2}
-							columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-						>
-							{!isLoading &&
-								treeData.map((collection, id) => (
-									<TableOfContentsChapter
-										collection={collection}
-										key={id}
-									/>
-								))}
-						</Grid>
-					</Box>
-				</main>
 
-				<style jsx local>
-					{`
-						main {
-							padding: 3rem 0;
-							flex: 1;
-							display: flex;
-							flex-direction: column;
-							justify-content: left;
-							align-items: left;
-							overflow-y: auto;
-							height: 90vh;
-						}
-					`}
-				</style>
+		// <>
+		<PageProvider/>
+			<BackButton />
+			<main className={styles.tocMain}>
+				<h1 className={styles.titleText}>Table Of Contents</h1>
+				<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
+					<Grid
+						container
+						sx={{ flexDirection: { xs: 'column', sm: 'row' } }}
+						justifyContent={{ xs: 'center', sm: 'left' }}
+						rowSpacing={2}
+						columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+					>
+						{!isLoading &&
+							treeData.map((collection, id) => (
+								<TableOfContentsChapter
+									collection={collection}
+									key={id}
+								/>
+							))}
+					</Grid>
+				</Box>
+			</main>
 
-				<style jsx global>
-					{`
-						html,
-						body {
-							background-color: white;
-							padding: 0;
-							margin: 0;
-							font-family: Optima;
-							// width: 100vw;
-							// height: 100vh;
-						}
-						* {
-							box-sizing: border-box;
-						}
+			<style jsx local>
+				{`
+					main {
+						padding: 3rem 0;
+						flex: 1;
+						display: flex;
+						flex-direction: column;
+						justify-content: left;
+						align-items: left;
+						overflow-y: auto;
+						height: 90vh;
+					}
+				`}
+			</style>
 
-						h1,
-						h2 {
-							font-family: IMFellEnglish;
-							// font-family: bluu;
-							text-transform: uppercase;
-						}
+			<style jsx global>
+				{`
+					html,
+					body {
+						background-color: white;
+						padding: 0;
+						margin: 0;
+						font-family: Optima;
+						// width: 100vw;
+						// height: 100vh;
+					}
+					* {
+						box-sizing: border-box;
+					}
 
-						h3 {
-							color: #3176c7;
-							text-transform: capitalize;
-						}
+					h1,
+					h2 {
+						font-family: IMFellEnglish;
+						// font-family: bluu;
+						text-transform: uppercase;
+					}
 
-						ul li {
-							list-style-type: none;
-							text-decoration: none;
-							display: block;
-							margin-right: 1rem;
-							font-size: 1rem;
-						}
+					h3 {
+						color: #3176c7;
+						text-transform: capitalize;
+					}
 
-						a {
-							text-decoration: none;
-							color: grey;
-						}
+					ul li {
+						list-style-type: none;
+						text-decoration: none;
+						display: block;
+						margin-right: 1rem;
+						font-size: 1rem;
+					}
 
-						ul {
-							padding: 0;
-							margin: 0;
-						}
-					`}
-				</style>
-			</>
-		</PageProvider>
+					a {
+						text-decoration: none;
+						color: grey;
+					}
+
+					ul {
+						padding: 0;
+						margin: 0;
+					}
+				`}
+			</style>
+		// </>
+		<PageProvider/>
 	)
 }
 

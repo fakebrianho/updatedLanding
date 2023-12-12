@@ -1,0 +1,118 @@
+/* Variables */
+:root {
+    --black: #666;
+    --white: #eaeaea;
+    --gray: #999;
+    --text-arrow-space: 16px;
+    --shaft-width: 64px;
+    --shaft-thickness: 1px;
+    --arrow-head-width: 8px;
+    --arrow-head-thickness: 1px;
+  }
+  
+  /* Base */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html,
+  body {
+    background: #121212;
+    height: 100%;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  ul li {
+    margin: 0 0 24px;
+  }
+  
+  /* The Arrow */
+  .the-arrow {
+    width: var(--shaft-width);
+    transition: all 0.2s;
+  }
+  
+  .the-arrow.-left {
+    position: absolute;
+    top: 60%;
+    left: 0;
+  }
+  
+  .the-arrow.-left > .shaft {
+    width: 0;
+    background-color: var(--gray);
+  }
+  
+  .the-arrow.-left > .shaft:before,
+  .the-arrow.-left > .shaft:after {
+    width: 0;
+    background-color: var(--gray);
+  }
+  
+  .the-arrow.-left > .shaft:before {
+    transform: rotate(0);
+  }
+  
+  .the-arrow.-left > .shaft:after {
+    transform: rotate(0);
+  }
+  
+  .the-arrow.-right {
+    top: 3px;
+  }
+  
+  .the-arrow.-right > .shaft {
+    width: var(--shaft-width);
+    transition-delay: 0.2s;
+  }
+  
+  .the-arrow.-right > .shaft:before,
+  .the-arrow.-right > .shaft:after {
+    width: var(--arrow-head-width);
+    transition-delay: 0.3s;
+    transition: all 0.5s;
+  }
+  
+  .the-arrow.-right > .shaft:before {
+    transform: rotate(40deg);
+  }
+  
+  .the-arrow.-right > .shaft:after {
+    transform: rotate(-40deg);
+  }
+  
+  .the-arrow > .shaft {
+    background-color: var(--gray);
+    display: block;
+    height: var(--shaft-thickness);
+    position: relative;
+    transition: all 0.2s;
+    transition-delay: 0;
+    will-change: transform;
+  }
+  
+  .the-arrow > .shaft:before,
+  .the-arrow > .shaft:after {
+    background-color: var(--gray);
+    content: '';
+    display: block;
+    height: var(--arrow-head-thickness);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.2s;
+    transition-delay: 0;
+  }
+  
+  .the-arrow > .shaft:before {
+   
+  

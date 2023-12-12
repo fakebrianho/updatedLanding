@@ -41,17 +41,15 @@ export default function NavBarFull(props) {
 					>
 						<p onClick={() => router.push('/about')}>About</p>
 					</div>
-					<div
+					{/* <div
 						className={
 							props.color === 'white'
 								? styles.navItemWhite
 								: styles.navItem
 						}
 					>
-						<p onClick={() => router.push('/baseNavigation')}>
-							Navigate
-						</p>
-					</div>
+						<p onClick={() => router.push('/contact')}>Contact</p>
+					</div> */}
 					<div
 						className={
 							props.color === 'white'

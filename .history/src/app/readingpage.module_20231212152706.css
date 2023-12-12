@@ -40,9 +40,6 @@
 	font-family: var(--modern-font);
 	color: #ff8618;
 }
-.tocMain {
-	margin-top: 7vh;
-}
 
 .container {
 	min-height: 100vh;
@@ -50,7 +47,7 @@
 	/* margin-right: 2%; */
 	padding: 1em 15rem;
 	background-color: white;
-	/* margin-top: 7vh; */
+	margin-top: 7vh;
 	position: relative;
 }
 

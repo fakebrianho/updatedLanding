@@ -8,7 +8,7 @@ import usePage from '../../context/pageContext'
 import { motion } from 'framer-motion'
 import { Cursor } from '../Cursor/Cursor'
 import { useState } from 'react'
-import BackButton from '../../components/BackButton/BackButton'
+import { BackButton } from '../../components/BackButton/BackButton'
 
 const pageTransition = {
 	out: {
@@ -41,7 +41,6 @@ export const Navigation = (props) => {
 			exit='out'
 			className='motionContainer'
 		>
-			<BackButton />
 			<Cursor
 				hoverState={isHovered}
 				clickState={isClickable}
