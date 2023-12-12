@@ -6,12 +6,11 @@
 
 .text {
 	font-family: var(--modern-font);
-	font-size: 14px;
+	font-size: 13px;
 	margin: 1.5vh 0;
 }
 
 .text a {
-	font-family: var(--modern-font);
 	color: rgb(49, 118, 199);
 	text-decoration: underline;
 	cursor: pointer;

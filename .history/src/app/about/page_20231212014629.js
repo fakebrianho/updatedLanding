@@ -112,6 +112,7 @@ export default function About() {
 			LRArrowElement.classList.toggle('active')
 			if (LRArrowElement.classList.contains('active')) {
 				if (arrowElement.classList.contains('active')) {
+					console.log('hiiii')
 					gsap.to('.aboutContainer', {
 						bottom: '0px',
 						duration: 1,

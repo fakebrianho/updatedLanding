@@ -122,17 +122,18 @@ export default function About() {
 						duration: 1,
 						ease: 'power1.out',
 					})
+				} else {
+					gsap.to('.aboutContainer', {
+						right: '300px',
+						duration: 1,
+						ease: 'power1.out',
+					})
+					gsap.to('.contactContainer', {
+						opacity: 1,
+						duration: 1,
+						ease: 'power1.out',
+					})
 				}
-				gsap.to('.aboutContainer', {
-					right: '300px',
-					duration: 1,
-					ease: 'power1.out',
-				})
-				gsap.to('.contactContainer', {
-					opacity: 1,
-					duration: 1,
-					ease: 'power1.out',
-				})
 			} else {
 				gsap.to('.aboutContainer', {
 					right: '0px',

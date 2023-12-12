@@ -53,11 +53,11 @@
 
 @media screen and (max-width: 500px) {
 	.glass {
-		padding: 50px;
+		padding: 30px;
 	}
 	.text {
 		text-align: center;
 		font-size: 12px;
-		letter-spacing: 2px;
+		letter-spacing: 5px;
 	}
 }

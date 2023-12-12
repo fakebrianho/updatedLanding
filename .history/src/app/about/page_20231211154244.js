@@ -1,6 +1,4 @@
 'use client'
-// import { ReactP5Wrapper } from '@p5-wrapper/react'
-import AboutPage from '../../../components/AboutPage/AboutPage'
 import { NavigationBar } from '../../../components/NavigationBar'
 import { PageProvider } from '../../../context/pageContext'
 import { useRef, useEffect, useState } from 'react'
@@ -8,6 +6,12 @@ import gsap from 'gsap'
 import Developers from '../../../components/Developers/Developers'
 import ContactSection from '../../../components/ContactSection/ContactSection'
 import dynamic from 'next/dynamic'
+import {
+	BrowserView,
+	MobileView,
+	isBrowser,
+	isMobile,
+} from 'react-device-detect'
 
 const ReactP5Wrapper = dynamic(
 	() => import('@p5-wrapper/react').then((mod) => mod.ReactP5Wrapper),
@@ -111,18 +115,6 @@ export default function About() {
 		const toggleContact = () => {
 			LRArrowElement.classList.toggle('active')
 			if (LRArrowElement.classList.contains('active')) {
-				if (arrowElement.classList.contains('active')) {
-					gsap.to('.aboutContainer', {
-						bottom: '0px',
-						duration: 1,
-						ease: 'power1.out',
-					})
-					gsap.to('.dev_container', {
-						opacity: 0,
-						duration: 1,
-						ease: 'power1.out',
-					})
-				}
 				gsap.to('.aboutContainer', {
 					right: '300px',
 					duration: 1,
@@ -149,18 +141,6 @@ export default function About() {
 		const toggleActiveClass = () => {
 			arrowElement.classList.toggle('active')
 			if (arrowElement.classList.contains('active')) {
-				if (LRArrowElement.classList.contains('active')) {
-					gsap.to('.aboutContainer', {
-						right: '0px',
-						duration: 1,
-						ease: 'power1.out',
-					})
-					gsap.to('.contactContainer', {
-						opacity: 0,
-						duration: 1,
-						ease: 'power1.out',
-					})
-				}
 				gsap.to('.aboutContainer', {
 					bottom: '100px',
 					duration: 1,

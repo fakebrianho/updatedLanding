@@ -20,6 +20,9 @@
 	font-size: 12px;
 }
 
+.header {
+	margin-bottom: 20px;
+}
 .shimmer {
 	text-align: center;
 	color: rgba(255, 255, 255, 0.1);
@@ -110,10 +113,5 @@
 @media screen and (max-width: 500px) {
 	.textContainer {
 		width: max-content;
-		gap: 15vw;
-	}
-	.header {
-		font-size: 15px;
-		margin-bottom: 10px;
 	}
 }

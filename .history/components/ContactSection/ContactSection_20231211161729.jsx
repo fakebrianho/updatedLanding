@@ -4,7 +4,7 @@ export default function ContactSection() {
 	const renderContent = () => {
 		if (isMobile) {
 			return (
-				<div className='contactContainerMobile'>
+				<div className='contactContainer'>
 					<h1 className={styles.header}>
 						You can drop the author a line at the address below:
 					</h1>

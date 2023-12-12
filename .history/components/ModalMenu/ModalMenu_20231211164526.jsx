@@ -3,11 +3,9 @@ import { MagicContainer } from '../magicui/magic-card'
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import usePage from '../../context/pageContext'
-import LinearGradient from '../magicui/linear-gradient'
 import { useRouter } from 'next/navigation'
 export default function ModalMenu(props) {
 	const modal = useRef()
-	const mContainer = useRef()
 	const { toggleScrolling, lenis } = usePage()
 	const router = useRouter()
 	const scrollToSubscribeSection = () => {
@@ -25,10 +23,7 @@ export default function ModalMenu(props) {
 		gsap.killTweensOf(modalElement) // Terminate any ongoing animations
 
 		if (props.isOpen) {
-			gsap.to('.modalContainer', {
-				zIndex: 2001,
-				duration: 0,
-			})
+			// Animate in
 			gsap.fromTo(
 				modalElement,
 				{
@@ -46,10 +41,6 @@ export default function ModalMenu(props) {
 			)
 			// toggleScrolling(false) // <-- Disable scrolling when the modal opens
 		} else {
-			gsap.to('.modalContainer', {
-				zIndex: 0,
-				duration: 0,
-			})
 			// Animate out
 			gsap.to(modalElement, {
 				duration: 0.5, // Animation duration (in seconds)
@@ -68,7 +59,6 @@ export default function ModalMenu(props) {
 	return (
 		<MagicContainer
 			borderWidth={3}
-			ref={mContainer}
 			className={
 				'fixed top-0 left-0 w-full h-full flex items-center justify-center z-2001 pointer-events-auto modalContainer'
 			}
@@ -78,12 +68,7 @@ export default function ModalMenu(props) {
 				className='w-full flex flex-col items-center justify-center p-20 shadow-2xl menu z-2050 modal pointer-events-auto'
 				ref={modal}
 			>
-				<LinearGradient
-					from={'#000000'}
-					to={'rgba(120,119,198, 0.7'}
-					transitionPoint={'85%'}
-				/>{' '}
-				<LinearGradient /> <LinearGradient /> <LinearGradient />{' '}
+				{' '}
 				<ol className='z-10 whitespace-nowrap text-3xl font-medium relative text-white-800 dark:text-white-200 modalList'>
 					<li>
 						<div>About</div>

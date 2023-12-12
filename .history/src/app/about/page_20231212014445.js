@@ -111,18 +111,6 @@ export default function About() {
 		const toggleContact = () => {
 			LRArrowElement.classList.toggle('active')
 			if (LRArrowElement.classList.contains('active')) {
-				if (arrowElement.classList.contains('active')) {
-					gsap.to('.aboutContainer', {
-						bottom: '0px',
-						duration: 1,
-						ease: 'power1.out',
-					})
-					gsap.to('.dev_container', {
-						opacity: 0,
-						duration: 1,
-						ease: 'power1.out',
-					})
-				}
 				gsap.to('.aboutContainer', {
 					right: '300px',
 					duration: 1,

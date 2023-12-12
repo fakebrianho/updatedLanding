@@ -2099,7 +2099,6 @@ a {
 	/* border: 2px solid red; */
 }
 .modalContainer {
-	/* background-color: chocolate; */
 	/* z-index: 2001 !important; */
 }
 
@@ -2361,14 +2360,8 @@ a {
 	align-items: center;
 }
 @media screen and (max-width: 430px) {
-	.dev_container {
-		display: flex;
-		/* justify-content: center; */
-		flex-direction: column;
-		align-items: center;
-	}
 	.contact {
-		right: 20px;
+		right: 0px;
 	}
 	body {
 		padding-top: 0px;

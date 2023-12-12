@@ -111,18 +111,6 @@ export default function About() {
 		const toggleContact = () => {
 			LRArrowElement.classList.toggle('active')
 			if (LRArrowElement.classList.contains('active')) {
-				if (arrowElement.classList.contains('active')) {
-					gsap.to('.aboutContainer', {
-						bottom: '0px',
-						duration: 1,
-						ease: 'power1.out',
-					})
-					gsap.to('.dev_container', {
-						opacity: 0,
-						duration: 1,
-						ease: 'power1.out',
-					})
-				}
 				gsap.to('.aboutContainer', {
 					right: '300px',
 					duration: 1,
@@ -149,18 +137,6 @@ export default function About() {
 		const toggleActiveClass = () => {
 			arrowElement.classList.toggle('active')
 			if (arrowElement.classList.contains('active')) {
-				if (LRArrowElement.classList.contains('active')) {
-					gsap.to('.aboutContainer', {
-						right: '0px',
-						duration: 1,
-						ease: 'power1.out',
-					})
-					gsap.to('.contactContainer', {
-						opacity: 0,
-						duration: 1,
-						ease: 'power1.out',
-					})
-				}
 				gsap.to('.aboutContainer', {
 					bottom: '100px',
 					duration: 1,

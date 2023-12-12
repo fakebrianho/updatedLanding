@@ -859,6 +859,184 @@ a {
 	}
 }
 
+@media screen and (max-width: 430px) {
+	body {
+		padding-top: 0px;
+	}
+	.navbar {
+		height: 100px;
+	}
+	.nav_logo .logo {
+		height: 45px;
+		width: 45px;
+	}
+	.nav_menu {
+		width: 90px;
+		height: 90px;
+	}
+	.hero_content .landing_title {
+		font-size: 32px;
+	}
+	.circle_container {
+		width: 200px;
+		height: 200px;
+		top: 120px;
+		left: 80%;
+	}
+	.blue_gradient {
+		width: 130px;
+		height: 130px;
+	}
+	.hero_section {
+		right: 17vw;
+		left: 0;
+	}
+	.circle_orange_halo {
+		width: 15px;
+		height: 15px;
+	}
+	.circle_small_orange {
+		width: 5px;
+		height: 5px;
+	}
+	.landing_text.landing_intro {
+		margin-top: 0px;
+		padding-top: 0px;
+		font-size: 18px;
+		padding-bottom: 40px;
+	}
+	.landing_text.landing_end {
+		font-size: 18px;
+		width: 87%;
+	}
+	.work_in_progress .title {
+		font-size: 32px;
+		right: 0rem;
+		/* margin-top: 30px; */
+		width: max-content;
+	}
+	.text {
+		font-size: 18px;
+	}
+	.work_in_progress .text {
+		left: 0;
+		width: 100%;
+	}
+	.description {
+		margin-top: 8.5rem;
+		margin-bottom: 3rem;
+		padding-top: 25px;
+		padding-right: 2.5rem;
+		padding-left: 2.5rem;
+		height: max-content;
+	}
+
+	.hero_section {
+		top: 100px;
+		height: calc(70vh);
+	}
+	#circle_1 {
+		left: 10%;
+	}
+	#circle_3 {
+		left: 19%;
+	}
+	#circle_14 {
+		position: absolute;
+		top: -1rem;
+		left: 8rem;
+	}
+
+	.work_in_progress {
+		top: -20px;
+	}
+
+	.web_of_uncertainty .title {
+		font-size: 32px;
+		width: 100vw;
+		letter-spacing: 4px;
+		line-height: 50px;
+	}
+	.description.trivial_uncertainty {
+		margin-top: 2.5rem;
+	}
+	.description.shape_uncertainty {
+		margin-top: 3.5rem;
+	}
+	.shape_uncertainty .text {
+		width: 85%;
+		right: 0;
+	}
+	.shape_uncertainty .title {
+		width: 100%;
+		left: 0;
+	}
+	.shape_uncertainty {
+		margin-bottom: 0;
+	}
+	.exploring_uncertainty.description {
+		margin-top: 4rem;
+	}
+	.exploring_uncertainty .title {
+		font-size: 32px;
+	}
+	.tangible_abstract .text.left {
+		right: 3rem;
+	}
+	.tangible_abstract .text.right {
+		left: 4.5rem;
+	}
+	.explanation .title {
+		font-size: 32px;
+	}
+	.card {
+		width: 100%;
+		height: 200px;
+		gap: 0;
+	}
+	.txt {
+		/* padding-top: 20px; */
+		font-size: 18px;
+	}
+	.explanation {
+		height: max-content;
+		padding-bottom: 50px;
+	}
+
+	.explainer {
+		max-width: 100%;
+	}
+	.enterButtonContainer {
+		height: max-content;
+	}
+	body {
+		/* height: 650vh; */
+	}
+	#circle_5 {
+		top: -2rem;
+		right: 18rem;
+	}
+	#circle_6 {
+		top: 36rem;
+		left: 2rem;
+	}
+	#circle_7 {
+		top: 39.5rem;
+		left: 6.5rem;
+	}
+	#circle_13 {
+		bottom: -11rem;
+		right: 2rem;
+	}
+	.exploring_uncertainty.description {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+	.tangible_abstract.description {
+		margin-top: 0;
+		padding-top: 0;
+	}
+}
 .all {
 	overflow: auto !important;
 	color: black;
@@ -2099,8 +2277,7 @@ a {
 	/* border: 2px solid red; */
 }
 .modalContainer {
-	/* background-color: chocolate; */
-	/* z-index: 2001 !important; */
+	z-index: 2001 !important;
 }
 
 .modal {
@@ -2340,6 +2517,7 @@ a {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
+	/* margin: 20px; */
 	padding: 40px;
 	text-align: end;
 	position: fixed;
@@ -2350,7 +2528,6 @@ a {
 }
 .contactContainerMobile {
 	position: absolute;
-	background-color: red;
 	top: 0;
 	left: 0;
 	width: 100vw;
@@ -2359,194 +2536,4 @@ a {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-@media screen and (max-width: 430px) {
-	.dev_container {
-		display: flex;
-		/* justify-content: center; */
-		flex-direction: column;
-		align-items: center;
-	}
-	.contact {
-		right: 20px;
-	}
-	body {
-		padding-top: 0px;
-	}
-	.navbar {
-		height: 100px;
-	}
-	.nav_logo .logo {
-		height: 45px;
-		width: 45px;
-	}
-	.nav_menu {
-		width: 90px;
-		height: 90px;
-	}
-	.hero_content .landing_title {
-		font-size: 32px;
-	}
-	.circle_container {
-		width: 200px;
-		height: 200px;
-		top: 120px;
-		left: 80%;
-	}
-	.blue_gradient {
-		width: 130px;
-		height: 130px;
-	}
-	.hero_section {
-		right: 17vw;
-		left: 0;
-	}
-	.circle_orange_halo {
-		width: 15px;
-		height: 15px;
-	}
-	.circle_small_orange {
-		width: 5px;
-		height: 5px;
-	}
-	.landing_text.landing_intro {
-		margin-top: 0px;
-		padding-top: 0px;
-		font-size: 18px;
-		padding-bottom: 40px;
-	}
-	.landing_text.landing_end {
-		font-size: 18px;
-		width: 87%;
-	}
-	.work_in_progress .title {
-		font-size: 32px;
-		right: 0rem;
-		/* margin-top: 30px; */
-		width: max-content;
-	}
-	.text {
-		font-size: 18px;
-	}
-	.work_in_progress .text {
-		left: 0;
-		width: 100%;
-	}
-	.description {
-		margin-top: 8.5rem;
-		margin-bottom: 3rem;
-		padding-top: 25px;
-		padding-right: 2.5rem;
-		padding-left: 2.5rem;
-		height: max-content;
-	}
-
-	.hero_section {
-		top: 100px;
-		height: calc(70vh);
-	}
-	#circle_1 {
-		left: 10%;
-	}
-	#circle_3 {
-		left: 19%;
-	}
-	#circle_14 {
-		position: absolute;
-		top: -1rem;
-		left: 8rem;
-	}
-
-	.work_in_progress {
-		top: -20px;
-	}
-
-	.web_of_uncertainty .title {
-		font-size: 32px;
-		width: 100vw;
-		letter-spacing: 4px;
-		line-height: 50px;
-	}
-	.description.trivial_uncertainty {
-		margin-top: 2.5rem;
-	}
-	.description.shape_uncertainty {
-		margin-top: 3.5rem;
-	}
-	.shape_uncertainty .text {
-		width: 85%;
-		right: 0;
-	}
-	.shape_uncertainty .title {
-		width: 100%;
-		left: 0;
-	}
-	.shape_uncertainty {
-		margin-bottom: 0;
-	}
-	.exploring_uncertainty.description {
-		margin-top: 4rem;
-	}
-	.exploring_uncertainty .title {
-		font-size: 32px;
-	}
-	.tangible_abstract .text.left {
-		right: 3rem;
-	}
-	.tangible_abstract .text.right {
-		left: 4.5rem;
-	}
-	.explanation .title {
-		font-size: 32px;
-	}
-	.card {
-		width: 100%;
-		height: 200px;
-		gap: 0;
-	}
-	.txt {
-		/* padding-top: 20px; */
-		font-size: 18px;
-	}
-	.explanation {
-		height: max-content;
-		padding-bottom: 50px;
-	}
-
-	.explainer {
-		max-width: 100%;
-	}
-	.enterButtonContainer {
-		height: max-content;
-	}
-	body {
-		/* height: 650vh; */
-	}
-	#circle_5 {
-		top: -2rem;
-		right: 18rem;
-	}
-	#circle_6 {
-		top: 36rem;
-		left: 2rem;
-	}
-	#circle_7 {
-		top: 39.5rem;
-		left: 6.5rem;
-	}
-	#circle_13 {
-		bottom: -11rem;
-		right: 2rem;
-	}
-	.exploring_uncertainty.description {
-		margin-bottom: 0;
-		padding-bottom: 0;
-	}
-	.tangible_abstract.description {
-		margin-top: 0;
-		padding-top: 0;
-	}
-	.arrowlr {
-		width: 0px;
-	}
 }
