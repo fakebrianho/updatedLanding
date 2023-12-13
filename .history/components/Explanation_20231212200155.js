@@ -104,7 +104,11 @@ export const Explanation = () => {
 								reading&quot; button. Click here and you start
 								at the beginning.
 							</p>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 1.0'}
+								transitionPoint={'50%'}
+							/>
 						</div>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Start Reading

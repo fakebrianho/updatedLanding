@@ -245,7 +245,11 @@ export const Explanation = () => {
 							ref={tocReading}
 							onClick={() => toggleVisibility(5)}
 						>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								The ToC lists all nodes in sequence. This is the
 								order in which pages are displayed when using

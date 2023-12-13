@@ -78,7 +78,6 @@ export default function ModalMenu(props) {
 				className='w-full flex flex-col items-center justify-center p-20 shadow-2xl menu z-2050 modal pointer-events-auto'
 				ref={modal}
 			>
-				{/* 00000000, 50%, rgba(120,119,198,1 */}
 				<LinearGradient
 					from={'#000000'}
 					to={'rgba(120,119,198, 0.7'}

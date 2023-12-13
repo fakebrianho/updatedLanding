@@ -99,12 +99,16 @@ export const Explanation = () => {
 							ref={startingReading}
 							onClick={() => toggleVisibility(0)}
 						>
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								The easiest way to start is the &quot;Start
 								reading&quot; button. Click here and you start
 								at the beginning.
 							</p>
-							<LinearGradient />
 						</div>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Start Reading
@@ -129,7 +133,11 @@ export const Explanation = () => {
 							ref={readingLayout}
 							onClick={() => toggleVisibility(1)}
 						>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								A clean layout for distraction-free reading.
 								Just hit &quot;Next&quot; to flip to the next
@@ -158,7 +166,11 @@ export const Explanation = () => {
 							ref={marginaliaReading}
 							onClick={() => toggleVisibility(2)}
 						>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								You can collaborate on this book by submitting
 								your thoughts on the topic discussed on each
@@ -188,7 +200,11 @@ export const Explanation = () => {
 							ref={menuReading}
 							onClick={() => toggleVisibility(3)}
 						>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								At any time, you can access the table of
 								contents, knowledge graph navigation, contact,
@@ -215,7 +231,11 @@ export const Explanation = () => {
 							ref={graphReading}
 							onClick={() => toggleVisibility(4)}
 						>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								This is the fractal structure of page nodes that
 								make up the book. You enter at the center and
@@ -245,7 +265,11 @@ export const Explanation = () => {
 							ref={tocReading}
 							onClick={() => toggleVisibility(5)}
 						>
-							<LinearGradient />
+							<LinearGradient
+								from={'#000000'}
+								to={'rgba(120,119,198, 0.7'}
+								transitionPoint={'85%'}
+							/>
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								The ToC lists all nodes in sequence. This is the
 								order in which pages are displayed when using

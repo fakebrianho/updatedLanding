@@ -99,12 +99,12 @@ export const Explanation = () => {
 							ref={startingReading}
 							onClick={() => toggleVisibility(0)}
 						>
+							<LinearGradient />
 							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								The easiest way to start is the &quot;Start
 								reading&quot; button. Click here and you start
 								at the beginning.
 							</p>
-							<LinearGradient />
 						</div>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Start Reading

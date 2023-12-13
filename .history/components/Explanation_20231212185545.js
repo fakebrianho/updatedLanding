@@ -99,12 +99,12 @@ export const Explanation = () => {
 							ref={startingReading}
 							onClick={() => toggleVisibility(0)}
 						>
-							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
+							<LinearGradient />
+							<p className='z-2001 text-xl font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								The easiest way to start is the &quot;Start
 								reading&quot; button. Click here and you start
 								at the beginning.
 							</p>
-							<LinearGradient />
 						</div>
 						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Start Reading
@@ -130,7 +130,7 @@ export const Explanation = () => {
 							onClick={() => toggleVisibility(1)}
 						>
 							<LinearGradient />
-							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
+							<p className='z-2001 text-xl font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								A clean layout for distraction-free reading.
 								Just hit &quot;Next&quot; to flip to the next
 								page. At the bottom of the page, you can add
@@ -159,7 +159,7 @@ export const Explanation = () => {
 							onClick={() => toggleVisibility(2)}
 						>
 							<LinearGradient />
-							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
+							<p className='z-2001 text-xl font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								You can collaborate on this book by submitting
 								your thoughts on the topic discussed on each
 								page. Just add your name, and contribute in a
@@ -189,7 +189,7 @@ export const Explanation = () => {
 							onClick={() => toggleVisibility(3)}
 						>
 							<LinearGradient />
-							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
+							<p className='z-2001 text-xl font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								At any time, you can access the table of
 								contents, knowledge graph navigation, contact,
 								and about page from the menu on the top right.
@@ -216,7 +216,7 @@ export const Explanation = () => {
 							onClick={() => toggleVisibility(4)}
 						>
 							<LinearGradient />
-							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
+							<p className='z-2001 text-xl font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								This is the fractal structure of page nodes that
 								make up the book. You enter at the center and
 								explore branches by opening nodes and
@@ -246,7 +246,7 @@ export const Explanation = () => {
 							onClick={() => toggleVisibility(5)}
 						>
 							<LinearGradient />
-							<p className='z-2001 font-medium text-white-800 dark:text-white-200 txt exp-text'>
+							<p className='z-2001 text-xl font-medium text-white-800 dark:text-white-200 txt exp-text'>
 								The ToC lists all nodes in sequence. This is the
 								order in which pages are displayed when using
 								the &quot;Next&quot; buttons in the reading
