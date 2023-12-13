@@ -1,0 +1,33 @@
+/* .container {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} */
+.gradient {
+	z-index: 30;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at bottom left,
+		rgba(49, 118, 199, 1) 0%,
+		rgba(49, 118, 199, 1) 40%,
+		rgba(255, 140, 36, 1) 100%
+	);
+}
+
+.gradient.mobile {
+	width: 150px;
+	height: 150px;
+	
