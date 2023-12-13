@@ -2,54 +2,113 @@ import { useState, useEffect } from 'react'
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import styles from './ChildNodes.module.css'
+import { isMobile } from 'react-device-detect'
 export const ChildNodes = (props) => {
-	const centralCircleDiameter = 300
+	const centralCircleDiameter = isMobile ? 300 : 150
 	const childNodeDiameter = 15
 	const parentNodeDiamater = 45
 	const radiusPadding = 100 // Adjust this to your needs
 	const radius = centralCircleDiameter / 2 + childNodeDiameter + radiusPadding
 	const parentRadius =
 		centralCircleDiameter / 2 + parentNodeDiamater + radiusPadding
-	// const radius = (centralCircleDiameter + childNodeDiameter) / 2
 	const [child_xy, setChild_xy] = useState([])
 	const router = useRouter()
-
 	useEffect(() => {
 		setChild_xy(positionNodes(props.count))
 	}, [props.count])
+	useEffect(() => {
+		const observer = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				if (mutation.addedNodes.length) {
+					// Check if the added nodes include your elements
+					const elements = document.querySelectorAll(
+						"[data-cursor='pointer']"
+					)
+					if (elements.length) {
+						attachCursorEvents()
+					}
+				}
+			})
+		})
 
-	const ChildNode = ({ style, children }) => {
-		console.log(children.props.children)
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true,
+		})
+
+		return () => {
+			observer.disconnect()
+		}
+	}, [])
+	const attachCursorEvents = () => {
+		const elements = document.querySelectorAll("[data-cursor='pointer']")
+
+		elements.forEach((el) => {
+			el.addEventListener('mouseover', () => {
+				if (el.getAttribute('data-click') === 'true') {
+					props.clickTrigger(true)
+				}
+				props.hoverTrigger(true)
+			})
+			el.addEventListener('mouseout', () => {
+				props.clickTrigger(false)
+				props.hoverTrigger(false)
+			})
+		})
+	}
+
+	const ChildNode = ({ style, children, dataclick }) => {
 		return (
 			<motion.div
 				className='box'
-				whileHover={{ scale: 1.05 }}
-				transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-				onClick={() =>
-					router.push(`/navigation/${children.props.children}`)
-				}
+				onClick={() => {
+					if (dataclick == true || dataclick == undefined) {
+						router.push(`/navigation/${children.props.children}`)
+					} else {
+						if (!props.topLevel) {
+							router.push(`/chapters/${children.props.children}`)
+						}
+					}
+				}}
+				data-click={dataclick}
 			>
-				<div className={styles.child} style={style}>
-					{children}
+				<div className='node_container' data-click={dataclick}>
+					<div
+						className={styles.child}
+						style={style}
+						data-cursor='pointer'
+						data-click={dataclick}
+					>
+						{children}
+					</div>
 				</div>
 			</motion.div>
 		)
 	}
 
-	const ChildParentNode = ({ style, children }) => {
+	const ChildParentNode = ({ style, children, dataclick }) => {
 		return (
 			<motion.div
 				className='box'
-				whileHover={{ scale: 1.05 }}
-				transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-				onClick={() =>
-					router.push(`/navigation/${children.props.dataattribute}`)
-				}
+				onClick={() => {
+					if (dataclick == true || dataclick == undefined) {
+						router.push(
+							`/navigation/${children.props.dataattribute}`
+						)
+					}
+				}}
+				data-click={dataclick}
 			>
-				<div className={styles.parent} style={style}>
-					<ChildNode>{children}</ChildNode>
+				<div className='node_container' data-click={dataclick}>
+					<div
+						className={styles.parent}
+						style={style}
+						data-cursor='pointer'
+						data-click={dataclick}
+					>
+						<ChildNode>{children}</ChildNode>
+					</div>
 				</div>
 			</motion.div>
 		)
@@ -100,6 +159,11 @@ export const ChildNodes = (props) => {
 				{child_xy.nodePositions &&
 					child_xy.textPositions &&
 					child_xy.nodePositions.map((pos, i) => {
+						const hasChildren = props.topLevel
+							? props.nodes[i].hasChildren
+							: props.nodes[i].num_grandchild_nodes > 0
+							? true
+							: false
 						const isRightSide =
 							child_xy.angles[i] > -Math.PI / 2 &&
 							child_xy.angles[i] < Math.PI / 2
@@ -124,56 +188,58 @@ export const ChildNodes = (props) => {
 									: child_xy.angles[i] === -Math.PI / 2
 									? 'flex-end'
 									: 'center',
-							// 'center',
 						}
+						console.log(hasChildren)
 
 						return (
 							<React.Fragment key={i}>
 								{props.nodes[i].num_grandchild_nodes > 0 ? (
-									<ChildNode style={style} key={i}>
+									<ChildParentNode
+										style={style}
+										key={i}
+										data-cursor='pointer'
+										dataclick={hasChildren}
+									>
 										<p
 											className={styles.title}
 											style={{
-												margin: '30px',
+												padding: '30px',
 												width: 'max-content',
 												textAlign: 'center',
 												position: 'absolute',
+												zIndex: '9',
+											}}
+											dataattribute={props.nodes[i].name}
+											data-click={hasChildren}
+											data-cursor='pointer'
+										>
+											{props.nodes[i].name}
+										</p>
+									</ChildParentNode>
+								) : (
+									<ChildNode
+										style={style}
+										key={i}
+										data-cursor='pointer'
+										dataclick={hasChildren}
+									>
+										<p
+											data-cursor='pointer'
+											data-click={hasChildren}
+											className={styles.title}
+											style={{
+												padding: '30px',
+												width: 'max-content',
+												textAlign: 'center',
+												position: 'absolute',
+												zIndex: '9',
 											}}
 										>
 											{props.nodes[i].name}
 										</p>
 									</ChildNode>
-								) : (
-									<ChildParentNode style={style} key={i}>
-										<p
-											className={styles.title}
-											style={{
-												margin: '30px',
-												width: 'max-content',
-												textAlign: 'center',
-												position: 'absolute',
-											}}
-											dataattribute={props.nodes[i].name}
-										>
-											{props.nodes[i].name}
-										</p>
-									</ChildParentNode>
 								)}
 							</React.Fragment>
-
-							// <ChildNode key={i} style={style}>
-							// 	<p
-							// 		className={styles.title}
-							// 		style={{
-							// 			margin: '30px',
-							// 			width: 'max-content',
-							// 			textAlign: 'center',
-							// 			position: 'absolute',
-							// 		}}
-							// 	>
-							// 		{props.nodes[i].name}
-							// 	</p>
-							// </ChildNode>
 						)
 					})}
 			</div>
