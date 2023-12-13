@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import styles from './ChildNodes.module.css'
 import { isMobile } from 'react-device-detect'
 export const ChildNodes = (props) => {
-	const centralCircleDiameter = isMobile ? 150 : 300
+	const centralCircleDiameter = isMobile ? 300 : 150
 	const childNodeDiameter = 15
 	const parentNodeDiamater = 45
 	const radiusPadding = 100 // Adjust this to your needs
