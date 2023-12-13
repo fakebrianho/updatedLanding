@@ -8,7 +8,7 @@ export const ChildNodes = (props) => {
 	const centralCircleDiameter = isMobile ? 300 : 300
 	const childNodeDiameter = 15
 	const parentNodeDiamater = 45
-	const radiusPadding = isMobile ? -20 : 100 // Adjust this to your needs
+	const radiusPadding = isMobile ? -20 : -20 // Adjust this to your needs
 	const radius = centralCircleDiameter / 2 + childNodeDiameter + radiusPadding
 	const parentRadius =
 		centralCircleDiameter / 2 + parentNodeDiamater + radiusPadding
