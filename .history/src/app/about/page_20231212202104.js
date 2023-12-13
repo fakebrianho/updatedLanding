@@ -8,6 +8,7 @@ import gsap from 'gsap'
 import Developers from '../../../components/Developers/Developers'
 import ContactSection from '../../../components/ContactSection/ContactSection'
 import dynamic from 'next/dynamic'
+import { isMobile } from 'react-device-detect'
 const ReactP5Wrapper = dynamic(
 	() => import('@p5-wrapper/react').then((mod) => mod.ReactP5Wrapper),
 	{ ssr: false }
