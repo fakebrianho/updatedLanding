@@ -115,7 +115,6 @@ function TableOfContents() {
 	const { lenis, toggleScrolling, isHovering, setHoverStatus } = usePage()
 
 	useEffect(() => {
-		document.body.style.overflow = 'auto'
 		const fetchData = async () => {
 			const res = await getData('index')
 			setTreeData(res)
