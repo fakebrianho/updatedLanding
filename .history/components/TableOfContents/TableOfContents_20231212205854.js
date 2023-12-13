@@ -128,7 +128,7 @@ function TableOfContents() {
 	return (
 		<PageProvider>
 			<>
-				{!isMobile && <BackButton white={true} />}
+				<BackButton white={true} />
 				<main className={styles.tocMain}>
 					<h1 className={styles.titleText}>Table Of Contents</h1>
 					<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
