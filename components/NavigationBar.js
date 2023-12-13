@@ -85,7 +85,7 @@ export const NavigationBar = (props) => {
 							</span>
 						</button>
 					</div>
-					<ModalMenu isOpen={isMenuOpen} />{' '}
+					<ModalMenu isOpen={isMenuOpen} sub={props.sub} />{' '}
 				</>
 			) : (
 				<NavBarFull color={props.color} sub={props.sub} />

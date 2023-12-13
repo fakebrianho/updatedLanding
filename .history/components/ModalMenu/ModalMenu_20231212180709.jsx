@@ -89,22 +89,15 @@ export default function ModalMenu(props) {
 						<div onClick={() => router.push('/about')}>About</div>
 					</li>
 					<li>
-						<div onClick={() => router.push('/baseNavigation')}>
-							Navigate
-						</div>
-					</li>
-					<li>
 						<div onClick={() => router.push('/tableOfContent')}>
 							Table of Contents
 						</div>
 					</li>
-					{props.sub && (
-						<li>
-							<div onClick={() => scrollToSubscribeSection()}>
-								Subscribe
-							</div>
-						</li>
-					)}
+					<li>
+						<div onClick={() => scrollToSubscribeSection()}>
+							Subscribe
+						</div>
+					</li>
 					<li>
 						<div onClick={() => router.push('/baseNavigation')}>
 							Read

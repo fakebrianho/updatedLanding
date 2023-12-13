@@ -86,25 +86,18 @@ export default function ModalMenu(props) {
 				<LinearGradient /> <LinearGradient /> <LinearGradient />{' '}
 				<ol className='z-10 whitespace-nowrap text-3xl font-medium relative text-white-800 dark:text-white-200 modalList'>
 					<li>
-						<div onClick={() => router.push('/about')}>About</div>
-					</li>
-					<li>
-						<div onClick={() => router.push('/baseNavigation')}>
-							Navigate
-						</div>
+						<div>About</div>
 					</li>
 					<li>
 						<div onClick={() => router.push('/tableOfContent')}>
 							Table of Contents
 						</div>
 					</li>
-					{props.sub && (
-						<li>
-							<div onClick={() => scrollToSubscribeSection()}>
-								Subscribe
-							</div>
-						</li>
-					)}
+					<li>
+						<div onClick={() => scrollToSubscribeSection()}>
+							Subscribe
+						</div>
+					</li>
 					<li>
 						<div onClick={() => router.push('/baseNavigation')}>
 							Read
