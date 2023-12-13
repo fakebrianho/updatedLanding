@@ -8,19 +8,18 @@ export const CentralNode = (props) => {
 	const cleanTitle = cleanData(props.title)
 	if (isMobile) {
 		return (
-			<div className={`${styles.gradient} ${styles.mobile}`}>
-				<CurrentTitle title={cleanTitle} />
-				{!props.topLevel && <EnterButton chapter={props.title} />}
-			</div>
-		)
-	} else {
-		return (
 			<div className={`${styles.gradient}`}>
 				<CurrentTitle title={cleanTitle} />
 				{!props.topLevel && <EnterButton chapter={props.title} />}
 			</div>
 		)
 	}
+	return (
+		<div className={`${styles.gradient}`}>
+			<CurrentTitle title={cleanTitle} />
+			{!props.topLevel && <EnterButton chapter={props.title} />}
+		</div>
+	)
 }
 
 function cleanData(data) {

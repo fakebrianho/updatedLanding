@@ -9,7 +9,6 @@ import { motion } from 'framer-motion'
 import { Cursor } from '../Cursor/Cursor'
 import { useState } from 'react'
 import BackButton from '../../components/BackButton/BackButton'
-import { isMobile } from 'react-device-detect'
 
 const pageTransition = {
 	out: {
@@ -42,7 +41,7 @@ export const Navigation = (props) => {
 			exit='out'
 			className='motionContainer'
 		>
-			{!isMobile && <BackButton />}
+			<BackButton />
 			<Cursor
 				hoverState={isHovered}
 				clickState={isClickable}
