@@ -2367,7 +2367,7 @@ a {
 .contactContainer {
 	width: 300px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	height: 100vh;
 	padding: 40px;
 	text-align: end;

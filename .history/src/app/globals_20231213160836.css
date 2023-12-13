@@ -2351,7 +2351,7 @@ a {
 .contact {
 	position: absolute;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
@@ -2367,7 +2367,7 @@ a {
 .contactContainer {
 	width: 300px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	height: 100vh;
 	padding: 40px;
 	text-align: end;
