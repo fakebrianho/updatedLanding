@@ -21,10 +21,10 @@ export default function BackButton(props) {
 						<span className={`${styles.theArrow} ${styles.right}`}>
 							<span className={styles.shaft}></span>
 						</span>
+						<button onClick={goBack} className={styles.backButton}>
+							Back
+						</button>
 					</span>
-					<button onClick={goBack} className={styles.backButton}>
-						Back
-					</button>
 				</div>
 			</div>
 		)

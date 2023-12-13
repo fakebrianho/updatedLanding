@@ -209,14 +209,6 @@ a {
 .nav_logo {
 	padding: 25px 40px;
 }
-.navigation_logo {
-	position: relative;
-	z-index: 4;
-	top: 20px;
-	left: 20px;
-	padding: 20px;
-	cursor: pointer;
-}
 
 /* Hero */
 .hero_container {
@@ -2296,6 +2288,7 @@ a {
 
 .arrowlr {
 	z-index: 3;
+	width: 1.25rem; /* Length of the arrow */
 	height: 1.25rem; /* Height of the arrow */
 	display: inline-block;
 	position: relative;
@@ -2359,15 +2352,11 @@ a {
 	bottom: 0px;
 	z-index: 3;
 }
-.contactText {
-	font-size: 14px;
-	cursor: pointer;
-}
 
 .contactContainer {
 	width: 300px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	height: 100vh;
 	padding: 40px;
 	text-align: end;

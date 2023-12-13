@@ -2,13 +2,12 @@
 import React from 'react'
 import { CentralNode } from './CentralNode/CentralNode'
 import { ChildNodes } from './ChildNodes/ChildNodes'
-import Image from 'next/image'
+// import EnterButton from './EnterButton/EnterButton'
 import { motion } from 'framer-motion'
 import { Cursor } from '../Cursor/Cursor'
 import { useState } from 'react'
 import BackButton from '../../components/BackButton/BackButton'
 import { isMobile } from 'react-device-detect'
-import { useRouter } from 'next/navigation'
 
 const pageTransition = {
 	out: {
@@ -30,7 +29,6 @@ const pageTransition = {
 
 export const Navigation = (props) => {
 	const CHILD_NODES = props.child_nodes.length
-	const router = useRouter()
 	const [isHovered, setIsHovered] = useState(false)
 	const [isClickable, setIsClickable] = useState(null)
 	const [parentLicense, setParentLicense] = useState(false)
@@ -49,14 +47,6 @@ export const Navigation = (props) => {
 				parentLicence={parentLicense}
 				topLevel={props.topLevel}
 			/>
-			<Image
-				src='/uncertain-universe-logo.svg'
-				className='navigation_logo'
-				height={100}
-				width={100}
-				alt='Logo'
-				onClick={() => router.push('/')}
-			></Image>
 			<CentralNode title={props.title} topLevel={props.topLevel} />
 			<ChildNodes
 				nodes={props.child_nodes}

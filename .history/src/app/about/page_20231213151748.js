@@ -226,9 +226,7 @@ export default function About() {
 						<span></span>
 						<span></span>
 					</span>
-					<p ref={contactText} className='contactText'>
-						Contact
-					</p>
+					<p ref={contactText}>Contact</p>
 				</div>
 				<ContactSection />
 				<Developers />

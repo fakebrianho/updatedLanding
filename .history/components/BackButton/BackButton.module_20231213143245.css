@@ -85,13 +85,13 @@
 .theArrow.right > .shaft:before {
 	transform: rotate(40deg);
 	transform-origin: top left;
-	right: 82%;
+	right: 80.5%;
 }
 
 .theArrow.right > .shaft:after {
 	transform: rotate(-40deg);
 	transform-origin: bottom left;
-	right: 82%;
+	right: 80.5%;
 }
 
 .theArrow > .shaft {
@@ -143,17 +143,6 @@
 	color: var(--black);
 }
 
-/* .animatedArrow:hover > .theArrow.left > .shaft {
-	width: var(--shaft-width);
-	transition-delay: 0.1s;
-	background-color: var(--white);
-}
-
-.animatedArrow:hover > .theArrow.left > .shaft.white {
-	width: var(--shaft-width);
-	transition-delay: 0.1s;
-	background-color: var(--black);
-} */
 .animatedArrow:hover > .theArrow.left > .shaft {
 	width: var(--shaft-width);
 	transition-delay: 0.1s;
@@ -166,41 +155,25 @@
 	background-color: var(--black);
 }
 
-/* .animatedArrow:hover > .theArrow.left > .shaft:before,
-.animatedArrow:hover > .theArrow.left > .shaft:after {
-	width: var(--arrow-head-width);
-	transition-delay: 0.1s;
-	background-color: var(--white);
-}
-.animatedArrow:hover > .theArrow.left > .shaft.white:before,
-.animatedArrow:hover > .theArrow.left > .shaft.white:after {
-	width: var(--arrow-head-width);
-	transition-delay: 0.1s;
-	background-color: var(--black);
-} */
 .animatedArrow:hover > .theArrow.left > .shaft:before,
 .animatedArrow:hover > .theArrow.left > .shaft:after {
 	width: var(--arrow-head-width);
 	transition-delay: 0.1s;
 	background-color: var(--white);
-	right: 82%; /* Position the arrowhead on the left side of the shaft */
 }
-
 .animatedArrow:hover > .theArrow.left > .shaft.white:before,
 .animatedArrow:hover > .theArrow.left > .shaft.white:after {
 	width: var(--arrow-head-width);
 	transition-delay: 0.1s;
 	background-color: var(--black);
-	right: 82%; /* Position the arrowhead on the left side of the shaft for white variant */
 }
+
 .animatedArrow:hover > .theArrow.left > .shaft:before {
 	transform: rotate(40deg);
-	transform-origin: bottom left;
 }
 
 .animatedArrow:hover > .theArrow.left > .shaft:after {
 	transform: rotate(-40deg);
-	transform-origin: top left;
 }
 
 .animatedArrow:hover > .main {

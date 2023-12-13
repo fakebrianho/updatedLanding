@@ -183,7 +183,7 @@
 	width: var(--arrow-head-width);
 	transition-delay: 0.1s;
 	background-color: var(--white);
-	right: 82%; /* Position the arrowhead on the left side of the shaft */
+	right: 100%; /* Position the arrowhead on the left side of the shaft */
 }
 
 .animatedArrow:hover > .theArrow.left > .shaft.white:before,
@@ -191,16 +191,16 @@
 	width: var(--arrow-head-width);
 	transition-delay: 0.1s;
 	background-color: var(--black);
-	right: 82%; /* Position the arrowhead on the left side of the shaft for white variant */
+	right: 100%; /* Position the arrowhead on the left side of the shaft for white variant */
 }
 .animatedArrow:hover > .theArrow.left > .shaft:before {
-	transform: rotate(40deg);
-	transform-origin: bottom left;
+	transform: rotate(80deg);
+	transform-origin: bottom right;
 }
 
 .animatedArrow:hover > .theArrow.left > .shaft:after {
 	transform: rotate(-40deg);
-	transform-origin: top left;
+	transform-origin: top right;
 }
 
 .animatedArrow:hover > .main {

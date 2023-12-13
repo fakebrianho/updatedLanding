@@ -208,13 +208,9 @@ a {
 
 .nav_logo {
 	padding: 25px 40px;
+	/* cursor: pointer; */
 }
-.navigation_logo {
-	position: relative;
-	z-index: 4;
-	top: 20px;
-	left: 20px;
-	padding: 20px;
+.logo {
 	cursor: pointer;
 }
 

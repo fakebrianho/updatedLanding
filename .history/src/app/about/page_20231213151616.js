@@ -108,7 +108,6 @@ export default function About() {
 		setClientReady(true)
 		const arrowElement = arrow.current
 		const LRArrowElement = LRArrow.current
-		const contactElement = contactText.current
 		const toggleContact = () => {
 			LRArrowElement.classList.toggle('active')
 			if (LRArrowElement.classList.contains('active')) {
@@ -191,18 +190,12 @@ export default function About() {
 		if (LRArrowElement) {
 			LRArrowElement.addEventListener('click', toggleContact)
 		}
-		if (contactElement) {
-			contactElement.addEventListener('click', toggleContact)
-		}
 		return () => {
 			if (arrowElement) {
 				arrowElement.removeEventListener('click', toggleActiveClass)
 			}
 			if (LRArrowElement) {
 				LRArrowElement.removeEventListener('click', toggleContact)
-			}
-			if (contactElement) {
-				contactElement.removeEventListener('click', toggleContact)
 			}
 		}
 	}, [])
@@ -226,9 +219,7 @@ export default function About() {
 						<span></span>
 						<span></span>
 					</span>
-					<p ref={contactText} className='contactText'>
-						Contact
-					</p>
+					<p>Contact</p>
 				</div>
 				<ContactSection />
 				<Developers />

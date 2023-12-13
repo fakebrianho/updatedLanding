@@ -202,7 +202,7 @@ export default function About() {
 				LRArrowElement.removeEventListener('click', toggleContact)
 			}
 			if (contactElement) {
-				contactElement.removeEventListener('click', toggleContact)
+				contactElementremoveEventListener('click', toggleContact)
 			}
 		}
 	}, [])
@@ -226,9 +226,7 @@ export default function About() {
 						<span></span>
 						<span></span>
 					</span>
-					<p ref={contactText} className='contactText'>
-						Contact
-					</p>
+					<p ref={contactText}>Contact</p>
 				</div>
 				<ContactSection />
 				<Developers />

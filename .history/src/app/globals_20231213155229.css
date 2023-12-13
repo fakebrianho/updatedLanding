@@ -210,11 +210,9 @@ a {
 	padding: 25px 40px;
 }
 .navigation_logo {
-	position: relative;
-	z-index: 4;
-	top: 20px;
-	left: 20px;
-	padding: 20px;
+	position: fixed;
+	top: 20;
+	left: 20;
 	cursor: pointer;
 }
 

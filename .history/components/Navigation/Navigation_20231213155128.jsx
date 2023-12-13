@@ -51,9 +51,9 @@ export const Navigation = (props) => {
 			/>
 			<Image
 				src='/uncertain-universe-logo.svg'
-				className='navigation_logo'
-				height={100}
-				width={100}
+				className='logo'
+				height={50}
+				width={500}
 				alt='Logo'
 				onClick={() => router.push('/')}
 			></Image>

@@ -49,14 +49,16 @@ export const Navigation = (props) => {
 				parentLicence={parentLicense}
 				topLevel={props.topLevel}
 			/>
-			<Image
-				src='/uncertain-universe-logo.svg'
-				className='navigation_logo'
-				height={100}
-				width={100}
-				alt='Logo'
-				onClick={() => router.push('/')}
-			></Image>
+			<div className='nav_logo'>
+				<Image
+					src='/uncertain-universe-logo.svg'
+					className='logo'
+					height={50}
+					width={500}
+					alt='Logo'
+					onClick={() => router.push('/')}
+				></Image>
+			</div>
 			<CentralNode title={props.title} topLevel={props.topLevel} />
 			<ChildNodes
 				nodes={props.child_nodes}
