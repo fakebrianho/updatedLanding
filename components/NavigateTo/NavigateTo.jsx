@@ -23,7 +23,7 @@ function cleanUpData(data) {
 
 let sectiontitles = []
 export default function NavigateTo({ data }) {
-	console.log('hi')
+	console.log('bye')
 	console.log(data)
 	const [hasChild, sethasChild] = useState(false)
 	if (data.num_child_nodes > 0) {
