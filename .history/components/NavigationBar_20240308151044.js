@@ -7,12 +7,13 @@ import scroll from '../utils/scrollAnimation'
 import ModalMenu from '../components/ModalMenu/ModalMenu'
 import { useRef } from 'react'
 import NavBarFull from './NavBarFull/NavBarFull'
+import { useRouter } from 'next/navigation'
 
 export const NavigationBar = (props) => {
+	const router = useRouter()
 	const { lenis } = usePage()
 	const menu = useRef()
 	const [isMenuOpen, setIsMenuOpen] = useState(false) // Define a new state variable
-	// const [isMobile, setIsMobile] = useState(window.innerWidth < 667)
 	const [isMobile, setIsMobile] = useState(null) // Initialize to null
 
 	const buttonClassName = isMenuOpen
@@ -68,6 +69,7 @@ export const NavigationBar = (props) => {
 						<div className='nav_logo'>
 							<Image
 								src='/uncertain-universe-logo.svg'
+								onClick={() => router.push('/')}
 								className='logo'
 								height={75}
 								width={75}
@@ -85,10 +87,10 @@ export const NavigationBar = (props) => {
 							</span>
 						</button>
 					</div>
-					<ModalMenu isOpen={isMenuOpen} />{' '}
+					<ModalMenu isOpen={isMenuOpen} sub={props.sub} />{' '}
 				</>
 			) : (
-				<NavBarFull />
+				<NavBarFull color={props.color} sub={props.sub} />
 			)}
 		</>
 	)

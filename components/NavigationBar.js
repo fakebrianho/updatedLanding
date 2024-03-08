@@ -14,7 +14,6 @@ export const NavigationBar = (props) => {
 	const { lenis } = usePage()
 	const menu = useRef()
 	const [isMenuOpen, setIsMenuOpen] = useState(false) // Define a new state variable
-	// const [isMobile, setIsMobile] = useState(window.innerWidth < 667)
 	const [isMobile, setIsMobile] = useState(null) // Initialize to null
 
 	const buttonClassName = isMenuOpen

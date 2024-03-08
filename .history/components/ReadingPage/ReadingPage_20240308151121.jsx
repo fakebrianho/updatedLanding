@@ -49,20 +49,6 @@ let nodedata = [
 	},
 ]
 
-// const tagList = nodedata[0].tags.map((tag) => {return( <div className={styles.tags}>{tag}</div> )});
-
-// let renderMarginalia = nodedata[0].marginalia.map((marginalia) => {
-// 	return (
-// 		<Marginalia
-// 			key={marginalia.id}
-// 			id={marginalia.id}
-// 			username={marginalia.name}
-// 			content={marginalia.body}
-// 			picture={marginalia.picture}
-// 		/>
-// 	)
-// })
-
 export default function ReadPage(post) {
 	const [loading, setLoading] = useState(false)
 	const [newMarg, setNewMarg] = useState(null)
@@ -91,7 +77,9 @@ export default function ReadPage(post) {
 				{
 					<div className='all'>
 						{/* <NavigationBar /> */}
-						<MenuBar navLink={post.post.file_name} />
+						<MenuBar
+							navLink={`/navigation/${post.post.file_name}`}
+						/>
 						<div className={styles.container}>
 							<div>
 								<Trace data={post.post} />

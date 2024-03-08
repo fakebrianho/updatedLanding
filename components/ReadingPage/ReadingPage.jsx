@@ -49,20 +49,6 @@ let nodedata = [
 	},
 ]
 
-// const tagList = nodedata[0].tags.map((tag) => {return( <div className={styles.tags}>{tag}</div> )});
-
-// let renderMarginalia = nodedata[0].marginalia.map((marginalia) => {
-// 	return (
-// 		<Marginalia
-// 			key={marginalia.id}
-// 			id={marginalia.id}
-// 			username={marginalia.name}
-// 			content={marginalia.body}
-// 			picture={marginalia.picture}
-// 		/>
-// 	)
-// })
-
 export default function ReadPage(post) {
 	const [loading, setLoading] = useState(false)
 	const [newMarg, setNewMarg] = useState(null)
