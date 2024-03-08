@@ -75,12 +75,7 @@ export default function AddMarginalia({ addMarg }) {
 
 	return (
 		<div className='addmarg'>
-			<Button
-				className='orangebutton'
-				variant='contained'
-				aria-label='add'
-				onClick={handleClickOpen}
-			>
+      	<Button className="bg-primary" variant="contained" aria-label="add" onClick={handleClickOpen}>
 				+ Add Marginalia
 			</Button>
 			<Dialog open={open} onClose={handleClose}>
@@ -179,6 +174,10 @@ export default function AddMarginalia({ addMarg }) {
 						.addmarg {
 							right: 3em;
 						}
+						.orangebutton {
+							background-color: #ff8c24;
+						}
+	
 					}
 				`}
 			</style>

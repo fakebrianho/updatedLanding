@@ -1,132 +1,253 @@
-import Link from 'next/link'
+import React, { useRef } from "react";
+import Link from "next/link";
 // import styles from 'tracmodule.css'
-import styles from './trace.module.css'
-import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ExpandLessIcon from '@mui/icons-material/ExpandLess'
-import { useState } from 'react'
+import styles from "./trace.module.css";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { useEffect, useState } from "react";
 
-function cleanUpData(data) {
-	const navTitle = data
-	const splitData = navTitle.split('-')
-	const upperData = splitData.map((word) => {
-		return word[0].toUpperCase() + word.substr(1)
-	})
-	const cleanData = upperData.join(' ')
-	return [cleanData]
-}
+import { book } from "../../utils/processIndex.js";
 
 export default function Trace(data) {
-	const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [treeData, setTreeData] = useState(null);
+  const containerRef = useRef(null);
+  const highlightRef = useRef(null);
 
-	return (
-		<>
-			<Accordion square className='toggle'>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls='panel1a-content'
-					id='panel1a-header'
-				>
-					<h3 id='accordsum' className={styles.traces}>
-						{cleanUpData(data.data.parent_node)}
-					</h3>
-				</AccordionSummary>
-				<AccordionDetails>
-					{/* sx={'background-color: #F3F3F3;'}*/}
-					<ul>
-						{/* <li>
-                            <Link
-                                className={styles.individuallink}
-                                href={`/chapters/${data.data.parent_node}`}>{cleanUpData(data.data.parent_node)}
-                            </Link>
-                        </li> */}
+  const scrollToHighlight = () => {
+    if (containerRef.current && highlightRef.current) {
+      const position =
+        highlightRef.current.offsetTop - containerRef.current.offsetTop;
 
-						<li onClick={() => setIsOpen(!isOpen)}>
-							<Link href={`/chapters/${data.data.file_name}`}>
-								<h3 className='intrace' id='highlighted'>
-									{data.data.title}
-									{data.data.num_child_nodes > 0 && (
-										<span className='icons'>
-											{' '}
-											{isOpen ? (
-												<ExpandLessIcon
-													sx={{
-														fontSize: '1rem',
-														marginTop: '0',
-													}}
-												/>
-											) : (
-												<ExpandMoreIcon
-													sx={{
-														fontSize: '1rem',
-														marginTop: '0',
-													}}
-												/>
-											)}{' '}
-										</span>
-									)}
-								</h3>
-							</Link>
-						</li>
+      containerRef.current.scrollTop = position - 1;
+      console.log("highlightRef is", highlightRef.current);
+    }
+  };
+  const showPath = (target) => {
+    let pathString = "Uncertain Universe";
+    let currentChapter = book.findChapterByFileName(target)[0];
+    console.log("currentchapter is", currentChapter);
+    currentChapter.parentChapters.forEach((chapter) => {
+      pathString += " / " + chapter.title;
+    });
+    return pathString;
+  };
 
-						{data.data.child_nodes && (
-							<ul className='children'>
-								{isOpen &&
-									data.data.child_nodes.map((title) => {
-										return (
-											<li key={title._id}>
-												<Link
-													className={
-														styles.individuallink
-													}
-													href={`/chapters/${title.name}`}
-												>
-													{cleanUpData(title.name)}
-												</Link>
-											</li>
-										)
-									})}
-							</ul>
-						)}
-					</ul>
-					{/* {!hasChild&&<p className={styles.subtitle}>There are no other sections in this chapter.</p>} */}
-				</AccordionDetails>
-			</Accordion>
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = JSON.parse(localStorage.getItem("indexData"));
+      setTreeData(res);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
 
-			<style jsx local>
-				{`
-					.toggle {
-						-webkit-box-shadow: none;
-						box-shadow: none;
-					}
+  return (
+    <>
+      <Accordion onClick={scrollToHighlight} square className={styles.toggle}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <h3 id="accordsum" className={styles.traces}>
+            {!isLoading && showPath(data.data.file_name)}
+          </h3>
+        </AccordionSummary>
+        <AccordionDetails sx={{ padding: 0 }}>
+          <main ref={containerRef} className={styles.traces}>
+            {/* match current data title and highlight in trace */}
+            <Box sx={{ width: "100%", paddingLeft: "0.1em" }}>
+              <Grid
+                container
+                sx={{ flexDirection: { xs: "column", sm: "row" } }}
+                justifyContent={{ xs: "center", sm: "left" }}
+                rowSpacing={2}
+                columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+              >
+                {!isLoading &&
+                  treeData.map(
+                    (collection, id) =>
+                      collection.index && (
+                        <TableOfContentsChapter
+                          collection={collection}
+                          key={id}
+                          findmatch={data.data.file_name}
+                          highlightRef={highlightRef}
+                        />
+                      )
+                  )}
+              </Grid>
+            </Box>
+          </main>
+        </AccordionDetails>
+      </Accordion>
 
-					#highlighted {
-						color: #3176c7;
-						text-decoration: underline;
-						display: block;
-						font-size: 1.17em;
-						margin-block-start: 1em;
-						margin-block-end: 1em;
-						margin-inline-start: 0px;
-						margin-inline-end: 0px;
-						font-weight: bold;
-					}
+      <style jsx local>
+        {`
 
-					.accordcontainer {
-						background-color: #f3f3f3;
-					}
+          .highlighted {
+            color: #3176c7;
+            text-decoration: underline;
+          }
 
-					.intrace {
-						margin-top: 0;
-						font-family: var(--modern-font);
-					}
-					.children {
-						font-family: var(--modern-font);
-					}
-				`}
-			</style>
-		</>
-	)
+          .accordcontainer {
+            background-color: #f3f3f3;
+          }
+
+          h3 {
+            color: #3176c7;
+            text-transform: capitalize;
+            font-size: 1.2rem;
+          }
+
+          ul li {
+            list-style-type: none;
+            text-decoration: none;
+            display: block;
+            margin-right: 1rem;
+            font-size: 1rem;
+          }
+
+          a {
+            text-decoration: none;
+            color: grey;
+          }
+
+          ul {
+            padding: 0;
+            margin: 0;
+          }
+        `}
+      </style>
+    </>
+  );
+}
+
+function TableOfContentsItem(node) {
+  const [isOpen, setIsOpen] = useState(false);
+  // console.log('items are', node)
+
+  return (
+    <div>
+      <div className={styles.individuallink} onClick={() => setIsOpen(!isOpen)}>
+        {Array.isArray(node.node) ? (
+          node.node[0].file_name == node.findmatch ? (
+            <Link href={`/chapters/${node.node[0].file_name}`}>
+              <div ref={node.highlightRef} className="chapterlink highlighted">
+                {node.node[0].title}
+              </div>
+            </Link>
+          ) : (
+            <Link href={`/chapters/${node.node[0].file_name}`}>
+              <div className="chapterlink">{node.node[0].title}</div>
+            </Link>
+          )
+        ) : node.node.file_name == node.findmatch ? (
+          <Link href={`/chapters/${node.node.file_name}`}>
+            <div ref={node.highlightRef} className="chapterlink highlighted">
+              {node.node.title}
+            </div>
+          </Link>
+        ) : (
+          <Link href={`/chapters/${node.node.file_name}`}>
+            <div className="chapterlink">{node.node.title}</div>
+          </Link>
+        )}
+
+        {Array.isArray(node.node) && (
+          <span className="icons">
+            {" "}
+            {isOpen ? (
+              <ExpandLessIcon sx={{ fontSize: "1rem", marginTop: "0" }} />
+            ) : (
+              <ExpandMoreIcon sx={{ fontSize: "1rem", marginTop: "0" }} />
+            )}{" "}
+          </span>
+        )}
+      </div>
+
+      {isOpen && Array.isArray(node.node) && (
+        <div className={styles.individuallink} style={{ marginLeft: "20px" }}>
+          {node.node[1].map((child, index) => (
+            <TableOfContentsItem
+              key={index}
+              node={child}
+              findmatch={node.findmatch}
+              highlightRef={node.highlightRef}
+            />
+          ))}
+        </div>
+      )}
+
+      <style jsx local>
+        {`
+          .chapterlink {
+            display: inline-block;
+          }
+
+          .chapterlink:hover,
+          .chapterlink:focus,
+          .chapterlink:active {
+            color: #ff8618;
+          }
+
+          .highlighted {
+            color: #3176c7;
+            text-decoration: underline;
+          }
+        `}
+      </style>
+    </div>
+  );
+}
+
+function TableOfContentsChapter(data) {
+  return (
+    <>
+      <Grid item sm={6} xs={10}>
+        <div className={styles.card}>
+          {data.collection.index[0][0].file_name == data.findmatch ? (
+            <Link href={`/chapters/${data.collection.index[0][0].file_name}`}>
+              <h3 ref={data.highlightRef} className="highlighted">
+                {data.collection.index[0][0].title}
+              </h3>
+            </Link>
+          ) : (
+            data.collection.index && (
+              <Link href={`/chapters/${data.collection.index[0][0].file_name}`}>
+                <h3>{data.collection.index[0][0].title}</h3>
+              </Link>
+            )
+          )}
+        </div>
+        {data.collection.index &&
+          data.collection.index[0][1].map((node, i) => {
+            return (
+              <TableOfContentsItem
+                key={i}
+                node={node}
+                findmatch={data.findmatch}
+                highlightRef={data.highlightRef}
+              />
+            );
+          })}
+      </Grid>
+
+      <style jsx local>
+        {`
+          .highlighted {
+            color: #3176c7;
+            text-decoration: underline;
+          }
+        `}
+      </style>
+    </>
+  );
 }
