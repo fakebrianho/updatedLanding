@@ -70,7 +70,7 @@ export default function ReadPage(post) {
     <motion.div variants={pageTransition} animate="in" initial="out" exit="out">
       <>
         {
-          <div>
+          <div className='all'>
             <MenuBar navLink={`/navigation/${post.post.file_name}`} />
             <div className={styles.container}>
               <div>
@@ -152,12 +152,22 @@ export default function ReadPage(post) {
                   transition: 0.5s;
                 }
 
+                .all{
+                  width: 100vw;
+                  height: 100vh;
+                }
+
                 .line {
                   width: 50vw;
                   height: 1px;
                   border-bottom: 1px solid #ff8618;
                   // position: absolute;
                   margin-bottom: 1.5rem;
+                }
+
+                img{
+                  max-width: 80%;
+                  height: auto;
                 }
 
                 * {
@@ -193,6 +203,10 @@ export default function ReadPage(post) {
                   ol,
                   li {
                     font-size: 1rem;
+                  }
+                  img{
+                    max-width: 100%;
+                    height: auto;
                   }
                 }
               `}</style>

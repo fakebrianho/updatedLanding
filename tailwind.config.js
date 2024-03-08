@@ -6,6 +6,10 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			colors: {
+				primary: '#3176c7',
+				secondary: '#ff8618',
+			},
 			animation: {
 				spin: 'spin calc(var(--speed) * 2) infinite linear',
 				slide: 'slide var(--speed) ease-in-out infinite alternate',
