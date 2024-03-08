@@ -46,18 +46,31 @@
 	margin-right: 2%;
 	padding: 5rem 15rem;
 	background-color: white;
-	/* -webkit-filter: drop-shadow(0px 0px 60px rgb(90, 88, 203)); */
-	/* filter: drop-shadow(0px 0px 60px rgb(90, 88, 203)); */
 	position: relative;
+}
+
+.container p{
+	margin-bottom: 1.5rem;
 }
 
 .traces {
 	color: #3176c7;
-	/* color: grey; */
-	margin-bottom: 0;
-	line-height: 1.15;
-	font-weight: normal;
-	/* text-decoration: underline; */
+	padding: 1rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	height: 35vh;
+	width: 60vw;
+	overflow-y: scroll;
+	background-color: white;
+	-webkit-filter: drop-shadow(-3px -3px 4px #3176c7);
+	filter: drop-shadow(-3px -3px 4px #3176c7);
+  
+	-webkit-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	transition-duration: 1s;
 }
 
 .title a {
@@ -79,7 +92,7 @@
 	text-transform: uppercase;
 	font-family: var(--old-font);
 	/* font-family: bluu; */
-	font-size: 3rem;
+	font-size: 2.6rem;
 }
 
 .branchhead {
@@ -88,6 +101,7 @@
 	line-height: 1.15;
 	text-transform: uppercase;
 	font-family: var(--old-font);
+	overflow-wrap: break-word;
 	/* font-family: bluu; */
 	font-size: 4rem;
 }
@@ -108,6 +122,7 @@
 	line-height: 1;
 	font-weight: normal;
 	font-style: italic;
+	font-size: 1.1rem;
 	font-family: var(--modern-font);
 }
 
@@ -141,8 +156,12 @@
 	flex-direction: row;
 	padding-left: 1.5rem;
 	padding-right: 1rem;
-	margin-top: 3rem;
+	/* margin-top: 3rem; */
 	margin-bottom: 1rem;
+}
+
+.orangebutton {
+	background-color: #ff8c24;
 }
 
 .fab {
@@ -219,55 +238,83 @@
 
 @media screen and (max-width: 900px) {
 	.container {
-		padding: 5rem 5rem;
+	  padding: 5rem 3rem;
 	}
-}
+  
+	.traces {
+	  width: 70vw;
+	}
+  }
 
-@media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
 	.container {
-		padding: 5rem 3rem;
+	  padding: 5rem 2rem;
 	}
 	.title {
-		font-size: 2.5rem;
+	  font-size: 2rem;
+	}
+	.branchhead {
+	  font-size: 2.6rem;
+	}
+	.sectionhead {
+	  font-size: 2.4rem;
 	}
 	.description {
-		font-size: 1rem;
+	  font-size: 1rem;
 	}
-}
+  }
 
-@media screen and (max-width: 450px) {
+
+  @media screen and (max-width: 450px) {
 	.container {
-		padding: 5rem 3rem;
+	  padding: 5rem 2rem;
 	}
-	.title {
-		font-size: 2.5rem;
+  
+	.branchhead {
+	  font-size: 2.3rem;
 	}
+  
+	.sectionhead {
+	  font-size: 2.3rem;
+	}
+  
 	.description {
-		font-size: 1rem;
+	  font-size: 1rem;
 	}
 	.margcontainer {
-		min-height: 18rem;
-		padding-left: 1.4rem;
-		padding-right: 1.4rem;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
+	  min-height: 18rem;
+	  padding-left: 1.4rem;
+	  padding-right: 1.4rem;
+	  margin-top: 1rem;
+	  margin-bottom: 1rem;
 	}
-}
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-/* @font-face {
-	font-family: 'IMFellEnglish';
-	src: url('/fonts/IMFellEnglish-Regular.ttf');
-}
+	.traces {
+	  width: 70vw;
+	  margin: 0 auto;
+	  /* padding: 0; */
+	}
+  }
 
-@font-face {
-	font-family: 'bluu';
-	src: url('../public/fonts/bluunext-bold-webfont.woff');
-} */
+@media screen and (max-width: 400px) {
+	.branchhead {
+	  font-size: 2rem;
+	}
+  
+	.sectionhead {
+	  font-size: 2rem;
+	}
+  }
+  
+  @media screen and (max-width: 375px) {
+	.branchhead {
+	  font-size: 1.9rem;
+	}
+  
+	.sectionhead {
+	  font-size: 1.9rem;
+	}
+  }
+
 
 .header {
 	width: 94%;
@@ -304,6 +351,7 @@
 	/* -webkit-filter: drop-shadow(0px 0px 60px rgb(90, 88, 203)); */
 	/* filter: drop-shadow(0px 0px 60px rgb(90, 88, 203)); */
 	position: relative;
+	color: black;
 }
 
 .traces {

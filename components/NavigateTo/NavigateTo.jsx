@@ -1,5 +1,5 @@
 import Link from 'next/link'
-// import styles from '../styles/Home.module.css'
+
 import styles from '../../src/app/readingpage.module.css'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
@@ -10,31 +10,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { useState } from 'react'
 import { set } from 'mongoose'
 
-function cleanUpData(data) {
-	const navTitle = data
-	const splitData = navTitle.split('-')
-	const upperData = splitData.map((word) => {
-		return word[0].toUpperCase() + word.substr(1)
-	})
-	const cleanData = upperData.join(' ')
-	const pageUrl = cleanData.replaceAll(' ', '')
-	return [cleanData, data]
-}
-
 let sectiontitles = []
 export default function NavigateTo({ data }) {
-	console.log('bye')
-	console.log(data)
-	const [hasChild, sethasChild] = useState(false)
-	if (data.num_child_nodes > 0) {
-		// sethasChild(true);
-		sectiontitles = data.child_nodes.map((node) => {
-			return cleanUpData(node.name)
-		})
-	} else {
-		// sethasChild(false);
-		sectiontitles = [['There are no other sections in this chapter.', '']]
-	}
 
 	return (
 		<>
@@ -55,35 +32,7 @@ export default function NavigateTo({ data }) {
 				)}
 			</div>
 
-			<div className='inthissection'>
-				<Accordion square className='toggle'>
-					<AccordionSummary
-						expandIcon={<ExpandMoreIcon />}
-						aria-controls='panel1a-content'
-						id='panel1a-header'
-					>
-						<p id='accordsum'>In this section</p>
-					</AccordionSummary>
-					<AccordionDetails>
-						<ul>
-							{sectiontitles.map((title) => {
-								return (
-									<li key={title[1]}>
-										<Link
-											className={styles.individuallink}
-											href={`/chapters/${title[1]}`}
-										>
-											{title[0]}
-										</Link>
-									</li>
-								)
-							})}
-						</ul>
-						{/* {!hasChild&&<p className={styles.subtitle}>There are no other sections in this chapter.</p>} */}
-					</AccordionDetails>
-				</Accordion>
-
-				<style jsx global>{`
+			<style jsx global>{`
 					/*
                 * Prefixed by https://autoprefixer.github.io
                 * PostCSS: v8.4.14,
@@ -130,10 +79,6 @@ export default function NavigateTo({ data }) {
 						color: #3176c7;
 					}
 
-					.inthissection {
-						font-size: 1.1rem;
-					}
-
 					.toggle {
 						-webkit-box-shadow: none;
 						box-shadow: none;
@@ -177,7 +122,6 @@ export default function NavigateTo({ data }) {
 						margin: 0;
 					}
 				`}</style>
-			</div>
 		</>
 	)
 }
