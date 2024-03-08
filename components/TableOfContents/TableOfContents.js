@@ -11,6 +11,7 @@ import usePage from '../../context/pageContext'
 import BackButton from '../../components/BackButton/BackButton'
 import { PageProvider } from '../../context/pageContext'
 import { isMobile } from 'react-device-detect'
+
 function TableOfContentsItem(node) {
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -121,6 +122,7 @@ function TableOfContents() {
 			setTreeData(res)
 			setIsLoading(false)
 			toggleScrolling(true)
+			localStorage.setItem('indexData', JSON.stringify(res));
 		}
 
 		fetchData()
