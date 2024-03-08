@@ -10,6 +10,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
+import getData from "../../api/getData";
 
 import { book } from "../../utils/processIndex.js";
 
@@ -41,7 +42,19 @@ export default function Trace(data) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = JSON.parse(localStorage.getItem("indexData"));
+      console.log('hellooo') 
+      let res
+      if(localStorage.getItem("indexData")){
+        console.log('data exists')
+        res = JSON.parse(localStorage.getItem("indexData"))
+      } else {
+        console.log('none exists')
+
+        res = await getData('index');
+        console.log(res)
+        localStorage.setItem("indexData", JSON.stringify(res));
+      }
+      // // console.log(res)
       setTreeData(res);
       setIsLoading(false);
     };
