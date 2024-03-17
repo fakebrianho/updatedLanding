@@ -10,6 +10,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
+import getData from "../../api/getData";
 
 import { book } from "../../utils/processIndex.js";
 
@@ -29,19 +30,32 @@ export default function Trace(data) {
       console.log("highlightRef is", highlightRef.current);
     }
   };
+
   const showPath = (target) => {
-    let pathString = "Uncertain Universe";
+    let path = [];
     let currentChapter = book.findChapterByFileName(target)[0];
-    console.log("currentchapter is", currentChapter);
+    // console.log("currentchapter is", currentChapter);
     currentChapter.parentChapters.forEach((chapter) => {
-      pathString += " / " + chapter.title;
+      // console.log("chapter is", chapter.fileName);
+      path.push(chapter);
     });
-    return pathString;
+    return path;
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = JSON.parse(localStorage.getItem("indexData"));
+      console.log('hellooo') 
+      let res
+      if(localStorage.getItem("indexData")){
+        console.log('data exists')
+        res = JSON.parse(localStorage.getItem("indexData"))
+      } else {
+        console.log('none exists')
+
+        res = await getData('index');
+        console.log(res)
+        localStorage.setItem("indexData", JSON.stringify(res));
+      }
       setTreeData(res);
       setIsLoading(false);
     };
@@ -57,7 +71,20 @@ export default function Trace(data) {
           id="panel1a-header"
         >
           <h3 id="accordsum" className={styles.traces}>
-            {!isLoading && showPath(data.data.file_name)}
+            <Link href={`http://localhost:3000/baseNavigation`}>
+                    <h3 className={styles.chapterlink}>Uncertain Universe</h3>
+            </Link>
+            {showPath(data.data.file_name).map((item) => {
+              return(
+                <>
+                  <span> | </span>
+                  <Link href={`/chapters/${item.fileName}`}>
+                    <h3 className={styles.chapterlink}>{item.title}</h3>
+                  </Link>
+                  
+                </>
+              )})
+            }  
           </h3>
         </AccordionSummary>
         <AccordionDetails sx={{ padding: 0 }}>
@@ -91,11 +118,6 @@ export default function Trace(data) {
 
       <style jsx local>
         {`
-
-          .highlighted {
-            color: #3176c7;
-            text-decoration: underline;
-          }
 
           .accordcontainer {
             background-color: #f3f3f3;
@@ -132,7 +154,6 @@ export default function Trace(data) {
 
 function TableOfContentsItem(node) {
   const [isOpen, setIsOpen] = useState(false);
-  // console.log('items are', node)
 
   return (
     <div>
@@ -140,24 +161,24 @@ function TableOfContentsItem(node) {
         {Array.isArray(node.node) ? (
           node.node[0].file_name == node.findmatch ? (
             <Link href={`/chapters/${node.node[0].file_name}`}>
-              <div ref={node.highlightRef} className="chapterlink highlighted">
+              <div ref={node.highlightRef} className={`${styles.chapterlink} ${styles.highlighted}`}>
                 {node.node[0].title}
               </div>
             </Link>
           ) : (
             <Link href={`/chapters/${node.node[0].file_name}`}>
-              <div className="chapterlink">{node.node[0].title}</div>
+              <div className={styles.chapterlink}>{node.node[0].title}</div>
             </Link>
           )
         ) : node.node.file_name == node.findmatch ? (
           <Link href={`/chapters/${node.node.file_name}`}>
-            <div ref={node.highlightRef} className="chapterlink highlighted">
+            <div ref={node.highlightRef} className={`${styles.chapterlink} ${styles.highlighted}`}>
               {node.node.title}
             </div>
           </Link>
         ) : (
           <Link href={`/chapters/${node.node.file_name}`}>
-            <div className="chapterlink">{node.node.title}</div>
+            <div className={styles.chapterlink}>{node.node.title}</div>
           </Link>
         )}
 
@@ -186,24 +207,6 @@ function TableOfContentsItem(node) {
         </div>
       )}
 
-      <style jsx local>
-        {`
-          .chapterlink {
-            display: inline-block;
-          }
-
-          .chapterlink:hover,
-          .chapterlink:focus,
-          .chapterlink:active {
-            color: #ff8618;
-          }
-
-          .highlighted {
-            color: #3176c7;
-            text-decoration: underline;
-          }
-        `}
-      </style>
     </div>
   );
 }
@@ -212,17 +215,17 @@ function TableOfContentsChapter(data) {
   return (
     <>
       <Grid item sm={6} xs={10}>
-        <div className={styles.card}>
+        <div className={styles.card} >
           {data.collection.index[0][0].file_name == data.findmatch ? (
             <Link href={`/chapters/${data.collection.index[0][0].file_name}`}>
-              <h3 ref={data.highlightRef} className="highlighted">
+              <h3 ref={data.highlightRef} className={`${styles.chapterlink} ${styles.highlighted}`}>
                 {data.collection.index[0][0].title}
               </h3>
             </Link>
           ) : (
             data.collection.index && (
               <Link href={`/chapters/${data.collection.index[0][0].file_name}`}>
-                <h3>{data.collection.index[0][0].title}</h3>
+                <h3 className={styles.chapterlink}>{data.collection.index[0][0].title}</h3>
               </Link>
             )
           )}
@@ -239,15 +242,6 @@ function TableOfContentsChapter(data) {
             );
           })}
       </Grid>
-
-      <style jsx local>
-        {`
-          .highlighted {
-            color: #3176c7;
-            text-decoration: underline;
-          }
-        `}
-      </style>
     </>
   );
 }

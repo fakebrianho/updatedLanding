@@ -216,6 +216,21 @@
 	color: #ff8618;
 }
 
+.chapterlink {
+	display: inline-block;
+  }
+
+.chapterlink:hover,
+.chapterlink:focus,
+.chapterlink:active {
+color: #ff8618;
+}
+
+.highlighted {
+	color: #3176c7;
+	text-decoration: underline;
+}
+
 .card:hover,
 .card:focus,
 .card:active {
