@@ -9,9 +9,6 @@ import { createTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import Trace from '../Trace/Trace'
 import { NavigationBar } from '../NavigationBar'
-// import useTheme from '../hooks/useThemes'
-import useTheme from '../../hooks/useThemes'
-
 const pageTransition = {
 	out: {
 		opacity: 0,
@@ -55,8 +52,6 @@ let nodedata = [
 export default function ReadPage(post) {
 	const [loading, setLoading] = useState(false)
 	const [newMarg, setNewMarg] = useState(null)
-	const [theme, toggleTheme] = useTheme()
-
 	const addtoMarg = (newMarg) => {
 		setNewMarg(newMarg)
 		nodedata[0].marginalia.push(newMarg) //actually push to database here
@@ -80,39 +75,25 @@ export default function ReadPage(post) {
 		>
 			<>
 				{
-					<div className={`all ${theme}`}>
+					<div className='all'>
 						<MenuBar
 							navLink={`/navigation/${post.post.file_name}`}
-							mode={theme}
 						/>
-						<div className={`${styles.container} ${theme}`}>
-							<button
-								onClick={toggleTheme}
-								className={` UI ${theme}`}
-							>
-								Toggle Theme
-							</button>
-
-							<div className={theme}>
-								<Trace data={post.post} mode={theme} />
+						<div className={styles.container}>
+							<div>
+								<Trace data={post.post} />
 								{(post.post.layout === 'branch-head' && (
-									<h1
-										className={`${styles.branchhead}  ${theme}`}
-									>
+									<h1 className={styles.branchhead}>
 										{post.post.title}
 									</h1>
 								)) ||
 									(post.post.layout === 'section-head' && (
-										<h1
-											className={`${styles.sectionhead}  ${theme}`}
-										>
+										<h1 className={styles.sectionhead}>
 											{post.post.title}
 										</h1>
 									)) ||
 									(post.post.layout === 'page' && (
-										<h1
-											className={`${styles.title}  ${theme}`}
-										>
+										<h1 className={styles.title}>
 											{post.post.title}
 										</h1>
 									)) ||
@@ -120,9 +101,7 @@ export default function ReadPage(post) {
 										<p className={styles.quote}></p>
 									))}
 								{post.post.subtitle && (
-									<h3
-										className={`${styles.subtitle}  ${theme}`}
-									>
+									<h3 className={styles.subtitle}>
 										{post.post.subtitle}
 									</h3>
 								)}
@@ -130,7 +109,7 @@ export default function ReadPage(post) {
 									<div className='line'></div>
 								)}
 
-								<div className={`maintext ${theme}`}>
+								<div className='maintext'>
 									{(post.post.layout != 'quote' &&
 										post.post.layout != 'branch-head' && (
 											<div
@@ -177,7 +156,6 @@ export default function ReadPage(post) {
 														picture={
 															marginalia.picture
 														}
-														mode={theme}
 													/>
 												)
 											}

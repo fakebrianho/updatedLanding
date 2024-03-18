@@ -83,35 +83,29 @@ export default function ReadPage(post) {
 					<div className={`all ${theme}`}>
 						<MenuBar
 							navLink={`/navigation/${post.post.file_name}`}
-							mode={theme}
 						/>
 						<div className={`${styles.container} ${theme}`}>
-							<button
-								onClick={toggleTheme}
-								className={` UI ${theme}`}
-							>
-								Toggle Theme
-							</button>
+							<button onClick={toggleTheme}>Toggle Theme</button>
 
 							<div className={theme}>
-								<Trace data={post.post} mode={theme} />
+								<Trace data={post.post} />
 								{(post.post.layout === 'branch-head' && (
 									<h1
-										className={`${styles.branchhead}  ${theme}`}
+										className={`${styles.branchhead} ${theme}`}
 									>
 										{post.post.title}
 									</h1>
 								)) ||
 									(post.post.layout === 'section-head' && (
 										<h1
-											className={`${styles.sectionhead}  ${theme}`}
+											className={`${styles.sectionhead} ${theme}`}
 										>
 											{post.post.title}
 										</h1>
 									)) ||
 									(post.post.layout === 'page' && (
 										<h1
-											className={`${styles.title}  ${theme}`}
+											className={`${styles.title} ${theme}`}
 										>
 											{post.post.title}
 										</h1>
@@ -121,7 +115,7 @@ export default function ReadPage(post) {
 									))}
 								{post.post.subtitle && (
 									<h3
-										className={`${styles.subtitle}  ${theme}`}
+										className={`${styles.subtitle} ${theme}`}
 									>
 										{post.post.subtitle}
 									</h3>
@@ -177,7 +171,6 @@ export default function ReadPage(post) {
 														picture={
 															marginalia.picture
 														}
-														mode={theme}
 													/>
 												)
 											}

@@ -4,7 +4,7 @@ import styles from '../../src/app/readingpage.module.css'
 import { useEffect } from 'react'
 import useTheme from '../../hooks/useThemes'
 
-export default function Marginalia({ id, username, content, picture, mode }) {
+export default function Marginalia({ id, username, content, picture }) {
 	const [theme, toggleTheme] = useTheme()
 	useEffect(() => {
 		randomizeMarg()
@@ -21,9 +21,9 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 	}
 
 	return (
-		<div key={id} className={`marginalia ${mode}`}>
+		<div key={id} className={`marginalia ${theme}`}>
 			{/* <div className="marginalia__container"> */}
-			<p className={`marginalia_text ${mode}`}>{content}</p>
+			<p className={`marginalia_text ${theme}`}>{content}</p>
 			{picture && (
 				<div className='marginalia_picture'>
 					<img src={picture} alt='marginalia picture' width={200} />
@@ -51,7 +51,7 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 					width: 15em;
 					min-width: 15em;
 					height: 15em;
-					/* background-color: white; */
+					background-color: white;
 					-webkit-filter: drop-shadow(0px 0px 5px #3176c7);
 					filter: drop-shadow(0px 0px 5px #3176c7);
 					-webkit-backdrop-filter: blur(5px);
@@ -78,7 +78,7 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 						width: 12em;
 						height: 14em;
 						margin: 0.5em;
-						/* background-color: white; */
+						background-color: white;
 						-webkit-filter: drop-shadow(0px 0px 3px #5a58cb);
 						filter: drop-shadow(0px 0px 3px #5a58cb);
 						-webkit-backdrop-filter: blur(3px);

@@ -77,7 +77,7 @@ export const PageProvider = ({ children }) => {
 			isDarkMode,
 			setDarkMode: setIsDarkMode,
 		}),
-		[lenis, isScrollingEnabled, isHovering, isDarkMode]
+		[lenis, isScrollingEnabled, isHovering]
 	)
 
 	return (

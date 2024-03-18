@@ -97,21 +97,21 @@ export default function ReadPage(post) {
 								<Trace data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (
 									<h1
-										className={`${styles.branchhead}  ${theme}`}
+										className={`${styles.branchhead} ${theme}`}
 									>
 										{post.post.title}
 									</h1>
 								)) ||
 									(post.post.layout === 'section-head' && (
 										<h1
-											className={`${styles.sectionhead}  ${theme}`}
+											className={`${styles.sectionhead} ${theme}`}
 										>
 											{post.post.title}
 										</h1>
 									)) ||
 									(post.post.layout === 'page' && (
 										<h1
-											className={`${styles.title}  ${theme}`}
+											className={`${styles.title} ${theme}`}
 										>
 											{post.post.title}
 										</h1>
@@ -121,7 +121,7 @@ export default function ReadPage(post) {
 									))}
 								{post.post.subtitle && (
 									<h3
-										className={`${styles.subtitle}  ${theme}`}
+										className={`${styles.subtitle} UI ${theme}`}
 									>
 										{post.post.subtitle}
 									</h3>

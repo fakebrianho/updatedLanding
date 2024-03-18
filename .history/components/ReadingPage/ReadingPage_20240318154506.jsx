@@ -121,7 +121,7 @@ export default function ReadPage(post) {
 									))}
 								{post.post.subtitle && (
 									<h3
-										className={`${styles.subtitle}  ${theme}`}
+										className={`${styles.subtitle} UI ${theme}`}
 									>
 										{post.post.subtitle}
 									</h3>

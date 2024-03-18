@@ -2587,12 +2587,6 @@ a {
 	background-color: black !important;
 	color: white !important;
 }
-.UI.dark {
-	color: var(--light-text) !important;
-}
-.UI.light {
-	color: var(--dark-text) !important;
-}
 .light {
 	background-color: white !important;
 	color: black !important;

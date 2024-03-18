@@ -17,8 +17,6 @@ const PageContext = createContext({
 	isScrollingEnabled: true,
 	isHovering: false,
 	setHoverStatus: () => {},
-	isDarkMode: true,
-	setIsDarkMode: () => {},
 })
 export const PageProvider = ({ children }) => {
 	const [lenis, setLenis] = useState()
@@ -74,10 +72,8 @@ export const PageProvider = ({ children }) => {
 			isScrollingEnabled,
 			isHovering,
 			setHoverStatus: setIsHovering, // Expose function to update hover status
-			isDarkMode,
-			setDarkMode: setIsDarkMode,
 		}),
-		[lenis, isScrollingEnabled, isHovering, isDarkMode]
+		[lenis, isScrollingEnabled, isHovering]
 	)
 
 	return (

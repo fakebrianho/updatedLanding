@@ -2588,10 +2588,10 @@ a {
 	color: white !important;
 }
 .UI.dark {
-	color: var(--light-text) !important;
+	color: var(--light-text);
 }
 .UI.light {
-	color: var(--dark-text) !important;
+	color: var(--dark-text);
 }
 .light {
 	background-color: white !important;

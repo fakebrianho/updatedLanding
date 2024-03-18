@@ -45,7 +45,7 @@
 	margin-left: 2%;
 	margin-right: 2%;
 	padding: 5rem 15rem;
-	/* background-color: white; */
+	background-color: white;
 	position: relative;
 }
 
@@ -349,7 +349,7 @@
 	/* -webkit-filter: drop-shadow(0px 0px 60px rgb(90, 88, 203)); */
 	/* filter: drop-shadow(0px 0px 60px rgb(90, 88, 203)); */
 	position: relative;
-	/* color: black; */
+	color: black;
 }
 
 .traces {

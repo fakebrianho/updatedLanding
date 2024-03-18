@@ -2584,16 +2584,10 @@ a {
 }
 
 .dark {
-	background-color: black !important;
-	color: white !important;
-}
-.UI.dark {
-	color: var(--light-text) !important;
-}
-.UI.light {
-	color: var(--dark-text) !important;
+	background-color: black;
+	color: white;
 }
 .light {
-	background-color: white !important;
-	color: black !important;
+	background-color: white;
+	color: black;
 }

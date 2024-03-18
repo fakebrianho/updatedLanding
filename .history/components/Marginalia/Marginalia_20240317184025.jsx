@@ -4,7 +4,7 @@ import styles from '../../src/app/readingpage.module.css'
 import { useEffect } from 'react'
 import useTheme from '../../hooks/useThemes'
 
-export default function Marginalia({ id, username, content, picture, mode }) {
+export default function Marginalia({ id, username, content, picture }) {
 	const [theme, toggleTheme] = useTheme()
 	useEffect(() => {
 		randomizeMarg()
@@ -21,9 +21,9 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 	}
 
 	return (
-		<div key={id} className={`marginalia ${mode}`}>
+		<div key={id} className={`marginalia ${theme}`}>
 			{/* <div className="marginalia__container"> */}
-			<p className={`marginalia_text ${mode}`}>{content}</p>
+			<p className={`marginalia_text ${theme}`}>{content}</p>
 			{picture && (
 				<div className='marginalia_picture'>
 					<img src={picture} alt='marginalia picture' width={200} />

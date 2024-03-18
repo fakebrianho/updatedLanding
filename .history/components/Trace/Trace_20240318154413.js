@@ -75,7 +75,7 @@ export default function Trace(data) {
 					>
 						<Link href={`http://localhost:3000/baseNavigation`}>
 							<h3
-								className={`${styles.chapterlink} ${data.mode} UI`}
+								className={`${styles.chapterlink} ${data.mode}`}
 							>
 								Uncertain Universe
 							</h3>

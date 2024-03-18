@@ -111,7 +111,7 @@ export default function ReadPage(post) {
 									)) ||
 									(post.post.layout === 'page' && (
 										<h1
-											className={`${styles.title}  ${theme}`}
+											className={`${styles.title} UI ${theme}`}
 										>
 											{post.post.title}
 										</h1>
@@ -121,7 +121,7 @@ export default function ReadPage(post) {
 									))}
 								{post.post.subtitle && (
 									<h3
-										className={`${styles.subtitle}  ${theme}`}
+										className={`${styles.subtitle} UI ${theme}`}
 									>
 										{post.post.subtitle}
 									</h3>

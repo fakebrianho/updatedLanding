@@ -44,11 +44,16 @@ export default function Trace(data) {
 
 	useEffect(() => {
 		const fetchData = async () => {
+			console.log('hellooo')
 			let res
 			if (localStorage.getItem('indexData')) {
+				console.log('data exists')
 				res = JSON.parse(localStorage.getItem('indexData'))
 			} else {
+				console.log('none exists')
+
 				res = await getData('index')
+				console.log(res)
 				localStorage.setItem('indexData', JSON.stringify(res))
 			}
 			setTreeData(res)
@@ -71,12 +76,10 @@ export default function Trace(data) {
 				>
 					<h3
 						id='accordsum'
-						className={`${styles.traces} ${data.mode} UI`}
+						className={`${styles.traces} ${data.mode}`}
 					>
 						<Link href={`http://localhost:3000/baseNavigation`}>
-							<h3
-								className={`${styles.chapterlink} ${data.mode} UI`}
-							>
+							<h3 className={styles.chapterlink}>
 								Uncertain Universe
 							</h3>
 						</Link>
