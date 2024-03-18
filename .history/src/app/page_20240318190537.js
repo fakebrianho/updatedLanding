@@ -24,7 +24,7 @@ export default function Home() {
 				<NavigationBar sub={true} mode={theme} toggle={setTheme} />
 				<Hero mode={theme} />
 				<Description mode={theme} />
-				<CallToAction mode={theme} />
+				<CallToAction />
 			</main>
 		</PageProvider>
 	)

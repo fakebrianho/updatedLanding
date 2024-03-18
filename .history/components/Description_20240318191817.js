@@ -91,13 +91,13 @@ export const Description = (props) => {
 				<p className={`text right ${props.mode}`}>
 					abstract and concrete.
 				</p>
-				<p className={`text center ${props.mode}`}>
+				<p className='text center'>
 					Its structure is fractal, but you can read it like a linear
 					book,
 					<br /> or freely skip around the knowledge graph.
 				</p>
 			</div>
-			<Explanation mode={props.mode} />
+			<Explanation />
 		</>
 	)
 }

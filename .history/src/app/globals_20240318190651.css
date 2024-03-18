@@ -495,9 +495,6 @@ a {
 	width: 50%;
 	line-height: 35px;
 }
-.work_in_progress .text.light {
-	color: black;
-}
 
 .work_in_progress .title {
 	position: relative;
@@ -531,10 +528,6 @@ a {
 .description.trivial_uncertainty {
 	margin-top: 0;
 	margin-bottom: 0;
-}
-
-.description .text.light {
-	color: black;
 }
 
 .trivial_uncertainty {
@@ -2168,17 +2161,6 @@ a {
 	height: 100%;
 	width: 100%;
 }
-
-.txt.dark {
-	background-color: transparent !important;
-	color: white;
-}
-
-.txt.light {
-	background-color: transparent !important;
-	color: black;
-}
-
 .startReading {
 	transition: opacity 1s ease;
 	opacity: 0;

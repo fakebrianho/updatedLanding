@@ -13,8 +13,6 @@ export default function Home() {
 	useEffect(() => {
 		if (theme === 'light') {
 			document.body.style.backgroundColor = 'white'
-		} else {
-			document.body.style.backgroundColor = 'black'
 		}
 	}, [theme])
 	return (
@@ -23,8 +21,8 @@ export default function Home() {
 				<Loader mode={theme} />
 				<NavigationBar sub={true} mode={theme} toggle={setTheme} />
 				<Hero mode={theme} />
-				<Description mode={theme} />
-				<CallToAction mode={theme} />
+				<Description />
+				<CallToAction />
 			</main>
 		</PageProvider>
 	)

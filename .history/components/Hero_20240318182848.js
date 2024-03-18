@@ -2,19 +2,17 @@
 // import scroll from '../utils/scrollAnimation'
 import { BrowserView, MobileView } from 'react-device-detect'
 import { React, useEffect } from 'react'
-export const Hero = (props) => {
+export const Hero = () => {
 	useEffect(() => {
 		document.body.style.overflow = 'hidden'
 	}, [])
 	return (
 		<>
 			<BrowserView>
-				<div className={`${props.mode} hero_container`}>
+				<div className={`${theme} hero_container`}>
 					<section className='hero_section'>
 						<div className='hero_content'>
-							<p
-								className={`${props.mode} landing_text landing_intro`}
-							>
+							<p className='landing_text landing_intro'>
 								Welcome to
 							</p>
 							<div className='landing_title_container'>
@@ -22,9 +20,7 @@ export const Hero = (props) => {
 									UNCERTAIN UNIVERSE
 								</p>
 							</div>
-							<p
-								className={`landing_text landing_end ${props.mode}`}
-							>
+							<p className='landing_text landing_end'>
 								A place for seekers not finders, for
 								edge-explorers <br />
 								and voyagers without abode - homesick for places{' '}

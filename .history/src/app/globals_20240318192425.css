@@ -2168,14 +2168,8 @@ a {
 	height: 100%;
 	width: 100%;
 }
-
-.txt.dark {
-	background-color: transparent !important;
-	color: white;
-}
-
 .txt.light {
-	background-color: transparent !important;
+	/* background-color: white; */
 	color: black;
 }
 

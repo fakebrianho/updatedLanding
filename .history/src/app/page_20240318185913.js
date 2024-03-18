@@ -23,8 +23,8 @@ export default function Home() {
 				<Loader mode={theme} />
 				<NavigationBar sub={true} mode={theme} toggle={setTheme} />
 				<Hero mode={theme} />
-				<Description mode={theme} />
-				<CallToAction mode={theme} />
+				<Description />
+				<CallToAction />
 			</main>
 		</PageProvider>
 	)

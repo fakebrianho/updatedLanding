@@ -81,23 +81,21 @@ export const Description = (props) => {
 				</p>
 			</div>
 			<div className='description tangible_abstract'>
-				<p className={`text left ${props.mode}`}>
+				<p className='text left'>
 					It is both{' '}
 					<span className='italic_text'>
 						<i>playful</i>
 					</span>{' '}
 					and <span className='bold_text'>serious</span>,
 				</p>
-				<p className={`text right ${props.mode}`}>
-					abstract and concrete.
-				</p>
-				<p className={`text center ${props.mode}`}>
+				<p className='text right'>abstract and concrete.</p>
+				<p className='text center'>
 					Its structure is fractal, but you can read it like a linear
 					book,
 					<br /> or freely skip around the knowledge graph.
 				</p>
 			</div>
-			<Explanation mode={props.mode} />
+			<Explanation />
 		</>
 	)
 }

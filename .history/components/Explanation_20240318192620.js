@@ -172,9 +172,7 @@ export const Explanation = (props) => {
 								version with full credits.
 							</p>
 						</div>
-						<p
-							className={`${props.mode} z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt`}
-						>
+						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Marginalia
 						</p>
 						<Image
@@ -201,9 +199,7 @@ export const Explanation = (props) => {
 								and about page from the menu on the top right.
 							</p>
 						</div>
-						<p
-							className={`${props.mode} z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-whtite-200 txt`}
-						>
+						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-whtite-200 txt'>
 							Menu
 						</p>
 						<Image
@@ -233,9 +229,7 @@ export const Explanation = (props) => {
 								to enter the reading layout.
 							</p>
 						</div>
-						<p
-							className={`z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt ${props.mode}`}
-						>
+						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Knowledge Graph
 						</p>
 						<Image
@@ -263,9 +257,7 @@ export const Explanation = (props) => {
 								layout.
 							</p>
 						</div>
-						<p
-							className={`z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt ${props.mode}`}
-						>
+						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Table of Contents
 						</p>
 						<Image

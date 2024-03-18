@@ -51,7 +51,7 @@ export const Description = (props) => {
 				<div className='blue_gradient' id='circle_14'></div>
 				{/* <p>III</p> */}
 				<h2 className={`${props.mode} title title_003`}>Fracture</h2>
-				<p className={`text ${props.mode}`}>
+				<p className='text'>
 					Our current understanding is fractured and pre-paradigmatic.
 					Different disciplines define uncertainty in mutually
 					incompatible ways. This is my attempt to re-draw the shape
@@ -61,19 +61,19 @@ export const Description = (props) => {
 			<div className='description exploring_uncertainty'>
 				{/* <p>IV</p> */}
 				<BrowserView>
-					<h2 className={`${props.mode} title title_004`}>
+					<h2 className='title title_004'>
 						BETWEEN THOUGHT <br />
 						AND THEATER
 					</h2>
 				</BrowserView>
 				<MobileView>
-					<h2 className={`${props.mode} title title_004`}>
+					<h2 className='title title_004'>
 						BETWEEN <br />
 						THOUGHT <br />
 						AND THEATER
 					</h2>
 				</MobileView>
-				<p className={`text ${props.mode}`}>
+				<p className='text'>
 					It is the ongoing diary of my first-principles exploration
 					into the unknown. Although I am not a scholar, it is quite
 					scholarly in places. Although I am not an artist, it is
@@ -81,23 +81,21 @@ export const Description = (props) => {
 				</p>
 			</div>
 			<div className='description tangible_abstract'>
-				<p className={`text left ${props.mode}`}>
+				<p className='text left'>
 					It is both{' '}
 					<span className='italic_text'>
 						<i>playful</i>
 					</span>{' '}
 					and <span className='bold_text'>serious</span>,
 				</p>
-				<p className={`text right ${props.mode}`}>
-					abstract and concrete.
-				</p>
-				<p className={`text center ${props.mode}`}>
+				<p className='text right'>abstract and concrete.</p>
+				<p className='text center'>
 					Its structure is fractal, but you can read it like a linear
 					book,
 					<br /> or freely skip around the knowledge graph.
 				</p>
 			</div>
-			<Explanation mode={props.mode} />
+			<Explanation />
 		</>
 	)
 }

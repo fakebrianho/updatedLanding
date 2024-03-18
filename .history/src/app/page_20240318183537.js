@@ -10,21 +10,15 @@ import { useEffect } from 'react'
 
 export default function Home() {
 	const [theme, setTheme] = useTheme()
-	useEffect(() => {
-		if (theme === 'light') {
-			document.body.style.backgroundColor = 'white'
-		} else {
-			document.body.style.backgroundColor = 'black'
-		}
-	}, [theme])
+	useEffect(() => {}, [])
 	return (
 		<PageProvider>
 			<main className='landing_container'>
 				<Loader mode={theme} />
 				<NavigationBar sub={true} mode={theme} toggle={setTheme} />
 				<Hero mode={theme} />
-				<Description mode={theme} />
-				<CallToAction mode={theme} />
+				<Description />
+				<CallToAction />
 			</main>
 		</PageProvider>
 	)

@@ -263,9 +263,7 @@ export const Explanation = (props) => {
 								layout.
 							</p>
 						</div>
-						<p
-							className={`z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt ${props.mode}`}
-						>
+						<p className='z-10 whitespace-nowrap text-3xl font-medium text-white-800 dark:text-white-200 txt'>
 							Table of Contents
 						</p>
 						<Image

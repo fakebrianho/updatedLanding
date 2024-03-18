@@ -22,9 +22,7 @@ export const Hero = (props) => {
 									UNCERTAIN UNIVERSE
 								</p>
 							</div>
-							<p
-								className={`landing_text landing_end ${props.mode}`}
-							>
+							<p className='landing_text landing_end'>
 								A place for seekers not finders, for
 								edge-explorers <br />
 								and voyagers without abode - homesick for places{' '}

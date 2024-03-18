@@ -97,7 +97,7 @@ export const Description = (props) => {
 					<br /> or freely skip around the knowledge graph.
 				</p>
 			</div>
-			<Explanation mode={props.mode} />
+			<Explanation />
 		</>
 	)
 }
