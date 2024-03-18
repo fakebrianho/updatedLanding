@@ -1,5 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb')
-const collections = ['first-principles', 'introduction', 'knowledge']
+const collections = ['first-principles', 'introduction', 'knowledge', 'index']
 const db_uri =
 	'mongodb+srv://admin:srPiJzF8MVXkkqpL@sample-db.tkcfqem.mongodb.net/?retryWrites=true&w=majority'
 

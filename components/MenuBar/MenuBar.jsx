@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
+// import styles from '../styles/Menu.module.css'
 import styles from '../../src/app/readingpage.module.css'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -36,6 +36,11 @@ export default function MenuBar(props) {
 		setAnchorEl(null)
 	}
 
+	const setDarkMode = () => {
+		props.setDarkMode(!props.darkMode);
+		console.log("change to dark mode");
+	}
+
 	return (
 		<>
 			<div className={styles.header}>
@@ -64,6 +69,9 @@ export default function MenuBar(props) {
 						alt='Menu Icon'
 					/>
 				</IconButton>
+
+				{/* <input type="checkbox" id="darkmode-toggle" />
+				<label htmlFor="darkmode-toggle" className={styles.darkmode} /> */}
 
 				<Menu
 					id='menu-appbar'

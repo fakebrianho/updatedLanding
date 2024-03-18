@@ -4,15 +4,6 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-/* @font-face {
-	font-family: 'IMFellEnglish';
-	src: url('/fonts/IMFellEnglish-Regular.ttf');
-}
-
-@font-face {
-	font-family: 'bluu';
-	src: url('../public/fonts/bluunext-bold-webfont.woff');
-} */
 
 .header {
 	width: 94%;
@@ -43,6 +34,48 @@
 .tocMain {
 	margin-top: 7vh;
 }
+
+#darkmode-toggle{
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.darkmode{
+    width: 50px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+    background: #ebebeb;
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.darkmode::before{
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 50%;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 5px;
+	transition: 0.3s;
+}
+
+#darkmode-toggle:checked + label{
+	background: #242424;
+}
+
+#darkmode-toggle:checked + label:after{
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+	background: linear-gradient(180deg, #777, #333);
+	transition: 0.3s;
+}
+
 
 .container {
 	min-height: 100vh;

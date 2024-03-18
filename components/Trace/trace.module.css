@@ -54,12 +54,22 @@
 .traces {
 	color: #3176c7;
 	font-family: var(--modern-font);
-	display: block;
-	font-size: 1.17em;
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
+	padding: 1rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	height: 35vh;
+	width: 60vw;
+	overflow-y: scroll;
+	background-color: white;
+	-webkit-filter: drop-shadow(-3px -3px 4px #3176c7);
+	filter: drop-shadow(-3px -3px 4px #3176c7);
+  
+	-webkit-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	transition-duration: 1s;
 	/* color: grey; */
 	/* margin-bottom: 0; */
 	/* line-height: 1.15; */
@@ -241,6 +251,7 @@ color: #ff8618;
 .card h3 {
 	margin: 0;
 	font-size: 1.5rem;
+	font-family: var(--modern-font);
 }
 
 .card p {
@@ -250,41 +261,18 @@ color: #ff8618;
 }
 
 @media screen and (max-width: 900px) {
-	.container {
-		padding: 5rem 5rem;
+
+	.traces {
+		width: 70vw;
 	}
 }
 
-@media screen and (max-width: 480px) {
-	.container {
-		padding: 5rem 3rem;
-	}
-	.title {
-		font-size: 2rem;
-	}
-	.branchhead {
-		font-size: 2.9rem;
-	}
-	.sectionhead {
-		font-size: 2.5rem;
-	}
-	.description {
-		font-size: 1rem;
-	}
-}
 
 @media screen and (max-width: 450px) {
-	.container {
-		padding: 5rem 3rem;
-	}
-	.description {
-		font-size: 1rem;
-	}
-	.margcontainer {
-		min-height: 18rem;
-		padding-left: 1.4rem;
-		padding-right: 1.4rem;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-	}
+
+	.traces {
+		width: 70vw;
+		margin: 0 auto;
+		/* padding: 0; */
+	  }
 }

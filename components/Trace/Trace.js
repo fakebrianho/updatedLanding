@@ -70,14 +70,12 @@ export default function Trace(data) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <h3 id="accordsum" className={styles.traces}>
-            <Link href={`http://localhost:3000/baseNavigation`}>
-                    <h3 className={styles.chapterlink}>Uncertain Universe</h3>
-            </Link>
+          <h3 id="accordsum">
+              <h3 className={styles.chapterlink}>Uncertain Universe</h3>
             {showPath(data.data.file_name).map((item) => {
               return(
                 <>
-                  <span> | </span>
+                  <span> {'>'} </span>
                   <Link href={`/chapters/${item.fileName}`}>
                     <h3 className={styles.chapterlink}>{item.title}</h3>
                   </Link>
@@ -119,14 +117,11 @@ export default function Trace(data) {
       <style jsx local>
         {`
 
-          .accordcontainer {
-            background-color: #f3f3f3;
-          }
-
           h3 {
             color: #3176c7;
             text-transform: capitalize;
             font-size: 1.2rem;
+            font-family: var(--modern-font);
           }
 
           ul li {

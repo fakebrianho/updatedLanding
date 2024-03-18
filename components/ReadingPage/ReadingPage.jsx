@@ -9,6 +9,7 @@ import { createTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import Trace from "../Trace/Trace";
 import { NavigationBar } from "../NavigationBar";
+
 const pageTransition = {
   out: {
     opacity: 0,
@@ -52,6 +53,8 @@ let nodedata = [
 export default function ReadPage(post) {
   const [loading, setLoading] = useState(false);
   const [newMarg, setNewMarg] = useState(null);
+  const [darkMode, setDarkMode] = useState(true);
+
   const addtoMarg = (newMarg) => {
     setNewMarg(newMarg);
     nodedata[0].marginalia.push(newMarg); //actually push to database here
@@ -71,7 +74,7 @@ export default function ReadPage(post) {
       <>
         {
           <div className='all'>
-            <MenuBar navLink={`/navigation/${post.post.file_name}`} />
+            <MenuBar navLink={`/navigation/${post.post.file_name}`} darkMode={darkMode} setDarkMode={setDarkMode}/>
             <div className={styles.container}>
               <div>
                 <Trace data={post.post} />
@@ -202,8 +205,9 @@ export default function ReadPage(post) {
                   p,
                   ol,
                   li {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                   }
+                  
                   img{
                     max-width: 100%;
                     height: auto;
