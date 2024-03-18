@@ -1,0 +1,7 @@
+.label {
+	width: 500px;
+	height: 200px;
+	position: relative;
+	background-color: #ebebeb;
+	display: block;
+}
