@@ -43,7 +43,7 @@ export const Navigation = (props) => {
 			className='motionContainer'
 		>
 			{!isMobile && <BackButton />}
-			{!isMobile && (
+			{isMobile && (
 				<Cursor
 					hoverState={isHovered}
 					clickState={isClickable}

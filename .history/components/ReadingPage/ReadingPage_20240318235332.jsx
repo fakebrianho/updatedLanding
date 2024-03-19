@@ -84,6 +84,13 @@ export default function ReadPage(post) {
 							toggle={toggleTheme}
 						/>
 						<div className={`${styles.container} ${theme}`}>
+							<button
+								onClick={toggleTheme}
+								className={` UI ${theme}`}
+							>
+								Toggle Theme
+							</button>
+
 							<div className={theme}>
 								<Trace data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (

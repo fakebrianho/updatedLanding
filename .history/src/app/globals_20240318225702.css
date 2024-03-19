@@ -2168,11 +2168,11 @@ a {
 	height: 100%;
 	width: 100%;
 }
-.title.dark {
+.title.dark{
 	background-color: transparent !important;
 }
-.title.light {
-	background-color: transparent !important;
+.title.light{
+	${props.mode} 
 }
 
 .txt.dark {

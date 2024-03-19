@@ -2172,7 +2172,9 @@ a {
 	background-color: transparent !important;
 }
 .title.light {
-	background-color: transparent !important;
+	.title.dark {
+		background-color: transparent !important;
+	}
 }
 
 .txt.dark {
