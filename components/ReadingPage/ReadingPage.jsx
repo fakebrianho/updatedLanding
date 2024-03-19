@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 import styles from "./ReadingPage.module.css";
 import MenuBar from "../MenuBar/MenuBar";
 import NavigateTo from "../NavigateTo/NavigateTo";
@@ -53,12 +53,36 @@ let nodedata = [
 export default function ReadPage(post) {
   const [loading, setLoading] = useState(false);
   const [newMarg, setNewMarg] = useState(null);
-  const [darkMode, setDarkMode] = useState(true);
+  const [mMarg, setmMarg] = useState(null);
+  const [counter, setCounter] = useState(1);
+  const [fileName, setFileName] = useState(post.post.file_name);
 
-  const addtoMarg = (newMarg) => {
-    setNewMarg(newMarg);
-    nodedata[0].marginalia.push(newMarg); //actually push to database here
-  };
+  // const addtoMarg = (newMarg) => {
+  //   setNewMarg(newMarg);
+  //   nodedata[0].marginalia.push(newMarg); //actually push to database here
+  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/${fileName}`, {
+          method: 'GET',
+        });
+        console.log(response)
+        const marginalia = await response.json();
+        console.log("margin", marginalia);
+        
+        setmMarg(marginalia);
+      } catch (e) {
+        console.error('Error fetching API data for post ', fileName, ' ', e);
+      }
+    };
+
+    // Since fileName is initialized to be null, we need to wait until it has a
+    // valid value before fetching data
+    if (fileName !== null) {
+      fetchData();
+    }
+  }, [counter, fileName]);
 
   const processQuote = (quote) => {
     if (quote.match("~")) {
@@ -74,7 +98,7 @@ export default function ReadPage(post) {
       <>
         {
           <div className='all'>
-            <MenuBar navLink={`/navigation/${post.post.file_name}`} darkMode={darkMode} setDarkMode={setDarkMode}/>
+            <MenuBar navLink={`/navigation/${post.post.file_name}`} />
             <div className={styles.container}>
               <div>
                 <Trace data={post.post} />
@@ -124,7 +148,8 @@ export default function ReadPage(post) {
                     ))}
                 </div>
               </div>
-              <NavigateTo data={post.post} />
+              {/* fake data version */}
+              {/* <NavigateTo data={post.post} />
               {nodedata[0].marginalia.length != 0 && (
                 <div className={styles.footer}>
                   <div className={styles.margcontainer}>
@@ -141,7 +166,26 @@ export default function ReadPage(post) {
                   </div>
                 </div>
               )}
-              <AddMarginalia addMarg={addtoMarg} />
+              <AddMarginalia addMarg={addtoMarg} /> */}
+
+              {/* live version */}
+            <NavigateTo data={post.post} setCounter={setCounter} setFileName={setFileName} />
+            {(mMarg) ? (mMarg.length != 0 && (
+              <div className={styles.footer}>
+                <div className={styles.margcontainer}>
+                  {mMarg.map(marginalia => {
+                    return (
+                      <Marginalia
+                        username={marginalia.name}
+                        content={marginalia.body}
+                        picture={marginalia.picture}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            )) : (null)}
+            <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} />
 
               <style jsx global>{`
                 html,
@@ -164,7 +208,6 @@ export default function ReadPage(post) {
                   width: 50vw;
                   height: 1px;
                   border-bottom: 1px solid #ff8618;
-                  // position: absolute;
                   margin-bottom: 1.5rem;
                 }
 
@@ -207,7 +250,7 @@ export default function ReadPage(post) {
                   li {
                     font-size: 1.1rem;
                   }
-                  
+
                   img{
                     max-width: 100%;
                     height: auto;
