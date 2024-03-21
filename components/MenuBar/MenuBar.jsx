@@ -43,7 +43,7 @@ export default function MenuBar(props) {
 
 	return (
 		<>
-			<div className={styles.header}>
+			<div className={`${styles.header} ${props.mode}`}>
 				<Button>
 					<Link className={styles.back} href='/'>
 						<Image

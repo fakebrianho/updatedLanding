@@ -1,0 +1,43 @@
+.label {
+	width: 50px;
+	height: 35px;
+	position: relative;
+	background-color: #ebebeb;
+	display: block;
+	border-radius: 200px;
+	box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.label:after {
+	content: '';
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: linear-gradient(180deg, #ffcc89, #d8860b);
+	border-radius: 180px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s;
+}
+.check {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	transition: all 0.3s;
+}
+
+.check:checked + .label {
+	background-color: #242424;
+	transition: all 0.3s;
+}
+
+.check:checked + .label:after {
+	transition: all 0.3s;
+	left: 490px;
+	transform: translate(-100%);
+	background: linear-gradient(180deg, #777, #3a3a3a);
+}
