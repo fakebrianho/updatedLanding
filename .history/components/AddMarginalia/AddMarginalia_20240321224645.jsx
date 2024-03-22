@@ -1,6 +1,4 @@
 import * as React from 'react'
-import Fab from '@mui/material/Fab'
-import AddIcon from '@mui/icons-material/Add'
 import IconButton from '@mui/material/IconButton'
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'
 import Button from '@mui/material/Button'
@@ -8,10 +6,7 @@ import TextField from '@mui/material/TextField'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
-import styles from './styles/AddMarginalia.module.css'
-import Stack from '@mui/material/Stack'
 import { set } from 'mongoose'
 
 let marginalia = [
@@ -31,7 +26,8 @@ let marginalia = [
 	},
 ]
 
-export default function AddMarginalia({ addMarg }) {
+export default function AddMarginalia({ file_name, counter, setCounter }) {
+	set
 	const [open, setOpen] = React.useState(false)
 	const [name, setName] = React.useState('')
 	const [comment, setComment] = React.useState('')
@@ -60,23 +56,31 @@ export default function AddMarginalia({ addMarg }) {
 		reader.readAsDataURL(file)
 	}
 
-	const handleSubmit = () => {
-		const newMarginalia = {
-			id: (marginalia.length + 1).toString(),
+	const handleSubmit = async () => {
+		const info = {
+			file_name: file_name,
 			name: name,
 			body: comment,
-			date: Date,
 			picture: imageUrl,
 		}
-		marginalia.push(newMarginalia)
-		addMarg(newMarginalia)
+
+		const response = await fetch(`/api/${file_name}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(info),
+		})
+		const result = await response.json()
+		console.log(result)
+		setCounter((prevCounter) => prevCounter + 1)
 		handleClose()
 	}
 
 	return (
 		<div className='addmarg'>
 			<Button
-				className='orangebutton'
+				className='bg-primary'
 				variant='contained'
 				aria-label='add'
 				onClick={handleClickOpen}
@@ -158,10 +162,6 @@ export default function AddMarginalia({ addMarg }) {
 						position: absolute;
 						bottom: 3.5em;
 						right: 13em;
-					}
-
-					.orangebutton {
-						background-color: #ff8c24;
 					}
 
 					.imgcontainer {

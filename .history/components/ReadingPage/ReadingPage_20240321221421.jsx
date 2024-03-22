@@ -64,9 +64,12 @@ export default function ReadPage(post) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`/api/${fileName}`, {
-					method: 'GET',
-				})
+				const response = await fetch(
+					`/api/[file_name]?file_name=${fileName}`,
+					{
+						method: 'GET',
+					}
+				)
 				console.log(response)
 				const marginalia = await response.json()
 				console.log('margin', marginalia)
@@ -202,7 +205,7 @@ export default function ReadPage(post) {
 											<div
 												className={styles.margcontainer}
 											>
-												{/* {mMarg.map((marginalia) => {
+												{mMarg.map((marginalia) => {
 													return (
 														<Marginalia
 															username={
@@ -216,7 +219,7 @@ export default function ReadPage(post) {
 															}
 														/>
 													)
-												})} */}
+												})}
 											</div>
 										</div>
 								  )

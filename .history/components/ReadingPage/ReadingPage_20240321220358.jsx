@@ -1,14 +1,13 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './ReadingPage.module.css'
-import MenuBar from '../MenuBar/MenuBar'
 import NavigateTo from '../NavigateTo/NavigateTo'
 import Marginalia from '../Marginalia/Marginalia'
 import AddMarginalia from '../AddMarginalia/AddMarginalia'
-import { createTheme } from '@mui/material/styles'
 import { motion } from 'framer-motion'
 import Trace from '../Trace/Trace'
 import { NavigationBar } from '../NavigationBar'
+import useTheme from '../../../hooks/useThemes'
 
 const pageTransition = {
 	out: {
@@ -53,41 +52,12 @@ let nodedata = [
 export default function ReadPage(post) {
 	const [loading, setLoading] = useState(false)
 	const [newMarg, setNewMarg] = useState(null)
-	const [mMarg, setmMarg] = useState(null)
-	const [counter, setCounter] = useState(1)
-	const [fileName, setFileName] = useState(post.post.file_name)
+	const [theme, toggleTheme] = useTheme()
 
-	// const addtoMarg = (newMarg) => {
-	//   setNewMarg(newMarg);
-	//   nodedata[0].marginalia.push(newMarg); //actually push to database here
-	// };
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch(`/api/${fileName}`, {
-					method: 'GET',
-				})
-				console.log(response)
-				const marginalia = await response.json()
-				console.log('margin', marginalia)
-
-				setmMarg(marginalia)
-			} catch (e) {
-				console.error(
-					'Error fetching API data for post ',
-					fileName,
-					' ',
-					e
-				)
-			}
-		}
-
-		// Since fileName is initialized to be null, we need to wait until it has a
-		// valid value before fetching data
-		if (fileName !== null) {
-			fetchData()
-		}
-	}, [counter, fileName])
+	const addtoMarg = (newMarg) => {
+		setNewMarg(newMarg)
+		nodedata[0].marginalia.push(newMarg) //actually push to database here
+	}
 
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
@@ -107,25 +77,33 @@ export default function ReadPage(post) {
 		>
 			<>
 				{
-					<div className='all'>
-						<MenuBar
-							navLink={`/navigation/${post.post.file_name}`}
+					<div className={`all ${theme}`}>
+						<NavigationBar
+							sub={false}
+							mode={theme}
+							toggle={toggleTheme}
 						/>
-						<div className={styles.container}>
-							<div>
-								<Trace data={post.post} />
+						<div className={`${styles.container} ${theme}`}>
+							<div className={theme}>
+								<Trace data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (
-									<h1 className={styles.branchhead}>
+									<h1
+										className={`${styles.branchhead}  ${theme}`}
+									>
 										{post.post.title}
 									</h1>
 								)) ||
 									(post.post.layout === 'section-head' && (
-										<h1 className={styles.sectionhead}>
+										<h1
+											className={`${styles.sectionhead}  ${theme}`}
+										>
 											{post.post.title}
 										</h1>
 									)) ||
 									(post.post.layout === 'page' && (
-										<h1 className={styles.title}>
+										<h1
+											className={`${styles.title}  ${theme}`}
+										>
 											{post.post.title}
 										</h1>
 									)) ||
@@ -133,7 +111,9 @@ export default function ReadPage(post) {
 										<p className={styles.quote}></p>
 									))}
 								{post.post.subtitle && (
-									<h3 className={styles.subtitle}>
+									<h3
+										className={`${styles.subtitle}  ${theme}`}
+									>
 										{post.post.subtitle}
 									</h3>
 								)}
@@ -141,7 +121,7 @@ export default function ReadPage(post) {
 									<div className='line'></div>
 								)}
 
-								<div className='maintext'>
+								<div className={`maintext ${theme}`}>
 									{(post.post.layout != 'quote' &&
 										post.post.layout != 'branch-head' && (
 											<div
@@ -170,62 +150,33 @@ export default function ReadPage(post) {
 										))}
 								</div>
 							</div>
-							{/* fake data version */}
-							{/* <NavigateTo data={post.post} />
-              {nodedata[0].marginalia.length != 0 && (
-                <div className={styles.footer}>
-                  <div className={styles.margcontainer}>
-                    {nodedata[0].marginalia.map((marginalia) => {
-                      return (
-                        <Marginalia
-                          key={marginalia.id}
-                          username={marginalia.name}
-                          content={marginalia.body}
-                          picture={marginalia.picture}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              <AddMarginalia addMarg={addtoMarg} /> */}
-
-							{/* live version */}
-							<NavigateTo
-								data={post.post}
-								setCounter={setCounter}
-								setFileName={setFileName}
-							/>
-							{mMarg
-								? mMarg.length != 0 && (
-										<div className={styles.footer}>
-											<div
-												className={styles.margcontainer}
-											>
-												{/* {mMarg.map((marginalia) => {
-													return (
-														<Marginalia
-															username={
-																marginalia.name
-															}
-															content={
-																marginalia.body
-															}
-															picture={
-																marginalia.picture
-															}
-														/>
-													)
-												})} */}
-											</div>
-										</div>
-								  )
-								: null}
-							<AddMarginalia
-								file_name={post.post.file_name}
-								counter={counter}
-								setCounter={setCounter}
-							/>
+							<NavigateTo data={post.post} />
+							{nodedata[0].marginalia.length != 0 && (
+								<div className={styles.footer}>
+									<div className={styles.margcontainer}>
+										{nodedata[0].marginalia.map(
+											(marginalia) => {
+												return (
+													<Marginalia
+														key={marginalia.id}
+														username={
+															marginalia.name
+														}
+														content={
+															marginalia.body
+														}
+														picture={
+															marginalia.picture
+														}
+														mode={theme}
+													/>
+												)
+											}
+										)}
+									</div>
+								</div>
+							)}
+							<AddMarginalia addMarg={addtoMarg} />
 
 							<style jsx global>{`
 								html,
@@ -248,6 +199,7 @@ export default function ReadPage(post) {
 									width: 50vw;
 									height: 1px;
 									border-bottom: 1px solid #ff8618;
+									// position: absolute;
 									margin-bottom: 1.5rem;
 								}
 
@@ -288,9 +240,8 @@ export default function ReadPage(post) {
 									p,
 									ol,
 									li {
-										font-size: 1.1rem;
+										font-size: 1rem;
 									}
-
 									img {
 										max-width: 100%;
 										height: auto;

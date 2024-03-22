@@ -65,6 +65,7 @@ export default function ReadPage(post) {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(`/api/${fileName}`, {
+					// url:
 					method: 'GET',
 				})
 				console.log(response)
@@ -202,7 +203,7 @@ export default function ReadPage(post) {
 											<div
 												className={styles.margcontainer}
 											>
-												{/* {mMarg.map((marginalia) => {
+												{mMarg.map((marginalia) => {
 													return (
 														<Marginalia
 															username={
@@ -216,7 +217,7 @@ export default function ReadPage(post) {
 															}
 														/>
 													)
-												})} */}
+												})}
 											</div>
 										</div>
 								  )

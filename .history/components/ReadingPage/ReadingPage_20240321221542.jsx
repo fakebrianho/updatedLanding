@@ -202,7 +202,7 @@ export default function ReadPage(post) {
 											<div
 												className={styles.margcontainer}
 											>
-												{/* {mMarg.map((marginalia) => {
+												{mMarg.map((marginalia) => {
 													return (
 														<Marginalia
 															username={
@@ -216,7 +216,7 @@ export default function ReadPage(post) {
 															}
 														/>
 													)
-												})} */}
+												})}
 											</div>
 										</div>
 								  )
