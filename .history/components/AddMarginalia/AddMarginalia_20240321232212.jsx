@@ -54,24 +54,16 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 		reader.readAsDataURL(file)
 	}
 
-	const handleSubmit = async () => {
-		const info = {
-			file_name: file_name,
+	const handleSubmit = () => {
+		const newMarginalia = {
+			id: (marginalia.length + 1).toString(),
 			name: name,
 			body: comment,
+			date: Date,
 			picture: imageUrl,
 		}
-
-		const response = await fetch(`/api/${file_name}`, {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(info),
-		})
-		const result = await response.json()
-		console.log(result)
-		setCounter((prevCounter) => prevCounter + 1)
+		marginalia.push(newMarginalia)
+		addMarg(newMarginalia)
 		handleClose()
 	}
 
@@ -162,6 +154,10 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 						right: 13em;
 					}
 
+					.orangebutton {
+						background-color: #ff8c24;
+					}
+
 					.imgcontainer {
 						width: 100%;
 						height: 300px;
@@ -176,6 +172,9 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 
 						.addmarg {
 							right: 3em;
+						}
+						.orangebutton {
+							background-color: #ff8c24;
 						}
 					}
 				`}

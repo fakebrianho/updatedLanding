@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from './ReadingPage.module.css'
 import NavigateTo from '../NavigateTo/NavigateTo'
 import Marginalia from '../Marginalia/Marginalia'
@@ -50,12 +50,16 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
-	// const [loading, setLoading] = useState(false)
-	// const [newMarg, setNewMarg] = useState(null)
+	const [loading, setLoading] = useState(false)
+	const [newMarg, setNewMarg] = useState(null)
 	const [theme, toggleTheme] = useTheme()
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)
 	const [fileName, setFileName] = useState(post.post.file_name)
+	const addtoMarg = (newMarg) => {
+		setNewMarg(newMarg)
+		nodedata[0].marginalia.push(newMarg) //actually push to database here
+	}
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -63,7 +67,10 @@ export default function ReadPage(post) {
 				const response = await fetch(`/api/${fileName}`, {
 					method: 'GET',
 				})
+				console.log(response)
 				const marginalia = await response.json()
+				console.log('margin', marginalia)
+
 				setmMarg(marginalia)
 			} catch (e) {
 				console.error(
@@ -170,44 +177,33 @@ export default function ReadPage(post) {
 										))}
 								</div>
 							</div>
-							<NavigateTo
-								data={post.post}
-								setCounter={setCounter}
-								setFileName={setFileName}
-							/>
-							{mMarg
-								? mMarg.length != 0 && (
-										<div className={styles.footer}>
-											<div
-												className={styles.margcontainer}
-											>
-												{mMarg.map(
-													(marginalia, index) => {
-														return (
-															<Marginalia
-																key={index}
-																username={
-																	marginalia.name
-																}
-																content={
-																	marginalia.body
-																}
-																picture={
-																	marginalia.picture
-																}
-															/>
-														)
-													}
-												)}
-											</div>
-										</div>
-								  )
-								: null}
-							<AddMarginalia
-								file_name={post.post.file_name}
-								counter={counter}
-								setCounter={setCounter}
-							/>
+							<NavigateTo data={post.post} />
+							{nodedata[0].marginalia.length != 0 && (
+								<div className={styles.footer}>
+									<div className={styles.margcontainer}>
+										{nodedata[0].marginalia.map(
+											(marginalia) => {
+												return (
+													<Marginalia
+														key={marginalia.id}
+														username={
+															marginalia.name
+														}
+														content={
+															marginalia.body
+														}
+														picture={
+															marginalia.picture
+														}
+														mode={theme}
+													/>
+												)
+											}
+										)}
+									</div>
+								</div>
+							)}
+							<AddMarginalia addMarg={addtoMarg} />
 
 							<style jsx global>{`
 								html,

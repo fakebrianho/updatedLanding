@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from './ReadingPage.module.css'
 import NavigateTo from '../NavigateTo/NavigateTo'
 import Marginalia from '../Marginalia/Marginalia'
@@ -48,22 +48,47 @@ let nodedata = [
 		],
 	},
 ]
+	{
+		marginalia: [
+			{
+				id: '_1hiush',
+				name: 'David P.',
+				body: 'This is a marginalia',
+				date: Date,
+				picture: null,
+			},
+			{
+				id: '_2sduhf',
+				name: 'Cindy H.',
+				body: 'This is another marginalia',
+				date: Date,
+				picture: null,
+			},
+		],
+	},
+]
 
 export default function ReadPage(post) {
-	// const [loading, setLoading] = useState(false)
-	// const [newMarg, setNewMarg] = useState(null)
-	const [theme, toggleTheme] = useTheme()
+	const [loading, setLoading] = useState(false)
+	const [newMarg, setNewMarg] = useState(null)
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)
 	const [fileName, setFileName] = useState(post.post.file_name)
 
+	// const addtoMarg = (newMarg) => {
+	//   setNewMarg(newMarg);
+	//   nodedata[0].marginalia.push(newMarg); //actually push to database here
+	// };
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(`/api/${fileName}`, {
 					method: 'GET',
 				})
+				console.log(response)
 				const marginalia = await response.json()
+				console.log('margin', marginalia)
+
 				setmMarg(marginalia)
 			} catch (e) {
 				console.error(
@@ -74,11 +99,22 @@ export default function ReadPage(post) {
 				)
 			}
 		}
+
+		// Since fileName is initialized to be null, we need to wait until it has a
+		// valid value before fetching data
 		if (fileName !== null) {
 			fetchData()
 		}
 	}, [counter, fileName])
 
+	const processQuote = (quote) => {
+		if (quote.match('~')) {
+			let splitcontent = quote.split('~')
+			return splitcontent[0] + '<i>' + splitcontent[1] + '</i>'
+		} else {
+			return quote
+		}
+	}
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
 			let splitcontent = quote.split('~')
@@ -170,44 +206,33 @@ export default function ReadPage(post) {
 										))}
 								</div>
 							</div>
-							<NavigateTo
-								data={post.post}
-								setCounter={setCounter}
-								setFileName={setFileName}
-							/>
-							{mMarg
-								? mMarg.length != 0 && (
-										<div className={styles.footer}>
-											<div
-												className={styles.margcontainer}
-											>
-												{mMarg.map(
-													(marginalia, index) => {
-														return (
-															<Marginalia
-																key={index}
-																username={
-																	marginalia.name
-																}
-																content={
-																	marginalia.body
-																}
-																picture={
-																	marginalia.picture
-																}
-															/>
-														)
-													}
-												)}
-											</div>
-										</div>
-								  )
-								: null}
-							<AddMarginalia
-								file_name={post.post.file_name}
-								counter={counter}
-								setCounter={setCounter}
-							/>
+							<NavigateTo data={post.post} />
+							{nodedata[0].marginalia.length != 0 && (
+								<div className={styles.footer}>
+									<div className={styles.margcontainer}>
+										{nodedata[0].marginalia.map(
+											(marginalia) => {
+												return (
+													<Marginalia
+														key={marginalia.id}
+														username={
+															marginalia.name
+														}
+														content={
+															marginalia.body
+														}
+														picture={
+															marginalia.picture
+														}
+														mode={theme}
+													/>
+												)
+											}
+										)}
+									</div>
+								</div>
+							)}
+							<AddMarginalia addMarg={addtoMarg} />
 
 							<style jsx global>{`
 								html,
@@ -220,7 +245,22 @@ export default function ReadPage(post) {
 									height: 100vh;
 									transition: 0.5s;
 								}
+							<style jsx global>{`
+								html,
+								body {
+									background-color: white;
+									padding: 0;
+									margin: 0;
+									font-family: Optima;
+									width: 100vw;
+									height: 100vh;
+									transition: 0.5s;
+								}
 
+								.all {
+									width: 100vw;
+									height: 100vh;
+								}
 								.all {
 									width: 100vw;
 									height: 100vh;
@@ -238,11 +278,26 @@ export default function ReadPage(post) {
 									max-width: 80%;
 									height: auto;
 								}
+								img {
+									max-width: 80%;
+									height: auto;
+								}
 
 								* {
 									box-sizing: border-box;
 								}
+								* {
+									box-sizing: border-box;
+								}
 
+								.center {
+									text-align: center;
+									display: block;
+									margin-left: auto;
+									margin-right: auto;
+									border: 1px solid #ff8618;
+									padding: 2rem;
+								}
 								.center {
 									text-align: center;
 									display: block;
@@ -259,7 +314,20 @@ export default function ReadPage(post) {
 									line-height: 2.5rem;
 									margin: 1.8rem 0.8rem 1rem 0;
 								}
+								.hasdropcap:first-letter {
+									font-family: var(--old-font);
+									float: left;
+									font-size: 6.5rem;
+									line-height: 2.5rem;
+									margin: 1.8rem 0.8rem 1rem 0;
+								}
 
+								p,
+								ol,
+								li {
+									line-height: 1.5;
+									font-size: 1.2rem;
+								}
 								p,
 								ol,
 								li {
@@ -273,6 +341,25 @@ export default function ReadPage(post) {
 									li {
 										font-size: 1rem;
 									}
+									img {
+										max-width: 100%;
+										height: auto;
+									}
+								}
+							`}</style>
+						</div>
+					</div>
+				}
+			</>
+		</motion.div>
+	)
+								@media screen and (max-width: 480px) {
+									p,
+									ol,
+									li {
+										font-size: 1.1rem;
+									}
+
 									img {
 										max-width: 100%;
 										height: auto;

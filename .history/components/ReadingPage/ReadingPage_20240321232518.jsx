@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from './ReadingPage.module.css'
 import NavigateTo from '../NavigateTo/NavigateTo'
 import Marginalia from '../Marginalia/Marginalia'
@@ -50,8 +50,8 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
-	// const [loading, setLoading] = useState(false)
-	// const [newMarg, setNewMarg] = useState(null)
+	const [loading, setLoading] = useState(false)
+	const [newMarg, setNewMarg] = useState(null)
 	const [theme, toggleTheme] = useTheme()
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)
@@ -63,7 +63,10 @@ export default function ReadPage(post) {
 				const response = await fetch(`/api/${fileName}`, {
 					method: 'GET',
 				})
+				console.log(response)
 				const marginalia = await response.json()
+				console.log('margin', marginalia)
+
 				setmMarg(marginalia)
 			} catch (e) {
 				console.error(

@@ -64,6 +64,7 @@ export default function ReadPage(post) {
 					method: 'GET',
 				})
 				const marginalia = await response.json()
+
 				setmMarg(marginalia)
 			} catch (e) {
 				console.error(

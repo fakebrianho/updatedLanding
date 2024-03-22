@@ -63,7 +63,10 @@ export default function ReadPage(post) {
 				const response = await fetch(`/api/${fileName}`, {
 					method: 'GET',
 				})
+				console.log(response)
 				const marginalia = await response.json()
+				console.log('margin', marginalia)
+
 				setmMarg(marginalia)
 			} catch (e) {
 				console.error(

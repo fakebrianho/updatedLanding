@@ -162,6 +162,10 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 						right: 13em;
 					}
 
+					.orangebutton {
+						background-color: #ff8c24;
+					}
+
 					.imgcontainer {
 						width: 100%;
 						height: 300px;
@@ -176,6 +180,9 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 
 						.addmarg {
 							right: 3em;
+						}
+						.orangebutton {
+							background-color: #ff8c24;
 						}
 					}
 				`}
