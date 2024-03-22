@@ -76,11 +76,13 @@ export const ChildNodes = (props) => {
 				className='box'
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
+						console.log(dirtyData(children.props.children))
 						router.push(
 							`/navigation/${dirtyData(children.props.children)}`
 						)
 					} else {
 						if (!props.topLevel) {
+							console.log(children)
 							router.push(
 								`/navigation/${dirtyData(
 									children.props.children

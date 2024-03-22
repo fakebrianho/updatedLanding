@@ -41,18 +41,6 @@ export const ChildNodes = (props) => {
 			observer.disconnect()
 		}
 	}, [])
-	const cleanData = (data) => {
-		const result = data.split('-').map((word) => {
-			return word.substring(0, 1).toUpperCase() + word.substring(1)
-		})
-		return result
-	}
-	const dirtyData = (data) => {
-		const result = data.split(' ').map((word) => {
-			return word.substring(0, 1).toLowerCase() + word.substring(1)
-		})
-		return result.join('-')
-	}
 	const attachCursorEvents = () => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
 
@@ -76,16 +64,10 @@ export const ChildNodes = (props) => {
 				className='box'
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
-						router.push(
-							`/navigation/${dirtyData(children.props.children)}`
-						)
+						router.push(`/navigation/${children.props.children}`)
 					} else {
 						if (!props.topLevel) {
-							router.push(
-								`/navigation/${dirtyData(
-									children.props.children
-								)}`
-							)
+							router.push(`/chapters/${children.props.children}`)
 						}
 					}
 				}}
@@ -111,7 +93,6 @@ export const ChildNodes = (props) => {
 				className='box'
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
-						console.log(children)
 						router.push(
 							`/navigation/${children.props.dataattribute}`
 						)
