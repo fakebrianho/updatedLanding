@@ -20,6 +20,10 @@
     overflow-y: scroll;
 }
 
+.marginalia::-webkit-scrollbar {
+    display: none;
+  }
+  
 .username {
     font-size: 1rem;
     font-family: var(--modern-font);

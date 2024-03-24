@@ -1,8 +1,14 @@
 import Link from 'next/link'
 
+import styles from '../../src/app/readingpage.module.css'
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { useState } from 'react'
+import { set } from 'mongoose'
 
 let sectiontitles = []
 export default function NavigateTo({ data }) {
@@ -10,14 +16,14 @@ export default function NavigateTo({ data }) {
 		<>
 			<div className='navigate'>
 				{data.prev_file_name && (
-					<button onClick={() => fetchMarginalia(data.prev_file_name)} className="prev">
+					<button className='prev'>
 						<Link href={`/chapters/${data.prev_file_name}`}>
 							<ArrowBackIosNewIcon fontSize='large' />
 						</Link>
 					</button>
 				)}
 				{data.next_file_name && (
-					 <button onClick={() => fetchMarginalia(data.next_file_name)} className="next">
+					<button className='next'>
 						<Link href={`/chapters/${data.next_file_name}`}>
 							<ArrowForwardIosIcon fontSize='large' />
 						</Link>

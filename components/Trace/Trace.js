@@ -57,75 +57,57 @@ export default function Trace(data) {
 		fetchData()
 	}, [])
 
-	return (
-		<>
-			<Accordion
-				onClick={scrollToHighlight}
-				square
-				className={`${styles.toggle} ${data.mode}`}
-			>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls='panel1a-content'
-					id='panel1a-header'
-				>
-					<h3
-						id='accordsum'
-						className={`${styles.traces} ${data.mode} UI`}
-					>
-						<Link href={`http://localhost:3000/baseNavigation`}>
-							<h3
-								className={`${styles.chapterlink} ${data.mode} UI`}
-							>
-								Uncertain Universe
-							</h3>
-						</Link>
-						{showPath(data.data.file_name).map((item) => {
-							return (
-								<>
-									<span> | </span>
-									<Link href={`/chapters/${item.fileName}`}>
-										<h3 className={styles.chapterlink}>
-											{item.title}
-										</h3>
-									</Link>
-								</>
-							)
-						})}
-					</h3>
-				</AccordionSummary>
-				<AccordionDetails sx={{ padding: 0 }}>
-					<main ref={containerRef} className={styles.traces}>
-						{/* match current data title and highlight in trace */}
-						<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
-							<Grid
-								container
-								sx={{
-									flexDirection: { xs: 'column', sm: 'row' },
-								}}
-								justifyContent={{ xs: 'center', sm: 'left' }}
-								rowSpacing={2}
-								columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-							>
-								{!isLoading &&
-									treeData.map(
-										(collection, id) =>
-											collection.index && (
-												<TableOfContentsChapter
-													collection={collection}
-													key={id}
-													findmatch={
-														data.data.file_name
-													}
-													highlightRef={highlightRef}
-												/>
-											)
-									)}
-							</Grid>
-						</Box>
-					</main>
-				</AccordionDetails>
-			</Accordion>
+  return (
+    <>
+      <Accordion onClick={scrollToHighlight} square className={styles.toggle} style={{ boxShadow: "none" }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <div className="accord">
+              <h3 className={styles.chapterlink}>Uncertain Universe</h3>
+            {showPath(data.data.file_name).map((item) => {
+              return(
+                <>
+                  <h3 className="divider"> {'>'} </h3>
+                  <Link href={`/chapters/${item.fileName}`}>
+                    <h3 className={styles.chapterlink}>{item.title}</h3>
+                  </Link>
+                  
+                </>
+              )})
+            }  
+          </div>
+        </AccordionSummary>
+        <AccordionDetails sx={{ padding: 0 }}>
+          <main ref={containerRef} className={styles.traces}>
+            {/* match current data title and highlight in trace */}
+            <Box sx={{ width: "100%", paddingLeft: "0.1em" }}>
+              <Grid
+                container
+                sx={{ flexDirection: { xs: "column", sm: "row" } }}
+                justifyContent={{ xs: "center", sm: "left" }}
+                rowSpacing={2}
+                columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+              >
+                {!isLoading &&
+                  treeData.map(
+                    (collection, id) =>
+                      collection.index && (
+                        <TableOfContentsChapter
+                          collection={collection}
+                          key={id}
+                          findmatch={data.data.file_name}
+                          highlightRef={highlightRef}
+                        />
+                      )
+                  )}
+              </Grid>
+            </Box>
+          </main>
+        </AccordionDetails>
+      </Accordion>
 
 			<style jsx local>
 				{`

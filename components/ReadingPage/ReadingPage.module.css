@@ -236,83 +236,7 @@
 }
 
 
-@media screen and (max-width: 900px) {
-	.container {
-		padding: 5rem 3rem;
-	}
 
-	.traces {
-		width: 70vw;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.container {
-		padding: 5rem 2rem;
-	}
-	.title {
-		font-size: 2rem;
-	}
-	.branchhead {
-		font-size: 2.6rem;
-	}
-	.sectionhead {
-		font-size: 2.4rem;
-	}
-	.description {
-		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 450px) {
-	.container {
-		padding: 5rem 2rem;
-	}
-
-	.branchhead {
-		font-size: 2.3rem;
-	}
-
-	.sectionhead {
-		font-size: 2.3rem;
-	}
-
-	.description {
-		font-size: 1rem;
-	}
-	.margcontainer {
-		min-height: 18rem;
-		padding-left: 1.4rem;
-		padding-right: 1.4rem;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-	}
-	.traces {
-		width: 70vw;
-		margin: 0 auto;
-		/* padding: 0; */
-	}
-}
-
-@media screen and (max-width: 400px) {
-	.branchhead {
-		font-size: 2rem;
-	}
-
-	.sectionhead {
-		font-size: 2rem;
-	}
-}
-
-@media screen and (max-width: 375px) {
-	.branchhead {
-		font-size: 1.9rem;
-	}
-
-	.sectionhead {
-		font-size: 1.9rem;
-	}
-}
 
 .back {
 	font-size: 1.1rem;
@@ -485,84 +409,42 @@
 	line-height: 1.5;
 }
 
-
-@media screen and (max-width: 985px) {
+@media screen and (max-width: 900px) {
 	.container {
-	  padding: 5rem 3rem;
+		padding: 5rem 5rem;
 	}
-  
-	.traces {
-	  width: 70vw;
-	}
-  }
+}
 
-  @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
 	.container {
-	  padding: 5rem 2rem;
+		padding: 5rem 3rem;
 	}
 	.title {
-	  font-size: 2rem;
+		font-size: 2rem;
 	}
 	.branchhead {
-	  font-size: 2.6rem;
+		font-size: 2.9rem;
 	}
 	.sectionhead {
-	  font-size: 2.4rem;
+		font-size: 2.5rem;
 	}
 	.description {
-	  font-size: 1rem;
+		font-size: 1rem;
 	}
+}
 
-  }
-
-
-  @media screen and (max-width: 450px) {
+@media screen and (max-width: 450px) {
 	.container {
-	  padding: 5rem 2rem;
+		padding: 5rem 3rem;
 	}
-  
-	.branchhead {
-	  font-size: 2.3rem;
-	}
-  
-	.sectionhead {
-	  font-size: 2.3rem;
-	}
-  
 	.description {
-	  font-size: 1rem;
+		font-size: 1rem;
 	}
 	.margcontainer {
-	  min-height: 18rem;
-	  padding-left: 1.4rem;
-	  padding-right: 1.4rem;
-	  margin-top: 1rem;
-	  margin-bottom: 1rem;
+		min-height: 18rem;
+		padding-left: 1.4rem;
+		padding-right: 1.4rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
-	.traces {
-	  width: 70vw;
-	  margin: 0 auto;
-	  /* padding: 0; */
-	}
-  }
-
-@media screen and (max-width: 400px) {
-	.branchhead {
-	  font-size: 2rem;
-	}
-  
-	.sectionhead {
-	  font-size: 2rem;
-	}
-  }
-  
-  @media screen and (max-width: 375px) {
-	.branchhead {
-	  font-size: 1.9rem;
-	}
-  
-	.sectionhead {
-	  font-size: 1.9rem;
-	}
-
-  }
+}

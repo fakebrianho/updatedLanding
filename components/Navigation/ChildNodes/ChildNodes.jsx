@@ -41,6 +41,18 @@ export const ChildNodes = (props) => {
 			observer.disconnect()
 		}
 	}, [])
+	const cleanData = (data) => {
+		const result = data.split('-').map((word) => {
+			return word.substring(0, 1).toUpperCase() + word.substring(1)
+		})
+		return result
+	}
+	const dirtyData = (data) => {
+		const result = data.split(' ').map((word) => {
+			return word.substring(0, 1).toLowerCase() + word.substring(1)
+		})
+		return result.join('-')
+	}
 	const attachCursorEvents = () => {
 		const elements = document.querySelectorAll("[data-cursor='pointer']")
 
@@ -64,10 +76,16 @@ export const ChildNodes = (props) => {
 				className='box'
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
-						router.push(`/navigation/${children.props.children}`)
+						router.push(
+							`/navigation/${dirtyData(children.props.children)}`
+						)
 					} else {
 						if (!props.topLevel) {
-							router.push(`/chapters/${children.props.children}`)
+							router.push(
+								`/navigation/${dirtyData(
+									children.props.children
+								)}`
+							)
 						}
 					}
 				}}
@@ -93,6 +111,7 @@ export const ChildNodes = (props) => {
 				className='box'
 				onClick={() => {
 					if (dataclick == true || dataclick == undefined) {
+						console.log(children)
 						router.push(
 							`/navigation/${children.props.dataattribute}`
 						)
@@ -189,8 +208,6 @@ export const ChildNodes = (props) => {
 									? 'flex-end'
 									: 'center',
 						}
-						console.log(hasChildren)
-
 						return (
 							<React.Fragment key={i}>
 								{props.nodes[i].num_grandchild_nodes > 0 ? (
@@ -213,7 +230,8 @@ export const ChildNodes = (props) => {
 											data-click={hasChildren}
 											data-cursor='pointer'
 										>
-											{props.nodes[i].name}
+											{/* {props.nodes[i].name} */}
+											{/* {console.log(props.nodes[i].name)} */}
 										</p>
 									</ChildParentNode>
 								) : (
@@ -235,7 +253,17 @@ export const ChildNodes = (props) => {
 												zIndex: '9',
 											}}
 										>
-											{props.nodes[i].name}
+											{props.nodes[i].name
+												.split('-')
+												.map((word) => {
+													return (
+														word
+															.substring(0, 1)
+															.toUpperCase() +
+														word.substring(1)
+													)
+												})
+												.join(' ')}
 										</p>
 									</ChildNode>
 								)}
