@@ -190,6 +190,11 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+
+button {
+	font-family: var(--modern-font);
+}
+
 .navbar {
 	position: fixed;
 	top: 0;

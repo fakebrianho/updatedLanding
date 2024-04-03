@@ -55,7 +55,7 @@
 	color: #3176c7;
 	font-family: var(--modern-font);
 	display: block;
-	font-size: 1.17em;
+	font-size: 1em;
 	margin-block-start: 1em;
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
@@ -63,12 +63,15 @@
 	-webkit-transition-duration: 1s;
 	-o-transition-duration: 1s;
 	transition-duration: 1s;
+	
 	/* color: grey; */
 	/* margin-bottom: 0; */
 	/* line-height: 1.15; */
 	/* font-weight: normal; */
 	/* text-decoration: underline; */
 }
+
+
 
 .title a {
 	color: #3176c7;
@@ -95,7 +98,28 @@
 .toggle {
 	-webkit-box-shadow: none;
 	box-shadow: none;
+	position: fixed;
+	left: -10%;
+	top: 200px;
+	width: 15vw;
+	height: 65vh;
+	overflow-y: scroll;
+	direction: ltr; 
+	-webkit-filter: drop-shadow(0px 0px 5px #3176c7);
+    filter: drop-shadow(0px 0px 5px #3176c7);
+    -webkit-backdrop-filter: blur(5px);
+	transition: 1s;
+	padding-right: 1.5rem;
 }
+
+.toggle:hover{
+	left: 0;
+}
+
+.toggle::-webkit-scrollbar{
+	display: none;
+}
+
 
 .branchhead {
 	margin: 0 0 0.3rem;
@@ -177,23 +201,12 @@
 	background-color: #ff8618;
 }
 
-.tags {
-	display: inline-block;
-	margin-right: 0.5rem;
-	padding: 0 1.5rem;
-	border-radius: 30px;
-	background-color: rgb(90, 88, 203, 0.4);
-	color: white;
-	font-size: 1rem;
-	line-height: 1.5;
-	text-align: center;
-}
 
 .card {
 	/* margin: 2.5rem; */
 	-ms-flex-preferred-size: 45%;
 	flex-basis: 45%;
-	padding: 1.5rem;
+	padding: 1rem;
 	text-align: left;
 	color: inherit;
 	font-size: 1.1rem;
@@ -211,6 +224,7 @@
 	-webkit-transition: color 0.15s ease;
 	-o-transition: color 0.15s ease;
 	transition: color 0.15s ease;
+	font-size: 1rem;
 }
 
 .individuallink:hover,
@@ -221,6 +235,7 @@
 
 .chapterlink {
 	display: inline-block;
+	font-size: 1rem;
   }
 
 .chapterlink:hover,
@@ -247,12 +262,12 @@ color: #ff8618;
 
 .card h3 {
 	margin: 0;
-	font-size: 1.5rem;
+	font-size: 1.1rem;
 }
 
 .card p {
 	margin: 0;
-	font-size: 1.5rem;
+	font-size: 1.1rem;
 	line-height: 1.5;
 }
 

@@ -1,8 +1,9 @@
 import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import styles from '../../src/app/readingpage.module.css'
+import styles from './marginalia.module.css'
 import { useEffect } from 'react'
 import useTheme from '../../hooks/useThemes'
+
 
 export default function Marginalia({ id, username, content, picture, mode }) {
 	const [theme, toggleTheme] = useTheme()
@@ -21,11 +22,10 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 	}
 
 	return (
-		<div key={id} className={`marginalia ${mode}`}>
-			{/* <div className="marginalia__container"> */}
-			<p className={`marginalia_text ${mode}`}>{content}</p>
+		<div key={id} className={styles.marginalia}>
+			<p className={styles.text}>{content}</p>
 			{picture && (
-				<div className='marginalia_picture'>
+				<div className={styles.picture}>
 					<img src={picture} alt='marginalia picture' width={200} />
 				</div>
 			)}

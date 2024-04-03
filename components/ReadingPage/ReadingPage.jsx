@@ -1,12 +1,16 @@
-'use client'
-import { useState, useEffect } from 'react'
-import styles from './ReadingPage.module.css'
-import NavigateTo from '../NavigateTo/NavigateTo'
-import Marginalia from '../Marginalia/Marginalia'
-import AddMarginalia from '../AddMarginalia/AddMarginalia'
-import { motion } from 'framer-motion'
-import Trace from '../Trace/Trace'
-import { NavigationBar } from '../NavigationBar'
+
+"use client";
+import { useEffect, useState } from 'react';
+import styles from "./ReadingPage.module.css";
+import MenuBar from "../MenuBar/MenuBar";
+import NavigateTo from "../NavigateTo/NavigateTo";
+import Marginalia from "../Marginalia/Marginalia";
+import AddMarginalia from "../AddMarginalia/AddMarginalia";
+import { createTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
+import Trace from "../Trace/Trace";
+import History from "../History/History";
+import { NavigationBar } from "../NavigationBar";
 import useTheme from '../../hooks/useThemes'
 
 const pageTransition = {
@@ -50,34 +54,41 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
-	// const [loading, setLoading] = useState(false)
-	// const [newMarg, setNewMarg] = useState(null)
-	const [theme, toggleTheme] = useTheme()
-	const [mMarg, setmMarg] = useState(null)
-	const [counter, setCounter] = useState(1)
-	const [fileName, setFileName] = useState(post.post.file_name)
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch(`/api/${fileName}`, {
-					method: 'GET',
-				})
-				const marginalia = await response.json()
-				setmMarg(marginalia)
-			} catch (e) {
-				console.error(
-					'Error fetching API data for post ',
-					fileName,
-					' ',
-					e
-				)
-			}
-		}
-		if (fileName !== null) {
-			fetchData()
-		}
-	}, [counter, fileName])
+  const [loading, setLoading] = useState(false);
+  const [newMarg, setNewMarg] = useState(null);
+  const [theme, toggleTheme] = useTheme()
+  const [mMarg, setmMarg] = useState(null);
+  const [counter, setCounter] = useState(1);
+  const [fileName, setFileName] = useState(post.post.file_name);
+
+  // const addtoMarg = (newMarg) => {
+  //   setNewMarg(newMarg);
+  //   nodedata[0].marginalia.push(newMarg); //actually push to database here
+  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/${fileName}`, {
+          method: 'GET',
+        });
+        console.log(response)
+        const marginalia = await response.json();
+        console.log("margin", marginalia);
+        
+        setmMarg(marginalia);
+      } catch (e) {
+        console.error('Error fetching API data for post ', fileName, ' ', e);
+      }
+    };
+
+    // Since fileName is initialized to be null, we need to wait until it has a
+    // valid value before fetching data
+    if (fileName !== null) {
+      fetchData();
+    }
+  }, [counter, fileName]);
+
 
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
@@ -106,6 +117,7 @@ export default function ReadPage(post) {
 						<div className={`${styles.container} ${theme}`}>
 							<div className={theme}>
 								<Trace data={post.post} mode={theme} />
+								<History data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (
 									<h1
 										className={`${styles.branchhead}  ${theme}`}
@@ -141,74 +153,71 @@ export default function ReadPage(post) {
 									<div className='line'></div>
 								)}
 
-								<div className={`maintext ${theme}`}>
-									{(post.post.layout != 'quote' &&
-										post.post.layout != 'branch-head' && (
-											<div
-												dangerouslySetInnerHTML={{
-													__html: post.post.content,
-												}}
-											/>
-										)) ||
-										(post.post.layout === 'branch-head' && (
-											<div
-												className='hasdropcap'
-												dangerouslySetInnerHTML={{
-													__html: post.post.content,
-												}}
-											/>
-										)) ||
-										(post.post.layout === 'quote' && (
-											<div
-												className='center'
-												dangerouslySetInnerHTML={{
-													__html: processQuote(
-														post.post.content
-													),
-												}}
-											/>
-										))}
-								</div>
-							</div>
-							<NavigateTo
-								data={post.post}
-								setCounter={setCounter}
-								setFileName={setFileName}
-							/>
-							{mMarg
-								? mMarg.length != 0 && (
-										<div className={styles.footer}>
-											<div
-												className={styles.margcontainer}
-											>
-												{mMarg.map(
-													(marginalia, index) => {
-														return (
-															<Marginalia
-																key={index}
-																username={
-																	marginalia.name
-																}
-																content={
-																	marginalia.body
-																}
-																picture={
-																	marginalia.picture
-																}
-															/>
-														)
-													}
-												)}
-											</div>
-										</div>
-								  )
-								: null}
-							<AddMarginalia
-								file_name={post.post.file_name}
-								counter={counter}
-								setCounter={setCounter}
-							/>
+                <div className="maintext">
+                  {(post.post.layout != "quote" &&
+                    post.post.layout != "branch-head" && (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: post.post.content,
+                        }}
+                      />
+                    )) ||
+                    (post.post.layout === "branch-head" && (
+                      <div
+                        className="hasdropcap"
+                        dangerouslySetInnerHTML={{
+                          __html: post.post.content,
+                        }}
+                      />
+                    )) ||
+                    (post.post.layout === "quote" && (
+                      <div
+                        className="center"
+                        dangerouslySetInnerHTML={{
+                          __html: processQuote(post.post.content),
+                        }}
+                      />
+                    ))}
+                </div>
+              </div>
+              {/* fake data version */}
+              {/* <NavigateTo data={post.post} />
+              {nodedata[0].marginalia.length != 0 && (
+                <div className={styles.footer}>
+                  <div className={styles.margcontainer}>
+                    {nodedata[0].marginalia.map((marginalia) => {
+                      return (
+                        <Marginalia
+                          key={marginalia.id}
+                          username={marginalia.name}
+                          content={marginalia.body}
+                          picture={marginalia.picture}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+              <AddMarginalia addMarg={addtoMarg} /> */}
 
+              {/* live version */}
+            <NavigateTo data={post.post} setCounter={setCounter} setFileName={setFileName} />
+            {(mMarg) ? (mMarg.length != 0 && (
+              <div className={styles.footer}>
+                <div className={styles.margcontainer}>
+                  {mMarg.map(marginalia => {
+                    return (
+                      <Marginalia
+                        username={marginalia.name}
+                        content={marginalia.body}
+                        picture={marginalia.picture}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            )) : (null)}
+            <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} />
 							<style jsx global>{`
 								html,
 								body {
