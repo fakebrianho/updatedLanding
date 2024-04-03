@@ -1,3 +1,4 @@
+
 "use client";
 import { useEffect, useState } from 'react';
 import styles from "./ReadingPage.module.css";
@@ -53,6 +54,7 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
+
   const [loading, setLoading] = useState(false);
   const [newMarg, setNewMarg] = useState(null);
   const [theme, toggleTheme] = useTheme()
@@ -86,6 +88,7 @@ export default function ReadPage(post) {
       fetchData();
     }
   }, [counter, fileName]);
+
 
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
@@ -215,7 +218,6 @@ export default function ReadPage(post) {
               </div>
             )) : (null)}
             <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} />
-
 							<style jsx global>{`
 								html,
 								body {
