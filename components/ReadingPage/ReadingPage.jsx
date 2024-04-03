@@ -8,7 +8,9 @@ import AddMarginalia from "../AddMarginalia/AddMarginalia";
 import { createTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import Trace from "../Trace/Trace";
+import History from "../History/History";
 import { NavigationBar } from "../NavigationBar";
+import useTheme from '../../hooks/useThemes'
 
 const pageTransition = {
 	out: {
@@ -53,6 +55,7 @@ let nodedata = [
 export default function ReadPage(post) {
   const [loading, setLoading] = useState(false);
   const [newMarg, setNewMarg] = useState(null);
+  const [theme, toggleTheme] = useTheme()
   const [mMarg, setmMarg] = useState(null);
   const [counter, setCounter] = useState(1);
   const [fileName, setFileName] = useState(post.post.file_name);
@@ -111,6 +114,7 @@ export default function ReadPage(post) {
 						<div className={`${styles.container} ${theme}`}>
 							<div className={theme}>
 								<Trace data={post.post} mode={theme} />
+								<History data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (
 									<h1
 										className={`${styles.branchhead}  ${theme}`}
