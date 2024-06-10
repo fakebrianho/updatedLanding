@@ -62,10 +62,6 @@ export default function ReadPage(post) {
   const [counter, setCounter] = useState(1);
   const [fileName, setFileName] = useState(post.post.file_name);
 
-  // const addtoMarg = (newMarg) => {
-  //   setNewMarg(newMarg);
-  //   nodedata[0].marginalia.push(newMarg); //actually push to database here
-  // };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -74,7 +70,7 @@ export default function ReadPage(post) {
         });
         console.log(response)
         const marginalia = await response.json();
-        console.log("margin", marginalia);
+        console.log("marginalia", marginalia);
         
         setmMarg(marginalia);
       } catch (e) {
@@ -114,10 +110,12 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
+						<div className={styles.menu}>
+							<Trace data={post.post} mode={theme} />
+							<History data={post.post} mode={theme} />
+						</div>
 						<div className={`${styles.container} ${theme}`}>
 							<div className={theme}>
-								<Trace data={post.post} mode={theme} />
-								<History data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (
 									<h1
 										className={`${styles.branchhead}  ${theme}`}
@@ -208,6 +206,7 @@ export default function ReadPage(post) {
                   {mMarg.map(marginalia => {
                     return (
                       <Marginalia
+						key={post.post._id} //this was the key error for run build
                         username={marginalia.name}
                         content={marginalia.body}
                         picture={marginalia.picture}

@@ -1,15 +1,8 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
-// import styles from 'tracmodule.css'
 import styles from './history.module.css'
-import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ExpandLessIcon from '@mui/icons-material/ExpandLess'
-import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
 import { useEffect, useState } from 'react'
+import useTheme from '../../hooks/useThemes'
 
 export default function History(data) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -18,6 +11,7 @@ export default function History(data) {
 	const containerRef = useRef(null)
 	const highlightRef = useRef(null)
 	const initialized = useRef(false);
+	const [theme, toggleTheme] = useTheme()
 
 	const scrollToHighlight = () => {
 		if (containerRef.current && highlightRef.current) {
@@ -30,7 +24,7 @@ export default function History(data) {
 	}
 
 	const clearHistory = () => {
-		localStorage.removeItem('historyData')
+		sessionStorage.removeItem('historyData')
 		setHistoryData(null);
 	}
 
@@ -38,20 +32,27 @@ export default function History(data) {
 		let history = [];
 		if(!initialized.current){
 		initialized.current = true;
-		localStorage.getItem('historyData') ? history = JSON.parse(localStorage.getItem('historyData')) : history = [];
+		sessionStorage.getItem('historyData') ? history = JSON.parse(sessionStorage.getItem('historyData')) : history = [];
 		
-		history.push(data.data);
+		if (history.length < 1){
+			history.push(data.data);
+		} else {
+			if (data.data.file_name != history[history.length - 1].file_name){
+				history.push(data.data);
+			}
+		}
+
 		console.log("current history is", history);
-		localStorage.setItem('historyData', JSON.stringify(history));
+		sessionStorage.setItem('historyData', JSON.stringify(history));
 		setHistoryData(history);}
 		setIsLoading(false)
-	}, [])
+	}, [data.data])
 
   return (
     <>
 		<div className={styles.toggle}>
 		<main ref={containerRef} className={styles.traces}>
-			<h3>Footsteps</h3>
+			<h3>History</h3>
 			{!isLoading && historyData &&
                   historyData.map(
                     (item, id) =>

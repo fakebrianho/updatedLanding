@@ -98,9 +98,7 @@
 .toggle {
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	position: fixed;
-	right: -10%;
-	top: 200px;
+	transform: translateX(60%);
 	width: 15vw;
 	height: 65vh;
 	overflow-y: scroll;
@@ -118,7 +116,7 @@
 
 
 .toggle:hover{
-	right: 0;
+	transform: translateX(0%);
 }
 
 .clear{

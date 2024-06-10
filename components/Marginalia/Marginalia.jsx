@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import useTheme from '../../hooks/useThemes'
 
 
+
 export default function Marginalia({ id, username, content, picture, mode }) {
 	const [theme, toggleTheme] = useTheme()
 	useEffect(() => {
@@ -26,7 +27,7 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 			<p className={styles.text}>{content}</p>
 			{picture && (
 				<div className={styles.picture}>
-					<img src={picture} alt='marginalia picture' width={200} />
+					<Image src={picture} alt='marginalia picture' width={200} height={200}/>
 				</div>
 			)}
 			<p className='marginalia_username'>{username}</p>
