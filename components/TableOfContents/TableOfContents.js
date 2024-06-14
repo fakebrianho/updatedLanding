@@ -126,7 +126,7 @@ function TableOfContents() {
 		}
 
 		fetchData()
-	}, [])
+	}, [toggleScrolling])
 
 	return (
 		<PageProvider>
