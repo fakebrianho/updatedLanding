@@ -137,11 +137,12 @@
 }
 
 .menu{
-	width: 100%;
+	/* width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-between; */
 	position: fixed;
 	top: 50%;
+	/* left: 0; */
 	transform: translateY(-50%);
 	z-index: 1;
 }

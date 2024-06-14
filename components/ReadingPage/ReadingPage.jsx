@@ -110,11 +110,13 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
-						<div className={styles.menu}>
+							<div className={styles.menu}>
+								
+							</div>
 							<Trace data={post.post} mode={theme} />
 							<History data={post.post} mode={theme} />
-						</div>
 						<div className={`${styles.container} ${theme}`}>
+
 							<div className={theme}>
 								{(post.post.layout === 'branch-head' && (
 									<h1
@@ -178,25 +180,6 @@ export default function ReadPage(post) {
                     ))}
                 </div>
               </div>
-              {/* fake data version */}
-              {/* <NavigateTo data={post.post} />
-              {nodedata[0].marginalia.length != 0 && (
-                <div className={styles.footer}>
-                  <div className={styles.margcontainer}>
-                    {nodedata[0].marginalia.map((marginalia) => {
-                      return (
-                        <Marginalia
-                          key={marginalia.id}
-                          username={marginalia.name}
-                          content={marginalia.body}
-                          picture={marginalia.picture}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              <AddMarginalia addMarg={addtoMarg} /> */}
 
               {/* live version */}
             <NavigateTo data={post.post} setCounter={setCounter} setFileName={setFileName} />
@@ -243,7 +226,7 @@ export default function ReadPage(post) {
 								}
 
 								img {
-									max-width: 80%;
+									max-width: 100%;
 									height: auto;
 								}
 
