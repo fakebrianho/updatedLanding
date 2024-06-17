@@ -77,8 +77,8 @@ export default async function Page() {
 	let m = await Promise.all(
 		posts.map(async (post) => {
 			const res = await fetch(
-				`updated-landing-8qz6bn6dq-fakebrianhos-projects.vercel.app/api/${post.params.chapter}`,
-				// `http://localhost:3000/api/${post.params.chapter}`,
+				// `http://www.uncertain-universe.com/api/${post.params.chapter}`,
+				`http://localhost:3000/api/${post.params.chapter}`,
 				{
 					method: 'GET',
 				}
