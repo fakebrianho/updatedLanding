@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
 // import styles from 'tracmodule.css'
-import styles from './trace.module.css'
+import styles from './traceleft.module.css'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
@@ -58,37 +58,17 @@ export default function Trace(data) {
 	}, [])
 
   return (
-    <>
-      <Accordion onClick={scrollToHighlight} square className={styles.toggle} style={{ boxShadow: "none" }}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <div className="accord">
-              <h3 className={styles.chapterlink}>Uncertain Universe</h3>
-            {showPath(data.data.file_name).map((item) => {
-              return(
-                <>
-                  <h3 className="divider"> {'>'} </h3>
-                  <Link href={`/chapters/${item.fileName}`}>
-                    <h3 className={styles.chapterlink}>{item.title}</h3>
-                  </Link>
-                  
-                </>
-              )})
-            }  
-          </div>
-        </AccordionSummary>
-        <AccordionDetails sx={{ padding: 0 }}>
+    <div className={`${styles.toggle} ${data.theme}`}>
+      <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
+
           <main ref={containerRef} className={styles.traces}>
             {/* match current data title and highlight in trace */}
-            <Box sx={{ width: "100%", paddingLeft: "0.1em" }}>
               <Grid
                 container
-                sx={{ flexDirection: { xs: "column", sm: "row" } }}
-                justifyContent={{ xs: "center", sm: "left" }}
+                direction="column"
+                justifyContent="center"
                 rowSpacing={2}
+				alignItems="flex-start"
                 columnSpacing={{ xs: 4, sm: 10, md: 15 }}
               >
                 {!isLoading &&
@@ -104,9 +84,8 @@ export default function Trace(data) {
                       )
                   )}
               </Grid>
-            </Box>
           </main>
-        </AccordionDetails>
+
       </Accordion>
 
 			<style jsx local>
@@ -118,7 +97,7 @@ export default function Trace(data) {
 					h3 {
 						color: #3176c7;
 						text-transform: capitalize;
-						font-size: 1.2rem;
+						font-size: 1.1rem;
 					}
 
 					ul li {
@@ -140,7 +119,7 @@ export default function Trace(data) {
 					}
 				`}
 			</style>
-		</>
+		</div>
 	)
 }
 

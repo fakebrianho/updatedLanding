@@ -1,14 +1,14 @@
-"use client";
-import { useEffect, useState } from 'react';
-import styles from "./ReadingPage.module.css";
-import MenuBar from "../MenuBar/MenuBar";
-import NavigateTo from "../NavigateTo/NavigateTo";
-import Marginalia from "../Marginalia/Marginalia";
-import AddMarginalia from "../AddMarginalia/AddMarginalia";
-import { createTheme } from "@mui/material/styles";
-import { motion } from "framer-motion";
+'use client'
+import { useState, useEffect } from 'react'
+import styles from './ReadingPage.module.css'
+import NavigateTo from '../NavigateTo/NavigateTo'
+import Marginalia from '../Marginalia/Marginalia'
+import AddMarginalia from '../AddMarginalia/AddMarginalia'
+import { motion } from 'framer-motion'
 import Trace from "../Trace/Trace";
-import { NavigationBar } from "../NavigationBar";
+import History from "../History/History";
+import { NavigationBar } from '../NavigationBar'
+import useTheme from '../../hooks/useThemes'
 
 const pageTransition = {
 	out: {
@@ -108,9 +108,10 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
+								<Trace data={post.post} theme={theme} />
+								<History data={post.post} theme={theme} />
 						<div className={`${styles.container} ${theme}`}>
 							<div className={theme}>
-								<Trace data={post.post} mode={theme} />
 								{(post.post.layout === 'branch-head' && (
 									<h1
 										className={`${styles.branchhead}  ${theme}`}
@@ -146,71 +147,73 @@ export default function ReadPage(post) {
 									<div className='line'></div>
 								)}
 
-                <div className="maintext">
-                  {(post.post.layout != "quote" &&
-                    post.post.layout != "branch-head" && (
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: post.post.content,
-                        }}
-                      />
-                    )) ||
-                    (post.post.layout === "branch-head" && (
-                      <div
-                        className="hasdropcap"
-                        dangerouslySetInnerHTML={{
-                          __html: post.post.content,
-                        }}
-                      />
-                    )) ||
-                    (post.post.layout === "quote" && (
-                      <div
-                        className="center"
-                        dangerouslySetInnerHTML={{
-                          __html: processQuote(post.post.content),
-                        }}
-                      />
-                    ))}
-                </div>
-              </div>
-              {/* fake data version */}
-              {/* <NavigateTo data={post.post} />
-              {nodedata[0].marginalia.length != 0 && (
-                <div className={styles.footer}>
-                  <div className={styles.margcontainer}>
-                    {nodedata[0].marginalia.map((marginalia) => {
-                      return (
-                        <Marginalia
-                          key={marginalia.id}
-                          username={marginalia.name}
-                          content={marginalia.body}
-                          picture={marginalia.picture}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              <AddMarginalia addMarg={addtoMarg} /> */}
-
-              {/* live version */}
-            <NavigateTo data={post.post} setCounter={setCounter} setFileName={setFileName} />
-            {(mMarg) ? (mMarg.length != 0 && (
-              <div className={styles.footer}>
-                <div className={styles.margcontainer}>
-                  {mMarg.map(marginalia => {
-                    return (
-                      <Marginalia
-                        username={marginalia.name}
-                        content={marginalia.body}
-                        picture={marginalia.picture}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            )) : (null)}
-            <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} />
+								<div className={`maintext ${theme}`}>
+									{(post.post.layout != 'quote' &&
+										post.post.layout != 'branch-head' && (
+											<div
+												dangerouslySetInnerHTML={{
+													__html: post.post.content,
+												}}
+											/>
+										)) ||
+										(post.post.layout === 'branch-head' && (
+											<div
+												className='hasdropcap'
+												dangerouslySetInnerHTML={{
+													__html: post.post.content,
+												}}
+											/>
+										)) ||
+										(post.post.layout === 'quote' && (
+											<div
+												className='center'
+												dangerouslySetInnerHTML={{
+													__html: processQuote(
+														post.post.content
+													),
+												}}
+											/>
+										))}
+								</div>
+							</div>
+							<NavigateTo
+								data={post.post}
+								setCounter={setCounter}
+								setFileName={setFileName}
+							/>
+							{mMarg
+								? mMarg.length != 0 && (
+										<div className={styles.footer}>
+											<div
+												className={styles.margcontainer}
+											>
+												{mMarg.map(
+													(marginalia, index) => {
+														return (
+															<Marginalia
+																key={index}
+																username={
+																	marginalia.name
+																}
+																content={
+																	marginalia.body
+																}
+																picture={
+																	marginalia.picture
+																}
+															/>
+														)
+													}
+												)}
+											</div>
+										</div>
+								  )
+								: null}
+							<AddMarginalia
+								file_name={post.post.file_name}
+								counter={counter}
+								setCounter={setCounter}
+							/>
 
 							<style jsx global>{`
 								html,

@@ -7,6 +7,7 @@ import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
+import Image from 'next/image'
 
 let marginalia = [
 	{
@@ -117,9 +118,10 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 					/>
 					{imageUrl && (
 						<div className='imgcontainer'>
-							<img
+							<Image
 								src={imageUrl}
-								height='300'
+								width = {300}
+								height = {300}
 								alt='Uploaded Image'
 							/>
 						</div>
