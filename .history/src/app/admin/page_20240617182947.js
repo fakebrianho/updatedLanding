@@ -4,6 +4,7 @@ import styles from './admin.module.css'
 import { BASE_API_URL } from '../../utils/constants'
 
 const renderElements = (entry) => {
+	console.log(BASE_API_URL)
 	if (Array.isArray(entry)) {
 		return entry.map((item, index) => renderElements(item, index))
 	} else if (typeof entry === 'object' && entry !== null) {
@@ -22,18 +23,19 @@ const renderElements = (entry) => {
 }
 
 export default async function Page() {
-	if (!BASE_API_URL) {
-		return null
-	}
 	let posts = await getAllPostIds()
+	console.log(`${BASE_API_URL}/api/first-principles`)
 	let m = await Promise.all(
 		posts.map(async (post) => {
 			const res = await fetch(
-				`${BASE_API_URL}/api/${post.params.chapter}`,
+				// `${BASE_API_URL}/api/${post.params.chapter}`,
+                'https://localhost:3000/api/first-principles'
+				// `http://localhost:3000/api/${post.params.chapter}`,
 				{
 					method: 'GET',
 				}
 			)
+			console.log(res)
 			const marg = await res.json()
 			return marg
 		})

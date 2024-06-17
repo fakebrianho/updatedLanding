@@ -4,6 +4,7 @@ import styles from './admin.module.css'
 import { BASE_API_URL } from '../../utils/constants'
 
 const renderElements = (entry) => {
+	console.log(BASE_API_URL)
 	if (Array.isArray(entry)) {
 		return entry.map((item, index) => renderElements(item, index))
 	} else if (typeof entry === 'object' && entry !== null) {
@@ -34,6 +35,7 @@ export default async function Page() {
 					method: 'GET',
 				}
 			)
+			console.log(res)
 			const marg = await res.json()
 			return marg
 		})
