@@ -42,8 +42,8 @@ export default function MarginaliaPopup({ id, username, content, picture, mode, 
 				}
 
 				.marginalia_picture {
-					width: 15em;
-					overflow: hidden;
+					width: 100%;
+					// overflow: hidden;
 				}
 				@media screen and (max-width: 450px) {
 					.marginalia {
