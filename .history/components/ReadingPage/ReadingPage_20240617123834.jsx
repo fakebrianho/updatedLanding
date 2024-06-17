@@ -56,7 +56,7 @@ export default function ReadPage(post) {
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)
 	const [fileName, setFileName] = useState(post.post.file_name)
-	console.log(fileName)
+	console.log(post)
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
