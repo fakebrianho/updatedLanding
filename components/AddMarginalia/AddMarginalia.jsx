@@ -26,7 +26,7 @@ let marginalia = [
 	},
 ]
 
-export default function AddMarginalia({ file_name, counter, setCounter }) {
+export default function AddMarginalia({ file_name, counter, setCounter, theme }) {
 	const [open, setOpen] = React.useState(false)
 	const [name, setName] = React.useState('')
 	const [comment, setComment] = React.useState('')

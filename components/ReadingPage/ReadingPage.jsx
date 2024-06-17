@@ -51,16 +51,13 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
-  const [loading, setLoading] = useState(false);
-  const [newMarg, setNewMarg] = useState(null);
+//   const [loading, setLoading] = useState(false);
+//   const [newMarg, setNewMarg] = useState(null);
+	const [theme, toggleTheme] = useTheme()
   const [mMarg, setmMarg] = useState(null);
   const [counter, setCounter] = useState(1);
   const [fileName, setFileName] = useState(post.post.file_name);
 
-  // const addtoMarg = (newMarg) => {
-  //   setNewMarg(newMarg);
-  //   nodedata[0].marginalia.push(newMarg); //actually push to database here
-  // };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -201,6 +198,7 @@ export default function ReadPage(post) {
 																picture={
 																	marginalia.picture
 																}
+																theme={theme}
 															/>
 														)
 													}
@@ -213,6 +211,7 @@ export default function ReadPage(post) {
 								file_name={post.post.file_name}
 								counter={counter}
 								setCounter={setCounter}
+								theme={theme}
 							/>
 
 							<style jsx global>{`
