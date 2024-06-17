@@ -1,11 +1,14 @@
 import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import styles from '../../src/app/readingpage.module.css'
-import { useEffect } from 'react'
+import styles from './marginalia.module.css'
+import { useState, useEffect } from 'react'
 import useTheme from '../../hooks/useThemes'
+import MarginaliaPopup from './MarginaliaPopup'
 
-export default function Marginalia({ id, username, content, picture, mode }) {
-	const [theme, toggleTheme] = useTheme()
+
+
+export default function Marginalia({ id, username, content, picture, theme }) {
+	const [popupOpen, setPopupOpen] = useState(false);
 	useEffect(() => {
 		randomizeMarg()
 	})
@@ -21,15 +24,16 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 	}
 
 	return (
-		<div key={id} className={`marginalia ${mode}`}>
-			{/* <div className="marginalia__container"> */}
-			<p className={`marginalia_text ${mode}`}>{content}</p>
+		<div>
+		{popupOpen ? <MarginaliaPopup id={id} username={username} content={content} picture={picture} theme={theme} setPopupOpen={setPopupOpen} /> : null}
+		<div key={id} className={`${styles.marginalia} ${theme}`} onClick={setPopupOpen}>
+			<p className={`${styles.text} ${theme}`}>{content}</p>
 			{picture && (
-				<div className='marginalia_picture'>
-					<img src={picture} alt='marginalia picture' width={200} />
+				<div className={styles.picture}>
+					<Image src={picture} alt='marginalia picture' width={200} height={200}/>
 				</div>
 			)}
-			<p className='marginalia_username'>{username}</p>
+			<p className='marginalia_username'>- {username}</p>
 			{/* </div> */}
 			<style jsx global>{`
 				/*
@@ -63,10 +67,16 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 
 				.marginalia_username {
 					font-size: 1rem;
+					font-family: var(--modern-font);
+
+					position: absolute;
+					right: 10%;
+					font-style: italic;
 				}
 
 				.marginalia_text {
 					font-size: 1rem;
+					font-family: var(--modern-font);
 				}
 
 				.marginalia_picture {
@@ -86,6 +96,7 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 					}
 				}
 			`}</style>
+			</div>
 		</div>
 	)
 }
