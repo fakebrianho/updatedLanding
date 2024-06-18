@@ -7,7 +7,10 @@ import MarginaliaPopup from './MarginaliaPopup'
 
 
 
-export default function Marginalia({ id, username, content, picture, theme }) {
+
+export default function Marginalia({ id, username, content, picture, mode }) {
+	const [theme, toggleTheme] = useTheme()
+
 	const [popupOpen, setPopupOpen] = useState(false);
 	useEffect(() => {
 		randomizeMarg()
@@ -25,9 +28,10 @@ export default function Marginalia({ id, username, content, picture, theme }) {
 
 	return (
 		<div>
-		{popupOpen ? <MarginaliaPopup id={id} username={username} content={content} picture={picture} theme={theme} setPopupOpen={setPopupOpen} /> : null}
-		<div key={id} className={`${styles.marginalia} ${theme}`} onClick={setPopupOpen}>
-			<p className={`${styles.text} ${theme}`}>{content}</p>
+
+		{popupOpen ? <MarginaliaPopup id={id} username={username} content={content} picture={picture} mode={mode} setPopupOpen={setPopupOpen} /> : null}
+		<div key={id} className={styles.marginalia} onClick={setPopupOpen}>
+			<p className={styles.text}>{content}</p>
 			{picture && (
 				<div className={styles.picture}>
 					<Image src={picture} alt='marginalia picture' width={200} height={200}/>

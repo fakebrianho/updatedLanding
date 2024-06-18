@@ -136,6 +136,17 @@
 	font-size: 8rem;
 }
 
+.menu{
+	/* width: 100%;
+	display: flex;
+	justify-content: space-between; */
+	position: fixed;
+	top: 50%;
+	/* left: 0; */
+	transform: translateY(-50%);
+	z-index: 1;
+}
+
 .margcontainer {
 	width: 100%;
 	min-height: 20rem;

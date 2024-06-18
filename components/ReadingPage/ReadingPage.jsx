@@ -108,8 +108,12 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
-							<Trace data={post.post} theme={theme} />
-							<History data={post.post} theme={theme} />
+
+							<div className={styles.menu}>
+								
+							</div>
+							<Trace data={post.post} mode={theme} />
+							<History data={post.post} mode={theme} />
 						<div className={`${styles.container} ${theme}`}>
 
 							<div className={theme}>
@@ -195,7 +199,8 @@ export default function ReadPage(post) {
                 </div>
               </div>
             )) : (null)}
-            <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} theme={theme}/>
+
+            <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} />
 							<style jsx global>{`
 								html,
 								body {

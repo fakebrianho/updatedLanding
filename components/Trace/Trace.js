@@ -57,11 +57,12 @@ export default function Trace(data) {
 		fetchData()
 	}, [])
 
-  return (
-    <div className={`${styles.toggle} ${data.theme}`}>
-      <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
+ 
+    <>
+      <Accordion onClick={scrollToHighlight} square className={styles.toggle} style={{ boxShadow: "none" }}>
 
-          <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
+          <main ref={containerRef} className={styles.traces}>
+
             {/* match current data title and highlight in trace */}
               <Grid
                 container
