@@ -2,11 +2,9 @@
 "use client";
 import { useEffect, useState } from 'react';
 import styles from "./ReadingPage.module.css";
-import MenuBar from "../MenuBar/MenuBar";
 import NavigateTo from "../NavigateTo/NavigateTo";
 import Marginalia from "../Marginalia/Marginalia";
 import AddMarginalia from "../AddMarginalia/AddMarginalia";
-import { createTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import Trace from "../Trace/Trace";
 import History from "../History/History";
@@ -110,6 +108,7 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
+
 							<div className={styles.menu}>
 								
 							</div>
@@ -140,7 +139,7 @@ export default function ReadPage(post) {
 										</h1>
 									)) ||
 									(post.post.layout === 'quote' && (
-										<p className={styles.quote}></p>
+										<p className={`${styles.quote}  ${theme}`}></p>
 									))}
 								{post.post.subtitle && (
 									<h3
@@ -153,7 +152,7 @@ export default function ReadPage(post) {
 									<div className='line'></div>
 								)}
 
-                <div className="maintext">
+                <div className={`${"maintext"}  ${theme}`}>
                   {(post.post.layout != "quote" &&
                     post.post.layout != "branch-head" && (
                       <div
@@ -193,12 +192,14 @@ export default function ReadPage(post) {
                         username={marginalia.name}
                         content={marginalia.body}
                         picture={marginalia.picture}
+						theme={theme}
                       />
                     );
                   })}
                 </div>
               </div>
             )) : (null)}
+
             <AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} />
 							<style jsx global>{`
 								html,

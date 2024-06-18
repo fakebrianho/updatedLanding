@@ -59,6 +59,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
+
     height: 60%;
     background-color: white;
     -webkit-filter: drop-shadow(0px 0px 15px #ff8618);
@@ -67,6 +68,7 @@
     padding: 40px;
     padding-top: 50px;
     /* overflow-x: hidden; */
+
     /* overflow-y: scroll; */
     z-index: 2;
     align-items: center;

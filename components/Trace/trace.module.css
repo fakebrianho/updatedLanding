@@ -60,9 +60,6 @@
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
-	-webkit-transition-duration: 1s;
-	-o-transition-duration: 1s;
-	transition-duration: 1s;
 	/* color: grey; */
 	/* margin-bottom: 0; */
 	/* line-height: 1.15; */
@@ -227,10 +224,6 @@
 .chapterlink:focus,
 .chapterlink:active {
 color: #ff8618;
-}
-
-.dark:hover {
-	color: #3176c7
 }
 
 .highlighted {

@@ -50,7 +50,8 @@ export default function History(data) {
 
   return (
     <>
-		<div className={styles.toggle}>
+		<div className={`${styles.toggle}  ${data.theme}`}>
+
 		<main ref={containerRef} className={styles.traces}>
 			<h3>History</h3>
 			{!isLoading && historyData &&
