@@ -22,35 +22,35 @@ const renderElements = (entry) => {
 }
 
 export default async function Page() {
-	// console.log('BASE', process.env.NEXT_PUBLIC_BASE_API_URL)
+	// if (!BASE_API_URL) {
+	// 	return null
+	// }
+	// let posts = await getAllPostIds()
+	// let m = await Promise.all(
+	// 	posts.map(async (post) => {
+	// 		const res = await fetch(
+	// 			`${BASE_API_URL}/api/${post.params.chapter}`,
+	// 			{
+	// 				method: 'GET',
+	// 			}
+	// 		)
+	// 		const marg = await res.json()
+	// 		return marg
+	// 	})
+	// )
 
-	if (!BASE_API_URL) {
-		return null
-	}
-	let posts = await getAllPostIds()
-	let m = await Promise.all(
-		posts.map(async (post) => {
-			const res = await fetch(
-				`https://${BASE_API_URL}/api/${post.params.chapter}`,
-				{
-					method: 'GET',
-				}
-			)
-			const marg = await res.json()
-			return marg
-		})
-	)
-
-	const cleanedArray = m.filter(
-		(entry) =>
-			entry !== null &&
-			entry !== undefined &&
-			(typeof entry !== 'object' || Object.keys(entry).length > 0)
-	)
+	// const cleanedArray = m.filter(
+	// 	(entry) =>
+	// 		entry !== null &&
+	// 		entry !== undefined &&
+	// 		(typeof entry !== 'object' || Object.keys(entry).length > 0)
+	// )
 
 	return (
-		<div className={styles.container}>
-			{cleanedArray.map(renderElements)}
-		</div>
+		// <div className={styles.container}>
+		{
+			/* {cleanedArray.map(renderElements)} */
+		}
+		// </div>
 	)
 }

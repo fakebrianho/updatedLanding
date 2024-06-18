@@ -31,7 +31,7 @@ export default async function Page() {
 	let m = await Promise.all(
 		posts.map(async (post) => {
 			const res = await fetch(
-				`https://${BASE_API_URL}/api/${post.params.chapter}`,
+				`${BASE_API_URL}/api/${post.params.chapter}`,
 				{
 					method: 'GET',
 				}
@@ -50,7 +50,7 @@ export default async function Page() {
 
 	return (
 		<div className={styles.container}>
-			{cleanedArray.map(renderElements)}
+			/* {cleanedArray.map(renderElements)} */
 		</div>
 	)
 }
