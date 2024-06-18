@@ -59,9 +59,12 @@ export default function ReadPage(post) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`/api/${fileName}`, {
-					method: 'GET',
-				})
+				// const response = await fetch(`/api/${fileName}`, {
+				// method: 'GET',
+				// })
+				const response = await fetch(
+					`http://uncertain-universe/api/${fileName}`
+				)
 				const marginalia = await response.json()
 				setmMarg(marginalia)
 			} catch (e) {

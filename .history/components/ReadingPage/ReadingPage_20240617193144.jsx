@@ -56,12 +56,16 @@ export default function ReadPage(post) {
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)
 	const [fileName, setFileName] = useState(post.post.file_name)
+	console.log(fileName)
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`/api/${fileName}`, {
-					method: 'GET',
-				})
+				// const response = await fetch(`/api/${fileName}`, {
+				// method: 'GET',
+				// })
+				const response = await fetch(
+					`https://updated-landing-8qz6bn6dq-fakebrianhos-projects.vercel.app/api/${fileName}`
+				)
 				const marginalia = await response.json()
 				setmMarg(marginalia)
 			} catch (e) {
