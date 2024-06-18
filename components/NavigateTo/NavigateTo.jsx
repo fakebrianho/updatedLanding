@@ -1,17 +1,22 @@
 import Link from 'next/link'
-
-import styles from '../../src/app/readingpage.module.css'
-import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { useState } from 'react'
-import { set } from 'mongoose'
 
-let sectiontitles = []
+function formatString(inputStr) {
+    // Remove hyphens and split into words
+    let words = inputStr.split('-');
+    // Capitalize the first letter of each word
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    // Join the words with a space
+    let formattedStr = words.join(' ');
+    return formattedStr;
+}
+
 export default function NavigateTo({ data }) {
+	
 	return (
 		<>
 			<div className='navigate'>
@@ -19,12 +24,14 @@ export default function NavigateTo({ data }) {
 					<button className='prev'>
 						<Link href={`/chapters/${data.prev_file_name}`}>
 							<ArrowBackIosNewIcon fontSize='large' />
+							<span className='navTitle'>{formatString(data.prev_file_name)}</span>
 						</Link>
 					</button>
 				)}
 				{data.next_file_name && (
 					<button className='next'>
 						<Link href={`/chapters/${data.next_file_name}`}>
+							<span className='navTitle'>{formatString(data.next_file_name)}</span>
 							<ArrowForwardIosIcon fontSize='large' />
 						</Link>
 					</button>
@@ -49,6 +56,14 @@ export default function NavigateTo({ data }) {
 					font-size: 1.1rem;
 				}
 
+				.navTitle{
+					font-family: var(--modern-font);
+					font-weight: 500;
+					font-size: 1.2rem;
+					margin-left: 0.5rem;
+					margin-right: 0.5rem;
+				}
+
 				.navigate {
 					// display: -webkit-box;
 					// display: -ms-flexbox;
@@ -67,6 +82,7 @@ export default function NavigateTo({ data }) {
 				.prev {
 					position: absolute;
 					left: 0;
+					display: flex;
 				}
 
 				.next {

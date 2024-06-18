@@ -6,8 +6,8 @@ import useTheme from '../../hooks/useThemes'
 
 
 
-export default function MarginaliaPopup({ id, username, content, picture, mode, setPopupOpen }) {
-	const [theme, toggleTheme] = useTheme()
+export default function MarginaliaPopup({ id, username, content, picture, theme, setPopupOpen }) {
+
 
 	return (
 		<div key={id} className={`${styles.popup} ${theme}`}>
@@ -44,6 +44,7 @@ export default function MarginaliaPopup({ id, username, content, picture, mode, 
 				.marginalia_picture {
 					width: 100%;
 					// overflow: hidden;
+					margin-bottom: 1rem;
 				}
 				@media screen and (max-width: 450px) {
 					.marginalia {

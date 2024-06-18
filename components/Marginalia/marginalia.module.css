@@ -60,6 +60,7 @@
     transform: translate(-50%, -50%);
     width: 60%;
     /* height: 80%; */
+    min-height: 40vh;
     max-height: 80vh;
     background-color: white;
     -webkit-filter: drop-shadow(0px 0px 15px #ff8618);
@@ -67,9 +68,12 @@
     -webkit-backdrop-filter: blur(5px);
     padding: 40px;
     padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 20px;
     /* overflow-x: hidden; */
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     z-index: 10000;
+    text-align: center;
     align-items: center;
 }
 
@@ -79,4 +83,5 @@
     right: 0;
     padding: 1em;
     cursor: pointer;
+    font-family: var(--modern-font);
 }
