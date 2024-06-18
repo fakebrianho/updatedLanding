@@ -21,16 +21,19 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 	}
 
 	return (
-		<div key={id} className={`marginalia ${mode}`}>
-			{/* <div className="marginalia__container"> */}
-			<p className={`marginalia_text ${mode}`}>{content}</p>
-			{picture && (
-				<div className='marginalia_picture'>
-					<img src={picture} alt='marginalia picture' width={200} />
-				</div>
-			)}
-			<p className='marginalia_username'>{username}</p>
-			{/* </div> */}
+		<div className='container'>
+			<div key={id} className={`marginalia ${mode}`}>
+				{/* <div className="marginalia__container"> */}
+				<p className={`marginalia_text ${mode}`}>{content}</p>
+				{picture && (
+					<div className='marginalia_picture'>
+						<img src={picture} alt='marginalia picture' width={200} />
+					</div>
+				)}
+				<p className='marginalia_username'>{username}</p>
+				{/* </div> */}
+			</div>
+			<div className='delete_marginalia'>&#10006;</div>
 			<style jsx global>{`
 				/*
 * Prefixed by https://autoprefixer.github.io
@@ -47,18 +50,22 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 					transition-duration: 1s;
 				}
 
-				.marginalia {
+				.container {
 					width: 15em;
 					min-width: 15em;
 					height: 15em;
-					/* background-color: white; */
-					-webkit-filter: drop-shadow(0px 0px 5px #3176c7);
-					filter: drop-shadow(0px 0px 5px #3176c7);
-					-webkit-backdrop-filter: blur(5px);
 					padding: 30px;
 					padding-top: 25px;
 					overflow-x: hidden;
 					overflow-y: scroll;
+					position: relative;
+				}
+
+				.marginalia {
+					/* background-color: white; */
+					-webkit-filter: drop-shadow(0px 0px 5px #3176c7);
+					filter: drop-shadow(0px 0px 5px #3176c7);
+					-webkit-backdrop-filter: blur(5px);
 				}
 
 				.marginalia_username {
@@ -67,6 +74,18 @@ export default function Marginalia({ id, username, content, picture, mode }) {
 
 				.marginalia_text {
 					font-size: 1rem;
+				}
+
+				.delete_marginalia {
+					visibility: hidden;
+					font-size: 1rem;
+					position: absolute;
+					bottom: 20px;
+					right: 20px;
+				}
+
+				.delete_marginalia:hover {
+					color: red;
 				}
 
 				.marginalia_picture {
