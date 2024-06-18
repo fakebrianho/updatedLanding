@@ -70,8 +70,9 @@
     padding-top: 50px;
     padding-bottom: 50px;
     border-radius: 20px;
-    /* overflow-x: hidden; */
-    /* overflow-y: scroll; */
+    /* overflow: hidden; */
+    overflow-x: hidden;
+    overflow-y: scroll;
     z-index: 10000;
     text-align: center;
     align-items: center;
