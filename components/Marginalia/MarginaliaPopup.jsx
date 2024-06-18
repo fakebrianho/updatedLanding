@@ -6,7 +6,13 @@ import useTheme from '../../hooks/useThemes'
 
 
 
+<<<<<<< HEAD
 export default function MarginaliaPopup({ id, username, content, picture, theme, setPopupOpen, onDelete }) {
+=======
+export default function MarginaliaPopup({ id, username, content, picture, theme, setPopupOpen }) {
+
+
+>>>>>>> fe6b093 (add prev next titles)
 	return (
 		<div key={id} className={`${styles.popup} ${theme}`}>
 			<button className={`${styles.button} ${styles.close}`} onClick={() => setPopupOpen(false)}>Close</button>
