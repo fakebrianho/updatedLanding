@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
 // import styles from 'tracmodule.css'
-import styles from './trace.module.css'
+import styles from './traceleft.module.css'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
@@ -57,75 +57,36 @@ export default function Trace(data) {
 		fetchData()
 	}, [])
 
-	return (
-		<>
-			<Accordion
-				onClick={scrollToHighlight}
-				square
-				className={`${styles.toggle} ${data.mode}`}
-			>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls='panel1a-content'
-					id='panel1a-header'
-				>
-					<h3
-						id='accordsum'
-						className={`${styles.traces} ${data.mode} UI`}
-					>
-						<Link href={`http://localhost:3000/baseNavigation`}>
-							<h3
-								className={`${styles.chapterlink} ${data.mode} UI`}
-							>
-								Uncertain Universe
-							</h3>
-						</Link>
-						{showPath(data.data.file_name).map((item) => {
-							return (
-								<>
-									<span> | </span>
-									<Link href={`/chapters/${item.fileName}`}>
-										<h3 className={styles.chapterlink}>
-											{item.title}
-										</h3>
-									</Link>
-								</>
-							)
-						})}
-					</h3>
-				</AccordionSummary>
-				<AccordionDetails sx={{ padding: 0 }}>
-					<main ref={containerRef} className={styles.traces}>
-						{/* match current data title and highlight in trace */}
-						<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
-							<Grid
-								container
-								sx={{
-									flexDirection: { xs: 'column', sm: 'row' },
-								}}
-								justifyContent={{ xs: 'center', sm: 'left' }}
-								rowSpacing={2}
-								columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-							>
-								{!isLoading &&
-									treeData.map(
-										(collection, id) =>
-											collection.index && (
-												<TableOfContentsChapter
-													collection={collection}
-													key={id}
-													findmatch={
-														data.data.file_name
-													}
-													highlightRef={highlightRef}
-												/>
-											)
-									)}
-							</Grid>
-						</Box>
-					</main>
-				</AccordionDetails>
-			</Accordion>
+  return (
+    <div className={`${styles.toggle} ${data.theme}`}>
+      <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
+
+          <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
+            {/* match current data title and highlight in trace */}
+              <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                rowSpacing={2}
+				alignItems="flex-start"
+                columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+              >
+                {!isLoading &&
+                  treeData.map(
+                    (collection, id) =>
+                      collection.index && (
+                        <TableOfContentsChapter
+                          collection={collection}
+                          key={id}
+                          findmatch={data.data.file_name}
+                          highlightRef={highlightRef}
+                        />
+                      )
+                  )}
+              </Grid>
+          </main>
+
+      </Accordion>
 
 			<style jsx local>
 				{`
@@ -136,7 +97,7 @@ export default function Trace(data) {
 					h3 {
 						color: #3176c7;
 						text-transform: capitalize;
-						font-size: 1.2rem;
+						font-size: 1.1rem;
 					}
 
 					ul li {
@@ -158,7 +119,7 @@ export default function Trace(data) {
 					}
 				`}
 			</style>
-		</>
+		</div>
 	)
 }
 
