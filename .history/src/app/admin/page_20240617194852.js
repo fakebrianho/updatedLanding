@@ -22,6 +22,8 @@ const renderElements = (entry) => {
 }
 
 export default async function Page() {
+	// console.log('BASE', process.env.NEXT_PUBLIC_BASE_API_URL)
+
 	if (!BASE_API_URL) {
 		return null
 	}
@@ -29,8 +31,7 @@ export default async function Page() {
 	let m = await Promise.all(
 		posts.map(async (post) => {
 			const res = await fetch(
-				`http://${BASE_API_URL}/api/${post.params.chapter}`,
-				// `http://localhost:3000/api/${post.params.chapter}`,
+				`https://${BASE_API_URL}/api/${post.params.chapter}`,
 				{
 					method: 'GET',
 				}
@@ -53,10 +54,3 @@ export default async function Page() {
 		</div>
 	)
 }
-// export default function Page() {
-// 	return (
-// 		<>
-// 			<p>hi</p>
-// 		</>
-// 	)
-// }

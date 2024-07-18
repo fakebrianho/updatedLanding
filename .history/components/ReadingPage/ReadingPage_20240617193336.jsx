@@ -50,6 +50,8 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
+	// const [loading, setLoading] = useState(false)
+	// const [newMarg, setNewMarg] = useState(null)
 	const [theme, toggleTheme] = useTheme()
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)
@@ -57,9 +59,12 @@ export default function ReadPage(post) {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`/api/${fileName}`, {
-					method: 'GET',
-				})
+				// const response = await fetch(`/api/${fileName}`, {
+				// method: 'GET',
+				// })
+				const response = await fetch(
+					`https://uncertain-universe/api/${fileName}`
+				)
 				const marginalia = await response.json()
 				setmMarg(marginalia)
 			} catch (e) {

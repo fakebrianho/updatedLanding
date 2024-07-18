@@ -50,6 +50,8 @@ let nodedata = [
 ]
 
 export default function ReadPage(post) {
+	// const [loading, setLoading] = useState(false)
+	// const [newMarg, setNewMarg] = useState(null)
 	const [theme, toggleTheme] = useTheme()
 	const [mMarg, setmMarg] = useState(null)
 	const [counter, setCounter] = useState(1)

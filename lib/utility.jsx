@@ -3,20 +3,51 @@
 	MongoDB, it exposes methods for CRUD operations for reading and adding marginalia data. This file is used on the server side by the Next.js API route handler (pages/api/marginalia.jsx).
 */
 
+
 import { ObjectId } from 'mongodb';
 import clientPromise from './mongo'
 
-// `file_name` is file name of the post.
-export async function getMarginalia(file_name) {
-	try {
-		const client = await clientPromise
+import connectToDatabase from './mongo'
+// import clientPromise from './mongo'
 
-		// `first-principles` is hard-coded, need to change later
-		const col = client
-			.db(process.env.DB_NAME)
-			.collection('first-principles')
+// `file_name` is file name of the post.
+// export async function getMarginalia(file_name) {
+// 	try {
+// 		const client = await clientPromise
+
+// 		// `first-principles` is hard-coded, need to change later
+// 		const col = client
+// 			.db(process.env.DB_NAME)
+// 			.collection('first-principles')
+
+// 		const post = await col.findOne({ file_name: file_name })
+// 		if (!post) {
+// 			console.log(
+// 				'Fetching—was not able to locate post with file name: ',
+// 				file_name
+// 			)
+// 			return null
+// 		}
+// 		const marginalia = post.marginalia
+
 
 		const post = await col.findOne({ file_name: file_name }, { projection: { 'marginalia._id': 0 } });
+
+// 		if (marginalia) {
+// 			return marginalia
+// 		} else {
+// 			return null
+// 		}
+// 	} catch (e) {
+// 		console.error(e)
+// 	}
+// }
+export async function getMarginalia(file_name) {
+	try {
+		const db = await connectToDatabase()
+		const collection = db.collection('first-principles')
+		const post = await collection.findOne({ file_name: file_name })
+
 		if (!post) {
 			console.log(
 				'Fetching—was not able to locate post with file name: ',
@@ -31,8 +62,9 @@ export async function getMarginalia(file_name) {
 		} else {
 			return null;
 		}
-	} catch (e) {
-		console.error(e)
+	} catch (error) {
+		console.error('Error in getMarginalia:', error)
+		throw error
 	}
 }
 

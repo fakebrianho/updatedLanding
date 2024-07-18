@@ -8,7 +8,6 @@ export async function GET(request, { params }) {
 			status: 200,
 		})
 	} catch (e) {
-		console.log('asdjfa;jaglsgjlasgjlsjjd;glsgjlkasgjgls;ajlk')
 		console.log(e)
 		return new Response(JSON.stringify({ error: e.toString() }), {
 			status: 500,

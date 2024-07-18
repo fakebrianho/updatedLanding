@@ -53,10 +53,3 @@ export default async function Page() {
 		</div>
 	)
 }
-// export default function Page() {
-// 	return (
-// 		<>
-// 			<p>hi</p>
-// 		</>
-// 	)
-// }

@@ -22,6 +22,8 @@ const renderElements = (entry) => {
 }
 
 export default async function Page() {
+	// console.log('BASE', process.env.NEXT_PUBLIC_BASE_API_URL)
+
 	if (!BASE_API_URL) {
 		return null
 	}
@@ -53,10 +55,3 @@ export default async function Page() {
 		</div>
 	)
 }
-// export default function Page() {
-// 	return (
-// 		<>
-// 			<p>hi</p>
-// 		</>
-// 	)
-// }
