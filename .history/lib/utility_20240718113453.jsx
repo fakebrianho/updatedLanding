@@ -4,42 +4,12 @@
 */
 
 import connectToDatabase from './mongo'
-// import clientPromise from './mongo'
 
-// `file_name` is file name of the post.
-// export async function getMarginalia(file_name) {
-// 	try {
-// 		const client = await clientPromise
-
-// 		// `first-principles` is hard-coded, need to change later
-// 		const col = client
-// 			.db(process.env.DB_NAME)
-// 			.collection('first-principles')
-
-// 		const post = await col.findOne({ file_name: file_name })
-// 		if (!post) {
-// 			console.log(
-// 				'Fetching—was not able to locate post with file name: ',
-// 				file_name
-// 			)
-// 			return null
-// 		}
-// 		const marginalia = post.marginalia
-
-// 		if (marginalia) {
-// 			return marginalia
-// 		} else {
-// 			return null
-// 		}
-// 	} catch (e) {
-// 		console.error(e)
-// 	}
-// }
-export async function getMarginalia(fileName) {
+export async function getMarginalia(file_name) {
 	try {
 		const db = await connectToDatabase()
 		const collection = db.collection('first-principles')
-		const post = await col.findOne({ file_name: file_name })
+		const post = await collection.findOne({ file_name: file_name })
 		if (!post) {
 			console.log(
 				'Fetching—was not able to locate post with file name: ',
