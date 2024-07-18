@@ -62,11 +62,11 @@ export default async function Page() {
 			entry !== undefined &&
 			(typeof entry !== 'object' || Object.keys(entry).length > 0)
 	)
-	console.log(cleanedArray)
+	console.log(renderElements)
 
 	return (
 		<div className={styles.container}>
-			{cleanedArray.map(renderElements)}
+			{/* {cleanedArray.map(renderElements)} */}
 		</div>
 	)
 }

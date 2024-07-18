@@ -64,6 +64,34 @@ export default function ReadPage(post) {
 		}
 	}, [counter, fileName])
 
+	// =======
+	// 	const [theme, toggleTheme] = useTheme()
+	// 	const [mMarg, setmMarg] = useState(null)
+	// 	const [counter, setCounter] = useState(1)
+	// 	const [fileName, setFileName] = useState(post.post.file_name)
+	// 	useEffect(() => {
+	// 		const fetchData = async () => {
+	// 			try {
+	// 				const response = await fetch(`/api/${fileName}`, {
+	// 					method: 'GET',
+	// 				})
+	// 				const marginalia = await response.json()
+	// 				setmMarg(marginalia)
+	// 			} catch (e) {
+	// 				console.error(
+	// 					'Error fetching API data for post ',
+	// 					fileName,
+	// 					' ',
+	// 					e
+	// 				)
+	// 			}
+	// 		}
+	// 		if (fileName !== null) {
+	// 			fetchData()
+	// 		}
+	// 	}, [counter, fileName])
+	// >>>>>>> newCindyDevBranch
+
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
 			let splitcontent = quote.split('~')
@@ -74,6 +102,7 @@ export default function ReadPage(post) {
 	}
 
 	const deleteMarginalia = async (id) => {
+		console.log('Deleting marginalia with id: ', id)
 		try {
 			const response = await fetch(`/api/marginalia/${fileName}/${id}`, {
 				method: 'DELETE',

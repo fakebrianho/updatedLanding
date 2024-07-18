@@ -45,8 +45,8 @@ export default async function Page() {
 	let m = await Promise.all(
 		posts.map(async (post) => {
 			const res = await fetch(
-				`http://${BASE_API_URL}/api/${post.params.chapter}`,
-				// `http://localhost:3000/api/${post.params.chapter}`,
+				// `http://${BASE_API_URL}/api/${post.params.chapter}`,
+				`http://localhost:3000/api/${post.params.chapter}`,
 				{
 					method: 'GET',
 				}
@@ -62,7 +62,7 @@ export default async function Page() {
 			entry !== undefined &&
 			(typeof entry !== 'object' || Object.keys(entry).length > 0)
 	)
-	console.log(cleanedArray)
+	console.log(renderElements)
 
 	return (
 		<div className={styles.container}>

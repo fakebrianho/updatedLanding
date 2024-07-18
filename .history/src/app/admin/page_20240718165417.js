@@ -62,7 +62,6 @@ export default async function Page() {
 			entry !== undefined &&
 			(typeof entry !== 'object' || Object.keys(entry).length > 0)
 	)
-	console.log(cleanedArray)
 
 	return (
 		<div className={styles.container}>
@@ -70,3 +69,10 @@ export default async function Page() {
 		</div>
 	)
 }
+// export default function Page() {
+// 	return (
+// 		<>
+// 			<p>hi</p>
+// 		</>
+// 	)
+// }
