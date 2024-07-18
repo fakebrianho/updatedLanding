@@ -62,7 +62,7 @@ export default function AddMarginalia({ file_name, counter, setCounter }) {
 			picture: imageUrl,
 		}
 
-		const response = await fetch(`/api/${file_name}`, {
+		const response = await fetch(`/api/marginalia/${file_name}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
