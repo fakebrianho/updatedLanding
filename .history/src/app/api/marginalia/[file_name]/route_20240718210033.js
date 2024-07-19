@@ -7,25 +7,9 @@ import {
 export async function GET(request, { params }) {
 	const file_name = params.file_name
 	try {
-		// const marginalia = await getMarginalia(file_name)
-		// const res = { marg: marginalia }
-		// return new Response(JSON.stringify(res), {
-		// 	status: 200,
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// })
-		const testResponse = {
-			marg: [
-				{
-					id: 1,
-					name: 'Test User',
-					body: 'Test body',
-					picture: 'test.jpg',
-				},
-			],
-		}
-		return new Response(JSON.stringify(testResponse), {
+		const marginalia = await getMarginalia(file_name)
+		const res = { marg: marginalia }
+		return new Response(JSON.stringify(res), {
 			status: 200,
 			headers: {
 				'Content-Type': 'application/json',
