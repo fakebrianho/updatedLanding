@@ -10,7 +10,7 @@ export async function GET(request, { params }) {
 	try {
 		const marginalia = await getMarginalia(file_name)
 		const res = { marg: marginalia }
-		return new Response(JSON.stringify(marginalia), {
+		return new Response(JSON.stringify(res), {
 			status: 200,
 		})
 	} catch (e) {
