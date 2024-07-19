@@ -5,6 +5,7 @@ import {
 } from '../../../../../lib/utility'
 
 export async function GET(request, { params }) {
+	console.log('Get params: ', params)
 	const file_name = params.file_name
 	try {
 		const marginalia = await getMarginalia(file_name)
@@ -16,12 +17,10 @@ export async function GET(request, { params }) {
 			},
 		})
 	} catch (e) {
-		console.error('Error fetching marginalia:', e)
+		console.log('asdjfa;jaglsgjlasgjlsjjd;glsgjlkasgjgls;ajlk')
+		console.log(e)
 		return new Response(JSON.stringify({ error: e.toString() }), {
 			status: 500,
-			headers: {
-				'Content-Type': 'application/json',
-			},
 		})
 	}
 }
