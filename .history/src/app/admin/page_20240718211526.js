@@ -301,6 +301,7 @@ export default async function Page() {
 			)
 			const result = await res.json()
 			console.log('Response for post:', post.params.chapter, result)
+
 			return result // returning the entire response object
 		})
 	)
