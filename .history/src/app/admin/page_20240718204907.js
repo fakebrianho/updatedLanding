@@ -74,8 +74,8 @@ export default async function Page() {
 
 	return (
 		<div className={styles.container}>
-			{/* {typeof m} */}
-			{cleanedArray.map(renderElements)}
+			{typeof m}
+			{/* {cleanedArray.map(renderElements)} */}
 		</div>
 	)
 }
