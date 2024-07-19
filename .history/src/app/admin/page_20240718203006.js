@@ -56,12 +56,12 @@ export default async function Page() {
 		})
 	)
 
-	// const cleanedArray = m.filter(
-	// 	(entry) =>
-	// 		entry !== null &&
-	// 		entry !== undefined &&
-	// 		(typeof entry !== 'object' || Object.keys(entry).length > 0)
-	// )
+	const cleanedArray = m.filter(
+		(entry) =>
+			entry !== null &&
+			entry !== undefined &&
+			(typeof entry !== 'object' || Object.keys(entry).length > 0)
+	)
 	console.log(cleanedArray)
 
 	return (
