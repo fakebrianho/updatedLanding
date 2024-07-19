@@ -12,9 +12,6 @@ export async function GET(request, { params }) {
 		const res = { marg: marginalia }
 		return new Response(JSON.stringify(res), {
 			status: 200,
-			headers: {
-				'Content-Type': 'application/json',
-			},
 		})
 	} catch (e) {
 		console.log('asdjfa;jaglsgjlasgjlsjjd;glsgjlkasgjgls;ajlk')
