@@ -46,12 +46,13 @@ export default async function Page() {
 		posts.map(async (post) => {
 			const res = await fetch(
 				`http://${BASE_API_URL}/api/${post.params.chapter}`,
+				// `http://localhost:3000/api/${post.params.chapter}`,
 				{
 					method: 'GET',
 				}
 			)
-			const result = await res.json()
-			return result // returning the entire response object
+			const marg = await res.json()
+			return marg
 		})
 	)
 	const cleanedArray = m
