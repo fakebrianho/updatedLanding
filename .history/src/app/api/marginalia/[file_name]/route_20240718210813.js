@@ -3,9 +3,18 @@ import {
 	getMarginalia,
 	deleteMarginalia,
 } from '../../../../../lib/utility'
+
 export async function GET(request, { params }) {
 	const file_name = params.file_name
 	try {
+		// const marginalia = await getMarginalia(file_name)
+		// const res = { marg: marginalia }
+		// return new Response(JSON.stringify(res), {
+		// 	status: 200,
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// })
 		const testResponse = {
 			marg: [
 				{
@@ -32,43 +41,6 @@ export async function GET(request, { params }) {
 		})
 	}
 }
-// export async function GET(request, { params }) {
-// 	const file_name = params.file_name
-// 	try {
-// 		// const marginalia = await getMarginalia(file_name)
-// 		// const res = { marg: marginalia }
-// 		// return new Response(JSON.stringify(res), {
-// 		// 	status: 200,
-// 		// 	headers: {
-// 		// 		'Content-Type': 'application/json',
-// 		// 	},
-// 		// })
-// 		const testResponse = {
-// 			marg: [
-// 				{
-// 					id: 1,
-// 					name: 'Test User',
-// 					body: 'Test body',
-// 					picture: 'test.jpg',
-// 				},
-// 			],
-// 		}
-// 		return new Response(JSON.stringify(testResponse), {
-// 			status: 200,
-// 			headers: {
-// 				'Content-Type': 'application/json',
-// 			},
-// 		})
-// 	} catch (e) {
-// 		console.error('Error fetching marginalia:', e)
-// 		return new Response(JSON.stringify({ error: e.toString() }), {
-// 			status: 500,
-// 			headers: {
-// 				'Content-Type': 'application/json',
-// 			},
-// 		})
-// 	}
-// }
 
 export async function PUT(req, { params }) {
 	try {
