@@ -1,16 +1,11 @@
-import {
-	addMarginalia,
-	getMarginalia,
-	deleteMarginalia,
-} from '../../../../../lib/utility'
+import { addMarginalia, getMarginalia, deleteMarginalia } from '../../../../../lib/utility'
 
 export async function GET(request, { params }) {
-	console.log('Get params: ', params)
+	console.log("Get params: ", params);
 	const file_name = params.file_name
 	try {
 		const marginalia = await getMarginalia(file_name)
-		const res = { marg: marginalia }
-		return new Response(JSON.stringify(res), {
+		return new Response(JSON.stringify(marginalia), {
 			status: 200,
 		})
 	} catch (e) {
