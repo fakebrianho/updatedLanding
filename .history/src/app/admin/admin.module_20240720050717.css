@@ -1,5 +1,4 @@
 .container {
-	border: 2px solid red;
 	width: 100vw;
 	height: 100vh;
 	overflow: auto;
@@ -14,6 +13,5 @@
 	align-items: center;
 	border: 1px solid white;
 	border-radius: 4px;
-	width: calc(20vw - 80px);
-	/* height: 30em; */
+	width: calc(20vw - 20px);
 }

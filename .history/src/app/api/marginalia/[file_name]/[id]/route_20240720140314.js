@@ -15,6 +15,13 @@ export async function GET(request, { params }) {
 				'Content-Type': 'application/json',
 			},
 		})
+
+		// return new Response(JSON.stringify(testResponse), {
+		// 	status: 200,
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// })
 	} catch (e) {
 		console.error('Error fetching marginalia:', e)
 		return new Response(JSON.stringify({ error: e.toString() }), {

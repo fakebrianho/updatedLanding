@@ -1,14 +1,43 @@
 import {
-	deleteMarginalia,
 	addMarginalia,
 	getMarginalia,
-} from '../../../../../../lib/utility'
+	deleteMarginalia,
+} from '../../../../../lib/utility'
+// export async function GET(request, { params }) {
+// 	const file_name = params.file_name
+// 	try {
+// 		const testResponse = {
+// 			marg: [
+// 				{
+// 					id: 1,
+// 					name: 'Test User',
+// 					body: 'Test body',
+// 					picture: 'test.jpg',
+// 				},
+// 			],
+// 		}
+// 		return new Response(JSON.stringify(testResponse), {
+// 			status: 200,
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 		})
+// 	} catch (e) {
+// 		console.error('Error fetching marginalia:', e)
+// 		return new Response(JSON.stringify({ error: e.toString() }), {
+// 			status: 500,
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 		})
+// 	}
+// }
 export async function GET(request, { params }) {
 	const file_name = params.file_name
 	try {
 		const marginalia = await getMarginalia(file_name)
-
-		const res = { marg: marginalia }
+		const res = { marg: marginalia, file_name: file_name }
+		// console.log(res)
 		return new Response(JSON.stringify(res), {
 			status: 200,
 			headers: {
@@ -52,38 +81,6 @@ export async function PUT(req, { params }) {
 		return new Response(JSON.stringify(result), {
 			status: 200,
 		})
-	} catch (e) {
-		console.error(e)
-		return new Response(JSON.stringify({ error: e.toString() }), {
-			status: 500,
-		})
-	}
-}
-export async function DELETE(req, { params }) {
-	const { file_name, id } = params
-	try {
-		console.log('File name: params ', file_name, 'id ', id)
-		const result = await deleteMarginalia(file_name, id)
-		console.log('Deletion result is: ', result)
-
-		if (result.modifiedCount === 1) {
-			return new Response(
-				JSON.stringify({
-					success: true,
-					message: 'Marginalia deleted successfully',
-				}),
-				{
-					status: 200,
-				}
-			)
-		} else {
-			return new Response(
-				JSON.stringify({ error: 'Marginalia not found' }),
-				{
-					status: 404,
-				}
-			)
-		}
 	} catch (e) {
 		console.error(e)
 		return new Response(JSON.stringify({ error: e.toString() }), {

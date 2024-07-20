@@ -1,7 +1,7 @@
 'use client'
 import styles from './marginaliaRender.module.css'
 import { useState } from 'react'
-// import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 export default function MarginaliaRender({
 	id,
@@ -11,7 +11,7 @@ export default function MarginaliaRender({
 	fileName,
 }) {
 	const [deleted, setDeleted] = useState(false) // State to trigger re-render
-	// const router = useRouter()
+	const router = useRouter()
 	const deleteMarginalia = async () => {
 		try {
 			const response = await fetch(`/api/marginalia/${fileName}/${id}`, {
@@ -20,7 +20,7 @@ export default function MarginaliaRender({
 
 			if (response.ok) {
 				setDeleted(true)
-				// router.reload(router.asPath)
+				router.reload(router.asPath)
 			} else {
 				console.error(
 					'Failed to delete marginalia:',

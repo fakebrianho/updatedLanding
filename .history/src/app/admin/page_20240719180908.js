@@ -1,7 +1,5 @@
 import { getAllPostIds } from '../../../api/getAllPostIds'
-// import MarginaliaRender from '../marginaliaRender/marginaliaRender'
-// import MarginaliaRender from '../marginaliaRender/marginaliaRender'
-import MarginaliaRender from '../../../components/MarginaliaRender/MarginaliaRender'
+import MarginaliaRender from '../marginaliaRender/marginaliaRender'
 import styles from './admin.module.css'
 import { BASE_API_URL } from '../../utils/constants'
 
@@ -46,6 +44,7 @@ export default async function Page() {
 		return null
 	}
 	let posts = await getAllPostIds()
+	// console.log(posts)
 	let m = await Promise.all(
 		posts.map(async (post) => {
 			try {
@@ -77,12 +76,29 @@ export default async function Page() {
 		})
 	)
 
+	// console.log(m)
+	// console.log(typeof m)
+	// Simplified check for testing
+	// console.log(m.length)
+	// for (let i = 0; i < m.length; i++) {
+	// 	console.log(m[i])
+	// }
 	const cleanedArray = m.filter(
 		(item) => item !== null && !(Array.isArray(item) && item.length === 0)
 	)
 	const filteredData = m.filter((item) => {
 		return item.marg && item.marg.length > 0
 	})
+
+	for (let i = 0; i < filteredData.length; i++) {
+		// console.log(filteredData[i])
+	}
+	// const cleanedArray = m.filter(
+	// 	(entry) =>
+	// 		entry !== null &&
+	// 		entry !== undefined &&
+	// 		(typeof entry !== 'object' || Object.keys(entry).length > 0)
+	// )
 
 	if (cleanedArray.length === 0) {
 		return <div className={styles.container}>No marginalia found.</div>

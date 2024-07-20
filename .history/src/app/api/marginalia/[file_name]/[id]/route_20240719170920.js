@@ -7,7 +7,16 @@ export async function GET(request, { params }) {
 	const file_name = params.file_name
 	try {
 		const marginalia = await getMarginalia(file_name)
-
+		// const testResponse = {
+		// 	marg: [
+		// 		{
+		// 			id: 1,
+		// 			name: 'Test User',
+		// 			body: 'Test body',
+		// 			picture: 'test.jpg',
+		// 		},
+		// 	],
+		// }
 		const res = { marg: marginalia }
 		return new Response(JSON.stringify(res), {
 			status: 200,
@@ -15,6 +24,13 @@ export async function GET(request, { params }) {
 				'Content-Type': 'application/json',
 			},
 		})
+
+		// return new Response(JSON.stringify(testResponse), {
+		// 	status: 200,
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// })
 	} catch (e) {
 		console.error('Error fetching marginalia:', e)
 		return new Response(JSON.stringify({ error: e.toString() }), {
