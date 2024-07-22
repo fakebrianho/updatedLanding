@@ -32,7 +32,7 @@ export default function MarginaliaRender({
 		}
 	}
 	return (
-		<div className={`${styles.container}`}>
+		<div className={`${styles.container} ${deleted ? styles.deleted : ''}`}>
 			<p>
 				<span className={styles.bold}>Name: </span> {username}
 			</p>

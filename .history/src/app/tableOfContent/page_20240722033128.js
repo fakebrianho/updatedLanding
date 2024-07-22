@@ -13,7 +13,7 @@ export default function Page({ params }) {
 	const [theme, toggleTheme] = useTheme()
 	return (
 		<PageProvider>
-			<NavigationBar sub={false} mode={theme} toggle={toggleTheme} />
+			<NavigationBar color={'white'} sub={false} />
 			<div className={`${styles.container} ${theme}`}>
 				<Head>
 					<h1 className={styles.titleText}>Uncertain Universe</h1>

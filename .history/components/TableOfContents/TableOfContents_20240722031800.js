@@ -1,20 +1,21 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../../src/app/readingpage.module.css'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
-
-// import getData from '../api/getData'
 import getData from '../../api/getData'
+import usePage from '../../context/pageContext'
+import BackButton from '../../components/BackButton/BackButton'
+import { PageProvider } from '../../context/pageContext'
+import { isMobile } from 'react-device-detect'
+import useTheme from '../../hooks/useThemes'
 
 function TableOfContentsItem(node) {
 	const [isOpen, setIsOpen] = useState(false)
-	console.log('items are', node)
-
+	const [theme, toggleTheme] = useTheme()
 	return (
 		<div>
 			<div
@@ -76,9 +77,6 @@ function TableOfContentsItem(node) {
 }
 
 function TableOfContentsChapter(data) {
-	const router = useRouter()
-	console.log('chapter data', data.collection.index)
-
 	return (
 		<>
 			<Grid item sm={6} xs={10}>
@@ -87,11 +85,15 @@ function TableOfContentsChapter(data) {
 						<Link
 							href={`/chapters/${data.collection.index[0][0].file_name}`}
 						>
-							<h3>{data.collection.index[0][0].title}</h3>
+							<h3 className={styles.headLine}>
+								{data.collection.index[0][0].title}
+							</h3>
 						</Link>
 					) : (
 						<Link href={''}>
-							<h3>{data.collection.col}</h3>
+							<h3 className={styles.headLine}>
+								{data.collection.col}
+							</h3>
 						</Link>
 					)}
 				</div>
@@ -112,100 +114,109 @@ function TableOfContentsChapter(data) {
 function TableOfContents() {
 	const [isLoading, setIsLoading] = useState(true)
 	const [treeData, setTreeData] = useState(null)
+	const { lenis, toggleScrolling, isHovering, setHoverStatus } = usePage()
 
 	useEffect(() => {
+		document.body.style.overflow = 'visible'
 		const fetchData = async () => {
 			const res = await getData('index')
 			setTreeData(res)
 			setIsLoading(false)
+			toggleScrolling(true)
+			localStorage.setItem('indexData', JSON.stringify(res))
 		}
 
 		fetchData()
 	}, [])
 
 	return (
-		<>
-			<main>
-				<h1>Table Of Contents</h1>
-				<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
-					<Grid
-						container
-						sx={{ flexDirection: { xs: 'column', sm: 'row' } }}
-						justifyContent={{ xs: 'center', sm: 'left' }}
-						rowSpacing={2}
-						columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-					>
-						{!isLoading &&
-							treeData.map((collection, id) => (
-								<TableOfContentsChapter
-									collection={collection}
-									key={id}
-								/>
-							))}
-					</Grid>
-				</Box>
-			</main>
+		<PageProvider>
+			<>
+				{!isMobile && <BackButton white={true} />}
+				<main className={styles.tocMain}>
+					<h1 className={styles.titleText}>Table Of Contents</h1>
+					<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
+						<Grid
+							container
+							sx={{ flexDirection: { xs: 'column', sm: 'row' } }}
+							justifyContent={{ xs: 'center', sm: 'left' }}
+							rowSpacing={2}
+							columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+						>
+							{!isLoading &&
+								treeData.map((collection, id) => (
+									<TableOfContentsChapter
+										collection={collection}
+										key={id}
+									/>
+								))}
+						</Grid>
+					</Box>
+				</main>
 
-			<style jsx local>
-				{`
-					main {
-						padding: 3rem 0;
-						flex: 1;
-						display: flex;
-						flex-direction: column;
-						justify-content: left;
-						align-items: left;
-					}
-				`}
-			</style>
+				<style jsx local>
+					{`
+						main {
+							padding: 3rem 0;
+							flex: 1;
+							display: flex;
+							flex-direction: column;
+							justify-content: left;
+							align-items: left;
+							//overflow-y: auto;
+							//height: 90vh;
+						}
+					`}
+				</style>
 
-			<style jsx global>
-				{`
-					html,
-					body {
-						background-color: white;
-						padding: 0;
-						margin: 0;
-						font-family: Optima;
-						width: 100vw;
-						height: 100vh;
-					}
-					* {
-						box-sizing: border-box;
-					}
+				<style jsx global>
+					{`
+						html,
+						body {
+							background-color: white;
+							padding: 0;
+							margin: 0;
+							font-family: Optima;
+							// width: 100vw;
+							// height: 100vh;
+						}
+						* {
+							box-sizing: border-box;
+						}
 
-					h1,
-					h2 {
-						font-family: IMFellEnglish;
-						// font-family: bluu;
-						text-transform: uppercase;
-					}
+						h1,
+						h2 {
+							font-family: IMFellEnglish;
+							// font-family: bluu;
+							text-transform: uppercase;
+						}
 
-					h3 {
-						color: #3176c7;
-						text-transform: capitalize;
-					}
+						h3 {
+							color: #3176c7;
+							text-transform: capitalize;
+						}
 
-					ul li {
-						list-style-type: none;
-						text-decoration: none;
-						display: block;
-						margin-right: 1rem;
-						font-size: 1rem;
-					}
+						ul li {
+							list-style-type: none;
+							text-decoration: none;
+							display: block;
+							margin-right: 1rem;
+							font-size: 1rem;
+						}
 
-					a {
-						text-decoration: none;
-						color: grey;
-					}
+						a {
+							text-decoration: none;
+							color: grey;
+						}
 
-					ul {
-						padding: 0;
-						margin: 0;
-					}
-				`}
-			</style>
-		</>
+						ul {
+							padding: 0;
+							margin: 0;
+						}
+					`}
+				</style>
+			</>
+		</PageProvider>
 	)
 }
 

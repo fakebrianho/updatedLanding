@@ -8,11 +8,13 @@ import { NavigationBar } from '../../../components/NavigationBar'
 import Head from 'next/head'
 import styles from '../readingpage.module.css'
 import { PageProvider } from '../../../context/pageContext'
+import useTheme from '../../../hooks/useThemes'
 export default function Page({ params }) {
+	const [theme, toggleTheme] = useTheme()
 	return (
 		<PageProvider>
-			<NavigationBar color={'white'} sub={false} />
-			<div className={styles.container}>
+			<NavigationBar color={'white'} sub={false} mode={theme} />
+			<div className={`${styles.container} ${theme}`}>
 				<Head>
 					<h1 className={styles.titleText}>Uncertain Universe</h1>
 					<link rel='icon' href='/favicon.ico' />

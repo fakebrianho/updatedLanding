@@ -32,7 +32,7 @@ export default function MarginaliaRender({
 		}
 	}
 	return (
-		<div className={`${styles.container}`}>
+		<div className={`${styles.container} ${deleted ? styles.deleted : ''}`}>
 			<p>
 				<span className={styles.bold}>Name: </span> {username}
 			</p>
@@ -42,6 +42,7 @@ export default function MarginaliaRender({
 			<p className={styles.delete} onClick={deleteMarginalia}>
 				Delete
 			</p>
+			{/* <p>{id}</p> */}
 			{picture !== null ? (
 				<img src={picture} alt='marginalia picture' width={200} />
 			) : (

@@ -10,11 +10,10 @@ import styles from '../readingpage.module.css'
 import { PageProvider } from '../../../context/pageContext'
 import useTheme from '../../../hooks/useThemes'
 export default function Page({ params }) {
-	const [theme, toggleTheme] = useTheme()
 	return (
 		<PageProvider>
-			<NavigationBar sub={false} mode={theme} toggle={toggleTheme} />
-			<div className={`${styles.container} ${theme}`}>
+			<NavigationBar color={'white'} sub={false} />
+			<div className={styles.container}>
 				<Head>
 					<h1 className={styles.titleText}>Uncertain Universe</h1>
 					<link rel='icon' href='/favicon.ico' />
