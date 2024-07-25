@@ -6,10 +6,12 @@ import NavigateTo from "../NavigateTo/NavigateTo";
 import Marginalia from "../Marginalia/Marginalia";
 import AddMarginalia from "../AddMarginalia/AddMarginalia";
 import { motion } from "framer-motion";
+import MobileTrace from "../MobileTrace/MobileTrace";
 import Trace from "../Trace/Trace";
 import History from "../History/History";
 import { NavigationBar } from "../NavigationBar";
 import useTheme from '../../hooks/useThemes'
+import { isMobile } from 'react-device-detect'
 
 const pageTransition = {
 	out: {
@@ -108,11 +110,13 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
-							<Trace data={post.post} theme={theme} />
-							<History data={post.post} theme={theme} />
+						
+						{!isMobile && (<Trace data={post.post} theme={theme} />)}
+						{!isMobile && (<History data={post.post} theme={theme} />)}
+							
 						<div className={`${styles.container} ${theme}`}>
-
 							<div className={theme}>
+							{isMobile && (<MobileTrace data={post.post} theme={theme} />)}
 								{(post.post.layout === 'branch-head' && (
 									<h1
 										className={`${styles.branchhead}  ${theme}`}
