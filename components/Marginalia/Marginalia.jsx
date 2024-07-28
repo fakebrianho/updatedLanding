@@ -5,9 +5,7 @@ import { useState, useEffect } from 'react'
 import useTheme from '../../hooks/useThemes'
 import MarginaliaPopup from './MarginaliaPopup'
 
-
-
-export default function Marginalia({ id, username, content, picture, theme }) {
+export default function Marginalia({ id, username, content, picture, theme, deleteMarginalia }) {
 	const [popupOpen, setPopupOpen] = useState(false);
 	useEffect(() => {
 		randomizeMarg()
@@ -25,17 +23,17 @@ export default function Marginalia({ id, username, content, picture, theme }) {
 
 	return (
 		<div>
-		{popupOpen ? <MarginaliaPopup id={id} username={username} content={content} picture={picture} theme={theme} setPopupOpen={setPopupOpen} /> : null}
-		<div key={id} className={`${styles.marginalia} ${theme}`} onClick={setPopupOpen}>
-			<p className={`${styles.text} ${theme}`}>{content}</p>
-			{picture && (
-				<div className={styles.picture}>
-					<Image src={picture} alt='marginalia picture' width={200} height={200}/>
-				</div>
-			)}
-			<p className='marginalia_username'>- {username}</p>
-			{/* </div> */}
-			<style jsx global>{`
+			{popupOpen ? <MarginaliaPopup id={id} username={username} content={content} picture={picture} theme={theme} setPopupOpen={setPopupOpen} onDelete={deleteMarginalia} /> : null}
+			<div key={id} className={`${styles.marginalia} ${theme}`} onClick={setPopupOpen}>
+				<p className={`${styles.text} ${theme}`}>{content}</p>
+				{picture && (
+					<div className={styles.picture}>
+						<Image src={picture} alt='marginalia picture' width={200} height={200} />
+					</div>
+				)}
+				<p className='marginalia_username'>- {username}</p>
+				{/* </div> */}
+				<style jsx global>{`
 				/*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.14,

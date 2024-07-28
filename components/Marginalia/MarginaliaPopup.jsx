@@ -6,16 +6,15 @@ import useTheme from '../../hooks/useThemes'
 
 
 
-export default function MarginaliaPopup({ id, username, content, picture, theme, setPopupOpen }) {
-
-
+export default function MarginaliaPopup({ id, username, content, picture, theme, setPopupOpen, onDelete }) {
 	return (
 		<div key={id} className={`${styles.popup} ${theme}`}>
-			<button className={styles.close} onClick={() => setPopupOpen(false)}>Close</button>
+			<button className={`${styles.button} ${styles.close}`} onClick={() => setPopupOpen(false)}>Close</button>
+			<button className={`${styles.button} ${styles.delete}`} onClick={() => onDelete(id)}>Delete</button>
 			<p className='marginalia_text'>{content}</p>
 			{picture && (
 				<div className='marginalia_picture'>
-					<Image src={picture} alt='marginalia picture' width={900} height={900}/>
+					<Image src={picture} alt='marginalia picture' width={900} height={900} />
 				</div>
 			)}
 			<p className='marginalia_username'>- {username}</p>

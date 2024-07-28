@@ -1,0 +1,12 @@
+.container {
+	border: 2px solid red;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 20px;
+}
+
+.gridItem {
+}
