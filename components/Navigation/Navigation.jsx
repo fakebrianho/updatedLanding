@@ -65,7 +65,9 @@ export const Navigation = (props) => {
 				onClick={() => router.push('/')}
 			></Image>
 			{/* <NavTrace title={props.title} theme={theme}/> */}
+
 			{!isMobile && <NavHistory title={props.title} theme={theme}/>}
+
 			<CentralNode title={props.title} topLevel={props.topLevel} />
 			<ChildNodes
 				nodes={props.child_nodes}
