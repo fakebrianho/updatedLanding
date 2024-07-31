@@ -1,0 +1,16 @@
+.container {
+	border: 1px solid grey;
+	border-radius: 20px;
+	width: max-content;
+	padding: 2em;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.delete {
+	font-weight: 800;
+	color: lightblue;
+	cursor: pointer;
+}
