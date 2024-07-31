@@ -9,6 +9,9 @@ import { useState } from 'react'
 import BackButton from '../../components/BackButton/BackButton'
 import { isMobile } from 'react-device-detect'
 import { useRouter } from 'next/navigation'
+import NavTrace from '../../components/NavTrace/NavTrace'
+import NavHistory from '../../components/NavHistory/NavHistory'
+import useTheme from '../../hooks/useThemes'
 
 const pageTransition = {
 	out: {
@@ -34,6 +37,8 @@ export const Navigation = (props) => {
 	const [isHovered, setIsHovered] = useState(false)
 	const [isClickable, setIsClickable] = useState(null)
 	const [parentLicense, setParentLicense] = useState(false)
+	const [theme, toggleTheme] = useTheme()
+
 	return (
 		<motion.div
 			variants={pageTransition}
@@ -59,6 +64,10 @@ export const Navigation = (props) => {
 				alt='Logo'
 				onClick={() => router.push('/')}
 			></Image>
+			{/* <NavTrace title={props.title} theme={theme}/> */}
+
+			{!isMobile && <NavHistory title={props.title} theme={theme}/>}
+
 			<CentralNode title={props.title} topLevel={props.topLevel} />
 			<ChildNodes
 				nodes={props.child_nodes}
@@ -68,6 +77,7 @@ export const Navigation = (props) => {
 				clickTrigger={setIsClickable}
 				parentLicense={setParentLicense}
 				topLevel={props.topLevel}
+				theme={theme}
 			/>
 		</motion.div>
 	)
