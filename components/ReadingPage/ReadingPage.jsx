@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useState } from 'react';
 import styles from "./ReadingPage.module.css";
@@ -31,88 +30,41 @@ const pageTransition = {
 	},
 }
 
-//fake data
-let nodedata = [
-	{
-		marginalia: [
-			{
-				id: '_1hiush',
-				name: 'David P.',
-				body: 'This is a marginalia',
-				date: Date,
-				picture: null,
-			},
-			{
-				id: '_2sduhf',
-				name: 'Cindy H.',
-				body: 'This is another marginalia',
-				date: Date,
-				picture: null,
-			},
-		],
-	},
-]
-
 export default function ReadPage(post) {
-	// <<<<<<< master
-
-	const [loading, setLoading] = useState(false);
-	const [newMarg, setNewMarg] = useState(null);
+	const [loading, setLoading] = useState(false)
+	const [newMarg, setNewMarg] = useState(null)
 	const [theme, toggleTheme] = useTheme()
-	const [mMarg, setmMarg] = useState(null);
-	const [counter, setCounter] = useState(1);
-	const [fileName, setFileName] = useState(post.post.file_name);
+	const [mMarg, setmMarg] = useState(null)
+	const [counter, setCounter] = useState(1)
+	const [fileName, setFileName] = useState(post.post.file_name)
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(`/api/marginalia/${fileName}`, {
 					method: 'GET',
-				});
+				})
 				console.log(response)
-				const marginalia = await response.json();
-				console.log("marginalia", marginalia);
+				const marginalia = await response.json()
+				console.log('marginalia', marginalia)
 
-				setmMarg(marginalia);
+				setmMarg(marginalia.marg)
 			} catch (e) {
-				console.error('Error fetching API data for post ', fileName, ' ', e);
+				console.error(
+					'Error fetching API data for post ',
+					fileName,
+					' ',
+					e
+				)
 			}
-		};
+		}
 
 		// Since fileName is initialized to be null, we need to wait until it has a
 		// valid value before fetching data
 		if (fileName !== null) {
-			fetchData();
+			fetchData()
 		}
-	}, [counter, fileName]);
-
-	// =======
-	// 	const [theme, toggleTheme] = useTheme()
-	// 	const [mMarg, setmMarg] = useState(null)
-	// 	const [counter, setCounter] = useState(1)
-	// 	const [fileName, setFileName] = useState(post.post.file_name)
-	// 	useEffect(() => {
-	// 		const fetchData = async () => {
-	// 			try {
-	// 				const response = await fetch(`/api/${fileName}`, {
-	// 					method: 'GET',
-	// 				})
-	// 				const marginalia = await response.json()
-	// 				setmMarg(marginalia)
-	// 			} catch (e) {
-	// 				console.error(
-	// 					'Error fetching API data for post ',
-	// 					fileName,
-	// 					' ',
-	// 					e
-	// 				)
-	// 			}
-	// 		}
-	// 		if (fileName !== null) {
-	// 			fetchData()
-	// 		}
-	// 	}, [counter, fileName])
-	// >>>>>>> newCindyDevBranch
+	}, [counter, fileName])
 
 	const processQuote = (quote) => {
 		if (quote.match('~')) {
@@ -124,22 +76,24 @@ export default function ReadPage(post) {
 	}
 
 	const deleteMarginalia = async (id) => {
-		console.log("Deleting marginalia with id: ", id);
 		try {
 			const response = await fetch(`/api/marginalia/${fileName}/${id}`, {
 				method: 'DELETE',
-			});
+			})
 
 			if (response.ok) {
 				// Updates the marginalia front end component
-				setmMarg(mMarg.filter(item => item._id !== id));
+				setmMarg(mMarg.filter((item) => item._id !== id))
 			} else {
-				console.error('Failed to delete marginalia:', response.statusText);
+				console.error(
+					'Failed to delete marginalia:',
+					response.statusText
+				)
 			}
 		} catch (error) {
-			console.error('Error deleting marginalia:', error);
+			console.error('Error deleting marginalia:', error)
 		}
-	};
+	}
 
 	return (
 		<motion.div
@@ -156,12 +110,10 @@ export default function ReadPage(post) {
 							mode={theme}
 							toggle={toggleTheme}
 						/>
-
 						
 						{!isMobile && (<Trace data={post.post} theme={theme} />)}
 						{!isMobile && (<History data={post.post} theme={theme} />)}
-							
-
+            
 						<div className={`${styles.container} ${theme}`}>
 							<div className={theme}>
 							{isMobile && (<MobileTrace data={post.post} theme={theme} />)}
@@ -187,7 +139,9 @@ export default function ReadPage(post) {
 										</h1>
 									)) ||
 									(post.post.layout === 'quote' && (
-										<p className={`${styles.quote}  ${theme}`}></p>
+										<p
+											className={`${styles.quote}  ${theme}`}
+										></p>
 									))}
 								{post.post.subtitle && (
 									<h3
@@ -200,28 +154,30 @@ export default function ReadPage(post) {
 									<div className='line'></div>
 								)}
 
-								<div className={`${"maintext"}  ${theme}`}>
-									{(post.post.layout != "quote" &&
-										post.post.layout != "branch-head" && (
+								<div className={`${'maintext'}  ${theme}`}>
+									{(post.post.layout != 'quote' &&
+										post.post.layout != 'branch-head' && (
 											<div
 												dangerouslySetInnerHTML={{
 													__html: post.post.content,
 												}}
 											/>
 										)) ||
-										(post.post.layout === "branch-head" && (
+										(post.post.layout === 'branch-head' && (
 											<div
-												className="hasdropcap"
+												className='hasdropcap'
 												dangerouslySetInnerHTML={{
 													__html: post.post.content,
 												}}
 											/>
 										)) ||
-										(post.post.layout === "quote" && (
+										(post.post.layout === 'quote' && (
 											<div
-												className="center"
+												className='center'
 												dangerouslySetInnerHTML={{
-													__html: processQuote(post.post.content),
+													__html: processQuote(
+														post.post.content
+													),
 												}}
 											/>
 										))}
@@ -229,26 +185,49 @@ export default function ReadPage(post) {
 							</div>
 
 							{/* live version */}
-							<NavigateTo data={post.post} setCounter={setCounter} setFileName={setFileName} />
-							{(mMarg) ? (mMarg.length != 0 && (
-								<div className={styles.footer}>
-									<div className={styles.margcontainer}>
-										{mMarg.map(marginalia => {
-											return (
-												<Marginalia
-													key={marginalia._id} //this was the key error for run build
-													username={marginalia.name}
-													content={marginalia.body}
-													picture={marginalia.picture}
-													theme={theme}
-													deleteMarginalia={() => deleteMarginalia(marginalia._id)}
-												/>
-											);
-										})}
-									</div>
-								</div>
-							)) : (null)}
-							<AddMarginalia file_name={post.post.file_name} counter={counter} setCounter={setCounter} theme={theme} />
+							<NavigateTo
+								data={post.post}
+								setCounter={setCounter}
+								setFileName={setFileName}
+							/>
+							{mMarg
+								? mMarg.length != 0 && (
+										<div className={styles.footer}>
+											<div
+												className={styles.margcontainer}
+											>
+												{mMarg.map((marginalia) => {
+													return (
+														<Marginalia
+															key={marginalia._id} //this was the key error for run build
+															username={
+																marginalia.name
+															}
+															content={
+																marginalia.body
+															}
+															picture={
+																marginalia.picture
+															}
+															theme={theme}
+															deleteMarginalia={() =>
+																deleteMarginalia(
+																	marginalia._id
+																)
+															}
+														/>
+													)
+												})}
+											</div>
+										</div>
+								  )
+								: null}
+							<AddMarginalia
+								file_name={post.post.file_name}
+								counter={counter}
+								setCounter={setCounter}
+								theme={theme}
+							/>
 							<style jsx global>{`
 								html,
 								body {

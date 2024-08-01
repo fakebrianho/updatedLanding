@@ -10,7 +10,7 @@ export default function NavHistory(data) {
 	const [historyData, setHistoryData] = useState(null)
 	const containerRef = useRef(null)
 	const highlightRef = useRef(null)
-	const initialized = useRef(false);
+	const initialized = useRef(false)
 	const [theme, toggleTheme] = useTheme()
 
 	const scrollToHighlight = () => {
@@ -47,7 +47,7 @@ export default function NavHistory(data) {
 			if (data.title != history[history.length - 1]){
 				history.push(data.title);
 			}
-		}
+		} 
 
 		// console.log("current history is", history);
 		sessionStorage.setItem('historyNavData', JSON.stringify(history));
