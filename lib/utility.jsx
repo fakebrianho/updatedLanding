@@ -21,24 +21,26 @@ export async function getMarginalia(file_name) {
 		let marginalia = post.marginalia;
 
 		if (marginalia) {
-			let modified = false;
-			marginalia.forEach(item => {
+			// Make sure that all marginalia has `_id` field filled
+			const updatedMarginalia = marginalia.map(item => {
 				if (!item._id) {
-					item._id = new ObjectId();
-					modified = true;
+					return { ...item, _id: new ObjectId() };
 				}
+				return item;
 			});
 
-			if (modified) {
+			if (JSON.stringify(marginalia) !== JSON.stringify(updatedMarginalia)) {
 				await collection.updateOne(
 					{ _id: post._id },
-					{ $set: { marginalia: marginalia } }
+					{ $set: { marginalia: updatedMarginalia } }
 				);
 			}
 
-			const marginaliaWithSimpleId = marginalia.map(item => ({ ...item, _id: item._id.toString() }));
+			const approvedMarginaliaWithSimpleId = updatedMarginalia
+				.filter(item => item.approved === true)
+				.map(item => ({ ...item, _id: item._id.toString() }));
 
-			return marginaliaWithSimpleId;
+			return approvedMarginaliaWithSimpleId;
 		} else {
 			return null;
 		}
@@ -59,17 +61,18 @@ export async function addMarginalia(file_name, marg) {
 			const col = await db.collection(collection.name)
 			post = await col.findOne({ file_name: file_name })
 			if (post) {
-				const margWithId = {
+				const unapprovedMargWithId = {
 					...marg,
+					approved: false,
 					_id: new ObjectId()
 				};
 				await col.updateOne(
 					{ file_name: file_name },
 					{
-						$push: { marginalia: margWithId },
+						$push: { marginalia: unapprovedMargWithId },
 					}
 				);
-				return margWithId;
+				return unapprovedMargWithId;
 			}
 		}
 
