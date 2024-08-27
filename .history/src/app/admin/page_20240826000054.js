@@ -1,7 +1,7 @@
 import { getAllPostIds } from '../../../api/getAllPostIds'
 import MarginaliaRender from '../../../components/MarginaliaRender/MarginaliaRender'
-import LoginPanel from '../../../components/LoginPanel/LoginPanel'
 import styles from './admin.module.css'
+import { useState } from 'react'
 import { BASE_API_URL } from '../../utils/constants'
 
 const mapMarginalia = (entry) => {
@@ -23,6 +23,23 @@ const mapMarginalia = (entry) => {
 	}
 }
 
+const deleteMarginalia = async (id) => {
+	try {
+		const response = await fetch(`/api/marginalia/${fileName}/${id}`, {
+			method: 'DELETE',
+		})
+
+		if (response.ok) {
+			// Updates the marginalia front end component
+			setmMarg(mMarg.filter((item) => item._id !== id))
+		} else {
+			console.error('Failed to delete marginalia:', response.statusText)
+		}
+	} catch (error) {
+		console.error('Error deleting marginalia:', error)
+	}
+}
+
 export default async function Page() {
 	if (!BASE_API_URL) {
 		return null
@@ -32,8 +49,8 @@ export default async function Page() {
 		posts.map(async (post) => {
 			try {
 				const res = await fetch(
-					// `http://localhost:3000/api/marginalia/${post.params.chapter}`,
-					`http://${BASE_API_URL}/api/marginalia/${post.params.chapter}`,
+					`http://localhost:3000/api/marginalia/${post.params.chapter}`,
+					// `http://${BASE_API_URL}/api/marginalia/${post.params.chapter}`,
 					{
 						method: 'GET',
 						cache: 'no-store',
@@ -72,8 +89,7 @@ export default async function Page() {
 
 	return (
 		<div className={styles.container}>
-			<LoginPanel data={filteredData} />
-			{/* {filteredData.map((item, index) => mapMarginalia(item))} */}
+			{filteredData.map((item, index) => mapMarginalia(item))}
 		</div>
 	)
 }

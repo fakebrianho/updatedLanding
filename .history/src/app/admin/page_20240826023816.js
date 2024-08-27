@@ -32,8 +32,8 @@ export default async function Page() {
 		posts.map(async (post) => {
 			try {
 				const res = await fetch(
-					// `http://localhost:3000/api/marginalia/${post.params.chapter}`,
-					`http://${BASE_API_URL}/api/marginalia/${post.params.chapter}`,
+					`http://localhost:3000/api/marginalia/${post.params.chapter}`,
+					// `http://${BASE_API_URL}/api/marginalia/${post.params.chapter}`,
 					{
 						method: 'GET',
 						cache: 'no-store',
@@ -72,8 +72,8 @@ export default async function Page() {
 
 	return (
 		<div className={styles.container}>
-			<LoginPanel data={filteredData} />
-			{/* {filteredData.map((item, index) => mapMarginalia(item))} */}
+			<LoginPanel />
+			{filteredData.map((item, index) => mapMarginalia(item))}
 		</div>
 	)
 }
