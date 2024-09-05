@@ -10,7 +10,6 @@ export default function MarginaliaPopup({ id, username, content, picture, theme,
 	return (
 		<div key={id} className={`${styles.popup} ${theme}`}>
 			<button className={`${styles.button} ${styles.close}`} onClick={() => setPopupOpen(false)}>Close</button>
-			<button className={`${styles.button} ${styles.delete}`} onClick={() => onDelete(id)}>Delete</button>
 			<p className='marginalia_text'>{content}</p>
 			{picture && (
 				<div className='marginalia_picture'>

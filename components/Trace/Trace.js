@@ -59,6 +59,7 @@ export default function Trace(data) {
 
   return (
     <div className={`${styles.toggle} ${data.theme}`}>
+		<h3 className="horizontalText">Table of Content</h3>
       <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
 
           <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
@@ -98,6 +99,16 @@ export default function Trace(data) {
 						color: #3176c7;
 						text-transform: capitalize;
 						font-size: 1.1rem;
+						font-family: var(--modern-font);
+					}
+
+					.horizontalText{
+						transform: translate(-100%, -50%);
+						transform: rotate(270deg);
+						position: absolute;
+						top: 14%;
+						right: -20%;
+						z-index: 1;
 					}
 
 					ul li {
