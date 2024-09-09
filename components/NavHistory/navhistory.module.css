@@ -98,11 +98,12 @@
 .toggle {
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	position: fixed;
-	/* right: 0%; */
-	top: 50%;
-	right: 0;
+	position: relative;
+
 	transform: translate(60%, -50%);
+	top: -25%;
+	right: -85%;
+
 	width: 15vw;
 	height: 65vh;
 	overflow-y: scroll;

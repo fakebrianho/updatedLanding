@@ -64,8 +64,7 @@ export const Navigation = (props) => {
 				alt='Logo'
 				onClick={() => router.push('/')}
 			></Image>
-			{/* <NavTrace title={props.title} theme={theme}/> */}
-
+			{!isMobile && <NavTrace title={props.title} theme={theme}/>}
 			{!isMobile && <NavHistory title={props.title} theme={theme}/>}
 
 			<CentralNode title={props.title} topLevel={props.topLevel} />

@@ -51,8 +51,9 @@ export default function History(data) {
   return (
     <>
 		<div className={`${styles.toggle}  ${data.theme}`}>
-		<main ref={containerRef} className={styles.traces}>
-			<h3>History</h3>
+			<h3 className="horizontalText">History</h3>
+			<main ref={containerRef} className={styles.traces}>
+			
 			{!isLoading && historyData &&
                   historyData.map(
                     (item, id) =>
@@ -78,6 +79,15 @@ export default function History(data) {
 						color: #3176c7;
 						text-transform: capitalize;
 						font-size: 1.2rem;
+						font-family: var(--modern-font);
+					}
+
+					.horizontalText{
+						transform: translate(-50%, -50%);
+						transform: rotate(-90deg);
+						position: absolute;
+						top: 8%;
+						left: 0;
 					}
 
 					ul li {
