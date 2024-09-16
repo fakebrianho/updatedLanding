@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
-// import styles from 'tracmodule.css'
-import styles from './traceleft.module.css'
+import styles from './trace.module.css'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
@@ -10,11 +9,11 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import { useEffect, useState } from 'react'
-import getData from '../../api/getData'
+import getData from '../../api/getData.js'
 
 import { book } from '../../utils/processIndex.js'
 
-export default function Trace(data) {
+export default function MobileTrace(data) {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isLoading, setIsLoading] = useState(true)
 	const [treeData, setTreeData] = useState(null)
@@ -32,15 +31,14 @@ export default function Trace(data) {
 	}
 
 	const showPath = (target) => {
-		let path = []
-		let currentChapter = book.findChapterByFileName(target)[0]
-		// console.log("currentchapter is", currentChapter);
-		currentChapter.parentChapters.forEach((chapter) => {
-			// console.log("chapter is", chapter.fileName);
-			path.push(chapter)
-		})
-		return path
-	}
+		let pathString = 'Uncertain Universe';
+		let currentChapter = book.findChapterByFileName(target)[0];
+		console.log('currentchapter is', currentChapter);
+		currentChapter.parentChapters.forEach(chapter => {
+		  pathString += ' / ' + chapter.title;
+		});
+		return pathString;
+	  }
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -59,11 +57,15 @@ export default function Trace(data) {
 
   return (
     <div className={`${styles.toggle} ${data.theme}`}>
-		<h3 className="horizontalText">Table of Content</h3>
       <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
+	  	<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+          <h3 id="accordsum">{!isLoading && showPath(data.data.file_name)}</h3>
+        </AccordionSummary>
 
+        <AccordionDetails sx={{ padding: 0 }}>
           <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
             {/* match current data title and highlight in trace */}
+			<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
               <Grid
                 container
                 direction="column"
@@ -71,6 +73,7 @@ export default function Trace(data) {
                 rowSpacing={2}
 				alignItems="flex-start"
                 columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+				sx={{ paddingTop: '0' }}
               >
                 {!isLoading &&
                   treeData.map(
@@ -85,8 +88,9 @@ export default function Trace(data) {
                       )
                   )}
               </Grid>
+			</Box>
           </main>
-
+		</AccordionDetails>
       </Accordion>
 
 			<style jsx local>
@@ -95,20 +99,13 @@ export default function Trace(data) {
 						background-color: #f3f3f3;
 					}
 
-					h3 {
-						color: #3176c7;
-						text-transform: capitalize;
-						font-size: 1.1rem;
+					#accordsum {
 						font-family: var(--modern-font);
 					}
 
-					.horizontalText{
-						transform: translate(-100%, -50%);
-						transform: rotate(270deg);
-						position: absolute;
-						top: 14%;
-						right: -20%;
-						z-index: 1;
+					h3 {
+						color: #3176c7;
+						font-size: 1.1rem;
 					}
 
 					ul li {
@@ -215,7 +212,7 @@ function TableOfContentsItem(node) {
 function TableOfContentsChapter(data) {
 	return (
 		<>
-			<Grid item sm={6} xs={10}>
+			<Grid item sm={6} xs={10} sx={{ padding: '0' }}>
 				<div className={styles.card}>
 					{data.collection.index[0][0].file_name == data.findmatch ? (
 						<Link

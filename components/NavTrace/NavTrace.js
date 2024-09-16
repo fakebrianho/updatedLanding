@@ -1,20 +1,18 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
 // import styles from 'tracmodule.css'
-import styles from './traceleft.module.css'
+import styles from './navleft.module.css'
 import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import { useEffect, useState } from 'react'
-import getData from '../../api/getData'
+import getData from '../../api/getData.js'
 
 import { book } from '../../utils/processIndex.js'
 
-export default function Trace(data) {
+export default function NavTrace(data) {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isLoading, setIsLoading] = useState(true)
 	const [treeData, setTreeData] = useState(null)
@@ -64,6 +62,7 @@ export default function Trace(data) {
 
           <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
             {/* match current data title and highlight in trace */}
+			
               <Grid
                 container
                 direction="column"
@@ -79,7 +78,7 @@ export default function Trace(data) {
                         <TableOfContentsChapter
                           collection={collection}
                           key={id}
-                          findmatch={data.data.file_name}
+                          findmatch={data.title}
                           highlightRef={highlightRef}
                         />
                       )

@@ -1,16 +1,16 @@
 import React, { useRef } from 'react'
 import Link from 'next/link'
-import styles from './history.module.css'
+import styles from './navhistory.module.css'
 import { useEffect, useState } from 'react'
 import useTheme from '../../hooks/useThemes'
 
-export default function History(data) {
+export default function NavHistory(data) {
 	const [isOpen, setIsOpen] = useState(false)
 	const [isLoading, setIsLoading] = useState(true)
 	const [historyData, setHistoryData] = useState(null)
 	const containerRef = useRef(null)
 	const highlightRef = useRef(null)
-	const initialized = useRef(false);
+	const initialized = useRef(false)
 	const [theme, toggleTheme] = useTheme()
 
 	const scrollToHighlight = () => {
@@ -23,8 +23,15 @@ export default function History(data) {
 		}
 	}
 
+	const cleanData = (data) => {
+		const result = data.split('-').map((word) => {
+			return word.substring(0, 1).toUpperCase() + word.substring(1)
+		})
+		return result.join(' ');
+	}
+
 	const clearHistory = () => {
-		sessionStorage.removeItem('historyData')
+		sessionStorage.removeItem('historyNavData')
 		setHistoryData(null);
 	}
 
@@ -32,38 +39,38 @@ export default function History(data) {
 		let history = [];
 		if(!initialized.current){
 		initialized.current = true;
-		sessionStorage.getItem('historyData') ? history = JSON.parse(sessionStorage.getItem('historyData')) : history = [];
+		sessionStorage.getItem('historyNavData') ? history = JSON.parse(sessionStorage.getItem('historyNavData')) : history = [];
 		
 		if (history.length < 1){
-			history.push(data.data);
+			history.push(data.title);
 		} else {
-			if (data.data.file_name != history[history.length - 1].file_name){
-				history.push(data.data);
+			if (data.title != history[history.length - 1]){
+				history.push(data.title);
 			}
-		}
+		} 
 
-		console.log("current history is", history);
-		sessionStorage.setItem('historyData', JSON.stringify(history));
-		setHistoryData(history);}
+		// console.log("current history is", history);
+		sessionStorage.setItem('historyNavData', JSON.stringify(history));
+		setHistoryData(history);
+		console.log("historyData is", historyData);}
 		setIsLoading(false)
-	}, [data.data])
+	}, [data.title])
 
   return (
     <>
 		<div className={`${styles.toggle}  ${data.theme}`}>
+		<main ref={containerRef} className={styles.traces}>
 			<h3 className="horizontalText">History</h3>
-			<main ref={containerRef} className={styles.traces}>
-			
 			{!isLoading && historyData &&
                   historyData.map(
                     (item, id) =>
                       (
-						<Link key={id} href={`/chapters/${item.file_name}`}>
+						<Link key={id} href={`/chapters/${item}`}>
 						<div
 							key={id}
 							className={`${styles.individuallink}`}
 						>
-							{item.title}
+							{cleanData(item)}
 						</div>
 					</Link>
                       )
