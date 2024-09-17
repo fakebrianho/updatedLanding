@@ -58,7 +58,6 @@ function Cursor(props) {
 			className={cn(s.cursor, isGrab && s.grab, isPointer && s.pointer, {
 				'hover-cursor': props.hoverState,
 				'normal-cursor': !props.hoverState,
-				[`${props.theme}Cursor`]: true,
 			})}
 			ref={cursor}
 		>

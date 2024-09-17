@@ -25,6 +25,7 @@ function Cursor(props) {
 	)
 
 	useEffect(() => {
+		const body = document.body
 		if (props.hoverState) {
 			cursor.current.classList.add('hover-cursor')
 			cursorText.current.classList.add('active')
@@ -58,7 +59,6 @@ function Cursor(props) {
 			className={cn(s.cursor, isGrab && s.grab, isPointer && s.pointer, {
 				'hover-cursor': props.hoverState,
 				'normal-cursor': !props.hoverState,
-				[`${props.theme}Cursor`]: true,
 			})}
 			ref={cursor}
 		>

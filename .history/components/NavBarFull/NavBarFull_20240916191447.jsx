@@ -46,7 +46,7 @@ export default function NavBarFull(props) {
 					</div>
 					<div
 						className={
-							props.mode === 'light'
+							props.mode === 'white'
 								? styles.navItemWhite
 								: styles.navItem
 						}
@@ -57,7 +57,7 @@ export default function NavBarFull(props) {
 					</div>
 					<div
 						className={
-							props.mode === 'light'
+							props.mode === 'white'
 								? styles.navItemWhite
 								: styles.navItem
 						}
@@ -69,7 +69,7 @@ export default function NavBarFull(props) {
 					{props.sub && (
 						<div
 							className={
-								props.mode === 'light'
+								props.color === 'white'
 									? styles.navItemWhite
 									: styles.navItem
 							}

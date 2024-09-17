@@ -5,7 +5,7 @@ import { ChildNodes } from './ChildNodes/ChildNodes'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Cursor } from '../Cursor/Cursor'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import BackButton from '../../components/BackButton/BackButton'
 import { isMobile } from 'react-device-detect'
 import { useRouter } from 'next/navigation'
@@ -38,13 +38,7 @@ export const Navigation = (props) => {
 	const [isClickable, setIsClickable] = useState(null)
 	const [parentLicense, setParentLicense] = useState(false)
 	const [theme, toggleTheme] = useTheme()
-	useEffect(() => {
-		if (theme === 'light') {
-			document.body.style.backgroundColor = 'white'
-		} else {
-			document.body.style.backgroundColor = 'black'
-		}
-	}, [theme])
+
 	return (
 		<motion.div
 			variants={pageTransition}

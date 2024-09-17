@@ -1,7 +1,7 @@
 // 'use client'
 import { getTopLevelRoutes } from '../../../api/getTopLevelRoutes'
 import { Navigation } from '../../../components/Navigation/Navigation'
-// import useTheme from '../../../hooks/useThemes'
+import useTheme from '../../../hooks/useThemes'
 // import { useEffect } from 'react'
 export default async function Page({ params }) {
 	// const [theme, setTheme] = useTheme()

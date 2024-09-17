@@ -54,6 +54,7 @@ export default async function Page() {
 	return (
 		<div className={styles.container}>
 			<LoginPanel data={filteredData} />
+			{/* {filteredData.map((item, index) => mapMarginalia(item))} */}
 		</div>
 	)
 }

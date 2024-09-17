@@ -366,7 +366,6 @@ a {
 .motionContainer {
 	width: 100vw;
 	height: 100vh;
-	cursor: none;
 }
 
 #circle_1 {
@@ -2624,16 +2623,6 @@ a {
 }
 .darkText {
 	color: white !important;
-}
-.lightText {
-	color: black !important;
-}
-
-.darkCursor {
-}
-.lightCursor {
-	color: black !important;
-	background-color: rgba(0, 0, 0, 0.322) !important;
 }
 
 .UI.dark {

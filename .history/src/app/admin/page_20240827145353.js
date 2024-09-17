@@ -1,4 +1,5 @@
 import { getAllPostIds } from '../../../api/getAllPostIds'
+import MarginaliaRender from '../../../components/MarginaliaRender/MarginaliaRender'
 import LoginPanel from '../../../components/LoginPanel/LoginPanel'
 import styles from './admin.module.css'
 import { BASE_API_URL } from '../../utils/constants'
@@ -54,6 +55,7 @@ export default async function Page() {
 	return (
 		<div className={styles.container}>
 			<LoginPanel data={filteredData} />
+			{/* {filteredData.map((item, index) => mapMarginalia(item))} */}
 		</div>
 	)
 }

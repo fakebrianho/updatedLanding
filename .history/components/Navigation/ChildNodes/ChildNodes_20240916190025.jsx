@@ -238,7 +238,7 @@ export const ChildNodes = (props) => {
 										<p
 											data-cursor='pointer'
 											data-click={hasChildren}
-											className={`${styles.title}  ${props.theme}Text`}
+											className={`${styles.title}  ${props.theme}`}
 											style={{
 												padding: '30px',
 												width: 'max-content',

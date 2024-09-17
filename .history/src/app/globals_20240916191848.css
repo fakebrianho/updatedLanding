@@ -2629,13 +2629,6 @@ a {
 	color: black !important;
 }
 
-.darkCursor {
-}
-.lightCursor {
-	color: black !important;
-	background-color: rgba(0, 0, 0, 0.322) !important;
-}
-
 .UI.dark {
 	color: var(--light-text) !important;
 }
