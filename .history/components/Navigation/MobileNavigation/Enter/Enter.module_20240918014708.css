@@ -1,0 +1,59 @@
+.enter_button {
+	position: relative;
+	top: 40px;
+	background-color: var(--light-text);
+	width: 90px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	font-family: var(--modern-font);
+	font-size: 18px;
+	z-index: 300;
+	cursor: pointer;
+	/* border: 2px solid red; */
+}
+
+.enter {
+	font-family: var(--modern-font);
+	font-size: 20px;
+	padding: 0px 40px;
+	background: linear-gradient(
+		27deg,
+		rgba(255, 140, 36, 1) 0%,
+		rgba(49, 118, 199, 1) 100%
+	);
+	inset: 5px;
+	border-radius: 10px;
+	font-size: 18px;
+	z-index: 1;
+	transition: opacity 0.3s ease;
+	color: #000;
+}
+.enter::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -150%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.5) 50%,
+		transparent 100%
+	);
+	transform: skewX(-30deg);
+	animation: shimmer 2s infinite;
+}
+
+.enterContainer {
+	border: 1px solid grey;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 32%;
+}

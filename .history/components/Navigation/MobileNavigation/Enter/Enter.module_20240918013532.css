@@ -1,0 +1,78 @@
+.enter_button {
+	position: relative;
+	top: 40px;
+	background-color: var(--light-text);
+	width: 90px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	font-family: var(--modern-font);
+	font-size: 18px;
+	z-index: 300;
+	cursor: pointer;
+	/* border: 2px solid red; */
+}
+
+.enter {
+	font-family: var(--modern-font);
+	font-size: 20px;
+	padding: 0px 40px;
+	background: linear-gradient(
+		27deg,
+		rgba(255, 140, 36, 1) 0%,
+		rgba(49, 118, 199, 1) 100%
+	);
+	inset: 5px;
+	border-radius: 10px;
+	font-size: 18px;
+	z-index: 1;
+	transition: opacity 0.3s ease;
+}
+.enter::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 12px;
+	background: conic-gradient(
+		from calc(var(--r2) - 80deg) at var(--x) 20px,
+		#222 0%,
+		#fff 20%,
+		#222 25%
+	);
+	opacity: 1; /* Initially hidden */
+	transition: opacity 0.3s ease; /* Fade transition */
+	animation: rotating2 3s linear infinite, x 3s linear infinite;
+	z-index: 0; /* Positioned below the ::after pseudo-element */
+}
+
+.enterContainer {
+	border: 1px solid grey;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 32%;
+}
+@keyframes rotating2 {
+	0% {
+		--r2: 0deg;
+	}
+	32.82275711% {
+		--r2: 0deg;
+	}
+	50% {
+		--r2: 180deg;
+	}
+	82.82275711% {
+		--r2: 180deg;
+	}
+	100% {
+		--r2: 360deg;
+	}
+}

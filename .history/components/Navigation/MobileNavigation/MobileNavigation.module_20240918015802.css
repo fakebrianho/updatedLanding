@@ -1,0 +1,103 @@
+.orbit {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+	animation: orbitAnimation 10s linear infinite;
+}
+
+.centraldiv {
+	width: 100px;
+	height: 100px;
+	background-color: #ff6f61;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.orbitaldiv {
+	width: 50px;
+	height: 50px;
+	background-color: #6b5b95;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform-style: preserve-3d;
+}
+.child {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: #ff6f61;
+	--outline-width: 15px;
+	--outline-height: 15px;
+	--outline-opacity: 0;
+}
+.center {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	/* z-index: 32; */
+	transform: translate(-50%, -50%);
+}
+.child::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: var(--outline-width);
+	height: var(--outline-height);
+	border-radius: 50%;
+	border: 3px solid white; /* Outline thickness and color */
+	background-color: transparent;
+	opacity: var(--outline-opacity);
+	transform: translate(-50%, -50%);
+	z-index: -1; /* Place it behind the main div */
+}
+.shimmer {
+	font-size: 18px;
+	line-height: 1.5;
+	color: transparent;
+	background: linear-gradient(90deg, transparent, #000, transparent);
+	background-repeat: no-repeat;
+	background-size: 0% 100%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: revealText 5s linear forwards;
+}
+
+.shimmer::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	color: transparent;
+	background: linear-gradient(
+		to right,
+		transparent 0%,
+		rgba(0, 0, 0, 0.8) 50%,
+		transparent 100%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}

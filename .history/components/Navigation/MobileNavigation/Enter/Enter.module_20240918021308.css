@@ -1,0 +1,121 @@
+.enter_button {
+	position: relative;
+	top: 40px;
+	background-color: var(--light-text);
+	width: 90px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	font-family: var(--modern-font);
+	font-size: 18px;
+	z-index: 300;
+	cursor: pointer;
+	/* border: 2px solid red; */
+}
+.wip {
+	font-family: var(--modern-font);
+	font-size: 20px;
+	padding: 0px 40px;
+	background: linear-gradient(
+		58deg,
+		rgba(49, 118, 199, 1) 100%,
+		rgba(255, 140, 36, 1) 0%
+	);
+	/* inset: 5px; */
+	border-radius: 10px;
+	font-size: 18px;
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
+}
+.wip::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -150%; /* Start the shimmer off-screen */
+	width: 150%; /* Ensure the shimmer covers the text */
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.8),
+		transparent
+	);
+	animation: shimmer 2.5s infinite;
+	pointer-events: none; /* Allow text selection */
+}
+
+.enter {
+	font-family: var(--modern-font);
+	font-size: 20px;
+	padding: 0px 40px;
+	background: linear-gradient(
+		27deg,
+		rgba(255, 140, 36, 1) 0%,
+		rgba(49, 118, 199, 1) 100%
+	);
+	/* inset: 5px; */
+	border-radius: 10px;
+	font-size: 18px;
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
+}
+.enter::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -150%; /* Start the shimmer off-screen */
+	width: 150%; /* Ensure the shimmer covers the text */
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.8),
+		transparent
+	);
+	animation: shimmer 2.5s infinite;
+	pointer-events: none; /* Allow text selection */
+}
+
+@keyframes shimmer {
+	0% {
+		left: -150%;
+	}
+	100% {
+		left: 150%;
+	}
+}
+.enterContainer {
+	border: 1px solid grey;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 32%;
+}
+.shimmer {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.shimmer::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	color: transparent;
+	background: linear-gradient(
+		to right,
+		transparent 0%,
+		rgba(255, 255, 255, 0.8) 50%,
+		transparent 100%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: shimmer 2s infinite;
+}
