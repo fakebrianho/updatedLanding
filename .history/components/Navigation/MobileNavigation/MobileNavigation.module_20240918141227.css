@@ -37,7 +37,7 @@
 	height: 25px;
 	border-radius: 50%;
 	/* background-color: #ff6f61; */
-	background-color: rgba(255, 140, 36, 1);
+	background-color: rgba(255, 140, 36, 1) 100%;
 	--outline-width: 15px;
 	--outline-height: 15px;
 	--outline-opacity: 0;
