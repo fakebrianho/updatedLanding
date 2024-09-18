@@ -1,0 +1,48 @@
+.orbit {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+	animation: orbitAnimation 10s linear infinite;
+}
+
+.centraldiv {
+	width: 100px;
+	height: 100px;
+	background-color: #ff6f61;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.orbitaldiv {
+	width: 50px;
+	height: 50px;
+	background-color: #6b5b95;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform-style: preserve-3d;
+}
+.child {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+.center {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	z-index: 32;
+	transform: translate(-50%, -50%);
+}

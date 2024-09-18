@@ -1,0 +1,23 @@
+.container {
+	position: fixed;
+	bottom: 20%;
+	border: 2px solid red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}
+.left {
+	width: 50px;
+	padding: 10px;
+}
+
+.right {
+	width: 50px;
+	padding: 10px;
+}
+.name {
+	width: 150px;
+	text-align: center;
+	border: 1px solid blue;
+}

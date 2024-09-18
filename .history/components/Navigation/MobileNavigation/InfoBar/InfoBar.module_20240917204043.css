@@ -1,0 +1,43 @@
+.container {
+	padding: 15px 0px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 70%;
+	border: 1px solid grey;
+	border-radius: 15px;
+}
+.navigation {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 35px;
+	width: 50px;
+	margin-bottom: 5px;
+}
+/* .left {
+	width: 50px;
+	font-size: 35px;
+	text-align: center;
+} */
+
+/* .right {
+	width: 50px;
+	font-size: 35px;
+	text-align: center;
+} */
+.name {
+	width: 150px;
+	text-align: center;
+	/* border: 1px solid blue; */
+}
+.full {
+	position: fixed;
+	bottom: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}

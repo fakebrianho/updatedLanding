@@ -1,0 +1,37 @@
+.container {
+	padding: 15px 0px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 70%;
+	border: 1px solid grey;
+	height: 100px;
+	border-radius: 15px;
+}
+.navigation {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 35px;
+	width: 50px;
+	margin-bottom: 5px;
+}
+
+.name {
+	width: 150px;
+	text-align: center;
+	font-family: var(--modern-font);
+	font-size: 25px;
+	line-height: 28px;
+}
+
+.full {
+	position: fixed;
+	bottom: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}

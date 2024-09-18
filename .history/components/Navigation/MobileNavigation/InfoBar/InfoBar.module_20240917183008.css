@@ -1,0 +1,38 @@
+.container {
+	/* position: fixed;
+	bottom: 20%;
+	border: 2px solid red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	border: 1px solid grey;
+	border-radius: 15px;
+}
+.left {
+	width: 50px;
+	padding: 10px;
+	text-align: center;
+}
+
+.right {
+	width: 50px;
+	padding: 10px;
+	text-align: center;
+}
+.name {
+	width: 150px;
+	text-align: center;
+	border: 1px solid blue;
+}
+.full {
+	position: fixed;
+	bottom: 20%;
+	border: 2px solid red;
+
+	width: 100vw;
+}

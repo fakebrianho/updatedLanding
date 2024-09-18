@@ -1,0 +1,33 @@
+.gradient {
+	z-index: 30;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at bottom left,
+		rgba(49, 118, 199, 1) 0%,
+		rgba(49, 118, 199, 1) 40%,
+		rgba(255, 140, 36, 1) 100%
+	);
+}
+
+.gradient.active::before {
+	content: '';
+	position: absolute;
+	top: -25px; /* Adjust to set the gap size */
+	left: -25px; /* Adjust to set the gap size */
+	width: 250px; /* width + (gap * 2) */
+	height: 250px; /* height + (gap * 2) */
+	border-radius: 50%;
+	border: 5px solid white; /* Outline thickness and color */
+	background-color: transparent;
+	z-index: -1; /* Place it behind the main div */
+}

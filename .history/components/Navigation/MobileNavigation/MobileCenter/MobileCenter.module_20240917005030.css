@@ -1,0 +1,26 @@
+.gradient {
+	z-index: 30;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at bottom left,
+		rgba(49, 118, 199, 1) 0%,
+		rgba(49, 118, 199, 1) 40%,
+		rgba(255, 140, 36, 1) 100%
+	);
+}
+
+.gradient.active {
+	box-shadow: 0 0 0 10px white,
+		/* First shadow (white border) */ 0 0 0 15px rgba(0, 0, 0, 0),
+		/* Transparent gap */ 0 0 0 20px rgba(0, 0, 0, 0.5); /* Outer shadow */
+}

@@ -1,0 +1,13 @@
+.container {
+	position: fixed;
+	bottom: 20%;
+	border: 2px solid red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}
+.left {
+	width: 50px;
+	padding: 10px;
+}
