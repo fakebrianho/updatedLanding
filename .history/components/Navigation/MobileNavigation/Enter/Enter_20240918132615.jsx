@@ -13,7 +13,7 @@ const Enter = ({
 	backgroundColor = 'orange',
 	color = 'white',
 	borderRadius = '8px',
-	padding = '5px 20px',
+	padding = '0px 30px',
 	url = null,
 	read = null,
 	key,

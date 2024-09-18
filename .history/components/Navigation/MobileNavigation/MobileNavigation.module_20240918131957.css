@@ -65,7 +65,7 @@
 	z-index: -1; /* Place it behind the main div */
 }
 .shimmer {
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 1.5;
 	/* color: transparent; */
 	position: relative; /* Position relative for the pseudo-element */

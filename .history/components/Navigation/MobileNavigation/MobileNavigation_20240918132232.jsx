@@ -43,8 +43,8 @@ function MobileNavigation(props) {
 		}
 		gsap.to(selectedRef.current, {
 			duration: 1.5,
-			'--outline-width': '200px',
-			'--outline-height': '200px',
+			'--outline-width': '175px',
+			'--outline-height': '175px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -56,8 +56,8 @@ function MobileNavigation(props) {
 			if (active === selectedRef.current) {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '175px',
-					'--outline-height': '175px',
+					'--outline-width': '150px',
+					'--outline-height': '150px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})

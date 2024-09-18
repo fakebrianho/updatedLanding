@@ -11,8 +11,8 @@ function MobileNavigation(props) {
 	const positions = []
 	const [active, setActive] = useState(null)
 	const num = props.count
-	const centralCircleDiameter = 250
-	const childNodeDiameter = 25
+	const centralCircleDiameter = 300
+	const childNodeDiameter = 15
 	const radiusPadding = 0 // Adjust this to your needs
 	const radius = centralCircleDiameter / 2 + childNodeDiameter + radiusPadding
 	for (let i = 0; i < num; i++) {
@@ -43,8 +43,8 @@ function MobileNavigation(props) {
 		}
 		gsap.to(selectedRef.current, {
 			duration: 1.5,
-			'--outline-width': '200px',
-			'--outline-height': '200px',
+			'--outline-width': '230px',
+			'--outline-height': '230px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -56,8 +56,8 @@ function MobileNavigation(props) {
 			if (active === selectedRef.current) {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '175px',
-					'--outline-height': '175px',
+					'--outline-width': '200px',
+					'--outline-height': '200px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})
@@ -73,8 +73,8 @@ function MobileNavigation(props) {
 		}
 		gsap.to(target, {
 			duration: 1.5,
-			'--outline-width': '37px',
-			'--outline-height': '37px',
+			'--outline-width': '27px',
+			'--outline-height': '27px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -88,8 +88,8 @@ function MobileNavigation(props) {
 			} else {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '25px',
-					'--outline-height': '25px',
+					'--outline-width': '15px',
+					'--outline-height': '15px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})
@@ -104,8 +104,8 @@ function MobileNavigation(props) {
 		const t = document.querySelector(`[data-index="${i}"]`)
 		gsap.to(t, {
 			duration: 1.5,
-			'--outline-width': '37px',
-			'--outline-height': '37px',
+			'--outline-width': '27px',
+			'--outline-height': '27px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -118,8 +118,8 @@ function MobileNavigation(props) {
 			} else {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '25px',
-					'--outline-height': '25px',
+					'--outline-width': '15px',
+					'--outline-height': '15px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})
@@ -134,8 +134,8 @@ function MobileNavigation(props) {
 		const t = document.querySelector(`[data-index="${i}"]`)
 		gsap.to(t, {
 			duration: 1.5,
-			'--outline-width': '37px',
-			'--outline-height': '37px',
+			'--outline-width': '27px',
+			'--outline-height': '27px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})

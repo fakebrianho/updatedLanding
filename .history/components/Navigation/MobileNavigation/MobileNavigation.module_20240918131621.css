@@ -33,8 +33,8 @@
 	transform-style: preserve-3d;
 }
 .child {
-	width: 25px;
-	height: 25px;
+	width: 15px;
+	height: 15px;
 	border-radius: 50%;
 	background-color: #ff6f61;
 	--outline-width: 15px;
@@ -42,10 +42,10 @@
 	--outline-opacity: 0;
 }
 .center {
-	width: 250px;
-	height: 250px;
+	width: 400px;
+	height: 400px;
 	position: absolute;
-	top: 40%;
+	top: 30%;
 	left: 50%;
 	/* z-index: 32; */
 	transform: translate(-50%, -50%);
@@ -65,7 +65,7 @@
 	z-index: -1; /* Place it behind the main div */
 }
 .shimmer {
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 1.5;
 	/* color: transparent; */
 	position: relative; /* Position relative for the pseudo-element */
