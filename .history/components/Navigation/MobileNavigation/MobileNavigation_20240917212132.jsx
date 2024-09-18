@@ -170,7 +170,6 @@ function MobileNavigation(props) {
 				onClick={centralClick}
 			/>
 			<InfoBar data={active} next={next} previous={previous} />
-			<Enter />
 		</>
 	)
 }
