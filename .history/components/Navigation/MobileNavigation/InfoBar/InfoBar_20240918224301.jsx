@@ -3,7 +3,7 @@ function InfoBar(props) {
 	return (
 		<div className={styles.full}>
 			<div className={styles.container}>
-				{props.count > 0 && props.data && (
+				{props.count > 0 && (
 					<div
 						className={styles.navigation}
 						onClick={() =>
@@ -18,21 +18,20 @@ function InfoBar(props) {
 
 				<div className={styles.name}>
 					<p>
-						{props.data
-							? props.data
-									.getAttribute('data-name')
-									.split('-')
-									.map((word) => {
-										return (
-											word.substring(0, 1).toUpperCase() +
-											word.substring(1)
-										)
-									})
-									.join(' ')
-							: 'Please Select A Chapter'}
+						{props.data &&
+							props.data
+								.getAttribute('data-name')
+								.split('-')
+								.map((word) => {
+									return (
+										word.substring(0, 1).toUpperCase() +
+										word.substring(1)
+									)
+								})
+								.join(' ')}
 					</p>
 				</div>
-				{props.count > 0 && props.data && (
+				{props.count > 0 && (
 					<div
 						className={styles.navigation}
 						onClick={() =>

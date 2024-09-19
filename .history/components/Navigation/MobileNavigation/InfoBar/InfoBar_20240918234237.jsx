@@ -3,7 +3,7 @@ function InfoBar(props) {
 	return (
 		<div className={styles.full}>
 			<div className={styles.container}>
-				{props.count > 0 && props.data && (
+				{props.count > 0 && (
 					<div
 						className={styles.navigation}
 						onClick={() =>
@@ -29,10 +29,10 @@ function InfoBar(props) {
 										)
 									})
 									.join(' ')
-							: 'Please Select A Chapter'}
+							: 'Select A Chapter'}
 					</p>
 				</div>
-				{props.count > 0 && props.data && (
+				{props.count > 0 && (
 					<div
 						className={styles.navigation}
 						onClick={() =>

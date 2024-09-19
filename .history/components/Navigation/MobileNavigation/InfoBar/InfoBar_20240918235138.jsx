@@ -29,7 +29,7 @@ function InfoBar(props) {
 										)
 									})
 									.join(' ')
-							: 'Please Select A Chapter'}
+							: 'Select A Chapter'}
 					</p>
 				</div>
 				{props.count > 0 && props.data && (

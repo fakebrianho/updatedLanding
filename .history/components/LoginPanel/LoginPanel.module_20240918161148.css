@@ -17,12 +17,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	/* border: 1px solid white; */
 	border-radius: 4px;
 	width: calc(20vw - 20px);
 }
 .fullScreen {
-	width: 85vw;
-	height: 85vh;
+	width: 80vw;
+	margin: 0 auto;
+	height: 100vh;
 	border: 1px solid grey;
 	display: flex;
 	justify-content: center;
@@ -30,10 +32,6 @@
 	flex-direction: column;
 	border-radius: 15px;
 	overflow: auto;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
 }
 .loginButton {
 	background-color: #0070f3;
