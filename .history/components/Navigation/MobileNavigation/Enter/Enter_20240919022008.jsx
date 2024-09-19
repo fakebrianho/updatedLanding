@@ -56,7 +56,7 @@ const Enter = ({
 					outline: 'none',
 				}}
 				{...props}
-				whileTap={{ scale: 1.1 }}
+				whileTap={{ scale: 2.1 }}
 				className={url ? styles.enter : styles.wip}
 				onClick={handleClick}
 			>

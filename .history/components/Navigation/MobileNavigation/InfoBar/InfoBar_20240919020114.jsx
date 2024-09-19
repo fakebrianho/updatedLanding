@@ -4,20 +4,18 @@ function InfoBar(props) {
 	return (
 		<div className={styles.full}>
 			<div className={styles.container}>
-				{props.count > 0 &&
-					props.data &&
-					props.data.getAttribute('data-title') !== 'center' && (
-						<div
-							className={styles.navigation}
-							onClick={() =>
-								props.previous(
-									props.data.getAttribute('data-index')
-								)
-							}
-						>
-							&#x3c;
-						</div>
-					)}
+				{props.count > 0 && props.data && (
+					<div
+						className={styles.navigation}
+						onClick={() =>
+							props.previous(
+								props.data.getAttribute('data-index')
+							)
+						}
+					>
+						&#x3c;
+					</div>
+				)}
 
 				<div className={styles.name}>
 					<p>
