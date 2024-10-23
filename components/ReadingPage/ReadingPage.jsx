@@ -290,7 +290,8 @@ export default function ReadPage(post) {
 									p,
 									ol,
 									li {
-										font-size: 1rem;
+										font-size: 1.1rem;
+										line-height: 1.4;
 									}
 									img {
 										max-width: 100%;

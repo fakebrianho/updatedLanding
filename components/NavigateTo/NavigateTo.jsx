@@ -22,7 +22,7 @@ export default function NavigateTo({ data }) {
 			<div className='navigate'>
 				{data.prev_file_name && (
 					<button className='prev'>
-						<Link href={`/chapters/${data.prev_file_name}`}>
+						<Link className='align-items-center' href={`/chapters/${data.prev_file_name}`}>
 							<ArrowBackIosNewIcon fontSize='large' />
 							<span className='navTitle'>{formatString(data.prev_file_name)}</span>
 						</Link>
@@ -30,7 +30,7 @@ export default function NavigateTo({ data }) {
 				)}
 				{data.next_file_name && (
 					<button className='next'>
-						<Link href={`/chapters/${data.next_file_name}`}>
+						<Link className='align-items-center align-right' href={`/chapters/${data.next_file_name}`}>
 							<span className='navTitle'>{formatString(data.next_file_name)}</span>
 							<ArrowForwardIosIcon fontSize='large' />
 						</Link>
@@ -64,25 +64,20 @@ export default function NavigateTo({ data }) {
 					margin-right: 0.5rem;
 				}
 
+
 				.navigate {
-					// display: -webkit-box;
-					// display: -ms-flexbox;
-					// display: flex;
-					// -webkit-box-pack: justify;
-					// -ms-flex-pack: justify;
-					// justify-content: space-between;
-					// -webkit-box-align: center;
-					// -ms-flex-align: center;
-					// align-items: center;
 					position: relative;
 					margin-top: 5rem;
 					height: 5rem;
 				}
 
+				.align-items-center{
+					display: block;
+				}
+
 				.prev {
 					position: absolute;
 					left: 0;
-					display: flex;
 				}
 
 				.next {
@@ -125,6 +120,42 @@ export default function NavigateTo({ data }) {
 					ul li {
 						display: block;
 					}
+
+					.navTitle{
+						font-size: 1rem;
+						margin: 0;
+					}
+
+					button{
+						font-size: 1rem;
+						text-align: center;
+					}
+
+					.navigate{
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						width: 100%;
+					}
+						
+					.align-items-center{
+						display: flex;
+						align-items: center;
+						flex-direction: row;
+					}
+
+					.align-right{
+						justify-content: flex-end;
+					}
+
+					.next{
+						width: 50%;
+					}
+
+					.prev{
+						width: 50%;
+					}
+
 				}
 
 				a {
@@ -136,6 +167,8 @@ export default function NavigateTo({ data }) {
 					padding: 0;
 					margin: 0;
 				}
+
+								
 			`}</style>
 		</>
 	)
