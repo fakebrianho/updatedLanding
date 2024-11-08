@@ -16,7 +16,7 @@
 	width: max-content;
 }
 .delete:hover {
-	color: red;
+	color: blue;
 }
 .deleted {
 	opacity: 0.2;

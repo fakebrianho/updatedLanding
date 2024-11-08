@@ -6,6 +6,7 @@ export async function POST(req, res) {
 		const { password } = await req.json()
 		// console.log('pppp', password)
 		const isMatch = await verifyPassword(password)
+		console.log('isMatch', isMatch)
 		if (isMatch) {
 			return NextResponse.json(
 				{ message: 'Authentication successful' },

@@ -1,5 +1,7 @@
 'use client'
 import styles from './MarginaliaRender.module.css'
+import { useState } from 'react'
+// import { useRouter } from 'next/router'
 import { useRouter } from 'next/navigation'
 export default function MarginaliaRender({
 	id,
@@ -16,6 +18,7 @@ export default function MarginaliaRender({
 			})
 
 			if (response.ok) {
+				// setDeleted(true)
 				router.refresh()
 			} else {
 				console.error(
@@ -25,23 +28,6 @@ export default function MarginaliaRender({
 			}
 		} catch (error) {
 			console.error('Error deleting marginalia:', error)
-		}
-	}
-	const updateMarginalia = async () => {
-		try {
-			const response = await fetch(`/api/marginalia/${fileName}/${id}`, {
-				method: 'PATCH',
-			})
-			if (response.ok) {
-				router.refresh()
-			} else {
-				console.error(
-					'Failed to delete marginalia:',
-					response.statusText
-				)
-			}
-		} catch (error) {
-			console.log('Error updating marginalia', error)
 		}
 	}
 	return (
@@ -57,9 +43,6 @@ export default function MarginaliaRender({
 			</p>
 			<p className={styles.delete} onClick={deleteMarginalia}>
 				Delete
-			</p>
-			<p className={styles.approve} onClick={updateMarginalia}>
-				Approve
 			</p>
 			{picture !== null ? (
 				<img src={picture} alt='marginalia picture' width={200} />

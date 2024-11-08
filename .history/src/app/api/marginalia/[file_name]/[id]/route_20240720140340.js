@@ -1,16 +1,14 @@
 import {
+	deleteMarginalia,
 	addMarginalia,
 	getMarginalia,
-	deleteMarginalia,
-	approveMarginalia,
-} from '../../../../../lib/utility'
-
+} from '../../../../../../lib/utility'
 export async function GET(request, { params }) {
 	const file_name = params.file_name
 	try {
 		const marginalia = await getMarginalia(file_name)
-		const res = { marg: marginalia, file_name: file_name }
-		// console.log('why calll so many')
+
+		const res = { marg: marginalia }
 		return new Response(JSON.stringify(res), {
 			status: 200,
 			headers: {
@@ -61,17 +59,31 @@ export async function PUT(req, { params }) {
 		})
 	}
 }
-
-export async function PATCH(req, { params }) {
+export async function DELETE(req, { params }) {
+	const { file_name, id } = params
 	try {
-		const { file_name, id } = params
+		console.log('File name: params ', file_name, 'id ', id)
+		const result = await deleteMarginalia(file_name, id)
+		console.log('Deletion result is: ', result)
 
-		// No need to read body since we're just approving
-		const result = await approveMarginalia(file_name, id)
-
-		return new Response(JSON.stringify(result), {
-			status: 200,
-		})
+		if (result.modifiedCount === 1) {
+			return new Response(
+				JSON.stringify({
+					success: true,
+					message: 'Marginalia deleted successfully',
+				}),
+				{
+					status: 200,
+				}
+			)
+		} else {
+			return new Response(
+				JSON.stringify({ error: 'Marginalia not found' }),
+				{
+					status: 404,
+				}
+			)
+		}
 	} catch (e) {
 		console.error(e)
 		return new Response(JSON.stringify({ error: e.toString() }), {

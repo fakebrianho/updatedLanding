@@ -43,11 +43,10 @@ export default async function Page() {
 	const cleanedArray = m.filter(
 		(item) => item !== null && !(Array.isArray(item) && item.length === 0)
 	)
-	// console.log('MMMMMM', cleanedArray)
+	console.log('MMMMMM', cleanedArray)
 	const filteredData = m.filter((item) => {
 		return item.marg && item.marg.length > 0
 	})
-	// console.log('FFFFFF', filteredData[2].marg)
 
 	if (cleanedArray.length === 0) {
 		return <div className={styles.container}>No marginalia found.</div>

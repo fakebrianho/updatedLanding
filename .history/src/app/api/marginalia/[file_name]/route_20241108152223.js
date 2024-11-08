@@ -66,8 +66,14 @@ export async function PATCH(req, { params }) {
 	try {
 		const { file_name, id } = params
 
-		// No need to read body since we're just approving
-		const result = await approveMarginalia(file_name, id)
+		const chunks = []
+		for await (const chunk of req.body) {
+			chunks.push(chunk)
+		}
+		const body = Buffer.concat(chunks)
+		const { approved } = JSON.parse(body.toString())
+
+		const result = await approveMarginalia(file_name, id, approved)
 
 		return new Response(JSON.stringify(result), {
 			status: 200,

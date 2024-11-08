@@ -100,7 +100,7 @@ export async function approveMarginalia(file_name, id) {
 			if (post) {
 				const result = await col.updateOne(
 					{ 'marginalia._id': new ObjectId(id) },
-					{ $set: { 'marginalia.$.approved': true } }
+					{ $set: { 'marginalia.$.approved': approved } }
 				)
 				return result
 			}

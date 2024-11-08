@@ -37,9 +37,11 @@ export async function getMarginalia(file_name) {
 					{ $set: { marginalia: updatedMarginalia } }
 				)
 			}
+			console.log('aaaaaaaaaaa', updatedMarginalia)
 			const approvedMarginaliaWithSimpleId = updatedMarginalia
 				.filter((item) => item.approved === true)
 				.map((item) => ({ ...item, _id: item._id.toString() }))
+			console.log('bbbbbbbbbb', approvedMarginaliaWithSimpleId)
 
 			// return approvedMarginaliaWithSimpleId
 			return updatedMarginalia
@@ -80,34 +82,6 @@ export async function addMarginalia(file_name, marg) {
 
 		console.error(
 			'Adding new marginalia—was not able to locate post with file name: ',
-			file_name
-		)
-		return null
-	} catch (e) {
-		console.error(e)
-	}
-}
-
-export async function approveMarginalia(file_name, id) {
-	try {
-		const db = await connectToDatabase()
-		const collections = await db.listCollections().toArray()
-		let post
-
-		for (const collection of collections) {
-			const col = await db.collection(collection.name)
-			post = await col.findOne({ file_name: file_name })
-			if (post) {
-				const result = await col.updateOne(
-					{ 'marginalia._id': new ObjectId(id) },
-					{ $set: { 'marginalia.$.approved': true } }
-				)
-				return result
-			}
-		}
-
-		console.error(
-			'Updating approval status—was not able to locate post with file name: ',
 			file_name
 		)
 		return null

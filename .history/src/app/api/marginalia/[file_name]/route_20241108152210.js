@@ -61,21 +61,3 @@ export async function PUT(req, { params }) {
 		})
 	}
 }
-
-export async function PATCH(req, { params }) {
-	try {
-		const { file_name, id } = params
-
-		// No need to read body since we're just approving
-		const result = await approveMarginalia(file_name, id)
-
-		return new Response(JSON.stringify(result), {
-			status: 200,
-		})
-	} catch (e) {
-		console.error(e)
-		return new Response(JSON.stringify({ error: e.toString() }), {
-			status: 500,
-		})
-	}
-}

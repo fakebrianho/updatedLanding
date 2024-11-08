@@ -27,24 +27,24 @@ export default function LoginPanel(props) {
 		}
 	}
 
-	// const mapMarginalia = (entry) => {
-	// 	if (Array.isArray(entry.marg)) {
-	// 		return entry.marg.map((item, index) => (
-	// 			<div key={index} className={styles.gridItem}>
-	// 				<MarginaliaRender
-	// 					key={index}
-	// 					id={item._id}
-	// 					username={item.name}
-	// 					content={item.body}
-	// 					picture={item.picture}
-	// 					fileName={entry.file_name} // Pass the file name
-	// 				/>
-	// 			</div>
-	// 		))
-	// 	} else {
-	// 		return null
-	// 	}
-	// }
+	const mapMarginalia = (entry) => {
+		if (Array.isArray(entry.marg)) {
+			return entry.marg.map((item, index) => (
+				<div key={index} className={styles.gridItem}>
+					<MarginaliaRender
+						key={index}
+						id={item._id}
+						username={item.name}
+						content={item.body}
+						picture={item.picture}
+						fileName={entry.file_name} // Pass the file name
+					/>
+				</div>
+			))
+		} else {
+			return null
+		}
+	}
 
 	return (
 		<div className={styles.fullScreen}>

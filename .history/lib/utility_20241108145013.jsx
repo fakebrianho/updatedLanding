@@ -88,34 +88,6 @@ export async function addMarginalia(file_name, marg) {
 	}
 }
 
-export async function approveMarginalia(file_name, id) {
-	try {
-		const db = await connectToDatabase()
-		const collections = await db.listCollections().toArray()
-		let post
-
-		for (const collection of collections) {
-			const col = await db.collection(collection.name)
-			post = await col.findOne({ file_name: file_name })
-			if (post) {
-				const result = await col.updateOne(
-					{ 'marginalia._id': new ObjectId(id) },
-					{ $set: { 'marginalia.$.approved': true } }
-				)
-				return result
-			}
-		}
-
-		console.error(
-			'Updating approval status—was not able to locate post with file name: ',
-			file_name
-		)
-		return null
-	} catch (e) {
-		console.error(e)
-	}
-}
-
 // Delete a marginalia `marg` from MongoDB document with `file_name`.
 export async function deleteMarginalia(file_name, id) {
 	try {

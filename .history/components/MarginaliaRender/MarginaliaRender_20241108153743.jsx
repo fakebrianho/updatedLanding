@@ -1,5 +1,7 @@
 'use client'
 import styles from './MarginaliaRender.module.css'
+import { useState } from 'react'
+// import { useRouter } from 'next/router'
 import { useRouter } from 'next/navigation'
 export default function MarginaliaRender({
 	id,
@@ -58,9 +60,7 @@ export default function MarginaliaRender({
 			<p className={styles.delete} onClick={deleteMarginalia}>
 				Delete
 			</p>
-			<p className={styles.approve} onClick={updateMarginalia}>
-				Approve
-			</p>
+			<p className={styles.approve}>Approve</p>
 			{picture !== null ? (
 				<img src={picture} alt='marginalia picture' width={200} />
 			) : (

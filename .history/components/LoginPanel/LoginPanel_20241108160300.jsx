@@ -27,49 +27,31 @@ export default function LoginPanel(props) {
 		}
 	}
 
-	// const mapMarginalia = (entry) => {
-	// 	if (Array.isArray(entry.marg)) {
-	// 		return entry.marg.map((item, index) => (
-	// 			<div key={index} className={styles.gridItem}>
-	// 				<MarginaliaRender
-	// 					key={index}
-	// 					id={item._id}
-	// 					username={item.name}
-	// 					content={item.body}
-	// 					picture={item.picture}
-	// 					fileName={entry.file_name} // Pass the file name
-	// 				/>
-	// 			</div>
-	// 		))
-	// 	} else {
-	// 		return null
-	// 	}
-	// }
+	const mapMarginalia = (entry) => {
+		if (Array.isArray(entry.marg)) {
+			return entry.marg.map((item, index) => (
+				<div key={index} className={styles.gridItem}>
+					<MarginaliaRender
+						key={index}
+						id={item._id}
+						username={item.name}
+						content={item.body}
+						picture={item.picture}
+						fileName={entry.file_name} // Pass the file name
+					/>
+				</div>
+			))
+		} else {
+			return null
+		}
+	}
+	console.log('dyno', props.data)
 
 	return (
 		<div className={styles.fullScreen}>
 			{isAuthenticated ? (
 				<div className={styles.container}>
-					{props.data.map((item) => {
-						if (Array.isArray(item.marg)) {
-							const unapprovedMarginalia = item.marg.filter(
-								(entry) => !entry.approved
-							)
-							return unapprovedMarginalia.map((entry, index) => (
-								<div key={index} className={styles.gridItem}>
-									<MarginaliaRender
-										key={index}
-										id={entry._id}
-										username={entry.name}
-										content={entry.body}
-										picture={entry.picture}
-										fileName={item.file_name}
-									/>
-								</div>
-							))
-						}
-						return null
-					})}
+					{props.data.map((item, index) => mapMarginalia(item))}
 				</div>
 			) : (
 				<>

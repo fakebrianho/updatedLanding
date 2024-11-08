@@ -2,7 +2,6 @@ import {
 	addMarginalia,
 	getMarginalia,
 	deleteMarginalia,
-	approveMarginalia,
 } from '../../../../../lib/utility'
 
 export async function GET(request, { params }) {
@@ -10,7 +9,7 @@ export async function GET(request, { params }) {
 	try {
 		const marginalia = await getMarginalia(file_name)
 		const res = { marg: marginalia, file_name: file_name }
-		// console.log('why calll so many')
+		console.log('asdjfkasjdf;jsk;fj;')
 		return new Response(JSON.stringify(res), {
 			status: 200,
 			headers: {
@@ -50,24 +49,6 @@ export async function PUT(req, { params }) {
 		}
 
 		const result = await addMarginalia(file_name, marg)
-
-		return new Response(JSON.stringify(result), {
-			status: 200,
-		})
-	} catch (e) {
-		console.error(e)
-		return new Response(JSON.stringify({ error: e.toString() }), {
-			status: 500,
-		})
-	}
-}
-
-export async function PATCH(req, { params }) {
-	try {
-		const { file_name, id } = params
-
-		// No need to read body since we're just approving
-		const result = await approveMarginalia(file_name, id)
 
 		return new Response(JSON.stringify(result), {
 			status: 200,

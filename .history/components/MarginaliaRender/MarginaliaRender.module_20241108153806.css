@@ -16,7 +16,7 @@
 	width: max-content;
 }
 .delete:hover {
-	color: red;
+	color: blue;
 }
 .deleted {
 	opacity: 0.2;
@@ -28,10 +28,10 @@
 	cursor: pointer;
 	width: max-content;
 }
-.approve:hover {
-	color: green;
+.delete:hover {
+	color: red;
 }
-/* .approve {
+.deleted {
 	opacity: 0.2;
 	background-color: red;
-} */
+}

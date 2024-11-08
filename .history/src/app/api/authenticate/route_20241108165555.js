@@ -6,17 +6,11 @@ export async function POST(req, res) {
 		const { password } = await req.json()
 		// console.log('pppp', password)
 		const isMatch = await verifyPassword(password)
+		console.log(isMatch)
 		if (isMatch) {
-			return NextResponse.json(
-				{ message: 'Authentication successful' },
-				{ status: 200 }
-			)
+			return NextResponse.json({ message: 'Authentication successful' })
 		} else {
-			// return NextResponse.json({ message: 'Invalid credentials' })
-			return NextResponse.json(
-				{ message: 'Invalid credentials' },
-				{ status: 401 }
-			)
+			return NextResponse.json({ message: 'Invalid credentials' })
 		}
 	} catch (error) {
 		return NextResponse.json({ message: error.message }, { status: 500 })

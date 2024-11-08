@@ -28,10 +28,13 @@ function hashPassword(password) {
 async function verifyPassword(password) {
 	const collection = await connectToAuth()
 	const authData = await collection.findOne({ key: 'adminPassword' }) // Query based on the key field
+	console.log('password', password)
+	console.log('asdffdut', authData)
 	if (!authData) {
 		throw new Error('Password not found')
 	}
 	const hp = hashPassword(password)
+	console.log('hp', hp)
 	return hp === authData.password
 }
 

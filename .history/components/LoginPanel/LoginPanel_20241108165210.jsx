@@ -27,25 +27,35 @@ export default function LoginPanel(props) {
 		}
 	}
 
-	// const mapMarginalia = (entry) => {
-	// 	if (Array.isArray(entry.marg)) {
-	// 		return entry.marg.map((item, index) => (
-	// 			<div key={index} className={styles.gridItem}>
-	// 				<MarginaliaRender
-	// 					key={index}
-	// 					id={item._id}
-	// 					username={item.name}
-	// 					content={item.body}
-	// 					picture={item.picture}
-	// 					fileName={entry.file_name} // Pass the file name
-	// 				/>
-	// 			</div>
-	// 		))
-	// 	} else {
-	// 		return null
-	// 	}
-	// }
+	const mapMarginalia = (entry) => {
+		if (Array.isArray(entry.marg)) {
+			return entry.marg.map((item, index) => (
+				<div key={index} className={styles.gridItem}>
+					<MarginaliaRender
+						key={index}
+						id={item._id}
+						username={item.name}
+						content={item.body}
+						picture={item.picture}
+						fileName={entry.file_name} // Pass the file name
+					/>
+				</div>
+			))
+		} else {
+			return null
+		}
+	}
+	// console.log(
+	// 'dyno',
+	props.data.map((elem) =>
+		console.log(
+			'elmel',
+			elem.marg.filter((e) => e.approved === false)
+		)
+	)
+	// )
 
+	// console.log('filtereddynol', props.data.filter())
 	return (
 		<div className={styles.fullScreen}>
 			{isAuthenticated ? (
