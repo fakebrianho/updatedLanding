@@ -235,83 +235,6 @@
 	line-height: 1.5;
 }
 
-@media screen and (max-width: 900px) {
-	.container {
-		padding: 5rem 3rem;
-	}
-
-	.traces {
-		width: 70vw;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.container {
-		padding: 5rem 2rem;
-	}
-	.title {
-		font-size: 2rem;
-	}
-	.branchhead {
-		font-size: 2.6rem;
-	}
-	.sectionhead {
-		font-size: 2.4rem;
-	}
-	.description {
-		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 450px) {
-	.container {
-		padding: 5rem 2rem;
-	}
-
-	.branchhead {
-		font-size: 2.3rem;
-	}
-
-	.sectionhead {
-		font-size: 2.3rem;
-	}
-
-	.description {
-		font-size: 1rem;
-	}
-	.margcontainer {
-		min-height: 18rem;
-		padding-left: 1.4rem;
-		padding-right: 1.4rem;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-	}
-	.traces {
-		width: 70vw;
-		margin: 0 auto;
-		/* padding: 0; */
-	}
-}
-
-@media screen and (max-width: 400px) {
-	.branchhead {
-		font-size: 2rem;
-	}
-
-	.sectionhead {
-		font-size: 2rem;
-	}
-}
-
-@media screen and (max-width: 375px) {
-	.branchhead {
-		font-size: 1.9rem;
-	}
-
-	.sectionhead {
-		font-size: 1.9rem;
-	}
-}
 
 .header {
 	width: 94%;
@@ -507,22 +430,30 @@
 
 @media screen and (max-width: 900px) {
 	.container {
-		padding: 5rem 5rem;
+		padding: 6rem 2.5rem;
+	}
+
+	.branchhead {
+		font-size: 2.7rem;
+	}
+
+	.traces {
+		width: 70vw;
 	}
 }
 
 @media screen and (max-width: 480px) {
 	.container {
-		padding: 5rem 3rem;
+		padding: 5rem 2rem;
 	}
 	.title {
 		font-size: 2rem;
 	}
 	.branchhead {
-		font-size: 2.9rem;
+		font-size: 2.6rem;
 	}
 	.sectionhead {
-		font-size: 2.5rem;
+		font-size: 2.4rem;
 	}
 	.description {
 		font-size: 1rem;
@@ -531,8 +462,17 @@
 
 @media screen and (max-width: 450px) {
 	.container {
-		padding: 5rem 3rem;
+		padding: 6rem 1rem;
 	}
+
+	.branchhead {
+		font-size: 2.5rem;
+	}
+
+	.sectionhead {
+		font-size: 2.3rem;
+	}
+
 	.description {
 		font-size: 1rem;
 	}
@@ -543,4 +483,30 @@
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 	}
+	.traces {
+		width: 70vw;
+		margin: 0 auto;
+		/* padding: 0; */
+	}
 }
+
+@media screen and (max-width: 400px) {
+	.branchhead {
+		font-size: 2.4rem;
+	}
+
+	.sectionhead {
+		font-size: 2rem;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.branchhead {
+		font-size: 1.9rem;
+	}
+
+	.sectionhead {
+		font-size: 1.9rem;
+	}
+}
+
