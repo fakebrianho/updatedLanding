@@ -9,7 +9,7 @@ export default function History(data) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [historyData, setHistoryData] = useState(null)
 	const containerRef = useRef(null)
-	// const highlightRef = useRef(null)
+	const highlightRef = useRef(null)
 	const initialized = useRef(false)
 	// const [theme, toggleTheme] = useTheme()
 

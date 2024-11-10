@@ -9,19 +9,19 @@ export default function History(data) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [historyData, setHistoryData] = useState(null)
 	const containerRef = useRef(null)
-	// const highlightRef = useRef(null)
+	const highlightRef = useRef(null)
 	const initialized = useRef(false)
 	// const [theme, toggleTheme] = useTheme()
 
-	// const scrollToHighlight = () => {
-	// 	if (containerRef.current && highlightRef.current) {
-	// 		const position =
-	// 			highlightRef.current.offsetTop - containerRef.current.offsetTop
+	const scrollToHighlight = () => {
+		if (containerRef.current && highlightRef.current) {
+			const position =
+				highlightRef.current.offsetTop - containerRef.current.offsetTop
 
-	// 		containerRef.current.scrollTop = position - 1
-	// 		console.log('highlightRef is', highlightRef.current)
-	// 	}
-	// }
+			containerRef.current.scrollTop = position - 1
+			console.log('highlightRef is', highlightRef.current)
+		}
+	}
 
 	const clearHistory = () => {
 		sessionStorage.removeItem('historyData')

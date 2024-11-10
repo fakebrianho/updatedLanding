@@ -58,7 +58,7 @@ export default function Trace(data) {
 	}, [])
 
 	return (
-		<div className={`${styles.toggle} ${data.theme}`}>
+		<div className={`${styles.toggle} ${data.theme} wooottdaaddt`}>
 			<h3 className='horizontalText'>Table of Content</h3>
 			<Accordion
 				onClick={scrollToHighlight}
