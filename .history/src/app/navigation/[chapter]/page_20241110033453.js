@@ -8,9 +8,9 @@ export default async function Page({ params }) {
 	if (post && post.length > 0) {
 		const serializedNodes = post[0].child_nodes.map((node) => {
 			node._id = JSON.parse(JSON.stringify(node._id))
-			console.log('serial', serializedNodes)
 			return node
 		})
+		console.log(serializedNodes)
 		return (
 			<Navigation
 				child_nodes={serializedNodes}
