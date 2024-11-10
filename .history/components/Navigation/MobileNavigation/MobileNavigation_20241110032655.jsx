@@ -8,16 +8,13 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 function MobileNavigation(props) {
 	const selectedRef = useRef()
-	const angles = []
 	const positions = []
 	const [active, setActive] = useState(null)
 	const num = props.count
-	const centralCircleDiameter = 400
-	const childNodeDiameter = 15
-	const parentNodeDiamater = 15
+	const centralCircleDiameter = 250
+	const childNodeDiameter = 25
 	const radiusPadding = 0 // Adjust this to your needs
 	const radius = centralCircleDiameter / 2 + childNodeDiameter + radiusPadding
-	console.log(props)
 	for (let i = 0; i < num; i++) {
 		const angle = (i / num) * 2 * Math.PI - Math.PI / 2
 		const x =
@@ -46,8 +43,8 @@ function MobileNavigation(props) {
 		}
 		gsap.to(selectedRef.current, {
 			duration: 1.5,
-			'--outline-width': '230px',
-			'--outline-height': '230px',
+			'--outline-width': '200px',
+			'--outline-height': '200px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -59,8 +56,8 @@ function MobileNavigation(props) {
 			if (active === selectedRef.current) {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '200px',
-					'--outline-height': '200px',
+					'--outline-width': '175px',
+					'--outline-height': '175px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})
@@ -76,8 +73,8 @@ function MobileNavigation(props) {
 		}
 		gsap.to(target, {
 			duration: 1.5,
-			'--outline-width': '27px',
-			'--outline-height': '27px',
+			'--outline-width': '37px',
+			'--outline-height': '37px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -91,8 +88,8 @@ function MobileNavigation(props) {
 			} else {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '15px',
-					'--outline-height': '15px',
+					'--outline-width': '25px',
+					'--outline-height': '25px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})
@@ -107,8 +104,8 @@ function MobileNavigation(props) {
 		const t = document.querySelector(`[data-index="${i}"]`)
 		gsap.to(t, {
 			duration: 1.5,
-			'--outline-width': '27px',
-			'--outline-height': '27px',
+			'--outline-width': '37px',
+			'--outline-height': '37px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -121,8 +118,8 @@ function MobileNavigation(props) {
 			} else {
 				gsap.to(active, {
 					duration: 1.5,
-					'--outline-width': '15px',
-					'--outline-height': '15px',
+					'--outline-width': '25px',
+					'--outline-height': '25px',
 					'--outline-opacity': 0,
 					ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 				})
@@ -137,8 +134,8 @@ function MobileNavigation(props) {
 		const t = document.querySelector(`[data-index="${i}"]`)
 		gsap.to(t, {
 			duration: 1.5,
-			'--outline-width': '27px',
-			'--outline-height': '27px',
+			'--outline-width': '37px',
+			'--outline-height': '37px',
 			'--outline-opacity': 1,
 			ease: 'elastic.out(1, 0.5)', // Apply the elastic easing with custom parameters
 		})
@@ -147,14 +144,18 @@ function MobileNavigation(props) {
 	const renderContent = () => {
 		if (active && active === selectedRef.current) {
 			return (
-				<Enter key='Read'>
-					<p>Read</p>
+				<Enter key='Read' url={props.title} read={true}>
+					<p className={styles.shimmer}>Read</p>
 				</Enter>
 			)
 		} else if (active && active.getAttribute('data-clickable') === 'true') {
 			return (
-				<Enter key='Enter' backgroundColor='blue'>
-					<p>Enter</p>
+				<Enter
+					key='Enter'
+					backgroundColor='blue'
+					url={active.getAttribute('data-name')}
+				>
+					<p className={styles.shimmer}>Enter</p>
 				</Enter>
 			)
 		} else if (
@@ -163,18 +164,22 @@ function MobileNavigation(props) {
 		) {
 			return (
 				<Enter key='WIP' backgroundColor='purple'>
-					<p>WIP</p>
+					<p className={styles.shimmer}>Work in Progress</p>
 				</Enter>
 			)
 		} else {
 			return null
 		}
 	}
-
+	console.log(props.data)
 	return (
 		<>
 			<div className={styles.center}>
 				{positions.map((pos, i) => {
+					const isClickable =
+						props.data[i].hasChildren !== undefined
+							? props.data[i].hasChildren
+							: props.data[i].num_grandchild_nodes === 0
 					return (
 						<div
 							onClick={(event) => nodeClick(event, i)}
@@ -187,7 +192,7 @@ function MobileNavigation(props) {
 							}}
 							data-name={props.data[i].name}
 							data-index={i}
-							data-clickable={props.data[i].hasChildren}
+							data-clickable={isClickable ? 'true' : 'false'}
 						></div>
 					)
 				})}
@@ -199,7 +204,12 @@ function MobileNavigation(props) {
 				ref={selectedRef}
 				onClick={centralClick}
 			/>
-			<InfoBar data={active} next={next} previous={previous} />
+			<InfoBar
+				data={active}
+				next={next}
+				previous={previous}
+				count={positions.length}
+			/>
 			<AnimatePresence mode='wait'>{renderContent()}</AnimatePresence>
 		</>
 	)

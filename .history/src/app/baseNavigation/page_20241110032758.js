@@ -4,6 +4,7 @@ import { Navigation } from '../../../components/Navigation/Navigation'
 
 export default async function Page({ params }) {
 	let routes = await getTopLevelRoutes()
+	console.log('ruoutes', routes)
 	return (
 		<Navigation
 			child_nodes={routes}

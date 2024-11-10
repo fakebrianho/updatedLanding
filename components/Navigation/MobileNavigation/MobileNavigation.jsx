@@ -171,7 +171,7 @@ function MobileNavigation(props) {
 			return null
 		}
 	}
-
+	console.log(props.data)
 	return (
 		<>
 			<div className={styles.center}>
