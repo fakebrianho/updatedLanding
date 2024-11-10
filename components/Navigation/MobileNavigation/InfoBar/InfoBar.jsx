@@ -1,6 +1,6 @@
 import styles from './InfoBar.module.css'
 function InfoBar(props) {
-	console.log(props)
+	console.log(props.data.getAttribute('data-name'))
 	return (
 		<div className={styles.full}>
 			<div className={styles.container}>

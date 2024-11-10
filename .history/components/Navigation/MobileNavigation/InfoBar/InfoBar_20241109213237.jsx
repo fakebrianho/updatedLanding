@@ -1,20 +1,23 @@
 import styles from './InfoBar.module.css'
 function InfoBar(props) {
+	console.log(props.data.getAttribute('data-name'))
 	return (
 		<div className={styles.full}>
 			<div className={styles.container}>
-				{props.count > 0 && (
-					<div
-						className={styles.navigation}
-						onClick={() =>
-							props.previous(
-								props.data.getAttribute('data-index')
-							)
-						}
-					>
-						&#x3c;
-					</div>
-				)}
+				{props.count > 0 &&
+					props.data &&
+					props.data.getAttribute('data-title') !== 'center' && (
+						<div
+							className={styles.navigation}
+							onClick={() =>
+								props.previous(
+									props.data.getAttribute('data-index')
+								)
+							}
+						>
+							&#x3c;
+						</div>
+					)}
 
 				<div className={styles.name}>
 					<p>
@@ -29,11 +32,12 @@ function InfoBar(props) {
 										)
 									})
 									.join(' ')
-							: 'Select A Chapter'}
+							: 'Please Select A Chapter'}
 					</p>
 				</div>
 				{props.count > 0 &&
-					props.data(
+					props.data &&
+					props.data.getAttribute('data-title') !== 'center' && (
 						<div
 							className={styles.navigation}
 							onClick={() =>
