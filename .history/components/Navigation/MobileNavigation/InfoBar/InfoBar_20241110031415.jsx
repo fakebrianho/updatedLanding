@@ -1,13 +1,12 @@
 import styles from './InfoBar.module.css'
 function InfoBar(props) {
-	try {
-		console.log(
-			'87e647586790wertyuiooooo',
-			props.data.getAttribute('data-name')
-		)
-	} catch {
-		console.log('nun')
-	}
+	try(
+
+	console.log(
+		'87e647586790wertyuiooooo',
+		props.data.getAttribute('data-name')
+	)
+	)
 	return (
 		<div className={styles.full}>
 			<div className={styles.container}>
