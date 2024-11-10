@@ -31,6 +31,7 @@ export async function getDataContent(chapter) {
 		await client.close()
 	}
 	// return allPosts
+	console.log('pooooosttsss', posts)
 	return posts.map((post) => ({
 		...post,
 		_id: post._id.toString(), // Convert ObjectId to string
