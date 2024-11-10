@@ -31,10 +31,9 @@ export async function getDataContent(chapter) {
 		await client.close()
 	}
 	// return allPosts
-	try {
-		console.log('pooooosttsss', posts[0].child_nodes)
-	} catch (e) {
-		console.log('errror')
+	try{
+
+	console.log('pooooosttsss', posts[0])
 	}
 	return posts.map((post) => ({
 		...post,
