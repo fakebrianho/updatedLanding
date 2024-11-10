@@ -12,7 +12,6 @@ import scroll from '../../utils/scrollAnimation'
 export default function Home() {
 	const [theme, setTheme] = useTheme()
 	useEffect(() => {
-		scroll()
 		if (theme === 'light') {
 			document.body.style.backgroundColor = 'white'
 		} else {

@@ -18,7 +18,7 @@ export default function Home() {
 		} else {
 			document.body.style.backgroundColor = 'black'
 		}
-	}, [theme])
+	}, [theme, scroll])
 	return (
 		<PageProvider>
 			<main className='landing_container'>

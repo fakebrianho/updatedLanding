@@ -31,16 +31,14 @@ export default function MobileTrace(data) {
 	}
 
 	const showPath = (target) => {
-		let pathString = 'Uncertain Universe'
-		let currentChapter = book.findChapterByFileName(target)[0]
-		console.log('book', book)
-		console.log('target', target)
-		console.log('currentchapter is', currentChapter)
-		currentChapter.parentChapters.forEach((chapter) => {
-			pathString += ' / ' + chapter.title
-		})
-		return pathString
-	}
+		let pathString = 'Uncertain Universe';
+		let currentChapter = book.findChapterByFileName(target)[0];
+		console.log('currentchapter is', currentChapter);
+		currentChapter.parentChapters.forEach(chapter => {
+		  pathString += ' / ' + chapter.title;
+		});
+		return pathString;
+	  }
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -57,59 +55,43 @@ export default function MobileTrace(data) {
 		fetchData()
 	}, [])
 
-	return (
-		<div className={`${styles.toggle} ${data.theme}`}>
-			<Accordion
-				onClick={scrollToHighlight}
-				square
-				className={data.theme}
-				style={{ boxShadow: 'none' }}
-			>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls='panel1a-content'
-					id='panel1a-header'
-				>
-					<h3 id='accordsum'>
-						{!isLoading && showPath(data.data.file_name)}
-					</h3>
-				</AccordionSummary>
+  return (
+    <div className={`${styles.toggle} ${data.theme}`}>
+      <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
+	  	<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+          <h3 id="accordsum">{!isLoading && showPath(data.data.file_name)}</h3>
+        </AccordionSummary>
 
-				<AccordionDetails sx={{ padding: 0 }}>
-					<main
-						ref={containerRef}
-						className={`${styles.traces} ${data.theme}`}
-					>
-						{/* match current data title and highlight in trace */}
-						<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
-							<Grid
-								container
-								direction='column'
-								justifyContent='center'
-								rowSpacing={2}
-								alignItems='flex-start'
-								columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-								sx={{ paddingTop: '0' }}
-							>
-								{!isLoading &&
-									treeData.map(
-										(collection, id) =>
-											collection.index && (
-												<TableOfContentsChapter
-													collection={collection}
-													key={id}
-													findmatch={
-														data.data.file_name
-													}
-													highlightRef={highlightRef}
-												/>
-											)
-									)}
-							</Grid>
-						</Box>
-					</main>
-				</AccordionDetails>
-			</Accordion>
+        <AccordionDetails sx={{ padding: 0 }}>
+          <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
+            {/* match current data title and highlight in trace */}
+			<Box sx={{ width: '100%', paddingLeft: '0.1em' }}>
+              <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                rowSpacing={2}
+				alignItems="flex-start"
+                columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+				sx={{ paddingTop: '0' }}
+              >
+                {!isLoading &&
+                  treeData.map(
+                    (collection, id) =>
+                      collection.index && (
+                        <TableOfContentsChapter
+                          collection={collection}
+                          key={id}
+                          findmatch={data.data.file_name}
+                          highlightRef={highlightRef}
+                        />
+                      )
+                  )}
+              </Grid>
+			</Box>
+          </main>
+		</AccordionDetails>
+      </Accordion>
 
 			<style jsx local>
 				{`

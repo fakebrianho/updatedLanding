@@ -12,13 +12,12 @@ import scroll from '../../utils/scrollAnimation'
 export default function Home() {
 	const [theme, setTheme] = useTheme()
 	useEffect(() => {
-		scroll()
 		if (theme === 'light') {
 			document.body.style.backgroundColor = 'white'
 		} else {
 			document.body.style.backgroundColor = 'black'
 		}
-	}, [theme])
+	}, [theme, scroll])
 	return (
 		<PageProvider>
 			<main className='landing_container'>

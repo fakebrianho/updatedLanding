@@ -48,3 +48,8 @@ export default function Page({ params }) {
 		</PageProvider>
 	)
 }
+
+// export async function generateStaticParams() {
+// 	const paths = await getAllPostIds()
+// 	return paths.map((path) => path.params.chapter)
+// }
