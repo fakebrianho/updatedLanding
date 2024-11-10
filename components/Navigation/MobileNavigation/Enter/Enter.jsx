@@ -1,7 +1,3 @@
-import { EnterButton } from '../../EnterButton/EnterButton'
-import ShinyButton from '@/comps/magicui/shiny-button'
-import PulsatingButton from '@/comps/magicui/pulsating-button'
-
 import styles from './Enter.module.css'
 import { useRouter } from 'next/navigation'
 import React from 'react'

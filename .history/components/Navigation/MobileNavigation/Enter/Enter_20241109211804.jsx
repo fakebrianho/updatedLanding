@@ -1,7 +1,3 @@
-import { EnterButton } from '../../EnterButton/EnterButton'
-import ShinyButton from '@/comps/magicui/shiny-button'
-import PulsatingButton from '@/comps/magicui/pulsating-button'
-
 import styles from './Enter.module.css'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -13,14 +9,13 @@ const Enter = ({
 	backgroundColor = 'orange',
 	color = 'white',
 	borderRadius = '8px',
-	padding = '10px 30px',
+	padding = '5px 20px',
 	url = null,
 	read = null,
 	key,
 	...props
 }) => {
 	const router = useRouter()
-	console.log(key)
 	function handleClick() {
 		if (read) {
 			router.push(`/chapters/${url}`)
@@ -57,6 +52,7 @@ const Enter = ({
 					outline: 'none',
 				}}
 				{...props}
+				whileTap={{ scale: 1.1 }}
 				className={url ? styles.enter : styles.wip}
 				onClick={handleClick}
 			>

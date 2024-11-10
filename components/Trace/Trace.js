@@ -3,12 +3,12 @@ import Link from 'next/link'
 // import styles from 'tracmodule.css'
 import styles from './traceleft.module.css'
 import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
+// import AccordionSummary from '@mui/material/AccordionSummary'
+// import AccordionDetails from '@mui/material/AccordionDetails'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
+// import Box from '@mui/material/Box'
 import { useEffect, useState } from 'react'
 import getData from '../../api/getData'
 
@@ -57,37 +57,43 @@ export default function Trace(data) {
 		fetchData()
 	}, [])
 
-  return (
-    <div className={`${styles.toggle} ${data.theme}`}>
-		<h3 className="horizontalText">Table of Content</h3>
-      <Accordion onClick={scrollToHighlight} square className={data.theme} style={{ boxShadow: "none" }}>
-
-          <main ref={containerRef} className={`${styles.traces} ${data.theme}`}>
-            {/* match current data title and highlight in trace */}
-              <Grid
-                container
-                direction="column"
-                justifyContent="center"
-                rowSpacing={2}
-				alignItems="flex-start"
-                columnSpacing={{ xs: 4, sm: 10, md: 15 }}
-              >
-                {!isLoading &&
-                  treeData.map(
-                    (collection, id) =>
-                      collection.index && (
-                        <TableOfContentsChapter
-                          collection={collection}
-                          key={id}
-                          findmatch={data.data.file_name}
-                          highlightRef={highlightRef}
-                        />
-                      )
-                  )}
-              </Grid>
-          </main>
-
-      </Accordion>
+	return (
+		<div className={`${styles.toggle} ${data.theme}`}>
+			<h3 className='horizontalText'>Table of Content</h3>
+			<Accordion
+				onClick={scrollToHighlight}
+				square
+				className={data.theme}
+				style={{ boxShadow: 'none' }}
+			>
+				<main
+					ref={containerRef}
+					className={`${styles.traces} ${data.theme}`}
+				>
+					{/* match current data title and highlight in trace */}
+					<Grid
+						container
+						direction='column'
+						justifyContent='center'
+						rowSpacing={2}
+						alignItems='flex-start'
+						columnSpacing={{ xs: 4, sm: 10, md: 15 }}
+					>
+						{!isLoading &&
+							treeData.map(
+								(collection, id) =>
+									collection.index && (
+										<TableOfContentsChapter
+											collection={collection}
+											key={id}
+											findmatch={data.data.file_name}
+											highlightRef={highlightRef}
+										/>
+									)
+							)}
+					</Grid>
+				</main>
+			</Accordion>
 
 			<style jsx local>
 				{`
@@ -102,7 +108,7 @@ export default function Trace(data) {
 						font-family: var(--modern-font);
 					}
 
-					.horizontalText{
+					.horizontalText {
 						transform: translate(-100%, -50%);
 						transform: rotate(270deg);
 						position: absolute;

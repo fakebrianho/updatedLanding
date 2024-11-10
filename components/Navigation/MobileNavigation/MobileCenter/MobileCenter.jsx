@@ -12,13 +12,16 @@ function cleanData(data) {
 }
 
 const MobileCenter = forwardRef((props, ref) => {
+	console.log('propstitle', props.title)
 	const cleanTitle = cleanData(props.title)
+	console.log('cleanedtitle', cleanTitle)
 	return (
 		<div
 			ref={ref}
 			className={`${styles.gradient} ${styles.active}`}
 			onClick={props.onClick}
-			data-name={props.title}
+			// data-name={props.title}
+			data-name={cleanTitle}
 			data-title={'center'}
 		>
 			<CurrentTitle title={cleanTitle} />
