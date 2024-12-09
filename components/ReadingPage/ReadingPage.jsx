@@ -240,6 +240,15 @@ export default function ReadPage(post) {
 									transition: 0.5s;
 								}
 
+								table{
+									margin-bottom: 1.5em;
+								}
+
+								td{
+									padding: 0.6rem;
+									border: 1px solid black;
+								}
+
 								.all {
 									width: 100vw;
 									height: 100vh;
