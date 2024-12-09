@@ -33,6 +33,7 @@ const pageTransition = {
 }
 
 export const Navigation = (props) => {
+	// console.log('pops', props.child_nodes)
 	const CHILD_NODES = props.child_nodes.length
 	const router = useRouter()
 	const [isHovered, setIsHovered] = useState(false)

@@ -5,6 +5,7 @@ import { Navigation } from '../../../../components/Navigation/Navigation'
 export default async function Page({ params }) {
 	const chapter = params.chapter
 	const post = await getDataContent(chapter)
+	console.log('params', chapter)
 	// console.log('posts', post[0].child_nodes)
 	if (post && post.length > 0) {
 		const serializedNodes = post[0].child_nodes.map((node) => {
@@ -12,11 +13,6 @@ export default async function Page({ params }) {
 			// console.log('serial', serializedNodes)
 			return node
 		})
-		try {
-			// console.log('serieral', serializedNodes)
-		} catch (e) {
-			// console.log('e', e)
-		}
 		return (
 			<Navigation
 				child_nodes={serializedNodes}

@@ -13,9 +13,9 @@ export default async function Page({ params }) {
 			return node
 		})
 		try {
-			// console.log('serieral', serializedNodes)
+			console.log(serializedNodes)
 		} catch (e) {
-			// console.log('e', e)
+			console.log('e')
 		}
 		return (
 			<Navigation

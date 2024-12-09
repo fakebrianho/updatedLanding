@@ -28,7 +28,7 @@ export async function getAllPostIds() {
 		await client.close()
 	}
 	// return allPosts
-	console.log(allPosts)
+	console.log('post', allPosts)
 	return allPosts.map((post) => ({
 		params: {
 			chapter: post.file_name.toString(),

@@ -32,7 +32,7 @@ export async function getDataContent(chapter) {
 	}
 	// return allPosts
 	try {
-		console.log('pooooosttsss', posts[0])
+		// console.log('pooooosttsss', posts[0].child_nodes)
 	} catch (e) {
 		console.log('errror')
 	}

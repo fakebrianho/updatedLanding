@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation'
 import NavTrace from '../../components/NavTrace/NavTrace'
 import NavHistory from '../../components/NavHistory/NavHistory'
 import useTheme from '../../hooks/useThemes'
+import MobileNavigation from './MobileNavigation/MobileNavigation'
 
 const pageTransition = {
 	out: {
@@ -32,6 +33,7 @@ const pageTransition = {
 }
 
 export const Navigation = (props) => {
+	console.log('pops', props.file_name)
 	const CHILD_NODES = props.child_nodes.length
 	const router = useRouter()
 	const [isHovered, setIsHovered] = useState(false)
@@ -73,18 +75,32 @@ export const Navigation = (props) => {
 			></Image>
 			{!isMobile && <NavTrace title={props.title} theme={theme} />}
 			{!isMobile && <NavHistory title={props.title} theme={theme} />}
-
-			<CentralNode title={props.title} topLevel={props.topLevel} />
-			<ChildNodes
-				nodes={props.child_nodes}
-				titles={props.title}
-				count={CHILD_NODES}
-				hoverTrigger={setIsHovered}
-				clickTrigger={setIsClickable}
-				parentLicense={setParentLicense}
-				topLevel={props.topLevel}
-				theme={theme}
-			/>
+			{isMobile ? (
+				<MobileNavigation
+					title={props.title}
+					topLevel={props.topLevel}
+					count={CHILD_NODES}
+					data={props.child_nodes}
+				/>
+			) : (
+				<>
+					{' '}
+					<CentralNode
+						title={props.title}
+						topLevel={props.topLevel}
+					/>
+					<ChildNodes
+						nodes={props.child_nodes}
+						titles={props.title}
+						count={CHILD_NODES}
+						hoverTrigger={setIsHovered}
+						clickTrigger={setIsClickable}
+						parentLicense={setParentLicense}
+						topLevel={props.topLevel}
+						theme={theme}
+					/>
+				</>
+			)}
 		</motion.div>
 	)
 }

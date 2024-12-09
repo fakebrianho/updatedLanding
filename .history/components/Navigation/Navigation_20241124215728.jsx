@@ -33,6 +33,7 @@ const pageTransition = {
 }
 
 export const Navigation = (props) => {
+	console.log('pops', props.child_nodes)
 	const CHILD_NODES = props.child_nodes.length
 	const router = useRouter()
 	const [isHovered, setIsHovered] = useState(false)
@@ -55,15 +56,15 @@ export const Navigation = (props) => {
 			className='motionContainer'
 		>
 			{!isMobile && <BackButton />}
-			{/* {!isMobile && ( */}
-			<Cursor
-				hoverState={isHovered}
-				clickState={isClickable}
-				parentLicence={parentLicense}
-				topLevel={props.topLevel}
-				theme={theme}
-			/>
-			{/* )} */}
+			{!isMobile && (
+				<Cursor
+					hoverState={isHovered}
+					clickState={isClickable}
+					parentLicence={parentLicense}
+					topLevel={props.topLevel}
+					theme={theme}
+				/>
+			)}
 			<Image
 				src='/uncertain-universe-logo.svg'
 				className='navigation_logo'
@@ -78,6 +79,8 @@ export const Navigation = (props) => {
 				<MobileNavigation
 					title={props.title}
 					topLevel={props.topLevel}
+					count={CHILD_NODES}
+					data={props.child_nodes}
 				/>
 			) : (
 				<>

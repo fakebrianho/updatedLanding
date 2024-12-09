@@ -33,6 +33,7 @@ const pageTransition = {
 }
 
 export const Navigation = (props) => {
+	// console.log('pops', props.child_nodes)
 	const CHILD_NODES = props.child_nodes.length
 	const router = useRouter()
 	const [isHovered, setIsHovered] = useState(false)
@@ -75,7 +76,12 @@ export const Navigation = (props) => {
 			{!isMobile && <NavTrace title={props.title} theme={theme} />}
 			{!isMobile && <NavHistory title={props.title} theme={theme} />}
 			{isMobile ? (
-				<MobileNavigation title={props.title} />
+				<MobileNavigation
+					title={props.title}
+					topLevel={props.topLevel}
+					count={CHILD_NODES}
+					data={props.child_nodes}
+				/>
 			) : (
 				<>
 					{' '}

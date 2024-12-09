@@ -33,6 +33,7 @@ const pageTransition = {
 }
 
 export const Navigation = (props) => {
+	console.log('pops', props)
 	const CHILD_NODES = props.child_nodes.length
 	const router = useRouter()
 	const [isHovered, setIsHovered] = useState(false)
@@ -78,6 +79,8 @@ export const Navigation = (props) => {
 				<MobileNavigation
 					title={props.title}
 					topLevel={props.topLevel}
+					count={CHILD_NODES}
+					data={props.child_nodes}
 				/>
 			) : (
 				<>
